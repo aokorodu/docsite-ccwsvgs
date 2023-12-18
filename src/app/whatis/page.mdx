@@ -1,0 +1,29 @@
+# What is an SVG?
+
+## What it's NOT
+
+Most of the graphics you see on web pages today are what’s known as **bitmap** images - PNGs, JPEGs, and GIFs.
+
+![Drag Racing](/bitmap_1.png)
+
+Bitmap Images are essentially a grid of pixels - lots and lots of tiny, colored, squarish dots - that, when combined, make up an image.
+
+![Drag Racing](/bitmap_resolution.png)
+
+If you were to open up a png or jpg file with a text editor, you'd see something like this - rows and rows of unintelligible (to humans) text and numbers. All this data describes every single pixel in a bitmap image.
+
+![Drag Racing](/bitmap_insides.png)
+
+SVG is a text-based language for describing two-dimensional graphics.
+It’s essentially a way to describe images using text that can then be rendered at any size by the browser.
+
+```html
+<svg
+  width="500"
+  height="500"
+  viewBox="0 0 362 362"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <circle cx="181" cy="181" r="181" fill="#F3C729" />
+</svg>
+```
