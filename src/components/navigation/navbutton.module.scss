@@ -1,0 +1,11 @@
+.holder {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.subholder {
+  position: relative;
+  margin-left: 1rem;
+}
