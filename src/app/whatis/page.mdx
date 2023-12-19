@@ -19,10 +19,13 @@ If you were to open up a png or jpg file with a text editor, you'd see something
 
 ## What it IS
 
-SVG is a text-based language for describing two-dimensional graphics.
-It’s essentially a way to describe images using text that can then be rendered at any size by the browser.
+SVG is a text-based language for describing two-dimensional graphics. It’s essentially a way to describe images using text that can then be rendered at any size by the browser.
 
-**simple circle**
+SVG stands for **Scaleable Vector Graphic**. A vector graphic is an image formed by mathematical paths defined by points, lines, curves and shapes.
+
+Since an SVG is drawn by the browser using math, it's **infinitely scalable**.
+
+**note:** Don't worry about understanding any of the SVG code below. These are just examples of what SVG code actually looks like. We'll explain how everything works during the course!
 
 <svg
   width="300"
@@ -33,15 +36,13 @@ It’s essentially a way to describe images using text that can then be rendered
   <circle cx="181" cy="181" r="181" fill="#F3C729" />
 </svg>
 
-<Blocks>{`<svg 
+<Blocks title={"SIMPLE CIRCLE"}>{`<svg 
   width="500" 
   height="500" 
   viewBox="0 0 362 362" 
   xmlns="http://www.w3.org/2000/svg">
   <circle cx="181" cy="181" r="181" fill="#F3C729" />
 </svg>`}</Blocks>
-
-**smiley face**
 
 <svg width="362" height="362" viewBox="0 0 362 362" fill="none">
   <circle cx="181" cy="181" r="181" fill="#F3C729" />
@@ -74,7 +75,9 @@ It’s essentially a way to describe images using text that can then be rendered
   />
 </svg>
 
-<Blocks>{`<svg width="362" height="362" viewBox="0 0 362 362" fill="none">
+<Blocks
+  title={"SMILEY FACE SVG"}
+>{`<svg width="362" height="362" viewBox="0 0 362 362" fill="none">
   <circle cx="181" cy="181" r="181" fill="#F3C729" />
   <circle cx="118.5" cy="140.5" r="12.5" fill="black" />
   <circle cx="243.5" cy="140.5" r="12.5" fill="black" />
@@ -105,27 +108,21 @@ It’s essentially a way to describe images using text that can then be rendered
   />
 </svg>`}</Blocks>
 
-SVG stands for **Scaleable Vector Graphic**. A vector graphic is an image formed by mathematical paths defined by points, lines, curves and shapes.
-
-Since an SVG is drawn by the browser using math, it's **infinitely scalable**.
-
 ## Inline vs External SVGs
 
 **External** SVG files are loaded and used like any other image format.
 
-**html**
+<Blocks
+  title={"HTML"}
+>{`<img src="/images/smiley_face.svg" alt="svg smiley face">`}</Blocks>
 
-<Blocks>{`<img src="/images/smiley_face.svg" alt="svg smiley face">`}</Blocks>
-
-**css**
-
-<Blocks>{`.myclass {
+<Blocks title={"CSS"}>{`.myclass {
     background-image: url(/images/smiley_face.svg);
 }`}</Blocks>
 
 **Inline** SVGs are included as part of the html page.
 
-<Blocks>{`<body>
+<Blocks title={"INLINE SVG"}>{`<body>
    <svg width="500" height="500" viewbox="0 0 500 500">
        <circle id="head" cx="250" cy="250" r="250" fill="orange"></circle>
        <circle id="lefteye" cx="150" cy="150" r="20" fill="black"></circle>
