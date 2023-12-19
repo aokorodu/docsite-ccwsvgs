@@ -21,7 +21,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className={styles.holder}>
           <Navigation />
-          <div>{children}</div>
+          <div className={styles.contentHolder}>{children}</div>
         </div>
       </body>
 
