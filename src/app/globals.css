@@ -64,4 +64,11 @@ strong {
 
 img {
   margin-bottom: 1.5rem;
+  width: 100%;
+  height: auto;
+}
+
+svg {
+  position: relative;
+  width: 100%;
 }
