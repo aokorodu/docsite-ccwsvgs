@@ -23,8 +23,6 @@ SVG is a text-based language for describing two-dimensional graphics. It’s ess
 
 SVG stands for **Scaleable Vector Graphic**. A vector graphic is an image formed by mathematical paths defined by points, lines, curves and shapes.
 
-Since an SVG is drawn by the browser using math, it's **infinitely scalable**.
-
 **note:** Don't worry about understanding any of the SVG code below. These are just examples of what SVG code actually looks like. We'll explain how everything works during the course!
 
 <svg
@@ -108,9 +106,17 @@ Since an SVG is drawn by the browser using math, it's **infinitely scalable**.
   />
 </svg>`}</Blocks>
 
+## Infinite Scaleability
+
+Since an SVG is drawn by the browser using math, it's **infinitely scalable**. No matter how big (or small) they get, their lines stay crisp and sharp. Bitmaps, on the other hand, become fuzzy and pixilated once they are scaled larger than their actual size.
+
+![Drag Racing](/svg_png_comparison_small.png)
+![Drag Racing](/svg_png_comparison_med.png)
+![Drag Racing](/svg_png_comparison_big.png)
+
 ## Inline vs External SVGs
 
-**External** SVG files are loaded and used like any other image format.
+**External** - SVG files are loaded and used like any other image format.
 
 <Blocks
   title={"HTML"}
@@ -120,7 +126,7 @@ Since an SVG is drawn by the browser using math, it's **infinitely scalable**.
     background-image: url(/images/smiley_face.svg);
 }`}</Blocks>
 
-**Inline** SVGs are included as part of the html page.
+**Inline** - SVGs are included as part of the html page. _In this course, we will be dealing **almost entirely** with **Inline SVGs**._
 
 <Blocks title={"INLINE SVG"}>{`<body>
    <svg width="500" height="500" viewbox="0 0 500 500">
@@ -129,3 +135,29 @@ Since an SVG is drawn by the browser using math, it's **infinitely scalable**.
        <circle id="righteye" cx="350" cy="150" r="20" fill="black"></circle>
    </svg>
 </body>`}</Blocks>
+
+## SVG Advantages (External)
+
+✔️ Scalability
+
+✔️ File size - Generally speaking, svg images have smaller file size, as long as the image is not very detailed (like a photograph)
+
+## SVG Advantages (Inline)
+
+✔️ Scalability
+
+✔️ File size
+
+✔️ Versatility - Since inline SVGs have their own DOM, it’s possible to do a lot more with elements of the image - creation, animation, changing color, adding and removing, etc. using JavaScript and CSS (inline only)
+
+✔️ SEO - Since SVGs are text-based, Inline SVGs and elements within Inline SVGs can be indexed by search engines.
+
+## SVG Disadvantages
+
+✖️ Bitmap images can be much more detailed. SVGs are best used with relatively simple images.
+
+✖️ Extremely complex SVGs with a lot of complex paths can sometimes affect browser performance.
+
+# Summary
+
+SVG is a text-based image format for describing lines, curves, and shapes (circle, ellipse, rect, polygon, polyline, path). The browser takes the information and uses it to draw an image. Since the images are drawn using math, the they can be scaled to literally any size and not lose quality.

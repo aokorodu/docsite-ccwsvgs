@@ -7,6 +7,5 @@
 
 .contentHolder {
   padding: 2rem;
-  width: 100%;
-  max-width: 800px;
+  width: clamp(400px, 80%, 800px);
 }
