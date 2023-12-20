@@ -1,0 +1,105 @@
+import Blocks from "@/components/blocks";
+
+# SVG Syntax
+
+## basic Syntax
+
+Let’s start with the `<svg>` element, which is the container for the svg code.
+
+<Blocks title={"svg element"}>{`<svg>
+</svg>`}</Blocks>
+
+Now we’ll define the viewport, which is just the **width** and **height** of the svg on the page that contains it. If the viewport is not defined, the svg will scale to fit whatever contains it.
+
+<Blocks title={"viewport"}>{`<svg width="500" height="500">
+</svg>`}</Blocks>
+
+Next we’ll define the viewbox, which is the user-defined coordinate system of the viewport.
+SVGs use a coordinate system for the placement of visual elements. The viewbox defines that coordinate system
+
+The value for viewbox consists of four numbers:
+**min-x, min-y, width**, and **height**
+
+```
+viewbox="<min-x> <min-y> <width> <height>"
+```
+
+<Blocks title={"viewbox"}>{`<svg width="500" height="500" viewbox="0 0 500 500">
+</svg>`}</Blocks>
+
+![viewbox](/syntax_viewbox.png)
+
+The important thing to remember about the width and height values of the viewbox is that they have nothing to do with the **actual** width and height of the svg. The actual width and height is set by the **width** and **height** attributes.
+
+They only serve to define the **coordinate space** that will be used by the svg elements.
+
+Example: here’s a 400 x 400 rectangle in an svg with a viewbox size of 500 x 500
+
+<Blocks title={"viewbox 500x500"}>{`<svg
+   width="500"
+   height="500"
+   viewbox="0 0 500 500">
+   <rect x="50" y="50" width="400" height="400" />
+</svg>`}</Blocks>
+
+![viewbox 500x500](/syntax_viewbox_500x500.png)
+
+Here’s the same 400x400 rectangle, except this time I’ve changed the viewbox size to 1000 x 1000
+
+<Blocks title={"viewbox 1000x1000"}>{`<svg
+   width="500"
+   height="500"
+   viewbox="0 0 1000 1000">
+   <rect x="50" y="50" width="400" height="400" />
+</svg>`}</Blocks>
+
+![viewbox 1000x1000](/syntax_viewbox_1000x1000.png)
+
+<Blocks title={"different aspect ratio - viewbox/viewport"}>{`<svg
+   width="500"
+   height="500"
+   viewbox="0 0 1000 500">
+</svg>`}</Blocks>
+
+But what if the aspect ratio of the viewbox is different than that of the viewport? For example, what if the viewport is a 500x500 square but the viewbox is a 1000x500 rectangle
+That scenario is handled with the preserveAspectRatio svg attribute. It can be kind of confusing, so we’ll leave that to a the **Aspect Ratio** section. Right now we’re going to try and keep the aspect ratio for the viewport and viewbox the same.
+
+The min-x and min-y values are the minimum x and y values visible in the svg coordinate space.
+mix-x and min-y represent the upper left hand corner of the svg. In this example, min-x min-y are 0 both 0.
+
+<Blocks title={"min-x = 0 min-y = 0"}>{`<svg
+   width="500"
+   height="500"
+   viewbox="0 0 500 500">
+</svg>`}</Blocks>
+
+![syntax_viewbox_0_0.png](/syntax_viewbox_0_0.png)
+
+Let’s draw a rectangle and put it at the 0,0 point.
+
+<Blocks title={"rectangle at 0 x 0"}>{`<svg
+   width="500"
+   height="500"
+   viewbox="0 0 500 500">
+   <rect x="0" y="0" width="250" height="250" />
+</svg>`}</Blocks>
+
+![syntax_rec_at_0x0.png](/syntax_rec_at_0x0.png)
+
+Now lets update the min-x and min-y to: **-100, -100**. Note that we haven’t changed the position of the rectangle at all. Only the start position of the viewbox coordinate space has changed.
+
+<Blocks title={"rectangle still at 0 x 0"}>{`<svg
+   width="500"
+   height="500"
+   viewbox="-100 -100 500 500">
+   <rect x="0" y="0" width="250" height="250" />
+</svg>`}</Blocks>
+
+![syntax_rec_moved_min.png](/syntax_rec_moved_min.png)
+
+The final attribute we’ll talk about is the namespace, which is only used with svg files, and not inline svgs. It essentially tells the browser that everything inside the file is an SVG, so that the browser knows what to do with it.
+Again, it’s only needed for svg files, and not inline svgs, so we won’t be discussing this during the course.
+
+<Blocks
+  title={"namespace"}
+>{`<svg viewbox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"></svg>`}</Blocks>
