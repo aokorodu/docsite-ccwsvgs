@@ -12,7 +12,7 @@ export const navConfig = {
     },
     {
       title: "SVG Syntax",
-      link: "",
+      link: "syntax",
       subnav: [],
     },
     {
