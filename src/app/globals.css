@@ -30,14 +30,14 @@ h2 {
 }
 
 h3 {
-  font-size: 1.25rem;
-  font-weight: 400;
-  margin: 1rem 0 0.25rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 1rem 0 0.1rem;
 }
 
 p {
   font-size: 1.25rem;
-  margin: 1rem 0;
+  margin: 0 0 1rem;
 }
 
 ol {
