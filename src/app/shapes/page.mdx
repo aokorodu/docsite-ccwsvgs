@@ -1,0 +1,139 @@
+import Blocks from "@/components/blocks";
+
+# Basic Shape Elements
+
+The shape elements provide the foundational visual building blocks of an SVG.
+
+![shapes_basics.png](/shapes_basics.png)
+
+---
+
+## Path
+
+The path is the most powerful shape element, allowing for the most visual complexity. We’ll be studying the path element next lesson.
+
+![shapes_basics.png](/shapes_path.png)
+
+---
+
+## circle
+
+- **cx, cy**: the x and y coordinates of the center of the circle
+- **r**: radius
+- **fill**: the internal color of the shape.
+
+<Blocks>{`<svg width="500" height="500" viewbox="0 0 500 500">
+  <circle cx="250" cy="250" r="200" fill="orange" />
+</svg>`}</Blocks>
+
+![shapes_basics.png](/shapes_circle.png)
+
+---
+
+## rectangle
+
+- **x, y**: the x and y coordinates of the center of the circle
+- **width**: width
+- **height**: height
+- **fill**: the internal color of the shape.
+
+<Blocks>{`<svg width="500" height="500" viewbox="0 0 500 500">
+  <rect x="50" y="50" width="400" height="400" fill="orange"></rect>
+</svg>`}</Blocks>
+
+![shapes_basics.png](/shapes_rect.png)
+
+## rectangle (rounded)
+
+- **x, y**: the x and y coordinates of the center of the circle
+- **width**: width
+- **height**: height
+- **fill**: the internal color of the shape.
+- **rx, ry**: the radius of the circle that defines the corners
+
+<Blocks>{`<svg width="500" height="500" viewbox="0 0 500 500">
+  <rect
+    x="50"
+    y="50"
+    width="400"
+    height="400"
+    rx="20"
+    ry="20"
+    fill="orange"
+  ></rect>
+</svg>`}</Blocks>
+
+![shapes_basics.png](/shapes_round_rect.png)
+
+---
+
+## line
+
+- **x1, y1**: the x and y coordinates of the starting point
+- **x2, y2**: the x and y coordinates of the end point
+- **stroke**: the stroke color of the line
+
+<Blocks>{`<svg width="500" height="500" viewbox="0 0 500 500">
+  <line x1="100" y1="100" x2="400" y2="400" stroke="black" />
+</svg>`}</Blocks>
+
+![shapes_basics.png](/shapes_line.png)
+
+---
+
+## polyline
+
+- **points**: the x and y coordinates for all the points that define the line
+- **stroke**: the stroke color of the line
+- **fill**: none if you just want the line, otherwise the browser will try to add a fill color - with sometimes unexpected results
+
+<Blocks caption="fill: none">{`<svg width="500" height="500" viewbox="0 0 500 500">
+  <polyline
+    points="60,60 90,390 140,70 190,414 240,70 290,350 340,60 390,265 440,80"
+    stroke="black"
+    fill="none"
+  />
+</svg>`}</Blocks>
+
+![shapes_basics.png](/shapes_polyline.png)
+
+<Blocks caption="fill: orange">{`<svg width="500" height="500" viewbox="0 0 500 500">
+  <polyline
+    points="60,60 90,390 140,70 190,414 240,70 290,350 340,60 390,265 440,80"
+    stroke="black"
+    fill="orange"
+  />
+</svg>`}</Blocks>
+
+![shapes_basics.png](/shapes_polyline_filled.png)
+
+---
+
+## polygon
+
+- **points**: the x and y coordinates for all the points that define the line
+- **stroke**: the stroke color of the line
+- **fill**: fill color
+
+<Blocks>{`<svg width="500" height="500" viewbox="0 0 500 500">
+  <polygon
+    points="60,60 240,215 440,60 440,340 340,440 140,430 60,340"
+    fill="none"
+    stroke="black"
+  />
+</svg>`}</Blocks>
+
+![shapes_basics.png](/shapes_polygon.png)
+
+---
+
+## stacking order
+
+Shapes are stacked in order of appearance, with later elements on top.
+
+<Blocks caption="circle is stacked above rect">{`<svg width="500" height="500" viewbox="0 0 500 500">
+  <rect x="200" y="100" width="200" height="200" fill="lightgrey"></rect>
+  <circle cx="200" cy="300" r="100" fill="orange" />
+</svg>`}</Blocks>
+
+![shapes_basics.png](/shapes_stacking.png)

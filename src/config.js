@@ -17,7 +17,7 @@ export const navConfig = {
     },
     {
       title: "Basic Shape Elements",
-      link: "",
+      link: "shapes",
       subnav: [],
     },
     {
