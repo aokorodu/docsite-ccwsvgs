@@ -69,6 +69,7 @@ img {
 }
 
 svg {
+  margin-bottom: 1.5rem;
   position: relative;
   width: 100%;
 }

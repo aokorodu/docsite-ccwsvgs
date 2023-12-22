@@ -22,7 +22,7 @@ export const navConfig = {
     },
     {
       title: "Paths",
-      link: "",
+      link: "paths",
       subnav: [],
     },
     {
