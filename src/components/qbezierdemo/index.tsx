@@ -2,10 +2,10 @@
 
 import { useEffect, useState, useRef } from "react"
 
-const BezierDemo = () => {
+const QBezierDemo = () => {
 
     const path = useRef<SVGPathElement>(null);
-    const ball = useRef<SVGElement>(null);
+    const ball = useRef<SVGCircleElement>(null);
     const stage = useRef<SVGSVGElement>(null);
     let dragging = false;
     const startDragging = () => {
@@ -60,7 +60,6 @@ const BezierDemo = () => {
     }
 
     return (<>
-        <div>hello world</div>
         <svg ref={stage} width={500} height={500} viewBox="0 0 500 500">
             <rect x={20} y={20} width={460} height={460} fill={"#eaeaea"} stroke={"none"} />
             <path ref={path} d="M 0,250 L 50,250 Q 250,120 450,250 L 500,250" stroke={"black"} strokeWidth={2} fill="none" />
@@ -76,4 +75,4 @@ const BezierDemo = () => {
     </>)
 }
 
-export default BezierDemo
+export default QBezierDemo
