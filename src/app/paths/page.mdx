@@ -1,6 +1,7 @@
 import Blocks from "@/components/blocks";
 import QBezierDemo from "@/components/qbezierdemo";
 import CBezierDemo from "@/components/cbezierdemo";
+import TBezierDemo from "@/components/tbezierdemo";
 
 # Paths
 
@@ -503,3 +504,29 @@ fill="none"/>`}</Blocks>
 ### Interactive Demo - Cubic Bezier
 
 <CBezierDemo />
+
+## T or t - smooth quadratic curves
+
+The smooth quadratic command (T or t) draws a quadratic curve from the **current point** (the point prior to the command - in the example below, 250,250) to the point after the command, using an **implied** control point that is the REFLECTION of the previous control point (125, 100). So an implied control point that is the reflection of the prior control point would be 375, 400.
+
+- **control point** - the point directly after the **Q** (125,100).
+- **current point** - the point after the control point and before the **T** (250,250).
+- **T** - creates an **implied** control point that is the **reflection** of the control point.
+
+<Blocks>{`<path 
+  d="M 0,250 Q 125,100 250,250 T 500,250" 
+  stroke="black" 
+  fill="none" />`}</Blocks>
+
+Here's the same curve with the implied point written out:
+
+<Blocks>{`<path 
+  d="M 0,250 Q 125,100 250,250 Q 375,400 500,250" 
+  stroke="black" 
+  fill="none" />`}</Blocks>
+
+![paths_bezier_T.png](/paths_bezier_T.png)
+
+### Interactive Demo - Smooth Quadratic
+
+<TBezierDemo />
