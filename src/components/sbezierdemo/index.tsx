@@ -9,6 +9,7 @@ const SBezierDemo = () => {
     const ball_2 = useRef<SVGCircleElement>(null);
     const ball_reflection = useRef<SVGCircleElement>(null);
     const ball_3 = useRef<SVGCircleElement>(null);
+    const connector = useRef<SVGPathElement>(null)
     let currentBall: any = null;
     const stage = useRef<SVGSVGElement>(null);
     const pathText = useRef<SVGTSpanElement>(null)
@@ -61,9 +62,12 @@ const SBezierDemo = () => {
         const b2y = ball_2.current?.getAttribute("cy");
         const b3x = ball_3.current?.getAttribute("cx");
         const b3y = ball_3.current?.getAttribute("cy");
+        const reflectX = 500 - Number(b2x);
+        const reflectY = 500 - Number(b2y);
         const str = `M 0,250 C ${b1x},${b1y} ${b2x},${b2y} 250,250 S${b3x},${b3y}  500,250`;
         path.current?.setAttribute("d", str);
-        if (pathText.current != null) pathText.current.textContent = `C ${b1x}, ${b1y} ${b2x}, ${b2y}`;
+        connector.current?.setAttribute("d", `M${b2x}, ${b2y} L${reflectX}, ${reflectY}`);
+        if (pathText.current != null) pathText.current.textContent = `C ${b1x}, ${b1y} ${b2x}, ${b2y} 250, 250 S${b3x}, ${b3y}`;
     }
 
     const toSVGPoint = (svg: SVGGraphicsElement, x: number, y: number) => {
@@ -84,8 +88,9 @@ const SBezierDemo = () => {
         <svg ref={stage} width={500} height={500} viewBox="0 0 500 500">
             <rect x={20} y={20} width={460} height={460} fill={"#eaeaea"} stroke={"none"} />
             <path ref={path} d="M 0,250 C 25,100 225,100 250,250 S 475,400 500,250" stroke={"black"} strokeWidth={2} fill="none" />
+            <path ref={connector} d="M225, 100 L275, 400" stroke={"black"} strokeWidth={1} strokeDasharray={10} />
             <text x={250} y={100} textAnchor={"middle"}>Drag the control points</text>
-            <text x={250} y={460} textAnchor={"middle"}>"M 0,250 L 50,250 <tspan stroke={"red"} ref={pathText}>C 200, 125 300, 425</tspan> 450,250 L 500,250"</text>
+            <text x={250} y={460} textAnchor={"middle"}>"M 0,250 <tspan stroke={"red"} ref={pathText}>C 25,100 225,100 250,250 S 475,400</tspan> 500,250"</text>
             <circle
                 onMouseDown={() => {
                     currentBall = ball_1;
