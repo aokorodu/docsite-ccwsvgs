@@ -1,5 +1,6 @@
 import Blocks from "@/components/blocks";
 import QBezierDemo from "@/components/qbezierdemo";
+import CBezierDemo from "@/components/cbezierdemo";
 
 # Paths
 
@@ -483,4 +484,20 @@ fill="none"/>`}</Blocks>
 
 ## C or c - cubic bezier curves
 
-Cubic bezier curves use two control points to bend a line. The coordinate right before the C (50, 250) represents the start point of the curve. The two points after the C (200,125 and 300,425) represent the absolute coordinates of the control points, which are followed by the end point (450, 250) of the curve. The capital C signifies that the control points are absolute coordinates.
+Cubic bezier curves use two control points to bend a line. The coordinate right before the **C** (50, 250) represents the start point of the curve. The two points after the **C** (200,125 and 300,425) represent the absolute coordinates of the control points, which are followed by the end point (450, 250) of the curve. The capital **C** signifies that the control points are absolute coordinates.
+
+<Blocks>{`<path 
+d="M 0,250 L 50,250 C 200,125 300,425 450,250 L 500,250"
+stroke="black" 
+fill="none"/>`}</Blocks>
+
+And here is the same line using the lower case **c**, which uses relative positioning from the start point (50, 250) for the two control points( dx:150, dy:-125 and dx:250, dy:175) and the end point (dx:400, dy:0)
+
+<Blocks>{`<path 
+d="M 0,250 L 50,250 c 150,-125 250,175 400,0 L 500,250"
+stroke="black" 
+fill="none"/>`}</Blocks>
+
+![paths_bezier_C.png](/paths_bezier_C.png)
+
+<CBezierDemo />
