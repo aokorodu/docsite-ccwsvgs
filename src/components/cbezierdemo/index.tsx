@@ -71,8 +71,8 @@ const CBezierDemo = () => {
         <svg ref={stage} width={500} height={500} viewBox="0 0 500 500">
             <rect x={20} y={20} width={460} height={460} fill={"#eaeaea"} stroke={"none"} />
             <path ref={path} d="M 0,250 L 50,250 C 200,125 300,425 450,250 L 500,250" stroke={"black"} strokeWidth={2} fill="none" />
-            <text x={250} y={100} textAnchor={"middle"}>Drag Me!</text>
-            <text x={250} y={450} textAnchor={"middle"}>"M 0,250 L 50,250 <tspan stroke={"red"} ref={pathText}>C 200, 125 300, 425</tspan> 450,250 L 500,250"</text>
+            <text x={250} y={100} textAnchor={"middle"}>Drag the control points</text>
+            <text x={250} y={460} textAnchor={"middle"}>"M 0,250 L 50,250 <tspan stroke={"red"} ref={pathText}>C 200, 125 300, 425</tspan> 450,250 L 500,250"</text>
             <circle
                 onMouseDown={() => {
                     currentBall = ball_1;
