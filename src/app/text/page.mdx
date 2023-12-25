@@ -55,9 +55,9 @@ The SVG font-size, font-family, and font-weight attributes should be familiar to
 
 ---
 
-## x, y, dominant-baseline
+## y, dominant-baseline
 
-By default the **x** attribute positions the text element horizontally using it's left edge. The **y** attribute is used to position the text relative to its **dominant-baseline**, which is, by default, directly under the text. In the image below the dominant baseline is represented by the black line.
+The **y** attribute is used to position the text relative to its **dominant-baseline**, which is, by default, directly under the text. In the image below the dominant baseline is represented by the black line.
 
 <Blocks>
   {`<text 
@@ -73,13 +73,21 @@ By default the **x** attribute positions the text element horizontally using it'
 
 There are three possible values for dominant-baseline: **auto** (baseline is at the bottom), **middle** (baseline is in the middle), and **hanging** (baseline is at the top). In this example I've created horizontal lines at the same y value as the text to show how dominant-baseline affects the text position.
 
+```
+text-anchor: "auto" (under the text) | "middle" | "hanging"
+```
+
 <Example3 />
 
 ---
 
-## text-anchor
+## x, text-anchor
 
-While dominant-baseline is used to set the vertical alignment, the **text-anchor** attribute is used to set the **horizontal** alignment of the text element. Each of the three text elements below has the same x position (250, the middle of the svg), but different text-anchor positions.
+The **text-anchor** attribute is used to set the **horizontal** alignment of the text element. By default the **x** attribute positions the text element horizontally using it's left edge. Each of the three text elements below has the same x position (250, the middle of the svg), but different text-anchor positions.
+
+```
+text-anchor: "auto" (start) | "middle" | "end
+```
 
 <Blocks>{`<text 
     x="250" y="250" 
@@ -113,7 +121,7 @@ The tspan element allows you apply formatting or change the position of individu
 
 ---
 
-## tspan - x, y
+### tspan - x, y
 
 The x, y attributes allow for “absolute” positioning of the tspan. However, you'll need to be careful - any text that follows the tspan will also have this new positioning, as TSPAN has in the example below, even though it sits outside the tspan element!
 
@@ -133,9 +141,7 @@ The x, y attributes allow for “absolute” positioning of the tspan. However, 
 
 <Example6 />
 
----
-
-## tspan - dx, dy
+### tspan dx, dy
 
 The dx, dy attributes relatively moves tspan text from where it would normally be. In this example below the text has been shifted vertically from the rest of the text element.
 
@@ -155,9 +161,7 @@ The dx, dy attributes relatively moves tspan text from where it would normally b
 
 <Example7 />
 
----
-
-## tspan - rotate
+### tspan - rotate
 
 The rotate attribute allows for the rotation of the tspan text.
 
