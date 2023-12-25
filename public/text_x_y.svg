@@ -1,0 +1,10 @@
+<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arial" font-size="32" letter-spacing="0em"><tspan x="130" y="247.594">The text element</tspan></text>
+<path d="M0 250H500" stroke="black"/>
+<path d="M136.925 254.619C136.714 254.109 136.13 253.865 135.619 254.075L127.297 257.502C126.786 257.712 126.543 258.297 126.753 258.807C126.964 259.318 127.548 259.562 128.059 259.351L135.456 256.305L138.502 263.703C138.712 264.214 139.297 264.457 139.807 264.247C140.318 264.036 140.562 263.452 140.351 262.941L136.925 254.619ZM111.923 315.385L136.923 255.385L135.077 254.615L110.077 314.615L111.923 315.385Z" fill="black"/>
+<path d="M410.237 254.029C409.701 253.898 409.159 254.226 409.029 254.763L406.894 263.506C406.763 264.043 407.092 264.584 407.629 264.715C408.165 264.846 408.706 264.517 408.837 263.98L410.734 256.209L418.506 258.106C419.043 258.237 419.584 257.908 419.715 257.371C419.846 256.835 419.517 256.294 418.98 256.163L410.237 254.029ZM458.855 333.481L410.855 254.481L409.145 255.519L457.145 334.519L458.855 333.481Z" fill="black"/>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arial" font-size="16" font-weight="bold" letter-spacing="0em"><tspan x="77" y="330.547">130, 250</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Arial" font-size="16" font-weight="bold" letter-spacing="0em"><tspan x="403" y="354.547">line y = 250</tspan></text>
+
+
+</svg>

@@ -27,7 +27,7 @@ export const navConfig = {
     },
     {
       title: "Text",
-      link: "",
+      link: "text",
       subnav: [],
     },
     {
