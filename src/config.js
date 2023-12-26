@@ -32,7 +32,7 @@ export const navConfig = {
     },
     {
       title: "Presentation Attributes",
-      link: "presentation-attributes",
+      link: "/presentation-attributes",
       subnav: [],
     },
     {
@@ -42,7 +42,7 @@ export const navConfig = {
     },
     {
       title: "Colors",
-      link: "",
+      link: "/colors",
       subnav: [],
     },
     {
