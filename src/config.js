@@ -32,7 +32,7 @@ export const navConfig = {
     },
     {
       title: "Presentation Attributes",
-      link: "",
+      link: "presentation-attributes",
       subnav: [],
     },
     {
