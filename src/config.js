@@ -12,22 +12,22 @@ export const navConfig = {
     },
     {
       title: "SVG Syntax",
-      link: "syntax",
+      link: "/syntax",
       subnav: [],
     },
     {
       title: "Basic Shape Elements",
-      link: "shapes",
+      link: "/shapes",
       subnav: [],
     },
     {
       title: "Paths",
-      link: "paths",
+      link: "/paths",
       subnav: [],
     },
     {
       title: "Text",
-      link: "text",
+      link: "/text",
       subnav: [],
     },
     {
@@ -37,7 +37,7 @@ export const navConfig = {
     },
     {
       title: "Styles",
-      link: "",
+      link: "/styles",
       subnav: [],
     },
     {

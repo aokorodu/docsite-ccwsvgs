@@ -66,12 +66,11 @@ img {
   margin-bottom: 1.5rem;
   width: 100%;
   height: auto;
+  border: 1px solid #eaeaea;
 }
 
 svg {
-  margin-bottom: 1.5rem;
   position: relative;
-  width: 100%;
   border: 1px solid #eaeaea;
 }
 
@@ -89,4 +88,9 @@ pre {
   background-color: #eaeaea;
   margin: 1rem 0;
   padding: 1rem;
+}
+
+hr {
+  margin-top: 1rem;
+  border-top: 1px solid #d3d2d2;
 }
