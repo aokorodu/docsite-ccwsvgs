@@ -52,7 +52,7 @@ export const navConfig = {
     },
     {
       title: "Transforms",
-      link: "",
+      link: "/transforms",
       subnav: [],
     },
     {

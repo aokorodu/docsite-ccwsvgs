@@ -1,0 +1,57 @@
+import Blocks from "@/components/blocks";
+
+# transforms
+
+## What is a transform?
+
+A transform is simply a **geometric change** of an object. There are four types of transforms:
+
+1. translate (movement horizontally or vertically)
+2. rotate
+3. scale
+4. skew
+
+Transforms can be applied via the transform presentation attribute or CSS.
+
+## How do SVG and HTML transforms differ?
+
+Transforms applied to svg elements are different from transforms applied to html elements. Each svg element - every shape, line, group, etc. - has its own coordinate system. When you apply a transform to an SVG element, you’re actually applying it to that element's coordinate system, and relative to the 0,0 point of that system.
+
+This is different from transforms applied to HTML elements, where the transform is applied relative to the center of the HTML element’s bounding box. As a result, applying transforms to SVG elements can sometimes lead to unexpected results for those used to transforms of HTML.
+
+## translate
+
+A translate transform simply moves a shape (or group) the specified distance along the x and/or y axis. The value can be positive or negative.
+
+<Blocks>
+  {`<circle 
+    cx="250" cy="250" r="250" 
+    fill="yellow" 
+    transform="translate(100 0)" />`}
+</Blocks>
+
+![transform_translate_x.png](/transform_translate_x.png)
+
+## rotate
+
+A rotates transform rotates a shape (or group) the specified number of degrees.
+
+If just one value - i.e. rotate(25), the rotation occurs around the (0,0) point of the element's coordinate system.
+
+<Blocks>
+  {`<rect 
+    x="200" y="200" 
+    width="200" height="200" 
+    fill="grey" 
+    transform="rotate(25)" />`}
+</Blocks>
+
+![transform_rotation_start.png](/transform_rotation_start.png)
+
+![transform_rotation_end.png](/transform_rotation_end.png)
+
+If three values - i.e. rotate(25 250 250), the first number represents the angle (25), and the second and third represent the point around which the rotation occurs. (250 250).
+
+![transform_rotation_point.png](transform_rotation_point.png)
+
+## scale
