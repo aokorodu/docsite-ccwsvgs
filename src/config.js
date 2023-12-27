@@ -47,7 +47,7 @@ export const navConfig = {
     },
     {
       title: "Groups",
-      link: "",
+      link: "/groups",
       subnav: [],
     },
     {

@@ -1,0 +1,53 @@
+import Blocks from "@/components/blocks";
+import { Example1, Example2 } from "@/components/groupschapter";
+
+# Groups
+
+The group element acts as a container for other elements (or groups), similar to a div in html.
+
+Presentation attributes (fills, strokes, etc.) applied to the group are inherited by the children, as long as that child doesn’t have the same presentation attribute defined.
+
+For example, here I can define the fill, stroke, and stroke-width for the two circles at the group level.
+
+<Blocks>{`<g fill="orange" stroke="red" stroke-width="7">
+    <rect x="25" y="25" width="200" height="200" />
+    <rect x="275" y="25" width="200" height="200" />
+</g>`}</Blocks>
+
+<Example1 />
+
+Child presentation attributes override group presentation attributes. So if one of the child circles has, for example, a fill attribute, the group level fill won’t be applied to that circle
+
+<Blocks>{`<g fill="orange" stroke="red" stroke-width="7">
+    <rect x="25" y="25" width="200" height="200" />
+    <rect fill="purple" x="275" y="25" width="200" height="200" />
+</g>`}</Blocks>
+
+<Example2 />
+
+Note how the group level stroke and stroke-width are still applied to the child element.
+
+**Transforms** are a bit different, in that transforms set on a group are applied to all the child elements. The transforms are **cumulative**, and aren’t overridden like presentation attributes.
+
+<Blocks caption="translates are cumulative">{`<g transform="translate(100, 0)" fill="orange" >
+   <circle 
+    transform="translate(100, 0)" 
+    cx="145" cy="250" r="50" />
+</g>`}</Blocks>
+
+![viewbox](/groups_translate.png)
+
+<Blocks caption="translates are cumulative">{`<g id="tree">
+   <g id="leaves" fill="green">
+       <circle cx="145" cy="250" r="10"/>
+       <circle cx="115" cy="250" r="20"/>
+       <!-- more leaves -–>
+   </g>
+   <g id="branches">
+      <!-- more branches -–>
+   </g>
+</g>`}</Blocks>
+
+Groups also make svg code more readable by allowing for the collection of logically related elements.
+
+![viewbox](/groups_tree.png)
