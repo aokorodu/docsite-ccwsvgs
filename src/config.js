@@ -57,9 +57,9 @@ export const navConfig = {
     },
     {
       title: "Reusable Objects",
-      link: "",
+      link: "/reusable-use",
       subnav: [
-        { title: "use", link: "" },
+        { title: "use", link: "/reusable-use" },
         { title: "defs", link: "" },
         { title: "markers", link: "" },
         { title: "gradients", link: "" },
