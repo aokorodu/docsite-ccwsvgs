@@ -1,4 +1,5 @@
 import Blocks from "@/components/blocks";
+import { Example1 } from "@/components/transformschapter";
 
 # transforms
 
@@ -13,11 +14,15 @@ A transform is simply a **geometric change** of an object. There are four types 
 
 Transforms can be applied via the transform presentation attribute or CSS.
 
+---
+
 ## How do SVG and HTML transforms differ?
 
 Transforms applied to svg elements are different from transforms applied to html elements. Each svg element - every shape, line, group, etc. - has its own coordinate system. When you apply a transform to an SVG element, you’re actually applying it to that element's coordinate system, and relative to the 0,0 point of that system.
 
 This is different from transforms applied to HTML elements, where the transform is applied relative to the center of the HTML element’s bounding box. As a result, applying transforms to SVG elements can sometimes lead to unexpected results for those used to transforms of HTML.
+
+---
 
 ## translate
 
@@ -31,6 +36,8 @@ A translate transform simply moves a shape (or group) the specified distance alo
 </Blocks>
 
 ![transform_translate_x.png](/transform_translate_x.png)
+
+---
 
 ## rotate
 
@@ -54,4 +61,294 @@ If three values - i.e. rotate(25 250 250), the first number represents the angle
 
 ![transform_rotation_point.png](transform_rotation_point.png)
 
+---
+
 ## scale
+
+The scale transform scales the entire coordinate system of the element.
+
+If one value - i.e. scale(2), the element is scaled equally in the x and y dimensions
+
+![transsform_scale_no_scale.png](transsform_scale_no_scale.png)
+
+![transsform_scale_scaled.png](transsform_scale_scaled.png)
+
+If two values - i.e. scale(2 1), the element is scaled differently in the x and y dimensions.
+
+![transform_scale_scale_2_1.png](transform_scale_scale_2_1.png)
+
+---
+
+## skewX, skewY
+
+The skew transform “tilts” the object along the x or y axis.
+
+![transform_skew_intro.png](transform_skew_intro.png)
+
+Like all other transforms, the skew transform scales the entire coordinate system of the element
+
+<Blocks caption="no skew">
+  {`<rect 
+    x="100" y="100" 
+    width="200" height="200" 
+    fill="grey"/>`}
+</Blocks>
+
+![transform_skew_none.png](transform_skew_none.png)
+
+<Blocks caption="no skew">
+  {`<rect 
+    x="100" y="100" 
+    width="200" height="200" 
+    fill="grey"
+    transform="skewX(25)"/>`}
+</Blocks>
+
+![transform_skew_skewX_25.png](transform_skew_skewX_25.png)
+
+---
+
+## CSS transforms
+
+Like presentation attribute transforms, CSS transforms occur relative to the 0,0 point of the svg element coordinate system, which is different from how CSS transforms are applied to HTML elements.
+
+### CSS transforms - translate
+
+Just like the presentation attribute translate transform, the css translate transform simply moves a shape (or group) the specified distance along the x and/or y axis.
+
+<Blocks caption="no skew">
+  {`<style>
+#my-circle {
+    transform: translate(100 0);
+}
+</style>
+
+// more code
+
+<circle 
+    id="my-circle"
+    cx="250" cy="250" r="250" 
+    fill="yellow" 
+    transform="translate(100 0)" />`}
+</Blocks>
+
+![transform_translate_x.png](/transform_translate_x.png)
+
+### CSS transforms - translateX, translateY
+
+CSS svg translate transforms differ from their svg presentation attribute counterpart in that CSS also offers separate translateX and translateY transforms.
+
+<Blocks caption="css translateX example">
+  {`<style>
+#my-circle {
+    transform: translateX(100);
+}
+</style>
+
+// more code`}
+
+</Blocks>
+
+<Blocks caption="css translateY negative example">
+  {`<style>
+#my-circle {
+    transform: translateY(-100);
+}
+</style>
+
+// more code`}
+
+</Blocks>
+
+![transform_translateY_negative.png](transform_translateY_negative.png)
+
+### CSS transforms - rotate
+
+A rotate transform rotates an element the specified number of degrees. Unlike rotation transforms on HTML elements, SVG CSS rotations occur relative to the 0,0 point of the elements coordinate system. Note: You must include **‘deg’** after the unit number.
+
+<Blocks caption="css translateY negative example">
+  {`<style>
+    #my-square {
+    transform: rotate(25deg);
+ </style>
+}
+<rect 
+    x="200" y="200" 
+    width="200" height="200" 
+    fill="grey"  />
+`}
+
+</Blocks>
+
+![transform_rotation_end.png](/transform_rotation_end.png)
+
+### CSS transforms - scale
+
+As with the transform scale presentation attribute, the CSS scale transform scales the entire coordinate system of the element.
+
+If one value - i.e. scale(2), the element is scaled equally in the x and y dimensions
+
+<Blocks>
+  {`<style>
+    #my-square {
+    transform: scale(2);
+ </style>
+}
+<rect 
+    x="200" y="200" 
+    width="200" height="200" 
+    fill="grey"  />
+`}
+</Blocks>
+
+![transsform_scale_scaled.png](transsform_scale_scaled.png)
+
+As with translate, CSS offers separate scaleX and scaleY transforms
+
+<Blocks>
+  {`<style>
+    #my-square {
+    transform: scaleX(2);
+ </style>
+}
+
+// more code
+`}
+
+</Blocks>
+
+![transform_scale_scale_2_1.png](transform_scale_scale_2_1.png)
+
+### CSS transforms - skew
+
+<Blocks>
+  {`<style>
+    #my-square {
+    transform: skew(25deg, 15deg);
+ </style>
+}
+
+// more code
+`}
+
+</Blocks>
+
+![transform_skew_X_Y.png](transform_skew_X_Y.png)
+
+You can skew both the x and y axis at the same time, or separately using skewX or skewY.
+
+<Blocks>
+  {`<style>
+    #my-square {
+        transform: skewX(25deg);
+ </style>
+}
+
+// more code
+`}
+
+</Blocks>
+
+![transform_skew_skewX_25.png](transform_skew_skewX_25.png)
+
+### CSS transforms - transform-box
+
+The CSS property transform-box is used to set the coordinate system in which transforms occur. Transforms are usually applied to the entire coordinate system of the object being transformed, as stated earlier.
+
+- **view-box** (default value) - the viewport of the SVG is used as the bounding box for the transformation
+- **fill-box** - the bounding box of the object is used for the transformation
+
+<br />
+
+For example, if we wanted to apply a transform scale to this rect element, the rect’s entire coordinate system would be transformed. As a result, the rect is pushed downward and to the right.
+
+<Blocks>
+  {`<style>
+    #my-square {
+        transform: scale(1.5);
+ </style>
+}
+
+// more code
+`}
+
+</Blocks>
+
+![transform_transform-box_1.png](transform_transform-box_1.png)
+
+![transform_transform-box_2.png](transform_transform-box_2.png)
+
+But what if we just want to scale the box in place? We can use set the object’s CSS transform-box property to **fill-box**. The transform scale will now be applied relative to the object’s **bounding box**.
+
+<Blocks>
+  {`<style>
+    #my-square {
+        transform-box: fill-box;
+        transform: scale(1.5);
+ </style>
+}
+
+// more code
+`}
+
+</Blocks>
+
+#### before
+
+![transform_transform-box_3.png](transform_transform-box_3.png)
+
+#### after
+
+![transform_transform-box_4.png](transform_transform-box_4.png)
+
+### CSS transforms - transform-origin
+
+But what if I want the box to scale on all sides, instead of down and to the right? I’d have to change the **transform-origin** property to move the objects origin from the default location in the upper-left corner to it’s center.
+
+<Blocks>
+  {`<style>
+    #my-square {
+        transform-box: fill-box;
+        transform-origin: 50% 50%;
+        transform: scale(1.5);
+}
+ </style>
+}
+// more code`}
+</Blocks>
+
+#### before
+
+![transform_transform-box_3.png](transform_transform-box_3.png)
+
+#### after
+
+![transform_transform-box_5.png](transform_transform-box_5.png)
+
+---
+
+## transform order
+
+The order of transforms matters! In the example below the individual transforms (translate, rotate) have the same values, but the results are very different!
+
+1. translate(200px, 100px) rotate(15deg) **(blue square)**
+2. rotate(15deg) translate(200px, 100px) **(red square)**
+
+<Blocks>
+  {`<style>
+    .translateFirst {
+        fill: blue;
+        transform: translate(200px, 100px) rotate(15deg);
+}
+
+    .rotateFirst {
+        fill: red;
+        transform: rotate(15deg) translate(200px, 100px);
+
+}
+
+ </style>
+}`}
+</Blocks>
+
+<Example1 />
