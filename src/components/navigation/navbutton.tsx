@@ -31,7 +31,8 @@ const NavButton = ({ title, link, subnav }: navprops) => {
                 {open && (
                     <div className={styles.subholder}>
                         {subnav.map((item) => {
-                            return <div>{item.title}</div>;
+
+                            return <Link href={item.link}>{item.title} </Link>;
                         })}
                     </div>
                 )}
