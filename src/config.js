@@ -52,14 +52,14 @@ export const navConfig = {
     },
     {
       title: "Transforms",
-      link: "",
+      link: "/transforms",
       subnav: [],
     },
     {
       title: "Reusable Objects",
-      link: "",
+      link: "/reusable-use",
       subnav: [
-        { title: "use", link: "" },
+        { title: "use", link: "/reusable-use" },
         { title: "defs", link: "" },
         { title: "markers", link: "" },
         { title: "gradients", link: "" },
