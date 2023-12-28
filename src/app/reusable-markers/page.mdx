@@ -1,0 +1,181 @@
+import Blocks from "@/components/blocks";
+import {
+  MarkerIntro,
+  MarkerPosDemo,
+  MarkerCrookedArrow,
+  MarkerFixedArrow,
+  MarkerAutoStartReverse,
+  MarkerAngle,
+} from "@/components/reusemarkerchapter";
+
+# Reusable objects - markers
+
+A marker is a reusable graphic typically used in charts, graphs, or arrows to indicate the beginning, middle, and end of a path, line, polygon, or polyline. In the image below, the square start point, the smaller circular polymarkers, and the arrow head are all markers.
+
+<MarkerIntro />
+
+## marker creation
+
+Markers are re-usable elements, so they are usually defined in the defs section.
+
+```
+<defs>
+    <marker>
+        // marker code goes here
+    </marker>
+</defs>
+```
+
+The marker itself can be anything - a simple shape element or a complex group. The shape that we use must be defined as a child of the marker element. In this example we'll just use a circle as the marker
+
+### marker element
+
+```
+<marker>
+    <circle cx="5" cy="5" r="2.5" fill="black" />
+</marker>
+```
+
+### marker id
+
+The marker id is used to identify the marker to be used on the marked object. Here we'll just create an id of "ball"
+
+```
+<marker id="ball">
+    <circle cx="5" cy="5" r="2.5" fill="black" />
+</marker>
+```
+
+### refX, refY
+
+The refX and refY attributes define the reference point of the marker. It's the point at which the line intersects with the marker. Since we want it to be attached to the center of the ball, we'll make refX = cx and refY = cy.
+
+```
+<marker id="ball"
+    refX="5" refY="5">
+    <circle cx="5" cy="5" r="2.5" fill="black" />
+</marker>
+```
+
+### markerWidth, markerHeight
+
+The markerWidth and markerHeight are the width and height of the marker. Usually the refX and refY points are at the center of the marker width and height values.
+
+```
+<marker id="ball"
+    refX="5" refY="5"
+    markerWidth="10" markerHeight="10">
+    <circle cx="5" cy="5" r="2.5" fill="black" />
+</marker>
+```
+
+## marker-positioning
+
+Markers are attached using **marker-start** (the beginning of the polyline/polygon/etc), **marker-mid** (the middle points, if any), and **marker-end** (the end of the line) properties
+
+### marker-start
+
+Attaches the marker with the designated id (**url(#box)** in this case) to the first point in a polyline.
+
+#### points="**50,150** 150,150 250,150 350,150 450,150"
+
+<Blocks>
+  {`<polyline 
+    marker-start="url(#box)" 
+    points="50,150 150,150 250,150 350,150 450,150" 
+    stroke="black" strokeWidth="2" fill="none" />`}
+</Blocks>
+
+<MarkerPosDemo position={"start"} />
+
+### marker-mid
+
+Attaches a marker to all of the points between the start and end points of a polyline.
+
+<Blocks>
+  {`<polyline 
+    marker-mid="url(#ball)" 
+    points="50,150 150,150 250,150 350,150 450,150" 
+    stroke="black" strokeWidth="2" fill="none" />`}
+</Blocks>
+
+#### points="50,150 **150,100 250,200 350,150** 450,150"
+
+<MarkerPosDemo position={"mid"} />
+
+### marker-end
+
+Attaches the marker to the last point of the polyline.
+
+<Blocks>
+  {`<polyline 
+    marker-end="url(#arrowhead)" 
+    points="50,150 150,150 250,150 350,150 450,150" 
+    stroke="black" strokeWidth="2" fill="none" />`}
+</Blocks>
+
+#### points="50,150 150,150 250,150 350,150 **450,150**"
+
+<MarkerPosDemo position={"end"} />
+
+<Blocks>
+  {`<polyline 
+    marker-start="url(#box)" 
+    markerEnd="url(#arrowhead)" 
+    marker-mid="url(#ball)" 
+    points="50,150 150,150 250,150 350,150 450,150"
+    stroke="black" strokeWidth="2" fill="none"  />`}
+</Blocks>
+
+<MarkerPosDemo position={"all"} />
+
+## marker orientation
+
+Marker orientation is best explained with an example. Let's say we want to create an arrow that points to the upper right hand corner of the svg
+
+<MarkerCrookedArrow />
+
+The arrowhead is clearly pointing in the wrong direction. To get it pointed so that it is aligned with the arrow body, we have to use the **orient** attribute for the marker element.
+
+<MarkerFixedArrow />
+
+### orientation values
+
+**auto** - marker is aligned with the line
+
+**auto-start-reverse** - for marker-start, the marker is aligned backwards.
+
+<Blocks>
+  {`<defs>
+    <marker id="arrowhead" 
+        orient="auto-start-reverse" 
+        refX="5" refY="5" 
+        markerWidth="10" markerHeight="10">
+        <polygon 
+            points="0,0 10,5 0,10" fill="black" stroke="black" />
+    </marker>
+</defs>
+<polyline 
+    markerStart="url(#arrowhead)" 
+    markerEnd="url(#arrowhead-3)" 
+    stroke="black" strokeWidth="2" 
+    fill="none" 
+    points="50, 250 450,50" />`}
+</Blocks>
+
+<MarkerAutoStartReverse />
+
+<br />
+<br />
+
+**degrees** - the marker set at an angle of the specified number of degrees
+
+<Blocks>
+  {`<marker 
+    id="arrowhead" 
+    orient="25deg" 
+    refX="5" refY="5"
+    markerWidth="10" markerHeight="10">`}
+</Blocks>
+
+<MarkerAngle />

@@ -61,7 +61,7 @@ export const navConfig = {
       subnav: [
         { title: "use", link: "/reusable-use" },
         { title: "defs", link: "/reusable-defs" },
-        { title: "markers", link: "" },
+        { title: "markers", link: "/reusable-markers" },
         { title: "gradients", link: "" },
         { title: "patterns", link: "" },
         { title: "clip-paths", link: "" },
