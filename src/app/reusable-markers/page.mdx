@@ -8,7 +8,7 @@ import {
   MarkerAngle,
 } from "@/components/reusemarkerchapter";
 
-## Reusable objects - markers
+# Reusable objects - markers
 
 A marker is a reusable graphic typically used in charts, graphs, or arrows to indicate the beginning, middle, and end of a path, line, polygon, or polyline. In the image below, the square start point, the smaller circular polymarkers, and the arrow head are all markers.
 
@@ -169,5 +169,13 @@ The arrowhead is clearly pointing in the wrong direction. To get it pointed so t
 <br />
 
 **degrees** - the marker set at an angle of the specified number of degrees
+
+<Blocks>
+  {`<marker 
+    id="arrowhead" 
+    orient="25deg" 
+    refX="5" refY="5"
+    markerWidth="10" markerHeight="10">`}
+</Blocks>
 
 <MarkerAngle />
