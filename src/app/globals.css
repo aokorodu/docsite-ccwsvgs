@@ -72,6 +72,7 @@ img {
 svg {
   position: relative;
   border: 1px solid #eaeaea;
+  margin-bottom: 1.5rem;
 }
 
 svg text {
