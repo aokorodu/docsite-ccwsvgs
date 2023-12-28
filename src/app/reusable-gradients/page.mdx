@@ -1,0 +1,257 @@
+import Blocks from "@/components/blocks";
+import {
+  ExampleIntro,
+  LinearGradient,
+  LG_offset_50,
+  LG_offset_3Stops,
+  RadialGradientIntro,
+  RadialGradientOrientation,
+  RadialGradientOrientation_2,
+  RadialGradientRadius,
+  RadialGradientRadius_2,
+} from "@/components/reusegradientchapter";
+
+# Gradients
+
+A gradient occurs where one color blends into another, and can be applied to fills or strokes.
+
+SVGs support two types of gradients :
+
+1. **linear** (left) and
+2. **radial** (right)
+
+<br />
+
+<ExampleIntro />
+
+Gradients are defined in the **\<defs\>** section, making them reusable.
+
+## linearGradient
+
+A linearGradient is a gradient that occurs along a straight line. The image below is an example of a horizontal linearGradient.
+
+<LinearGradient />
+
+<Blocks>
+  {`<polyline 
+    marker-start="url(#box)" 
+    points="50,150 150,150 250,150 350,150 450,150" 
+    stroke="black" strokeWidth="2" fill="none" />`}
+</Blocks>
+
+### id
+
+Let's start with the linearGradient element inside the \<defs\> section. We'll need to give it an **id** in order to identify and apply the gradient
+
+```
+<defs>
+    <linearGradient id="linear_gradient_horiz">
+    </linearGradient>
+</defs>
+```
+
+### stop colors
+
+Now let's add the colors, which are defined in the \<stop\> elements that are children of the \<linearGradient\> element.
+
+````
+<linearGradient id="linear_gradient_horiz">
+    <stop offset="0%" stop-color="red" />
+    <stop offset="95%" stop-color="blue" />
+    </linearGradient>```
+````
+
+You'll notice that the stop element has two attributes **offset** and **stop-color**.
+
+The **offset** is the position of the color in a range of 0-100%. So 0% would be at the very beginning and 100% would be at the end of the gradient.
+
+The **stop-color** is the color at the offset position.
+
+There's also a **stop-opacity** attribute not present here. It sets the opacity of the stop-color at the offset position. If omitted it defaults to 100%.
+
+Here the offset position of the first stop-color has been moved to 50%.
+
+<Blocks>
+  {`<linearGradient id="lin-grad_50">
+    <stop offset="50%" stopColor="red" />
+    <stop offset="100%" stopColor="blue" />
+</linearGradient>`}
+</Blocks>
+
+<LG_offset_50 />
+
+### multiple stop colors
+
+This gradient has three stop colors.
+
+<Blocks>
+  {`<linearGradient id="three_stops">
+    <stop offset="00%" stopColor="red" />
+    <stop offset="50%" stopColor="gold" />
+    <stop offset="100%" stopColor="green" />
+</linearGradient>`}
+</Blocks>
+
+<LG_offset_3Stops />
+
+### changing the gradient direction
+
+You can change the direction of the gradient by defining a line using the x1, y1, x2, y2 attributes. x1, y1 defines the starting point of the gradient within the bounding box, while x2, y2 defines the endpoint of the gradient within the bounding box.
+
+<Blocks>
+  {`<linearGradient id="linear_gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+   <stop offset="0%" stop-color="red" />
+   <stop offset="100%" stop-color="blue" />
+</linearGradient>`}
+</Blocks>
+
+![gradient_lin_diag.png](gradient_lin_diag.png)
+
+## radialGradient
+
+A radialGradient is a gradient that progresses outwards in a circular pattern from a start point. The basic setup is the same as that of a linearGradient: the radialGradient element has an **id** to identify and apply the gradient to an element fill, and the element contains two or more **stop** elements to define the **stop-colors** and their **offset** positions.
+
+<Blocks>
+  {`<radialGradient id="radial_gradient">
+   <stop offset="0%" stop-color="red" />
+   <stop offset="100%" stop-color="blue" />
+</radialGradient>`}
+</Blocks>
+
+<RadialGradientIntro />
+
+Here the offset position of the first stop-color has been moved to 50%
+
+<Blocks>
+  {`<radialGradient id="radial_gradient">
+   <stop offset="50%" stop-color="red" />
+   <stop offset="100%" stop-color="blue" />
+</radialGradient>`}
+</Blocks>
+
+![gradeint_rad_50.png](gradeint_rad_50.png)
+
+### gradient orientation
+
+You can change the orientation/direction of the radialGradient as well, using the following attributes:
+
+**fx, fy**: The focal point, which defines the center of the circle where the radialGradient begins
+
+**cx, cy**: The center point, which defines the center of the circle where the radialGradient ends
+
+<br />
+
+By default, both points are at the center of the bounding box
+
+<Blocks>
+  {`<radialGradient 
+    cx="50%" cy="50%" fx="50%" fy="50%"
+    id="radial_gradient">
+   <stop offset="0%" stop-color="red" />
+   <stop offset="100%" stop-color="blue" />
+</radialGradient>`}
+</Blocks>
+
+![gradient_rad_orientation_1.png](gradient_rad_orientation_1.png)
+
+Lets move the focal point all the way to the left (fx="0%"). Notice how the gradient originates from the focal point
+
+<Blocks>
+  {`<radialGradient 
+    cx="50%" cy="50%" fx="0%" fy="50%"
+    id="radial_gradient">
+   <stop offset="0%" stop-color="red" />
+   <stop offset="100%" stop-color="blue" />
+</radialGradient>`}
+</Blocks>
+
+<RadialGradientOrientation />
+
+<br />
+<br />
+
+One way to visualize the radial gradient is as a series of ever increasing circles transitioning from the inner “focal point” circle an outer circle with a center of cx, cy.
+
+![gradient_rad_skel_1.png](gradient_rad_skel_1.png)
+
+Now let's move the focal point back to the center, and move the center point to the right edge (cx="99%).
+
+<Blocks>
+  {`<radialGradient 
+    cx="99%" cy="50%" fx="50%" fy="50%"
+    id="radial_gradient">
+   <stop offset="0%" stop-color="red" />
+   <stop offset="100%" stop-color="blue" />
+</radialGradient>`}
+</Blocks>
+
+<RadialGradientOrientation_2 />
+
+![gradient_rad_skel_2.png](gradient_rad_skel_2.png)
+
+You can also manipulate the gradient by changing the radius of the outer circle (which marks the outer edge of the gradient). By default it is 50% width or height. So for a square with a width of 100, the r is 50. You can set the value of the r to whatever you want - even values greater than 100%
+
+<Blocks>
+  {`<radialGradient 
+    r="50%"
+    id="radial_gradient">
+   <stop offset="0%" stop-color="red" />
+   <stop offset="100%" stop-color="blue" />
+</radialGradient>`}
+</Blocks>
+
+![gradient_rad_radius_size_1.png](gradient_rad_radius_size_1.png)
+
+Now let's see what the gradient looks like when we set the radius to 20%:
+
+<Blocks>
+  {`<radialGradient 
+    r="20%"
+    id="radial_gradient">
+   <stop offset="0%" stop-color="red" />
+   <stop offset="100%" stop-color="blue" />
+</radialGradient>`}
+</Blocks>
+
+<RadialGradientRadius />
+
+You can set the value of the r to whatever you want - even values greater than 100%
+
+<Blocks>
+  {`<radialGradient 
+    r="120%"
+    id="radial_gradient">
+   <stop offset="0%" stop-color="red" />
+   <stop offset="100%" stop-color="blue" />
+</radialGradient>`}
+</Blocks>
+
+<RadialGradientRadius_2 />
+
+You can also change the radius of the focal point circle. The radialGradient start point (stop offset=”0%”) is the edge of the focal circle. By default, the radius is 0%
+
+<Blocks>
+  {`<radialGradient 
+    r="50%"
+    fr="0%"
+    id="radial_gradient">
+   <stop offset="0%" stop-color="red" />
+   <stop offset="100%" stop-color="blue" />
+</radialGradient>`}
+</Blocks>
+
+![gradient_rad_focal_radius_size_1.png](gradient_rad_focal_radius_size_1.png)
+
+In this example below we’ve changed the radius of the focal point circle to 25%. So now, instead of the stop offset=”0%” starting at the center of the circle, it starts at the edge of the focal circle
+
+<Blocks>
+  {`<radialGradient 
+    r="50%"
+    fr="25%"
+    id="radial_gradient">
+   <stop offset="0%" stop-color="red" />
+   <stop offset="100%" stop-color="blue" />
+</radialGradient>`}
+</Blocks>
+
+![gradient_rad_focal_radius_size_2.png](gradient_rad_focal_radius_size_2.png)
