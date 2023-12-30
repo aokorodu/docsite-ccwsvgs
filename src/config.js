@@ -64,7 +64,7 @@ export const navConfig = {
         { title: "markers", link: "/reusable-markers" },
         { title: "gradients", link: "/reusable-gradients" },
         { title: "patterns", link: "/reusable-patterns" },
-        { title: "clip-paths", link: "" },
+        { title: "clip-paths", link: "/reusable-clippath" },
         { title: "masks", link: "" },
         { title: "filters", link: "" },
       ],
