@@ -1,13 +1,7 @@
 <svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-
-                <circle id="circle_design" cx="25" cy="25" r="25" fill="#eaeaea" />
-                <pattern id="circle_tile_100" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                    <use href="#circle_design" x="0" y="0"></use>
-                </pattern>
-
-
-            </defs>
-            <rect x="0" y="0" width="500" height="500" fill="url(#circle_tile_100)">
-            </rect>
-        </svg>
+<rect width="500" height="500" fill="white"/>
+<path d="M147.5 87L159.062 123.622H196.479L166.208 146.256L177.771 182.878L147.5 160.244L117.229 182.878L128.792 146.256L98.5206 123.622H135.938L147.5 87Z" fill="#D9D9D9"/>
+<path d="M272.5 123L294.839 192.444L367.13 192.444L308.645 235.362L330.985 304.806L272.5 261.888L214.015 304.806L236.355 235.362L177.87 192.444L250.161 192.444L272.5 123Z" fill="#D9D9D9"/>
+<path d="M157.5 259L180.288 327.407H254.032L194.372 369.685L217.16 438.093L157.5 395.815L97.8398 438.093L120.628 369.685L60.9678 327.407H134.712L157.5 259Z" fill="#D9D9D9"/>
+<path d="M396 62L406.328 93.0942H439.749L412.71 112.312L423.038 143.406L396 124.188L368.962 143.406L379.29 112.312L352.251 93.0942H385.672L396 62Z" fill="#D9D9D9"/>
+</svg>
