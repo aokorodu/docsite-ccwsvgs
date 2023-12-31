@@ -457,4 +457,97 @@ Just for fun, let’s set the leaves to random colors. I've created a **getColor
 
 <GenerateLeafs rotate={true} color={"random"} />
 
-<Blocks>{``}</Blocks>
+## removing elements
+
+Removing elements is even easier. Just use the DOM’s **element.remove()** method. Let’s add a click event handler to each leaf to do just that.
+
+<Blocks>{`<script>
+   const svg = document.querySelector("svg");
+   const namespace = "http://www.w3.org/2000/svg"
+   for (let i = 0; i < 30; i++) {
+        // ...
+       my_leaf.addEventListener("click", () => {
+            my_leaf.remove();
+        });
+        // ...
+}
+
+</script>`}</Blocks>
+
+#### click on the leaves to remove them!
+
+<GenerateLeafs rotate={true} color={"random"} canremove={true} />
+
+## changing filter attributes dynamically
+
+Even filter attributes can be set dynamically. For example, here’s the filter for the image below.
+
+<Blocks>{`<defs>
+   <radialGradient 
+    id="sun-gradient" 
+    cx="50%" cy="50%">
+       <stop offset="0" stop-color="#FAEEB0"></stop>
+       <stop offset="100%" stop-color="#FB9700"></stop>
+   </radialGradient>
+</defs>`}</Blocks>
+
+<svg width="300" height="300" viewbox="0 0 300 300">
+  <defs>
+    <radialGradient id="sun-gradient" cx="50%" cy="50%">
+      <stop offset="0" stop-color="#FAEEB0"></stop>
+      <stop offset="100%" stop-color="#FB9700"></stop>
+    </radialGradient>
+  </defs>
+  <circle cx="150" cy="150" r="100" fill="url(#sun-gradient)" />
+</svg>
+
+We can change the gradient by updating it’s attributes. Let’s change the origin of the gradient from the center to the upper right.
+
+<Blocks>{`<defs>
+    <radialGradient id="sun-gradient" ... >
+  </defs>
+  
+  <script>
+        const sun_gradient = document.querySelector('#sun-gradient');
+        sun_gradient.setAttribute("cx", "20%");
+        sun_gradient.setAttribute("cy", "20%");
+</script>`}</Blocks>
+
+<svg width="300" height="300" viewbox="0 0 300 300">
+  <defs>
+    <radialGradient id="sun-gradient-2" cx="20%" cy="20%">
+      <stop offset="0" stop-color="#FAEEB0"></stop>
+      <stop offset="100%" stop-color="#FB9700"></stop>
+    </radialGradient>
+  </defs>
+  <circle cx="150" cy="150" r="100" fill="url(#sun-gradient-2)" />
+</svg>
+
+We can even change the gradient colors. In order to do that, we’ll need to add **id** attributes to the stop elements so that we can target them
+
+<Blocks>{`<defs>
+    <radialGradient id="sun-gradient" ...>
+      <stop id="first_stop" ...></stop>
+      <stop id="second_stop" ...></stop>
+    </radialGradient>
+  </defs>`}</Blocks>
+
+Now let's use the **setAttribute** method to change the stop-colors.
+
+<Blocks>{`<script>
+    const sun_gradient = document.querySelector('#sun-gradient');
+    const first_stop = document.querySelector('#first_stop');
+    const second_stop = document.querySelector('#second_stop);
+    first_stop.setAttribute("stop-color", "lightgreen");
+    second_stop.setAttribute("stop-color", "darkgreen");
+</script>`}</Blocks>
+
+<svg width="300" height="300" viewbox="0 0 300 300">
+  <defs>
+    <radialGradient id="sun-gradient-3" cx="20%" cy="20%">
+      <stop offset="0" stop-color="lightgreen"></stop>
+      <stop offset="100%" stop-color="darkgreen"></stop>
+    </radialGradient>
+  </defs>
+  <circle cx="150" cy="150" r="100" fill="url(#sun-gradient-3)" />
+</svg>

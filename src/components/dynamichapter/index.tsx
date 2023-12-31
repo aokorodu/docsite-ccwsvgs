@@ -24,10 +24,11 @@ export const AppendLeafExample = ({ x, y }: positionProps) => {
 
 type genleafprops = {
     rotate: boolean,
-    color: string
+    color: string,
+    canremove: boolean
 }
 
-export const GenerateLeafs = ({ rotate, color }: genleafprops) => {
+export const GenerateLeafs = ({ rotate, color, canremove = false }: genleafprops) => {
     const svg = useRef<SVGSVGElement>(null);
     const leafDef = useRef<SVGGElement>(null)
     useEffect(() => {
@@ -63,6 +64,12 @@ export const GenerateLeafs = ({ rotate, color }: genleafprops) => {
             } else {
                 my_leaf.setAttribute("fill", "#06B943");
 
+            }
+
+            if (canremove) {
+                my_leaf.addEventListener("click", () => {
+                    my_leaf.remove();
+                })
             }
             svg.current?.appendChild(my_leaf);
         }
