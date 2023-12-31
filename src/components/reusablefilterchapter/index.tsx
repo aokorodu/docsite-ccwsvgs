@@ -178,13 +178,13 @@ export const DropShadowCuttoff = ({ cuttoff }: dscuttoff) => {
                         dx="0" dy="0"
                         stdDeviation="30" flood-color="black" flood-opacity=".8" />
                 </filter>}
-                {!cuttoff && <filter x="-20%" y="-20%" width="140%" height="140%" id="big_shadow">
+                {!cuttoff && <filter x="-20%" y="-20%" width="140%" height="140%" id="big_shadow_all">
                     <feDropShadow
                         dx="0" dy="0"
                         stdDeviation="30" flood-color="black" flood-opacity=".8" />
                 </filter>}
             </defs>
-            <image filter="url(#big_shadow)" id="image" x="100" y="100" href={'/zuubaDigitalLogo.png'} width="300"
+            <image filter={cuttoff ? "url(#big_shadow)" : "url(#big_shadow_all)"} id="image" x="100" y="100" href={'/zuubaDigitalLogo.png'} width="300"
                 height="300">
             </image>
         </svg>
