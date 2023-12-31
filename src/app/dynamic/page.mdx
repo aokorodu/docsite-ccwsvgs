@@ -81,7 +81,11 @@ Now let’s change the fill, stroke, stroke-width, and stroke-opacity:
 
 ## setAttribute - text
 
-The text element is no different from any of the other shape elements. Here we change a text elements fill from black to red and the font-size to 60.
+The text element is no different from any of the other shape elements. Here we change a text element's fill from black to red and the font-size to 60.
+
+```
+textElement.setAttribute(<attribute name>, <value>)
+```
 
 <Blocks caption="Only the code needed for this example is included here">
   {`<svg width="500" height="200" viewbox="0 0 500 200">
@@ -133,6 +137,10 @@ The text element is no different from any of the other shape elements. Here we c
 </svg>
 
 Changing the text contained in a text element is quite simple, and virtually identical to how you would do so with ordinary html text. Simply create a reference to the text element and use **firstChild.textContent** to set the content. In this example, I've replaced the original "hello world" text with a different text string.
+
+```
+textElement.firstChild.textContent = "new text"
+```
 
 <Blocks>
   {`<script>
