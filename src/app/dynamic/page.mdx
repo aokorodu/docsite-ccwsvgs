@@ -279,15 +279,18 @@ Let's add the leaf code to the defs section and give it an id of _"leaf"_ so tha
 <Blocks>{`<svg id="my-svg" ...>
     <defs>
         <g id="leaf">
+            <path "surface" ... fill="#06B943"/>
             <!-- more leaf stuff here -->
         </g>
     </defs>
+
 </svg>`}</Blocks>
 
 To place the leaf dynamically, we can create the \<use\> element and pass in the leaf id as the href value. First, we need to get a reference to the svg using it's id.
 
 <Blocks>{`<defs>
    <g id="leaf">
+    <path "surface" ... fill="#06B943"/>
        <!--leaf stuff here-->
    </g>
 </defs>
@@ -304,6 +307,7 @@ my_leaf.setAttribute('href', '#leaf');
 
 <Blocks>{`<defs>
    <g id="leaf">
+    <path "surface" ... fill="#06B943"/>
        <!--leaf stuff here-->
    </g>
 </defs>
@@ -322,6 +326,7 @@ svg.appendChild(my_leaf);
 
 <Blocks>{`<defs>
    <g id="leaf">
+    <path "surface" ... fill="#06B943"/>
        <!--leaf stuff here-->
    </g>
 </defs>
@@ -344,6 +349,7 @@ my_leaf.setAttribute("y", 115);
 
 <Blocks>{`<defs>
    <g id="leaf">
+    <path "surface" ... fill="#06B943"/>
        <!--leaf stuff here-->
    </g>
 </defs>
@@ -376,8 +382,79 @@ Instead of just placing one leaf, let’s use a loop to create a bunch of leaves
    }
 </script>`}</Blocks>
 
-<GenerateLeafs />
+<GenerateLeafs rotate={true} />
 
 Now we’ll rotate and scale the leaves to make for a more realistic scatter
+
+<Blocks>{`<script>
+    const svg = document.querySelector("svg");
+    const namespace = "http://www.w3.org/2000/svg"
+    for (let i = 0; i < 30; i++) {
+    let my_leaf = document.createElementNS(namespace, "use");
+    my_leaf.setAttribute('href', '#leaf');
+    // let’s create random x and y values
+    const xpos = Math.random() * 500; // value between 0-500
+    const ypos = Math.random() * 500; // value between 0-500;
+    const angle = Math.random() * 180;
+    const transformString = \`rotate($\{angle\} $\{xpos\} $\{ypos\})\`;
+    my_leaf.setAttribute("x", xpos);
+    my_leaf.setAttribute("y", ypos);
+    my_leaf.setAttribute("transform, transformString)
+    svg.appendChild(my_leaf);
+   }
+</script>`}</Blocks>
+
+Now when we try changing the color of each leaf from green to orange by setting the fill, nothing happens. Why?
+
+```
+my_leaf.setAttribute("fill, "orange");
+```
+
+<Blocks>{`<script>
+    // all previous code
+    my_leaf.setAttribute("fill, "orange");
+    svg.appendChild(my_leaf);
+   }
+</script>`}</Blocks>
+
+<GenerateLeafs rotate={true} />
+
+The “surface” path (which defines the leaf surface) already has a fill attribute defined. Remember from our lesson on groups - presentation attributes defined on child elements override those set on the group. So setting a fill of orange on the group would have no effect on the child "surface" path.
+
+```
+<g id="leaf" fill="orange">
+    <path id="surface" ... fill="#06B943"/>
+```
+
+If we want to set the fill dynamically on the group level, we need to delete the fill defined on the surface path
+
+<Blocks>{`<defs>
+<g id="leaf">
+    <path d="M28.817 0C6.04933..." />`}</Blocks>
+
+<GenerateLeafs rotate={true} color={"orange"} />
+
+Just for fun, let’s set the leaves to random colors. I've created a **getColor()** function that returns an hsl color string we can use with the **setAttribute** method to set the fill color.
+
+<Blocks>{`const getColor = () => \{
+    const h = Math.round(Math.random() * 360);
+    const s = 50 + Math.round(Math.random() * 50);
+    const l = 40 + Math.round(Math.random() * 50);
+
+    return \`hsl($\{h\}, $\{s\}%, $\{l\}%)\`;
+
+\}`}</Blocks>
+
+<Blocks>{`<script>
+   const svg = document.querySelector("svg");
+   const namespace = "http://www.w3.org/2000/svg"
+   for (let i = 0; i < 30; i++) {
+        // ...
+       my_leaf.setAttribute("fill", getColor());
+       svg.appendChild(my_leaf);
+   }
+</script>`}</Blocks>
+
+<GenerateLeafs rotate={true} color={"random"} />
 
 <Blocks>{``}</Blocks>
