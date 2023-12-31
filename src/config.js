@@ -71,7 +71,7 @@ export const navConfig = {
     },
     {
       title: "Changing SVGs Dynamically",
-      link: "",
+      link: "/dynamic",
       subnav: [],
     },
     {
