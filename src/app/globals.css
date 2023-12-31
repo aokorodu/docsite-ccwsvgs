@@ -89,9 +89,15 @@ pre {
   background-color: #eaeaea;
   margin: 1rem 0;
   padding: 1rem;
+  font-family: monospace;
 }
 
 hr {
   margin-top: 1rem;
   border-top: 1px solid #d3d2d2;
+}
+
+code {
+  font-family: monospace;
+  font-size: 1rem;
 }
