@@ -66,7 +66,7 @@ export const navConfig = {
         { title: "patterns", link: "/reusable-patterns" },
         { title: "clip-paths", link: "/reusable-clippath" },
         { title: "masks", link: "/reusable-mask" },
-        { title: "filters", link: "" },
+        { title: "filters", link: "/reusable-filter" },
       ],
     },
     {
