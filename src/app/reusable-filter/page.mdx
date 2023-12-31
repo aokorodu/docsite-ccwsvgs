@@ -9,6 +9,7 @@ import {
   RedShift,
   GreenShift,
   TurbulenceExample,
+  DropShadowCuttoff,
 } from "@/components/reusablefilterchapter";
 
 # Filter
@@ -410,3 +411,24 @@ Finally, the **scale** is the amount of displacement. the higher the number, the
 </Blocks>
 
 <DistortionExample />
+
+## The filter region
+
+Filters by default are 120% of the width and height of the bounding box of the graphic being filtered. If the filter extends beyond this region, you’ll notice that the effect gets cut off.
+
+<DropShadowCuttoff />
+
+You can redefine the filter region using the x, y, width and height filter attributes.
+
+The default value for x and y is -10%, and the default value for width and height is 120%. Let's change these values to get a larger filter region.
+
+<Blocks>
+  {`<defs>
+    <filter x="-20%" y="-20%" 
+    width="140%" height="140%" 
+    id="big_shadow">
+    <feDropShadow ... />
+</filter>`}
+</Blocks>
+
+<DropShadowCuttoff cuttoff={false} />

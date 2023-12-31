@@ -165,3 +165,29 @@ export const TurbulenceExample = () => {
         </svg>
     </>)
 }
+
+type dscuttoff = {
+    cuttoff: boolean
+}
+export const DropShadowCuttoff = ({ cuttoff }: dscuttoff) => {
+    return (<>
+        <svg width="500" height="500" viewBox="0 0 500 500">
+            <defs>
+                {cuttoff && <filter id="big_shadow">
+                    <feDropShadow
+                        dx="0" dy="0"
+                        stdDeviation="30" flood-color="black" flood-opacity=".8" />
+                </filter>}
+                {!cuttoff && <filter x="-20%" y="-20%" width="140%" height="140%" id="big_shadow">
+                    <feDropShadow
+                        dx="0" dy="0"
+                        stdDeviation="30" flood-color="black" flood-opacity=".8" />
+                </filter>}
+            </defs>
+            <image filter="url(#big_shadow)" id="image" x="100" y="100" href={'/zuubaDigitalLogo.png'} width="300"
+                height="300">
+            </image>
+        </svg>
+    </>)
+}
+
