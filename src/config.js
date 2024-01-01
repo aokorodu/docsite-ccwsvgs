@@ -74,17 +74,17 @@ export const navConfig = {
       link: "/dynamic",
       subnav: [],
     },
-    {
-      title: "Making SVGs Interactive",
-      link: "",
-      subnav: [],
-    },
+    // {
+    //   title: "Making SVGs Interactive",
+    //   link: "",
+    //   subnav: [],
+    // },
     {
       title: "Animation",
       link: "",
       subnav: [
-        { title: "intro", link: "" },
-        { title: "css", link: "" },
+        { title: "intro", link: "/animation-intro" },
+        { title: "css", link: "/animation-css" },
         { title: "javascript", link: "" },
         { title: "SMIL", link: "" },
         { title: "Sprites", link: "" },

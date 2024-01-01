@@ -1,0 +1,83 @@
+.circle {
+  fill: orange;
+  stroke: black;
+  stroke-width: 1;
+  transition-property: stroke-width fill;
+  transition-duration: 0.33s;
+  transition-timing-function: linear;
+  transition-delay: 0;
+}
+
+.circle:hover {
+  stroke-width: 10;
+  fill: red;
+}
+
+.strokeDash {
+  fill: #eaeaea;
+  stroke: black;
+  stroke-width: 10;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  stroke-linecap: none;
+}
+
+.strokeDashHover {
+  fill: #eaeaea;
+  stroke: black;
+  stroke-width: 10;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  stroke-linecap: none;
+  transition-property: stroke-dashoffset;
+  transition-duration: 0.33s;
+  transition-timing-function: linear;
+  transition-delay: 0;
+}
+
+.strokeDashHover:hover {
+  stroke-dashoffset: 0;
+}
+
+.geoPropAnimation {
+  cx: 150px;
+  cy: 150px;
+  r: 100px;
+  transition-property: r cy;
+  transition-duration: 0.33s;
+}
+.geoPropAnimation:hover {
+  r: 75px;
+  cy: 120px;
+}
+
+@keyframes zoom {
+  0% {
+    fill: red;
+    cx: 250px;
+    cy: 125px;
+  }
+  33% {
+    cx: 375px;
+    cy: 375px;
+  }
+  66% {
+    cx: 125px;
+    cy: 375px;
+  }
+  100% {
+    fill: blue;
+    cx: 250px;
+    cy: 125px;
+  }
+}
+
+.zoomCircle {
+  cx: 250px;
+  cy: 125px;
+  animation-name: zoom;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
