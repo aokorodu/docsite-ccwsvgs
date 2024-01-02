@@ -1,4 +1,4 @@
-import styles from './CSSAnim.module.css';
+import styles from './CSSAnim.module.scss';
 
 export const HoverExample = () => {
     return (<>
@@ -135,7 +135,7 @@ export const BalloonExample = ({ linear = true }: BalloonProps) => {
 }
 
 type EaseType = {
-    type: "ease-in-out" | "ease-in" | "ease-out" | "linear" | "default"
+    type: "ease-in-out" | "ease-in" | "ease-out" | "linear" | "default" | "custom"
 }
 export const EaseExample = ({ type }: EaseType) => {
 
@@ -152,6 +152,10 @@ export const EaseExample = ({ type }: EaseType) => {
 
             case "ease-out":
                 path = "/css_anim_easing_out.png"
+                break;
+
+            case "custom":
+                path = "/css_anim_easing_custom.png"
                 break;
 
             default:
@@ -183,6 +187,10 @@ export const EaseExample = ({ type }: EaseType) => {
                 ease = styles.easeLinear;
                 break;
 
+            case "custom":
+                ease = styles.easeCustom;
+                break;
+
             case 'default':
                 ease = styles.easeLinear;
                 break;
@@ -193,7 +201,7 @@ export const EaseExample = ({ type }: EaseType) => {
     return (<>
         <img className={styles.exampleImage} src={getImage()} height="300px" />
         <svg width="200" height="300" viewBox="0 0 200 300">
-            <circle className={getEasing()} cx="100" cy="250" r="20" fill="green" />
+            <circle className={getEasing()} cx="100" cy="250" r="10" fill="green" />
         </svg>
     </>)
 }

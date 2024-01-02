@@ -375,7 +375,7 @@ We can fix this by using an **ease-in-out** animation timing function:
 
 ### cubic-bezier timing functions
 
-ALL of the easing options are actually defined by cubic-bezier functions, in which two “control points” are used to change the shape of the animation curve. The graphs help to visualize how the shape of the curve affects the pace of the animation. Here’s a linear animation curve.
+ALL of the easing options are actually defined by cubic-bezier functions, in which two “control points” are used to change the shape of the animation curve. The graphs help to visualize how the shape of the curve affects the pace of the animation.
 
 **linear**
 
@@ -392,3 +392,15 @@ ALL of the easing options are actually defined by cubic-bezier functions, in whi
 **ease-in-out**
 
 <EaseExample type={"ease-in-out"} />
+
+### custom cubic-bezier timing functions
+
+You can define your own easing functions as well by using a custom cubic-bezier easing curve.
+
+A fantastic interactive resource for visualizing and experimenting with easing curves is [cubic-bezier.com](https://cubic-bezier.com). Once you manipulate the control points to form the curve you want, you can see how your animation compares to the standard predefined animation curves. Once you find something you like, just click the copy and paste the cubic-bezier value into your CSS.
+
+```
+animation-timing-function: cubic-bezier(0.13, 0.74, 0, 1);
+```
+
+<EaseExample type={"custom"} />

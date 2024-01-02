@@ -1,3 +1,5 @@
+$exampleDuration: 3s;
+
 .circle {
   fill: orange;
   stroke: black;
@@ -132,17 +134,17 @@
 
 @keyframes backAndForth {
   0% {
-    cy: 250;
+    cy: 280;
   }
 
   100% {
-    cy: 50;
+    cy: 20;
   }
 }
 
 .exampleAnimation {
   animation-name: backAndForth;
-  animation-duration: 2s;
+  animation-duration: $exampleDuration;
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
   animation-direction: alternate;
@@ -151,7 +153,7 @@
 
 .easeIn {
   animation-name: backAndForth;
-  animation-duration: 2s;
+  animation-duration: $exampleDuration;
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
   animation-direction: alternate;
@@ -160,7 +162,7 @@
 
 .easeOut {
   animation-name: backAndForth;
-  animation-duration: 2s;
+  animation-duration: $exampleDuration;
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
   animation-direction: alternate;
@@ -169,7 +171,7 @@
 
 .easeInOut {
   animation-name: backAndForth;
-  animation-duration: 2s;
+  animation-duration: $exampleDuration;
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
   animation-direction: alternate;
@@ -178,9 +180,18 @@
 
 .easeLinear {
   animation-name: backAndForth;
-  animation-duration: 5s;
+  animation-duration: $exampleDuration;
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
   animation-direction: alternate;
   animation-timing-function: linear;
+}
+
+.easeCustom {
+  animation-name: backAndForth;
+  animation-duration: $exampleDuration;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(0.13, 0.74, 0, 1);
 }
