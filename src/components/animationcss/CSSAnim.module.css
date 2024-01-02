@@ -81,3 +81,106 @@
   animation-iteration-count: infinite;
   animation-direction: alternate-reverse;
 }
+
+.balloon {
+  animation-name: float;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+.balloonEase {
+  animation-name: float;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+}
+
+.clouds {
+  animation-name: stream;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes stream {
+  from {
+    transform: translateX(0px);
+  }
+
+  to {
+    transform: translate(-500px);
+  }
+}
+
+@keyframes float {
+  from {
+    transform: translate(175px, 200px) scale(2);
+  }
+
+  to {
+    transform: translate(175px, 50px) scale(2);
+  }
+}
+
+.exampleImage {
+  width: 300px;
+  height: 300px;
+}
+
+@keyframes backAndForth {
+  0% {
+    cy: 250;
+  }
+
+  100% {
+    cy: 50;
+  }
+}
+
+.exampleAnimation {
+  animation-name: backAndForth;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
+
+.easeIn {
+  animation-name: backAndForth;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  animation-direction: alternate;
+  animation-timing-function: ease-in;
+}
+
+.easeOut {
+  animation-name: backAndForth;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  animation-direction: alternate;
+  animation-timing-function: ease-out;
+}
+
+.easeInOut {
+  animation-name: backAndForth;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+
+.easeLinear {
+  animation-name: backAndForth;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}

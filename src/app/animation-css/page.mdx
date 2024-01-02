@@ -4,6 +4,8 @@ import {
   StrokeDash,
   GeoProperties,
   KeyframeExample,
+  BalloonExample,
+  EaseExample,
 } from "@/components/animationcss";
 
 # CSS Animation
@@ -331,3 +333,62 @@ Now we can add the class to the svg element we wish to animate.
 ## timing functions
 
 Easing functions for both transitions and keyframe animations define how an object moves. In the example at below, I’ve attempted to create an animation for a floating balloon. But there’s something wrong: The balloon doesn’t ease to a stop before changing direction - it looks more like it’s bouncing up and down.
+
+<Blocks>
+  {`#balloon {
+   animation-name: float;
+   animation-duration: 2s;
+   animation-direction: alternate;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+}
+`}
+</Blocks>
+
+<BalloonExample />
+
+This animation has a **linear** timing function, causing it to move in a linear fashion. Its generally preferable to have animations move in a somewhat realistic way, as if the animated objects are bound by the laws of physics. Otherwise the animations can become jarring and distracting.
+
+We can fix this by using an **ease-in-out** animation timing function:
+
+<Blocks>
+  {`#balloon {
+   ...
+   animation-timing-function: ease-in-out;
+}
+`}
+</Blocks>
+
+<BalloonExample linear={false} />
+
+**the different timing functions:**
+
+1. **linear** - constant rate of speed
+2. easing-functions - speeds up/slows down over time
+
+- **ease-in** (starts slowly)
+- **ease-out** (ends slowly)
+- **ease-in-out** (starts and ends slowly, more pronounced than ease)
+
+3. **cubic-bezier**
+4. **step**
+
+### cubic-bezier timing functions
+
+ALL of the easing options are actually defined by cubic-bezier functions, in which two “control points” are used to change the shape of the animation curve. The graphs help to visualize how the shape of the curve affects the pace of the animation. Here’s a linear animation curve.
+
+**linear**
+
+<EaseExample type={"linear"} />
+
+**ease-in**
+
+<EaseExample type={"ease-in"} />
+
+**ease-out**
+
+<EaseExample type={"ease-out"} />
+
+**ease-in-out**
+
+<EaseExample type={"ease-in-out"} />
