@@ -1,0 +1,91 @@
+$exampleDuration: 3s;
+
+@mixin animationDirProps {
+  animation-name: grow;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-duration: $exampleDuration;
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+}
+
+@keyframes grow {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(2.5);
+  }
+}
+
+.animDir_normal {
+  @include animationDirProps();
+  animation-direction: normal;
+}
+
+.animDir_reverse {
+  @include animationDirProps();
+  animation-direction: reverse;
+}
+.animDir_alternate {
+  @include animationDirProps();
+  animation-direction: alternate;
+}
+
+.animDir_alternate_reverse {
+  @include animationDirProps();
+  animation-direction: alternate-reverse;
+}
+
+.fillStuffContainer {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+@mixin animationFillProps {
+  animation-name: growAndFill;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-duration: $exampleDuration;
+  animation-direction: normal;
+  animation-delay: 1s;
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+}
+
+@keyframes growAndFill {
+  from {
+    transform: scale(2);
+    fill: red;
+  }
+  to {
+    transform: scale(4);
+    fill: blue;
+  }
+}
+.animFill_hold {
+  transform: scale(1);
+  fill: lightgrey;
+}
+
+.animFill_none {
+  @include animationFillProps();
+  animation-fill-mode: none;
+}
+
+.animFill_forwards {
+  @include animationFillProps();
+  animation-fill-mode: forwards;
+}
+
+.animFill_backwards {
+  @include animationFillProps();
+  animation-fill-mode: backwards;
+}
+
+.animFill_both {
+  @include animationFillProps();
+  animation-fill-mode: both;
+}

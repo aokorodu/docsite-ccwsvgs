@@ -1,0 +1,133 @@
+import Blocks from "@/components/blocks";
+import {
+  AnimationDirection,
+  AnimationFillMode,
+} from "@/components/animationcssII";
+
+## animation-direction
+
+The animation-direction CSS property controls how an animation will play. There are four possible settings:
+
+**normal** (default) - the animation plays forwards (from-to, or 0% to 100%)
+
+**reverse** - the animation plays backwards (to-from, or 100% to 0%)
+
+**alternate** -
+the animation plays forwards, then backwards
+
+**alternate-reverse** -
+the animation plays backwards, then forwards
+
+## animation-fill-mode
+
+This is the animation we'll be applying different fill-modes to. It's a simple scaling of a rect element.
+
+<Blocks>
+  {`<style>
+  @keyframes grow {
+      from {
+        transform: scale(1);
+      }
+      to {
+        transform: scale(2.5);
+      }
+  }
+</style>`}
+</Blocks>
+
+### normal
+
+<Blocks>
+  {`<style>
+  @keyframes grow {...}
+  
+  #normalAnimation {
+      // animation duration, timing etc.
+      animation-direction: normal;
+  }
+</style>
+
+<rect id="normalAnimation"... />`}
+</Blocks>
+
+```
+animation-direction: normal;
+```
+
+<AnimationDirection direction={"normal"} />
+
+### reverse
+
+```
+animation-direction: reverse;
+```
+
+<AnimationDirection direction={"reverse"} />
+
+### alternate
+
+```
+animation-direction: alternate;
+```
+
+<AnimationDirection direction={"alternate"} />
+
+### alternate-reverse
+
+#### alternate-reverse looks identical to alternate for this particular example
+
+```
+animation-direction: alternate-reverse;
+```
+
+<AnimationDirection direction={"alternate-reverse"} />
+
+## animation-fill-mode
+
+The animation-fill-mode property defines how styles are applied to the styled object before and/or after the animation occurs. There are four possible values:
+
+```
+animation-fill-mode: none | forwards | backwards | both
+```
+
+The examples below are all identical other than their fill-mode setting - after a delay of 1 second the square scales from 2x to 4x and turns from red to blue. See if you can notice how the fill-mode affects the animation!
+
+### none
+
+The animation styles are not applied when the animation is not running. So the square stays grey and it's normal size during the delay. When the delay is over, the styles defined in the first keyframe are applied (red fill, 2x scale). When the animation is over, all styles from the animation are removed and the square returns to it's pre-animation state.
+
+```
+animation-fill-mode: none
+```
+
+<AnimationFillMode mode={"none"} />
+
+### forwards
+
+When the animation competes, the object retains the styles as defined in the final keyframe of the animation. So the square stays blue and scaled to 4x.
+
+```
+animation-fill-mode: forwards
+```
+
+<AnimationFillMode mode={"forwards"} />
+
+### backwards
+
+Before the animation runs, the object takes on the styles as defined in the first keyframe. So the square immediately takes on the styles as set forth at the start of the animation - red and a scale of 2x. After the animation is complete, all styles from the animation are removed.
+
+```
+animation-fill-mode:  backwards
+```
+
+<AnimationFillMode mode={"backwards"} />
+
+### both
+
+The object takes on the styles as defined in the first keyframe prior to the animation running (red, 2x scale), and retains the styles as defined in the final keyframe after running (blue, 4x scale).
+
+```
+animation-fill-mode: both
+```
+
+<AnimationFillMode mode={"both"} />

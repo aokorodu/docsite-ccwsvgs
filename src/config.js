@@ -85,6 +85,7 @@ export const navConfig = {
       subnav: [
         { title: "intro", link: "/animation-intro" },
         { title: "css", link: "/animation-css" },
+        { title: "more css", link: "/animation-css-II" },
         { title: "javascript", link: "" },
         { title: "SMIL", link: "" },
         { title: "Sprites", link: "" },
