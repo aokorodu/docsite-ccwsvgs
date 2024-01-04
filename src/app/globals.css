@@ -24,15 +24,15 @@ h1 {
 }
 
 h2 {
-  font-size: 1.75rem;
+  font-size: 2rem;
   font-weight: 400;
   margin: 3rem 0 1rem;
 }
 
 h3 {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 500;
-  margin: 1rem 0 0.1rem;
+  margin: 2rem 0 0.5rem;
 }
 
 p {
@@ -43,7 +43,6 @@ p {
 ol {
   list-style: number inside;
   margin-left: 1rem;
-  margin-top: 1rem;
 }
 
 ul {
@@ -106,4 +105,9 @@ hr {
 code {
   font-family: monospace;
   font-size: 1rem;
+}
+
+video {
+  margin: 1.5rem 0;
+  border: 1px solid rgb(77, 77, 77);
 }
