@@ -94,7 +94,7 @@ The examples below are all identical other than their fill-mode setting - after 
 
 ### none
 
-The animation styles are not applied when the animation is not running. So the square stays grey and it's normal size during the delay. When the delay is over, the styles defined in the first keyframe are applied (red fill, 2x scale). When the animation is over, all styles from the animation are removed and the square returns to it's pre-animation state.
+The animation styles are only applied during the animation. So the square stays grey and it's normal size during the delay. When the delay is over, the styles defined in the first keyframe are applied (red fill, 2x scale). When the animation is over, all styles from the animation are removed and the square returns to it's pre-animation state.
 
 ```
 animation-fill-mode: none
@@ -131,3 +131,74 @@ animation-fill-mode: both
 ```
 
 <AnimationFillMode mode={"both"} />
+
+## CSS transform danger
+
+Due to the way browsers have implemented CSS transforms with SVGs, it can be difficult at times to predict what the user will see when animating the transform property.
+
+For example, here's a video of a simple animation that moves circle from one side of the svg to another.
+
+<Blocks>
+  {`@keyframes slide {
+      from {
+          transform: translateX(0px);
+      }
+      to {
+          transform: translateX(400px);
+      }
+    }
+`}
+</Blocks>
+
+When we change the zoom settings on our browser, the animation looks just fine - at least with current mac versions of Chrome and Firefox.
+
+<video width="400" height="400" controls loop>
+  <source src="/css_trans_chrome.mov" type="video/mp4" />
+</video>
+
+But look what happens to the animation when we change the browsers zoom settings in Safari - the animation doesn’t go all the way to the edge anymore! The example below has the zoom settings set to 200%
+
+<video width="400" height="400" controls loop>
+  <source src="/css_trans_safari.mov" type="video/mp4" />
+</video>
+
+So Chrome and FireFox both require the use of units for CSS translations - px or % - which they then ignore in favor of the SVG’s coordinate system. Safari, on the other hand, takes the unit designation seriously, and will translate the circle the distance specified - at least at the time of this writing.
+
+Here's another example. This time we'll create a simple animation to spin a square.
+
+<Blocks>
+  {`<style>
+  #spinner {
+    animation-name: spin;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration: infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+</style>`}
+</Blocks>
+
+To rotate the cube around its center point, we can add set transform-box to fill-box and transform-origin to "center".
+
+<video width="400" height="400" controls loop>
+  <source src="/css_trans_chrome_rotate.mov" type="video/mp4" />
+</video>
+
+While everything looks fine in Chrome and Firefox, things start to get weird in Safari when you change the zoom settings. The video below is of the same animation running in Safari with the zoom settings at 200%
+
+<video width="400" height="400" controls loop>
+  <source src="/css_trans_safari_rotate.mov" type="video/mp4" />
+</video>
+
+In conclusion: CSS animations are great for SVGs unless you need to animate a transform property. Due to the inconsistent and downright buggy browser implementation for CSS transforms with SVGs, it’s best to use JavaScript to dynamically update the transform presentation attributes over time, as we’ll see in the following section.
