@@ -1,0 +1,12 @@
+.imageHolder {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.image {
+  width: 300px;
+  height: 300px;
+  border: 1px solid black;
+}

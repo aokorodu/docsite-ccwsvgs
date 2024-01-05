@@ -18,7 +18,7 @@ const Blocks = ({ caption, title, children }: Props) => {
                 <CopyBlock
                     text={children}
                     language={lang}
-                    showLineNumbers={true}
+                    showLineNumbers={false}
                     theme={dracula}
                     codeBlock
                 />
