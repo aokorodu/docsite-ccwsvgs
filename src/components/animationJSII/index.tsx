@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './AnimationJSII.module.scss';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export const BackAndForthExample = () => {
     return (<>
@@ -141,7 +141,11 @@ export const SimpleBounceExample = ({ top = false }: SimpleBounceProps) => {
     </>)
 }
 
-export const ComplexBounceExample = () => {
+
+type ComplexBounceProps = {
+    randomized: boolean
+}
+export const ComplexBounceExample = ({ randomized = false }: ComplexBounceProps) => {
     let animID: number = 0;
     const myCircle = useRef<SVGCircleElement>(null);
     const myButton = useRef<HTMLButtonElement>(null)
@@ -156,8 +160,8 @@ export const ComplexBounceExample = () => {
     }
 
     const speed = {
-        x: 1,
-        y: 1
+        x: randomized ? Math.random() * 10 - 5 : 1,
+        y: randomized ? Math.random() * 10 - 5 : 1,
     }
 
     const playAnimation = () => {
@@ -201,6 +205,8 @@ export const ComplexBounceExample = () => {
         console.log('reset')
         pos.x = startPos.x;
         pos.y = startPos.y;
+        speed.x = randomized ? Math.random() * 10 - 5 : 1;
+        speed.y = randomized ? Math.random() * 10 - 5 : 1;
         myCircle.current?.setAttribute("cx", String(pos.x));
         myCircle.current?.setAttribute("cy", String(pos.y));
         if (myButton.current) myButton.current.textContent = "PLAY";
@@ -214,5 +220,82 @@ export const ComplexBounceExample = () => {
             </svg>
             <button ref={myButton} onClick={() => { !playing ? playAnimation() : reset() }}>{"PLAY"}</button>
         </div>
+    </>)
+}
+
+export const ParticleExample = () => {
+    const num = 30;
+    const radius = 10;
+    const right = 490;
+    const left = 10;
+    const top = 490;
+    const bottom = 10;
+
+    const particleRefs = useRef<SVGCircleElement[]>([]);
+
+    const addToParticleRefs = (el: SVGCircleElement) => {
+        if (el) particleRefs.current?.push(el)
+    }
+
+    const getParticles = () => {
+        const arr = [];
+        for (let i = 0; i < num; i++) {
+            const xpos = 250;
+            const ypos = 250;
+            const xSpeed = Math.random() * 10 - 5;
+            const ySpeed = Math.random() * 10 - 5;
+            arr.push(<circle ref={addToParticleRefs} r={radius}
+                cx={xpos} cy={ypos} data-xspeed={xSpeed} data-yspeed={ySpeed} fill="black" />)
+        }
+
+        return arr;
+    }
+
+    const moveParticles = () => {
+        particleRefs.current?.forEach((particle) => {
+            let x = Number(particle.getAttribute("cx"));
+            let y = Number(particle.getAttribute("cy"));
+            let xspeed = Number(particle.getAttribute("data-xspeed"));
+            let yspeed = Number(particle.getAttribute("data-yspeed"));
+
+            if (x) {
+                x += xspeed;
+                if (x > right) {
+                    x = right;
+                    xspeed *= -1
+                } else if (x < left) {
+                    x = left;
+                    xspeed *= -1
+                }
+            }
+
+            if (y) {
+                y += yspeed;
+                if (y > top) {
+                    y = top;
+                    yspeed *= -1
+                } else if (y < bottom) {
+                    y = bottom;
+                    yspeed *= -1
+                }
+            }
+
+            particle.setAttribute("cx", String(x));
+            particle.setAttribute("cy", String(y));
+            particle.setAttribute("data-xspeed", String(xspeed));
+            particle.setAttribute("data-yspeed", String(yspeed));
+        })
+
+        window.requestAnimationFrame(moveParticles)
+    }
+
+    useEffect(() => {
+        moveParticles();
+    }, [])
+
+    return (<>
+        <svg width="500" height="500" viewBox="0 0 500 500" fill="none">
+            {getParticles()}
+        </svg>
     </>)
 }

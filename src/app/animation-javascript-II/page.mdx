@@ -5,6 +5,7 @@ import {
   AnimationFrameExample,
   SimpleBounceExample,
   ComplexBounceExample,
+  ParticleExample,
 } from "@/components/animationJSII";
 
 ## Pure JavaScript animations
@@ -234,4 +235,299 @@ Let's make this work in two dimensions by adding speed variables for both x and 
 
 <br />
 
-With hard-coded speed variables, the animation is the same every time. We’ll fix that by setting random values for x_speed and y_speed
+With hard-coded speed variables, the animation is the same every time. We’ll fix that by setting random values for x_speed and y_speed.
+
+<Blocks highlight="5,6">{`<script>
+    const circ = document.querySelector("#my-circle");
+    let xpos = 100; 
+    let ypos = 150;
+    let x_speed = Math.random() * 10 - 5; 
+    let y_speed = Math.random() * 10 - 5;
+
+    moveCircle();
+
+    function moveCircle(){
+        circ.setAttribute("cx", xpos);
+        circ.setAttribute("cy", ypos);
+        xpos += x_speed;
+        ypos += y_speed;
+
+        if(xpos > 190){
+            xpos = 190;
+            x_speed *= -1;
+        } else if(xpos < 10){
+            xpos = 10;
+            x_speed *= -1;
+        }
+
+        if(ypos > 290){
+            ypos = 290;
+            y_speed *= -1;
+        } else if(ypos < 10){
+            ypos = 10;
+            y_speed *= -1;
+        }
+
+        window.requestAnimationFrame(moveCircle);
+    }
+
+</script>
+`}</Blocks>
+
+<ComplexBounceExample randomized={true} />
+
+<br />
+
+Note: for the random speed values, I could have just multiplied a number by Math.random() like this:
+
+```
+let x_speed = Math.random() * 10;
+```
+
+The problem is that this would always result in a positive number. If I want to have a potential range of positive and negative values from x to -x, I need to do this
+
+```
+let value = Math.random() * <2x> - x;
+```
+
+So to get values from 5 to -5:
+
+```
+let x_speed = Math.random() * 10 - 5;
+```
+
+## simple particles
+
+This is all well and good for one bouncing particle, but what if we wanted more? What if we wanted dozens, or even hundreds? We’ll need to create a particle class for that. Let’s start with the constructor. We’ll want to pass in several variables as parameters, the x and y position, the radius, and the width and height of the svg.
+
+<Blocks>{`<script>
+class Particle {
+    constructor(x, y, r, w, h) {
+        this.x = x; this.y = y; this.r = r;
+        this.right = w - r;
+        this.top = h - r;
+        this.x_speed = Math.random() _ 10 - 5;
+        this.y_speed = Math.random() _ 10 - 5;
+        this.circ = null
+    }
+}</script>`}</Blocks>
+
+We used the w (width) and h (height) variables to create a **right** and **top** variable. These will be used for wall collision detection.
+
+Next, we’ll create an init method where we’ll dynamically create the circle element. We’ll need to pass in the “container” - the element that will hold all the particles.
+
+<Blocks highlight="12-14">{`<script>
+class Particle {
+    constructor(x, y, r, w, h) {
+        this.x = x; this.y = y; this.r = r;
+        this.right = w - r;
+        this.top = h - r;
+        this.x_speed = Math.random() _ 10 - 5;
+        this.y_speed = Math.random() _ 10 - 5;
+        this.circ = null
+    }
+
+    init(container){
+        // ... initialization code will go here
+    }
+
+}</script>`}</Blocks>
+
+Now we'll dynamically create a circle element and add it to the container using the techniques we learned in the **Changing SVGs Dynamically** section
+
+<Blocks highlight="12-19">{`<script>
+class Particle {
+    constructor(x, y, r, w, h) {
+        this.x = x; this.y = y; this.r = r;
+        this.right = w - r;
+        this.top = h - r;
+        this.x_speed = Math.random() _ 10 - 5;
+        this.y_speed = Math.random() _ 10 - 5;
+        this.circ = null
+    }
+
+    init(container){
+        const namespace = "http://www.w3.org/2000/svg";
+        this.circ = document.createElementNS(namespace, "circle");
+        this.circ.setAttribute("cx", this.x);
+        this.circ.setAttribute("cy", this.y);
+        this.circ.setAttribute("r", this.r);
+        container.appendChild(this.circ);
+    }
+
+}</script>`}</Blocks>
+
+Now we’ll add an “update” method that will be used to change the circle’s position.
+
+<Blocks highlight="21-24">{`<script>
+class Particle {
+    constructor(x, y, r, w, h) {
+        this.x = x; this.y = y; this.r = r;
+        this.right = w - r;
+        this.top = h - r;
+        this.x_speed = Math.random() _ 10 - 5;
+        this.y_speed = Math.random() _ 10 - 5;
+        this.circ = null
+    }
+
+    init(container){
+        const namespace = "http://www.w3.org/2000/svg";
+        this.circ = document.createElementNS(namespace, "circle");
+        this.circ.setAttribute("cx", this.x);
+        this.circ.setAttribute("cy", this.y);
+        this.circ.setAttribute("r", this.r);
+        container.appendChild(this.circ);
+    }
+
+    update() {
+       this.x += this.x_speed;
+       this.y += this.y_speed;
+    }
+
+}</script>`}</Blocks>
+
+Next we'll add the method we created earlier to bounce the particle off the walls.
+
+<Blocks highlight="14,17-32">{`<script>
+class Particle {
+    constructor(x, y, r, w, h) {
+        // constructor code
+    }
+
+    init(container){
+        // init code
+    }
+
+    update() {
+       this.x += this.x_speed;
+       this.y += this.y_speed;
+       this.bounceIfNeeded();
+    }
+
+    bounceIfNeeded() {
+        if (this.x > this.right) {
+            this.x = this.right;
+            this.x_speed *= -1;
+        } else if (this.x < this.r) {
+            this.x = this.r;
+            this.x_speed *= -1;
+        }
+        if (this.y > this.top) {
+            this.y = this.top;
+            this.y_speed *= -1;
+        } else if (this.y < this.r) {
+            this.y = this.r;
+            this.y_speed *= -1;
+        }
+    }
+
+}</script>`}</Blocks>
+
+Note that we're using the **right** and **top** variables for collision detection. It's a lot cleaner and more readable to use variables than hard-coded values.
+
+<Blocks highlight="19-22">{`<script>
+class Particle {
+    constructor(x, y, r, w, h) {
+        // constructor code
+    }
+
+    init(container){
+        // init code
+    }
+
+    update() {
+       // update code
+    }
+
+    bounceIfNeeded() {
+        // bounce code
+    }
+
+    draw(){
+        this.circ.setAttribute("cx", this.x);
+        this.circ.setAttribute("cy", this.y);
+    }
+
+}</script>`}</Blocks>
+
+Now let’s put the particle class in action. We’ll need an array to hold all the particles, a variable for the number of particles, and a reference to the svg
+
+<Blocks highlight="2,10-12">{`<body>
+    <svg id="particle-holder" ...>
+    </svg>
+</body>
+<script>
+    class Particle {
+        // particle code
+    }
+
+    const particles = [];
+    const num_particles = 30;
+    const svg = document.querySelector("#particle-holder");
+
+</script>`}</Blocks>
+
+Let’s initialize all of the particles. We’ll pass each a starting x and y position (250, 250), a radius (15), and the size of the svg (500x500).
+
+<Blocks highlight="14,16-21">{`<body>
+    <svg id="particle-holder" ...>
+    </svg>
+</body>
+<script>
+    class Particle {
+        // particle code
+    }
+
+    const particles = [];
+    const num_particles = 30;
+    const svg = document.querySelector("#particle-holder");
+
+    initParticles();
+
+    function initParticles() {
+        for (let i = 0; i < num_particles; i++) {
+            const part = new Particle(250, 250, 15, 500, 500);
+            part.init(svg);
+            particles.push(part)
+        }
+    }
+
+</script>`}</Blocks>
+
+Finally we’ll create a **moveParticles** method that will call each particle's _update()_ method. Note that the moveParticles uses requestAnimationFrame to call itself every frame.
+
+<Blocks highlight="15,25-31">{`<body>
+    <svg id="particle-holder" ...>
+    </svg>
+</body>
+<script>
+    class Particle {
+        // particle code
+    }
+
+    const particles = [];
+    const num_particles = 30;
+    const svg = document.querySelector("#particle-holder");
+
+    initParticles();
+    moveParticles();
+
+    function initParticles() {
+        for (let i = 0; i < num_particles; i++) {
+            const part = new Particle(250, 250, 15, 500, 500);
+            part.init(svg);
+            particles.push(part)
+        }
+    }
+
+    function moveParticles() {
+        particles.forEach((part) => {
+            part.update();
+        })
+
+        window.requestAnimationFrame(moveParticles)
+    }
+
+</script>`}</Blocks>
+
+<ParticleExample />
