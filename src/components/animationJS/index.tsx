@@ -7,6 +7,13 @@ export const FrameRateExample = () => {
     return (<>
         <div className={styles.imageHolder}>
             <figure>
+                <figcaption>10 fps</figcaption><img className={styles.image}
+                    src="/javascript_animation_balloon_10fps.gif"
+                    alt="image"
+                    width="300"
+                    height="300"
+                /></figure>
+            <figure>
                 <figcaption>30 fps</figcaption>
                 <img className={styles.image}
                     src="/javascript_animation_balloon_30fps.gif"
@@ -15,13 +22,8 @@ export const FrameRateExample = () => {
                     height="300px"
                 />
 
-            </figure><figure>
-                <figcaption>10 fps</figcaption><img className={styles.image}
-                    src="/javascript_animation_balloon_10fps.gif"
-                    alt="image"
-                    width="300"
-                    height="300"
-                /></figure></div>
+            </figure>
+        </div>
 
     </>)
 }
@@ -77,23 +79,26 @@ export const AnimEnd = () => {
     const animEndHandler = () => {
         console.log('animation end');
         square.current?.removeEventListener("animationend", animEndHandler);
-        //square.current?.classList.remove(styles.firstPartAnimation);
-        square.current?.classList.add(styles.secondPartAnimation);
+        //square.current?.classList.remove(styles.shrinkAnimation);
+        square.current?.classList.add(styles.expandAnimation);
     }
 
     const reset = () => {
-        square.current?.classList.remove(styles.secondPartAnimation);
-        square.current?.classList.remove(styles.firstPartAnimation);
+        square.current?.classList.remove(styles.expandAnimation);
+        square.current?.classList.remove(styles.shrinkAnimation);
         square.current?.removeEventListener("animationend", animEndHandler);
+        setStarted(false)
     }
     const [started, setStarted] = useState(false)
     return (<>
         <div className={styles.containerWithButton}>
             <svg width="500" height="500" viewBox="0 0 500 500">
                 <g id="square" transform="translate(250 250)" onClick={() => {
+
                     const list = square.current?.classList;
-                    if (!list?.contains(styles.firstPartAnimation)) {
-                        square.current?.classList.add(styles.firstPartAnimation);
+                    if (!started) {
+                        setStarted(true);
+                        square.current?.classList.add(styles.shrinkAnimation);
                         square.current?.addEventListener("animationend", animEndHandler)
                     }
 
@@ -108,9 +113,9 @@ export const AnimEnd = () => {
                         width="300" height="300"
 
                     />
-                    <text className={styles.clickMeText} x="0" y="0" fill="black" textAnchor='middle' dominantBaseline={"middle"}>Click Me!</text>
+                    {!started && <text className={styles.clickMeText} x="0" y="0" fill="black" textAnchor='middle' dominantBaseline={"middle"}>Click Me!</text>}
                 </g>
             </svg>
-            <button onClick={() => { reset() }}>{"reset"}</button>
+            {started && <button onClick={() => { reset() }}>{"reset"}</button>}
         </div></>)
 }

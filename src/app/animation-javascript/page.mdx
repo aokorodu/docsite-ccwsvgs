@@ -199,4 +199,77 @@ Now it works!
 
 <ToggleClassWithJS />
 
+### animationend event
+
+Another tool we can use to make css animations more robust is the "animationend" event. It allows us to listen for the end of css animations using javascript.
+
+In the following example we'll listen for the end of one animation and trigger the next when it occurs. Here's the animation CSS classes and keyframes. **TLDR;** the **shrinkAnimation** shrinks the cube and the **expandAnimation** expands it.
+
+<Blocks>
+  {`.shrinkAnimation {
+  animation-name: shrink;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+    @keyframes shrink {
+      from {
+        transform: scale(1);
+      }
+      to {
+        transform: scale(0.5);
+      }
+    }
+
+    .expandAnimation {
+      animation-name: expand;
+      animation-duration: 1s;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: both;
+    }
+
+    @keyframes expand {
+      from {
+        transform: scale(0.5);
+      }
+      to {
+        transform: scale(1);
+      fill: red;
+    }
+
+}`}
+
+</Blocks>
+
+First we'll add a click event handler to the square, and use it to add the shrink animation.
+
+<Blocks>
+  {`<script>
+  const square = document.querySelector("#square");
+  
+  square.addEventListener("click", () => {
+        square.classList.add("shrinkAnimation")
+    })
+  </script>`}
+</Blocks>
+
+Next we'll add an "animationend" event listener to the square, and use it to both remove the shrinkAnimation class and add the expandAnimation:
+
+<Blocks highlight="8,9,10,11">
+  {`<script>
+  const square = document.querySelector("#square");
+  
+  square.addEventListener("click", () => {
+        square.classList.add("shrinkAnimation")
+    })
+
+    square.addEventListener('animationend', () => {
+        square.classList.remove("shrinkAnimation")
+        square.classList.add("expandAnimation")
+    });
+
+  </script>`}
+</Blocks>
+
 <AnimEnd />
