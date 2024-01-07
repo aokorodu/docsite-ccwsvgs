@@ -87,6 +87,7 @@ export const navConfig = {
         { title: "css", link: "/animation-css" },
         { title: "more css", link: "/animation-css-II" },
         { title: "javascript", link: "/animation-javascript" },
+        { title: "more javascript", link: "/animation-javascript-II" },
         { title: "SMIL", link: "" },
         { title: "Sprites", link: "" },
       ],
