@@ -1,5 +1,10 @@
 import Blocks from "@/components/blocks";
-import { FrameRateExample } from "@/components/animationJS";
+import {
+  FrameRateExample,
+  ToggleClassWithJS,
+  ToggleKeyframeAnimBroke,
+  AnimEnd,
+} from "@/components/animationJS";
 
 # JavaScript Animation
 
@@ -17,7 +22,9 @@ The rate at which the images change is called the frame rate. The faster the fra
 
 Browsers optimally render at a frame rate of about 60 fps, but the framerate can be affected by lots of factors.
 
-## Using JavaScript to add/remove CSS animations/transitions
+## Using JavaScript toggle animations/transitions
+
+### toggling transitions
 
 One way to using javascript is to dynamically add and/or remove css transition or animation classes.
 
@@ -78,7 +85,7 @@ We'll use querySelector to get a reference to the square using it's id:
 
 Next we'll add a click event listener to the square.
 
-<Blocks>
+<Blocks highlight="3-5">
   {`<script>
    const square = document.querySelector("#square");
    square.addEventListener("click", () => {
@@ -89,7 +96,7 @@ Next we'll add a click event listener to the square.
 
 Finally we'll use the **classList** property that returns a **DOMTokenList** of classes currently applied to an element. The DomTokenList has a **contains** method that we can use to see if the _spin-style-transition_ class is part of the classlist. If so, we'll remove it. If not, we'll add it.
 
-<Blocks>
+<Blocks highlight="4-8">
   {`<script>
     const square = document.querySelector("#square");
     square.addEventListener("click", () => {
@@ -100,3 +107,96 @@ Finally we'll use the **classList** property that returns a **DOMTokenList** of 
  })
 </script>`}
 </Blocks>
+
+<ToggleClassWithJS />
+
+### toggling keyframe animations
+
+We can also toggle keyframe animations.
+
+<Blocks>
+  {`<style>
+  .square-style {
+      transform: rotate(0deg);
+  }
+
+    .spin-style-animation {
+      animation-name: spin;
+      animation-duration: 1s;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes spin {
+      from {transform: rotate(0deg)}
+      to {transform: rotate(360deg)}
+    }
+
+</style>`}
+</Blocks>
+
+<Blocks highlight="4-8">
+  {`<script>
+    const square = document.querySelector("#square");
+    square.addEventListener("click", () => {
+        const list = square.classList;
+        list.contains("spin-style-animation") 
+        ? square.classList.remove("spin-style-animation") 
+        : square.classList.add("spin-style-animation")
+
+})
+
+</script>`}
+</Blocks>
+
+If we simply try to swap out the transitions for the keyframe animation, the animation doesn't toggle like it did with the transitions. The first click works, but nothing seems to happen with the second click. Why?
+
+<ToggleKeyframeAnimBroke />
+
+Removing the animation class doesn't trigger a transition - the element just reverts back to what it was before. On the second click, the animation class is removed, and it reverts to the original transform rotation, which is 0. But it doesn't transition to the original value, it just "pops" back into place.
+
+The solution: we swap animation classes. Let's create the forwards (spin) and backwards (spinBack) animations:
+
+<Blocks>
+  {`<style>
+   .spin-style-animation {
+       animation: spin 1s ease-in-out;
+   }
+
+    .spin-back-style-animation {
+      animation: spinBack 1s ease-in-out;
+    }
+
+    @keyframes spin {
+        from {transform: rotate(0deg)}
+        to { transform: rotate(360deg)}
+    }
+
+    @keyframes spinBack {
+        from {transform: rotate(360deg)}
+        to {transform: rotate(0deg)}
+    }
+
+</style>`}
+</Blocks>
+
+Now we'll use javascript to swap them out.
+
+<Blocks>
+  {`square.addEventListener("click", () => {
+    const list = square.classList;
+    if(list.contains("spin-style-animation")){
+        square.classList.remove("spin-style-animation")
+        square.classList.add("spin-back-style-animation")
+    } else {
+        square.classList.add("spin-style-animation")
+        square.classList.remove("spin-back-style-animation")
+    }
+})`}
+</Blocks>
+
+Now it works!
+
+<ToggleClassWithJS />
+
+<AnimEnd />

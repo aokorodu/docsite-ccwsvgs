@@ -7,9 +7,10 @@ type Props = {
     title: string | null;
     caption: string | null;
     children: string;
+    highlight: string;
 }
 
-const Blocks = ({ caption, title, children }: Props) => {
+const Blocks = ({ caption, title, highlight, children }: Props) => {
     const lang = children.indexOf("<") == -1 ? "css" : "html";
     return (
         <>
@@ -18,7 +19,8 @@ const Blocks = ({ caption, title, children }: Props) => {
                 <CopyBlock
                     text={children}
                     language={lang}
-                    showLineNumbers={false}
+                    showLineNumbers={true}
+                    highlight={highlight}
                     theme={dracula}
                     codeBlock
                 />
