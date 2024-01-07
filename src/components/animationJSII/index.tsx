@@ -140,3 +140,79 @@ export const SimpleBounceExample = ({ top = false }: SimpleBounceProps) => {
         </div>
     </>)
 }
+
+export const ComplexBounceExample = () => {
+    let animID: number = 0;
+    const myCircle = useRef<SVGCircleElement>(null);
+    const myButton = useRef<HTMLButtonElement>(null)
+    let playing = false;
+    const startPos = {
+        x: 100,
+        y: 150
+    }
+    let pos = {
+        x: 100,
+        y: 150
+    }
+
+    const speed = {
+        x: 1,
+        y: 1
+    }
+
+    const playAnimation = () => {
+        console.log("playAnimation")
+        playing = true;
+        moveCircle();
+        if (myButton.current) myButton.current.textContent = "RESET";
+    }
+
+    const moveCircle = () => {
+        if (!playing) return;
+        pos.x += speed.x;
+        pos.y += speed.y;
+
+        if (pos.x > 190) {
+            pos.x = 190;
+            speed.x *= -1;
+        }
+        if (pos.x < 10) {
+            pos.x = 10;
+            speed.x *= -1;
+        }
+
+        if (pos.y > 290) {
+            pos.y = 290;
+            speed.y *= -1;
+        }
+        if (pos.y < 10) {
+            pos.y = 10;
+            speed.y *= -1;
+        }
+
+
+        myCircle.current?.setAttribute("cx", String(pos.x));
+        myCircle.current?.setAttribute("cy", String(pos.y));
+
+        animID = window.requestAnimationFrame(moveCircle);
+    }
+
+    const reset = () => {
+        console.log('reset')
+        pos.x = startPos.x;
+        pos.y = startPos.y;
+        myCircle.current?.setAttribute("cx", String(pos.x));
+        myCircle.current?.setAttribute("cy", String(pos.y));
+        if (myButton.current) myButton.current.textContent = "PLAY";
+        playing = false;
+        window.cancelAnimationFrame(animID);
+    }
+    return (<>
+        <div className={styles.containerWithButton}>
+            <svg width="200" height="300" viewBox="0 0 200 300">
+                <circle ref={myCircle} cx="100" cy="150" r="10" fill="green" />
+            </svg>
+            <button ref={myButton} onClick={() => { !playing ? playAnimation() : reset() }}>{"PLAY"}</button>
+        </div>
+    </>)
+}

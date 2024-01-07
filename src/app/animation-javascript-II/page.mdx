@@ -4,6 +4,7 @@ import {
   FailExample,
   AnimationFrameExample,
   SimpleBounceExample,
+  ComplexBounceExample,
 } from "@/components/animationJSII";
 
 ## Pure JavaScript animations
@@ -187,3 +188,50 @@ As you can see, the ball bounces off the bottom but not the top. We’ll also ne
 `}</Blocks>
 
 <SimpleBounceExample top={true} />
+
+<br />
+
+Let's make this work in two dimensions by adding speed variables for both x and y, and updating the speed variables when the ball collides with ANY of the walls.
+
+<Blocks highlight="3,4,5,6,11,12,13,14,16,17,18,19,20,21,22, 24,25,26,27,28,29,30">{`<script>
+    const circ = document.querySelector("#my-circle");
+    let xpos = 100; 
+    let ypos = 150;
+    let x_speed = 1; 
+    let y_speed = 1;
+
+    moveCircle();
+
+    function moveCircle(){
+        circ.setAttribute("cx", xpos);
+        circ.setAttribute("cy", ypos);
+        xpos += x_speed;
+        ypos += y_speed;
+
+        if(xpos > 190){
+            xpos = 190;
+            x_speed *= -1;
+        } else if(xpos < 10){
+            xpos = 10;
+            x_speed *= -1;
+        }
+
+        if(ypos > 290){
+            ypos = 290;
+            y_speed *= -1;
+        } else if(ypos < 10){
+            ypos = 10;
+            y_speed *= -1;
+        }
+
+        window.requestAnimationFrame(moveCircle);
+    }
+
+</script>
+`}</Blocks>
+
+<ComplexBounceExample />
+
+<br />
+
+With hard-coded speed variables, the animation is the same every time. We’ll fix that by setting random values for x_speed and y_speed
