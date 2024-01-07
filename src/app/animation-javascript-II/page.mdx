@@ -3,6 +3,7 @@ import {
   BackAndForthExample,
   FailExample,
   AnimationFrameExample,
+  SimpleBounceExample,
 } from "@/components/animationJSII";
 
 ## Pure JavaScript animations
@@ -63,7 +64,7 @@ In order to animate the circle, we’ll need to update it’s position once per 
 
 First, let’s create a method that increments the circle’s cy attribute:
 
-<Blocks>{`
+<Blocks>{`<script>
     const circ = document.querySelector("#my-circle");
     let ypos = 10;
 
@@ -74,27 +75,115 @@ First, let’s create a method that increments the circle’s cy attribute:
         ypos += 1;
     }
 
+</script>
 `}</Blocks>
 
 As a reminder, the browser has a own frame rate of about 60 fps. This means that it _repaints_ itself 60 times per second. The **requestAnimationFrame** method is used to call an animation function prior to “repainting” the screen. So you’ll want to pass it a function that updates some visual aspect of the svg - in this case, the moveCircle() method.
 
-We'll recursively call the moveCircle method by adding the window.requestAnimationFrame to the end of the function. So the function runs, updates the cy value, and then calls itself to run again on the next frame.
+We'll recursively call the moveCircle method by adding the window.requestAnimationFrame to the end of the function. So the function runs, updates the cy value, and then calls itself to run again on the next frame. The method keeps going until cy >= 290. Once it reaches that value, a return statement prevents the requestAnimationFrame method from being called again.
 
-<Blocks>{`
+<Blocks>{`<script>
     const circ = document.querySelector("#my-circle");
     let ypos = 10;
 
     moveCircle();
 
     function moveCircle(){
-        circ.setAttribute("cy", ypos);
         ypos += 1;
+        circ.setAttribute("cy", ypos);
+
+        if(ypos >= 290) return;
 
         window.requestAnimationFrame(moveCircle);
     }
 
+</script>
 `}</Blocks>
 
 <AnimationFrameExample />
 
 <Blocks>{``}</Blocks>
+
+Instead of just stopping, let's make the ball bounce off the wall and head the other direction. In order to do this, we'll need to create a _speed_ variable.
+
+```
+let speed = 1;
+```
+
+<Blocks highlight="4">{`<script>
+    const circ = document.querySelector("#my-circle");
+    let ypos = 10;
+    let speed = 1;
+
+    moveCircle();
+
+    function moveCircle(){
+        ypos += 1;
+        circ.setAttribute("cy", ypos);
+
+        if(ypos >= 290) return;
+
+        window.requestAnimationFrame(moveCircle);
+    }
+
+</script>
+`}</Blocks>
+
+Now let's update the _moveCircle_ method so that when the ypos variable is greaterthan or equal to 290, whe change the speed variable so the ball heads in the opposite direction. An easy way to do this is to just multiply it by -1.
+
+<Blocks highlight="12,13,14,15">{`<script>
+    const circ = document.querySelector("#my-circle");
+    let ypos = 10;
+    let speed = 1;
+
+    moveCircle();
+
+    function moveCircle(){
+        ypos += 1;
+        circ.setAttribute("cy", ypos);
+
+        if(ypos >= 290){
+            speed *= -1;
+            ypos = 290;
+        }
+
+        window.requestAnimationFrame(moveCircle);
+    }
+
+</script>
+`}</Blocks>
+
+<SimpleBounceExample />
+
+<br />
+
+As you can see, the ball bounces off the bottom but not the top. We’ll also need to reverse the speed when the circle hits the top edge of the svg (ypos < 10).
+
+<Blocks highlight="12,13,14,15, 17,18,19,20">{`<script>
+    const circ = document.querySelector("#my-circle");
+    let ypos = 10;
+    let speed = 1;
+
+    moveCircle();
+
+    function moveCircle(){
+        ypos += 1;
+        circ.setAttribute("cy", ypos);
+
+        if(ypos >= 290){
+            speed *= -1;
+            ypos = 290;
+        }
+
+        if(ypos < 10){
+            speed *= -1;
+            ypos = 10;
+        }
+
+        window.requestAnimationFrame(moveCircle);
+    }
+
+</script>
+`}</Blocks>
+
+<SimpleBounceExample top={true} />

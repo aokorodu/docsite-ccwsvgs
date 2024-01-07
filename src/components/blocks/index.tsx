@@ -1,7 +1,7 @@
 'use client'
 import styles from './Block.module.scss';
 
-import { CopyBlock, dracula } from "react-code-blocks";
+import { CopyBlock, solarizedDark, shadesOfPurple } from "react-code-blocks";
 
 type Props = {
     title: string | null;
@@ -21,7 +21,7 @@ const Blocks = ({ caption, title, highlight, children }: Props) => {
                     language={lang}
                     showLineNumbers={true}
                     highlight={highlight}
-                    theme={dracula}
+                    theme={shadesOfPurple}
                     codeBlock
                 />
                 <div>{caption}</div>
