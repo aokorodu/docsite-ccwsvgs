@@ -333,9 +333,9 @@ class Particle {
 
 }</script>`}</Blocks>
 
-Now we'll dynamically create a circle element and add it to the container using the techniques we learned in the **Changing SVGs Dynamically** section
+Now we'll dynamically create a circle element, add some styling, and add it to the container using the techniques we learned in the **Changing SVGs Dynamically** section
 
-<Blocks highlight="12-19">{`<script>
+<Blocks highlight="12-22">{`<script>
 class Particle {
     constructor(x, y, r, w, h) {
         this.x = x; this.y = y; this.r = r;
@@ -352,6 +352,9 @@ class Particle {
         this.circ.setAttribute("cx", this.x);
         this.circ.setAttribute("cy", this.y);
         this.circ.setAttribute("r", this.r);
+        this.circ.setAttribute("fill", "orange");
+        this.circ.setAttribute("stroke", "black");
+        this.circ.setAttribute("stroke-width", "3");
         container.appendChild(this.circ);
     }
 
@@ -359,7 +362,7 @@ class Particle {
 
 Now we’ll add an “update” method that will be used to change the circle’s position.
 
-<Blocks highlight="21-24">{`<script>
+<Blocks highlight="24-27">{`<script>
 class Particle {
     constructor(x, y, r, w, h) {
         this.x = x; this.y = y; this.r = r;
@@ -375,7 +378,10 @@ class Particle {
         this.circ = document.createElementNS(namespace, "circle");
         this.circ.setAttribute("cx", this.x);
         this.circ.setAttribute("cy", this.y);
-        this.circ.setAttribute("r", this.r);
+         this.circ.setAttribute("r", this.r);
+        this.circ.setAttribute("fill", "orange");
+        this.circ.setAttribute("stroke", "black");
+        this.circ.setAttribute("stroke-width", "3");this.r);
         container.appendChild(this.circ);
     }
 

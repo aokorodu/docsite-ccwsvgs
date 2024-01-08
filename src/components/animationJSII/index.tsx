@@ -225,12 +225,13 @@ export const ComplexBounceExample = ({ randomized = false }: ComplexBounceProps)
 
 export const ParticleExample = () => {
     const num = 30;
-    const radius = 10;
-    const right = 490;
-    const left = 10;
-    const top = 490;
-    const bottom = 10;
-
+    const radius = 15;
+    const right = 485;
+    const left = 15;
+    const top = 485;
+    const bottom = 15;
+    let playing = false;
+    const buttonRef = useRef<HTMLButtonElement>(null);
     const particleRefs = useRef<SVGCircleElement[]>([]);
 
     const addToParticleRefs = (el: SVGCircleElement) => {
@@ -245,13 +246,25 @@ export const ParticleExample = () => {
             const xSpeed = Math.random() * 10 - 5;
             const ySpeed = Math.random() * 10 - 5;
             arr.push(<circle ref={addToParticleRefs} r={radius}
-                cx={xpos} cy={ypos} data-xspeed={xSpeed} data-yspeed={ySpeed} fill="black" />)
+                cx={xpos} cy={ypos} data-xspeed={xSpeed} data-yspeed={ySpeed} fill="orange" stroke="black" strokeWidth={3} />)
         }
 
         return arr;
     }
 
+    const togglePlay = () => {
+        playing = !playing;
+        if (buttonRef.current) {
+            const str = playing ? "STOP" : "PLAY";
+            buttonRef.current.textContent = str;
+        }
+
+        moveParticles()
+    }
+
     const moveParticles = () => {
+        if (!playing) return;
+
         particleRefs.current?.forEach((particle) => {
             let x = Number(particle.getAttribute("cx"));
             let y = Number(particle.getAttribute("cy"));
@@ -294,8 +307,11 @@ export const ParticleExample = () => {
     }, [])
 
     return (<>
-        <svg width="500" height="500" viewBox="0 0 500 500" fill="none">
-            {getParticles()}
-        </svg>
+        <div className={styles.containerWithButton}>
+            <svg width="500" height="500" viewBox="0 0 500 500" fill="none">
+                {getParticles()}
+            </svg>
+            <button ref={buttonRef} onClick={togglePlay}>{"PLAY"}</button>
+        </div>
     </>)
 }
