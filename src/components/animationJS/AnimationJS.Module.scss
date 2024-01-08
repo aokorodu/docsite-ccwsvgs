@@ -1,0 +1,77 @@
+.imageHolder {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.image {
+  width: 300px;
+  height: 300px;
+  border: 1px solid black;
+}
+
+.squareStyle {
+  fill: cornflowerblue;
+  transform: rotate(0deg);
+  transition: 500ms ease-in-out;
+}
+
+.spinStyleTransition {
+  transform: rotate(360deg);
+}
+
+.spinStyleAnimation {
+  animation-name: spin;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.shrinkAnimation {
+  animation-name: shrink;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes shrink {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.5);
+  }
+}
+
+.expandAnimation {
+  animation-name: expand;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+}
+
+@keyframes expand {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+    fill: red;
+  }
+}
+
+.containerWithButton {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}

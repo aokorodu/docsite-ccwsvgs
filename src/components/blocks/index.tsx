@@ -1,15 +1,16 @@
 'use client'
 import styles from './Block.module.scss';
 
-import { CopyBlock, dracula } from "react-code-blocks";
+import { CopyBlock, solarizedDark, shadesOfPurple } from "react-code-blocks";
 
 type Props = {
     title: string | null;
     caption: string | null;
     children: string;
+    highlight: string;
 }
 
-const Blocks = ({ caption, title, children }: Props) => {
+const Blocks = ({ caption, title, highlight, children }: Props) => {
     const lang = children.indexOf("<") == -1 ? "css" : "html";
     return (
         <>
@@ -19,7 +20,8 @@ const Blocks = ({ caption, title, children }: Props) => {
                     text={children}
                     language={lang}
                     showLineNumbers={true}
-                    theme={dracula}
+                    highlight={highlight}
+                    theme={shadesOfPurple}
                     codeBlock
                 />
                 <div>{caption}</div>

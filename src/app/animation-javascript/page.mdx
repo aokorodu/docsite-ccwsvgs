@@ -1,0 +1,275 @@
+import Blocks from "@/components/blocks";
+import {
+  FrameRateExample,
+  ToggleClassWithJS,
+  ToggleKeyframeAnimBroke,
+  AnimEnd,
+} from "@/components/animationJS";
+
+# JavaScript Animation
+
+Using javascript to animate an svg is recommended for more complex, dynamic animations. Javascript allows you to animate a wider range of svg attributes and elements, like the viewbox and filters, making it much more powerful option than CSS animations.
+
+## framerates
+
+Animation is an illusion created by showing a series of slightly different still images in rapid succession. If the images change slowly we won't perceive the images as animation. We'll just perceive a series of still pictures. The faster the images change, the smoother and more fluid the motion appears.
+
+![javascript_anim_race_horse.gif](javascript_anim_race_horse.gif)
+
+The rate at which the images change is called the frame rate. The faster the frame rate, the smoother the animation.
+
+<FrameRateExample />
+
+Browsers optimally render at a frame rate of about 60 fps, but the framerate can be affected by lots of factors.
+
+## Using JavaScript to toggle CSS animations
+
+### toggling transitions
+
+One way to using javascript is to dynamically add and/or remove css transition or animation classes.
+
+For example, let's add a rotation animation to this square
+
+<Blocks>
+  {`<svg width="500" height="500" viewbox="0 0 500 500">
+  <g id="square" transform="translate(250 250)">
+    <rect
+      class="square-style"
+      x="-150" y="-150"
+      width="300" height="300"
+      ...
+    />
+  </g>
+</svg>`}
+</Blocks>
+
+<svg width="500" height="500" viewbox="0 0 500 500">
+  <g id="holder" transform="translate(250 250)">
+    <rect
+      id="square"
+      class="square-style"
+      x="-150"
+      y="-150"
+      width="300"
+      height="300"
+      rx="10"
+      ry="10"
+      fill="cornflowerblue"
+    />
+  </g>
+</svg>
+
+First, let's set up a style that sets up the initial rotation transform and the transition properties (**square-style**). We'll create a second class, (**spin-style-transition**), that we'll apply to the element dynamically using javascript.
+
+<Blocks>
+  {`<style>
+   .square-style {
+       transform: rotate(0deg);
+       transition: 500ms ease-in-out;
+   }
+
+    .spin-style-transition {
+        transform: rotate(360deg);
+    }.
+
+</style>`}
+</Blocks>
+
+We'll use querySelector to get a reference to the square using it's id:
+
+<Blocks>
+  {`<script>
+   const square = document.querySelector("#square");
+</script>`}
+</Blocks>
+
+Next we'll add a click event listener to the square.
+
+<Blocks highlight="3-5">
+  {`<script>
+   const square = document.querySelector("#square");
+   square.addEventListener("click", () => {
+	// code goes here
+ })
+</script>`}
+</Blocks>
+
+Finally we'll use the **classList** property that returns a **DOMTokenList** of classes currently applied to an element. The DomTokenList has a **contains** method that we can use to see if the _spin-style-transition_ class is part of the classlist. If so, we'll remove it. If not, we'll add it.
+
+<Blocks highlight="4-8">
+  {`<script>
+    const square = document.querySelector("#square");
+    square.addEventListener("click", () => {
+        const list = square.classList;
+        list.contains("spin-style-transition") 
+        ? square.classList.remove("spin-style-transition") 
+        : square.classList.add("spin-style-transition")
+ })
+</script>`}
+</Blocks>
+
+<ToggleClassWithJS />
+
+### toggling keyframe animations
+
+We can also toggle keyframe animations.
+
+<Blocks>
+  {`<style>
+  .square-style {
+      transform: rotate(0deg);
+  }
+
+    .spin-style-animation {
+      animation-name: spin;
+      animation-duration: 1s;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes spin {
+      from {transform: rotate(0deg)}
+      to {transform: rotate(360deg)}
+    }
+
+</style>`}
+</Blocks>
+
+<Blocks highlight="4-8">
+  {`<script>
+    const square = document.querySelector("#square");
+    square.addEventListener("click", () => {
+        const list = square.classList;
+        list.contains("spin-style-animation") 
+        ? square.classList.remove("spin-style-animation") 
+        : square.classList.add("spin-style-animation")
+
+})
+
+</script>`}
+</Blocks>
+
+If we simply try to swap out the transitions for the keyframe animation, the animation doesn't toggle like it did with the transitions. The first click works, but nothing seems to happen with the second click. Why?
+
+<ToggleKeyframeAnimBroke />
+
+Removing the animation class doesn't trigger a transition - the element just reverts back to what it was before. On the second click, the animation class is removed, and it reverts to the original transform rotation, which is 0. But it doesn't transition to the original value, it just "pops" back into place.
+
+The solution: we swap animation classes. Let's create the forwards (spin) and backwards (spinBack) animations:
+
+<Blocks>
+  {`<style>
+   .spin-style-animation {
+       animation: spin 1s ease-in-out;
+   }
+
+    .spin-back-style-animation {
+      animation: spinBack 1s ease-in-out;
+    }
+
+    @keyframes spin {
+        from {transform: rotate(0deg)}
+        to { transform: rotate(360deg)}
+    }
+
+    @keyframes spinBack {
+        from {transform: rotate(360deg)}
+        to {transform: rotate(0deg)}
+    }
+
+</style>`}
+</Blocks>
+
+Now we'll use javascript to swap them out.
+
+<Blocks>
+  {`square.addEventListener("click", () => {
+    const list = square.classList;
+    if(list.contains("spin-style-animation")){
+        square.classList.remove("spin-style-animation")
+        square.classList.add("spin-back-style-animation")
+    } else {
+        square.classList.add("spin-style-animation")
+        square.classList.remove("spin-back-style-animation")
+    }
+})`}
+</Blocks>
+
+Now it works!
+
+<ToggleClassWithJS />
+
+### animationend event
+
+Another tool we can use to make css animations more robust is the "animationend" event. It allows us to listen for the end of css animations using javascript.
+
+In the following example we'll listen for the end of one animation and trigger the next when it occurs. Here's the animation CSS classes and keyframes. **TLDR;** the **shrinkAnimation** shrinks the cube and the **expandAnimation** expands it.
+
+<Blocks>
+  {`.shrinkAnimation {
+  animation-name: shrink;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+    @keyframes shrink {
+      from {
+        transform: scale(1);
+      }
+      to {
+        transform: scale(0.5);
+      }
+    }
+
+    .expandAnimation {
+      animation-name: expand;
+      animation-duration: 1s;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: both;
+    }
+
+    @keyframes expand {
+      from {
+        transform: scale(0.5);
+      }
+      to {
+        transform: scale(1);
+      fill: red;
+    }
+
+}`}
+
+</Blocks>
+
+First we'll add a click event handler to the square, and use it to add the shrink animation.
+
+<Blocks>
+  {`<script>
+  const square = document.querySelector("#square");
+  
+  square.addEventListener("click", () => {
+        square.classList.add("shrinkAnimation")
+    })
+  </script>`}
+</Blocks>
+
+Next we'll add an "animationend" event listener to the square, and use it to both remove the shrinkAnimation class and add the expandAnimation:
+
+<Blocks highlight="8,9,10,11">
+  {`<script>
+  const square = document.querySelector("#square");
+  
+  square.addEventListener("click", () => {
+        square.classList.add("shrinkAnimation")
+    })
+
+    square.addEventListener('animationend', () => {
+        square.classList.remove("shrinkAnimation")
+        square.classList.add("expandAnimation")
+    });
+
+  </script>`}
+</Blocks>
+
+<AnimEnd />
