@@ -1,0 +1,90 @@
+import Blocks from "@/components/blocks";
+import { FillExample } from "@/components/animationSMIL";
+
+# SMIL Animation
+
+Unlike CSS and Javascript, which can be used to animate both HTML and SVG DOM elements, SMIL animations can only be used with SVGs.
+
+SMIL animation involves the use of **animation elements** inside the SVG. There are three types of animation elements:
+
+**\<animate\>**
+
+**\<animateTransform\>**
+
+**\<animateMotion\>**
+
+While not quite as powerful as Javascript, SMIL elements provide the ability to chain and sequencing animations, allowing for the construction of more complex animations. They also allow you to avoid the inconsistent issues with CSS transform animations on SVG elements that you often see with CSS.
+
+## animate
+
+The animate element is used when you need to animate numeric attributes of an element, such as width, height, cx, cy, x, y, and fill.
+
+Let's start by using it to animate the green circle back and forth.
+
+<svg width="500" height="200" viewbox="0 0 500 200">
+  <circle cx="50" cy="100" r="20" fill="#93C17E" />
+</svg>
+
+We start by adding the animate element.
+
+<Blocks>{`<circle cx="50" cy="100" r="20" fill="#93C17E">
+     <animate/>
+</circle>`}</Blocks>
+
+We’ll add the name of the attribute that we want to animate - cx.
+
+<Blocks>{`<circle cx="50" cy="100" r="20" fill="#93C17E">
+     <animate
+       attributeName="cx" />
+</circle>`}</Blocks>
+
+Next we’ll set the beginning and end values using the from and to attributes, and the duration of the animation.
+
+<Blocks highlight="4-6">{`<circle cx="50" cy="100" r="20" fill="#93C17E">
+     <animate
+       attributeName="cx"
+       from="50" 
+        to="450"
+        dur="2s" />
+</circle>`}</Blocks>
+
+Finally we'll set the repeatCount to "indefinite" (**not "infinite"!**)
+
+```
+repeatCount = <number> | "indefinite"
+```
+
+<Blocks highlight="7">{`<circle cx="50" cy="100" r="20" fill="#93C17E">
+     <animate
+       attributeName="cx"
+       from="50" 
+        to="450"
+        dur="2s"
+        repeatCount="indefinite" />
+</circle>`}</Blocks>
+
+<svg width="500" height="200" viewbox="0 0 500 200">
+  <circle cx="50" cy="100" r="20" fill="#93C17E">
+    <animate
+      attributeName="cx"
+      from="50"
+      to="450"
+      dur="2s"
+      repeatCount="indefinite"
+    />
+  </circle>
+</svg>
+
+To prevent the circle from popping back to its original state, we’ll need to set the fill attribute of the animate element to freeze, which is similar to CSS animation-fill-mode: forward, in that it defines the final state of the animation.
+
+<Blocks highlight="8">{`<circle cx="50" cy="100" r="20" fill="#93C17E">
+     <animate
+       attributeName="cx"
+       from="50" 
+        to="450"
+        dur="1s"
+        repeatCount="2"
+        fill="freeze" />
+</circle>`}</Blocks>
+
+<FillExample />
