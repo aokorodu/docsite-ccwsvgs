@@ -1,0 +1,48 @@
+.holder {
+  animation-name: walk;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(8, jump-none);
+}
+
+@keyframes walk {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(-1400px);
+  }
+}
+
+.bounceHolderNoStep {
+  animation-name: bounceNoStep;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes bounceNoStep {
+  from {
+    transform: translate(0px);
+  }
+  to {
+    transform: translateX(-300px);
+  }
+}
+
+.bounceHolder {
+  animation-name: bounce;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(7, jump-none);
+  animation-direction: alternate-reverse;
+}
+
+@keyframes bounce {
+  from {
+    transform: translate(0px);
+  }
+  to {
+    transform: translateX(-300px);
+  }
+}
