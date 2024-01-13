@@ -1,5 +1,6 @@
 .svgHolder {
   position: fixed;
+  opacity: 0.5;
   top: 0;
   left: 0;
   width: 100vw;
