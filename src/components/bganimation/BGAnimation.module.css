@@ -1,0 +1,13 @@
+.svgHolder {
+  position: fixed;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  user-select: none;
+  -moz-user-select: none;
+  pointer-events: none;
+  z-index: -100;
+  background-color: #ffffff;
+}
