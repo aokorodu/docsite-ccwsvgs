@@ -57,7 +57,7 @@ export const navConfig = {
     },
     {
       title: "Reusable Objects",
-      link: "/reusable-use",
+      link: "",
       subnav: [
         { title: "use", link: "/reusable-use" },
         { title: "defs", link: "/reusable-defs" },
@@ -81,7 +81,7 @@ export const navConfig = {
     // },
     {
       title: "Animation",
-      link: "/animation-intro",
+      link: "",
       subnav: [
         { title: "intro", link: "/animation-intro" },
         { title: "css", link: "/animation-css" },
