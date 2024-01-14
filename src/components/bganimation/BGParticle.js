@@ -226,7 +226,7 @@ class BGParticle extends React.Component {
             cy={0}
             r={this.physics.radius}
             fill={this.color}
-            fillOpacity={0.8}
+            fillOpacity={0.5}
             stroke={"black"}
             strokeOpacity={0}
             strokeWidth={1}

@@ -6,12 +6,7 @@ export const navConfig = {
       subnav: [],
     },
     {
-      title: "Intro",
-      link: "/intro",
-      subnav: [],
-    },
-    {
-      title: "What's an SVG?",
+      title: "So, what's an SVG?",
       link: "/whatis",
       subnav: [],
     },
