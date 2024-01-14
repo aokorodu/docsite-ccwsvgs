@@ -81,7 +81,7 @@ export const navConfig = {
     // },
     {
       title: "Animation",
-      link: "",
+      link: "/animation-intro",
       subnav: [
         { title: "intro", link: "/animation-intro" },
         { title: "css", link: "/animation-css" },

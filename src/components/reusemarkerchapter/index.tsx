@@ -7,7 +7,7 @@ export const MarkerIntro = () => {
                         <polygon points="0,0 10,5 0,10" fill="black" stroke="black" />
                     </marker>
                     <marker id="box" refX="5" refY="5" markerWidth="10" markerHeight="10">
-                        <rect x="0" y="0" width="10" height="10" fill="black" stroke="black" stroke-width="2" />
+                        <rect x="0" y="0" width="10" height="10" fill="black" stroke="black" strokeWidth="2" />
                     </marker>
                     <marker id="ball" refX="5" refY="5" markerWidth="10" markerHeight="10">
                         <circle cx="5" cy="5" r="2.5" fill="black" />
@@ -30,7 +30,7 @@ export const MarkerPosDemo = ({ position }: MarkerProp) => {
                         <polygon points="0,0 10,5 0,10" fill="black" stroke="black" />
                     </marker>
                     <marker id="box" refX="5" refY="5" markerWidth="10" markerHeight="10">
-                        <rect x="0" y="0" width="10" height="10" fill="black" stroke="black" stroke-width="2" />
+                        <rect x="0" y="0" width="10" height="10" fill="black" stroke="black" strokeWidth="2" />
                     </marker>
                     <marker id="ball" refX="5" refY="5" markerWidth="10" markerHeight="10">
                         <circle cx="5" cy="5" r="2.5" fill="black" />

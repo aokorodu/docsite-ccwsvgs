@@ -132,7 +132,7 @@ export const Example8 = () => {
           d="M 50,200 h 400"
           stroke="black"
           stroke-width="5"
-          stroke-dasharray="50"
+          strokeDasharray="50"
         />
         <text
           x="250"
@@ -141,14 +141,14 @@ export const Example8 = () => {
           textAnchor="middle"
           dominantBaseline={"hanging"}
         >
-          stroke-dasharray="50"
+          strokeDasharray="50"
         </text>
 
         <path
           d="M 50,300 h 400"
           stroke="black"
           stroke-width="5"
-          stroke-dasharray="30 10"
+          strokeDasharray="30 10"
         />
         <text
           x="250"
@@ -157,13 +157,13 @@ export const Example8 = () => {
           textAnchor="middle"
           dominantBaseline={"hanging"}
         >
-          stroke-dasharray="30 10"
+          strokeDasharray="30 10"
         </text>
         <path
           d="M 50,400 h 400"
           stroke="black"
           stroke-width="5"
-          stroke-dasharray="20 15 10 5"
+          strokeDasharray="20 15 10 5"
         />
         <text
           x="250"
@@ -172,7 +172,7 @@ export const Example8 = () => {
           textAnchor="middle"
           dominantBaseline={"hanging"}
         >
-          stroke-dasharray="20 15 10 5"
+          strokeDasharray="20 15 10 5"
         </text>
       </svg>
     </>
@@ -189,7 +189,7 @@ export const Example9 = () => {
           d="M 50,100 h 400"
           stroke="black"
           stroke-width="5"
-          stroke-dasharray="50"
+          strokeDasharray="50"
         />
         <text
           x="250"
@@ -204,7 +204,7 @@ export const Example9 = () => {
           d="M 50,200 h 400"
           stroke="black"
           stroke-width="5"
-          stroke-dasharray="50"
+          strokeDasharray="50"
           strokeDashoffset={25}
         />
         <text

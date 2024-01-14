@@ -20,7 +20,7 @@ export const DefsSmileExample = () => {
         <path
             d="M80 224C121 271 241 276 291 224"
             stroke="black"
-            stroke-width="13"
+            strokeWidth="13"
             stroke-linecap="round"
         />
         <line
@@ -29,7 +29,7 @@ export const DefsSmileExample = () => {
             x2="87.0145"
             y2="128.893"
             stroke="black"
-            stroke-width="10"
+            strokeWidth="10"
             stroke-linecap="round"
         />
         <line
@@ -39,7 +39,7 @@ export const DefsSmileExample = () => {
             y2="-5"
             transform="matrix(0.790724 0.612173 0.612173 -0.790724 244 99)"
             stroke="black"
-            stroke-width="10"
+            strokeWidth="10"
             stroke-linecap="round"
         />
     </svg></>)
