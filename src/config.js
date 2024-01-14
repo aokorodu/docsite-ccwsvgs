@@ -57,7 +57,7 @@ export const navConfig = {
     },
     {
       title: "Reusable Objects",
-      link: "/reusable-use",
+      link: "",
       subnav: [
         { title: "use", link: "/reusable-use" },
         { title: "defs", link: "/reusable-defs" },
