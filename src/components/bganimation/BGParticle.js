@@ -15,7 +15,7 @@ class BGParticle extends React.Component {
     // physics vars
     this.physics = {
       minRadius: 12,
-      radius: 2 + Math.round(Math.random() * 12),
+      radius: 2 + Math.round(Math.random() * 15),
       gravity: new PVector(0, 0.4),
       floatVelocity: new PVector(0, -0.1 - Math.random() * 2),
       acceleration: new PVector(0, 0.4),
@@ -226,9 +226,9 @@ class BGParticle extends React.Component {
             cy={0}
             r={this.physics.radius}
             fill={this.color}
-            fillOpacity={0.3}
-            stroke={"white"}
-            strokeOpacity={0.1}
+            fillOpacity={0.8}
+            stroke={"black"}
+            strokeOpacity={0}
             strokeWidth={1}
           />
           <image

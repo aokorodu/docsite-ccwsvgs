@@ -9,7 +9,5 @@
   -moz-user-select: none;
   pointer-events: none;
   z-index: -100;
-  background-image: linear-gradient(3deg, #ff63f3, transparent);
-  background-repeat: no-repeat;
-  background-color: #06b4d3;
+  background-color: #ffffff;
 }

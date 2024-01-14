@@ -10,6 +10,7 @@ export default function Home() {
   useEffect(() => {
     if (anim.current) {
       anim.current.start();
+      //anim.current.changeFlow("float")
     }
 
     return () => {
