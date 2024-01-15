@@ -12,11 +12,6 @@ export default function Home() {
       anim.current.start();
       //anim.current.changeFlow("float")
     }
-
-    return () => {
-      anim.current?.stop()
-    }
-
   }, [])
   return (
     <>

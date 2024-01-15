@@ -35,7 +35,7 @@ const NavButton = ({ title, link, subnav }: navprops) => {
                     <div className={styles.subholder}>
                         {subnav.map((item) => {
 
-                            return <Link href={item.link} className={`${styles.link} ${pathname == item.link ? styles.activeLink : ""}`}>{item.title} </Link>;
+                            return <Link key={item.title} href={item.link} className={`${styles.link} ${pathname == item.link ? styles.activeLink : ""}`}>{item.title} </Link>;
                         })}
                     </div>
                 )}

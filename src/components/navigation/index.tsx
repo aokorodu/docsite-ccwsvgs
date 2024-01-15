@@ -9,7 +9,7 @@ const Navigation = () => {
     const getPages = () => {
         console.log('get pages')
         return pages.map((pageData) => {
-            return <NavButton {...pageData} />;
+            return <NavButton key={pageData.title} {...pageData} />;
         });
     };
     return (

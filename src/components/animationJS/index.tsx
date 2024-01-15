@@ -1,6 +1,6 @@
 'use client'
 
-import styles from './AnimationJS.module.scss';
+import styles from './AnimJS.module.scss';
 import { useRef, useState } from 'react';
 
 export const FrameRateExample = () => {
