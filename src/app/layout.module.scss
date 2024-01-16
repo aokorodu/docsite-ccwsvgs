@@ -6,7 +6,7 @@
 }
 
 .contentHolder {
-  margin: 1rem;
+  margin: 2rem 1rem 1rem 1rem;
   padding: 1rem;
   width: clamp(400px, calc(90% - 200px), 800px);
   margin-left: 250px;
@@ -14,7 +14,7 @@
 
 @media screen and (max-width: 800px) {
   .contentHolder {
-    margin: 1rem 0 0 0;
+    margin: 2rem 0 0 0;
     width: 100%;
   }
 }

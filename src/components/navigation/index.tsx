@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { navConfig } from '../../config';
 import NavButton from "./navbutton";
 import styles from "./navigation.module.scss";
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 
 const Navigation = () => {
     const nav = navConfig;
@@ -20,7 +22,10 @@ const Navigation = () => {
         <>
             <div className={styles.desktopContainer}>{getPages()}</div>
             <div className={styles.mobileNavHolder}>
-                <div className={styles.hamburgerHolder} onClick={() => { console.log('click'); toggleOpen(!open) }}>x</div>
+                <div className={styles.hamburgerHolder} onClick={() => { console.log('click'); toggleOpen(!open) }}>
+                    {!open && <MenuIcon fontSize='large' />}
+                    {open && <CloseIcon fontSize='large' />}
+                </div>
                 {open && <div className={styles.container}>
                     <div className={styles.bg} />
                     <div className={styles.mobileButtonContainer}>
