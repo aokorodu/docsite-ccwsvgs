@@ -11,3 +11,10 @@
   width: clamp(400px, calc(90% - 200px), 800px);
   margin-left: 250px;
 }
+
+@media screen and (max-width: 800px) {
+  .contentHolder {
+    margin: 1rem 0 0 0;
+    width: 100%;
+  }
+}

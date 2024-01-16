@@ -75,6 +75,8 @@ svg {
   position: relative;
   border: 1px solid #eaeaea;
   margin-bottom: 1.5rem;
+  width: 100%;
+  max-width: 500px;
 }
 
 svg text {
@@ -113,4 +115,29 @@ code {
 video {
   margin: 1.5rem 0;
   border: 1px solid rgb(77, 77, 77);
+}
+
+@media screen and (max-width: 500px) {
+  h1 {
+    font-size: 3rem;
+    margin: 1rem 0;
+    line-height: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 400;
+    margin: 3rem 0 1rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin: 2rem 0 0.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+    margin: 0 0 1rem;
+  }
 }
