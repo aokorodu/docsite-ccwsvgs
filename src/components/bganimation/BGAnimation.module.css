@@ -11,3 +11,8 @@
   z-index: -100;
   background-color: #ffffff;
 }
+
+.svgHolder > svg {
+  width: 100%;
+  max-width: 100%;
+}
