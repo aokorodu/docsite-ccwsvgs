@@ -28,7 +28,7 @@ const Navigation = () => {
             {open && <div className={styles.mobileNavHolder}>
 
                 {open && <div className={styles.container}>
-                    <div className={styles.bg} />
+                    <div className={styles.bg} onClick={() => { toggleOpen(!open) }} />
                     <div className={styles.mobileButtonContainer}>
                         {getPages()}
                     </div>
