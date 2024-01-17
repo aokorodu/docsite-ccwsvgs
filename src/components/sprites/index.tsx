@@ -4,9 +4,15 @@ import Link from 'next/link';
 export const WalkExample = () => {
     return (<>
         <svg width={200} height={500} viewBox="0 0 200 500">
-            <g className={styles.holder}>
-                <image href="/sprites_walk_sequence.png" height="500" width="1600" />
-            </g>
+            <defs>
+                <clipPath id="walk_cp">
+                    <rect x="0" y="0" width="200" height="500" />
+                </clipPath>
+            </defs>
+            <g clipPath="url(#walk_cp)">
+                <g className={styles.holder}>
+                    <image href="/sprites_walk_sequence.png" height="500" width="1600" />
+                </g></g>
         </svg>
         <div>
             <span>Illustration by </span>
