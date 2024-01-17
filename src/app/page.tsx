@@ -21,7 +21,7 @@ export default function Home() {
         <BGAnimation ref={anim} />
       </div>
 
-      <div className={styles.subheading}>Welcome to the world of SVGs - one of the most powerful and versatile visual format on the web today. SVGs allow you to create all kinds of interesting visualizations - from simple images to interactive infographics, animations, and even games.</div>
+      <div className={styles.subheading}>Welcome to the world of SVGs - one of the most powerful and versatile visual formats on the web today. SVGs allow you to create all kinds of interesting visualizations - from simple images to interactive infographics, animations, and even games.</div>
       <div className={styles.main}>
         <strong>In this course, you'll learn:</strong>
 
@@ -35,7 +35,6 @@ export default function Home() {
           </li>
           <li>
             Styling SVGs using presentation attributes and CSS
-
           </li>
           <li>How to make SVGs interactive</li>
           <li> How to animate SVGs</li>
