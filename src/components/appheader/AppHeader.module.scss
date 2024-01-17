@@ -1,0 +1,28 @@
+.container {
+  position: fixed;
+  width: 100vw;
+  height: 45px;
+  background: rgb(244, 244, 244);
+  color: black;
+  border-bottom: 1px solid #eaeaea;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 2rem;
+  z-index: 100;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 1.25rem;
+  letter-spacing: 0.025rem;
+  color: #1d1d1d;
+  font-style: italic;
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    padding: 0 3.5rem;
+  }
+}
