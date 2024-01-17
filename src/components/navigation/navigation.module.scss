@@ -67,7 +67,8 @@
 }
 
 @media screen and (min-width: 801px) {
-  .mobileNavHolder {
+  .mobileNavHolder,
+  .hamburgerHolder {
     display: none;
   }
 }
