@@ -21,11 +21,12 @@ const Navigation = () => {
     return (
         <>
             <div className={styles.desktopContainer}>{getPages()}</div>
-            <div className={styles.mobileNavHolder}>
-                <div className={styles.hamburgerHolder} onClick={() => { console.log('click'); toggleOpen(!open) }}>
-                    {!open && <MenuIcon fontSize='large' />}
-                    {open && <CloseIcon fontSize='large' />}
-                </div>
+            <div className={styles.hamburgerHolder} onClick={() => { console.log('click'); toggleOpen(!open) }}>
+                {!open && <MenuIcon fontSize='large' />}
+                {open && <CloseIcon fontSize='large' />}
+            </div>
+            {open && <div className={styles.mobileNavHolder}>
+
                 {open && <div className={styles.container}>
                     <div className={styles.bg} />
                     <div className={styles.mobileButtonContainer}>
@@ -34,7 +35,7 @@ const Navigation = () => {
                 </div>}
 
 
-            </div>
+            </div>}
         </>
     );
 };
