@@ -226,18 +226,18 @@ class BGParticle extends React.Component {
             cy={0}
             r={this.physics.radius}
             fill={this.color}
-            fillOpacity={0.5}
-            stroke={"black"}
-            strokeOpacity={0}
+            fillOpacity={0.1}
+            stroke={"purple"}
+            strokeOpacity={0.2}
             strokeWidth={1}
           />
-          <image
+          {/* <image
             href={"./bubble.png"}
             x={-this.physics.radius}
             y={-this.physics.radius}
             height={this.physics.radius * 2}
             width={this.physics.radius * 2}
-          />
+          /> */}
         </g>
       </>
     );
