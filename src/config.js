@@ -1,8 +1,8 @@
 export const navConfig = {
   pages: [
     {
-      title: "Home",
-      link: "/",
+      title: "Intro",
+      link: "/intro",
       subnav: [],
     },
     {

@@ -19,7 +19,7 @@ class BGParticle extends React.Component {
     // physics vars
     this.physics = {
       minRadius: 12,
-      radius: 2 + Math.round(Math.random() * 15),
+      radius: 2 + Math.round(Math.random() * 8),
       gravity: new PVector(0, 0.4),
       floatVelocity: new PVector(0, -0.1 - Math.random() * 2),
       acceleration: new PVector(0, 0.4),
@@ -36,7 +36,7 @@ class BGParticle extends React.Component {
       },
       flowStart: new PVector(500, 1000),
       initFlow: function () {
-        this.acceleration = new PVector(0, 0.4);
+        this.acceleration = new PVector(0, 0.35);
         this.velocity = new PVector(0, 0);
       },
       resetFlow: function () {
@@ -182,7 +182,7 @@ class BGParticle extends React.Component {
             stroke={this.color}
             strokeOpacity={this.strokeOpacity}
             strokeWidth={this.strokeWidth}
-          />
+          ></circle>
         );
 
       case 1:
@@ -197,7 +197,7 @@ class BGParticle extends React.Component {
             stroke={this.color}
             strokeOpacity={this.strokeOpacity}
             strokeWidth={this.strokeWidth}
-          />
+          ></rect>
         );
 
       case 2:
@@ -211,7 +211,7 @@ class BGParticle extends React.Component {
             stroke={this.color}
             strokeOpacity={this.strokeOpacity}
             strokeWidth={this.strokeWidth}
-          />
+          ></polygon>
         );
 
       case 3:
@@ -224,7 +224,7 @@ class BGParticle extends React.Component {
             stroke={this.color}
             strokeOpacity={this.strokeOpacity}
             strokeWidth={this.strokeWidth * 2}
-          />
+          ></path>
         );
 
       default:
@@ -238,7 +238,7 @@ class BGParticle extends React.Component {
             stroke={this.color}
             strokeOpacity={this.strokeOpacity}
             strokeWidth={this.strokeWidth}
-          />
+          ></circle>
         );
     }
   }
