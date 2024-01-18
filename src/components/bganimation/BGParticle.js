@@ -9,6 +9,10 @@ class BGParticle extends React.Component {
     super();
 
     this.index = index;
+    this.strokeWidth = 1;
+    this.fillOpacity = 0.05;
+    this.strokeOpacity = 0.2;
+    this.rotationSpeed = Math.random() * 4 - 2;
 
     // boundary, position stuff;
 
@@ -159,8 +163,71 @@ class BGParticle extends React.Component {
     this.color = `hsl(${this.hue}, 50%, 80%)`;
 
     this.holder = null;
+    this.spinner = null;
 
     this.flow = "sin";
+  }
+
+  getShape() {
+    const num = Math.floor(Math.random() * 4);
+    switch (num) {
+      case 0:
+        return (
+          <circle
+            cx={0}
+            cy={0}
+            r={this.physics.radius}
+            fill={this.color}
+            fillOpacity={this.fillOpacity}
+            stroke={"purple"}
+            strokeOpacity={this.strokeOpacity}
+            strokeWidth={this.strokeWidth}
+          />
+        );
+
+      case 1:
+        return (
+          <rect
+            x={-this.physics.radius}
+            y={-this.physics.radius}
+            width={this.physics.radius * 2}
+            height={this.physics.radius * 2}
+            fill={this.color}
+            fillOpacity={this.fillOpacity}
+            stroke={"purple"}
+            strokeOpacity={this.strokeOpacity}
+            strokeWidth={this.strokeWidth}
+          />
+        );
+
+      case 2:
+        return (
+          <polygon
+            points={`0, ${-this.physics.radius} ${this.physics.radius}, ${
+              this.physics.radius
+            } ${-this.physics.radius}, ${this.physics.radius}`}
+            fill={this.color}
+            fillOpacity={this.fillOpacity}
+            stroke={"purple"}
+            strokeOpacity={this.strokeOpacity}
+            strokeWidth={this.strokeWidth}
+          />
+        );
+
+      default:
+        return (
+          <circle
+            cx={0}
+            cy={0}
+            r={this.physics.radius}
+            fill={this.color}
+            fillOpacity={this.fillOpacity}
+            stroke={"purple"}
+            strokeOpacity={this.strokeOpacity}
+            strokeWidth={this.strokeWidth}
+          />
+        );
+    }
   }
 
   changeFlow(newFlow) {
@@ -172,6 +239,7 @@ class BGParticle extends React.Component {
   update() {
     if (this.holder === null) {
       this.holder = document.querySelector(`#circ_${this.index}`);
+      this.spinner = document.querySelector(`#spinner_${this.index}`);
     }
 
     switch (this.flow) {
@@ -204,6 +272,11 @@ class BGParticle extends React.Component {
       "transform",
       `translate(${this.physics.position.x} ${this.physics.position.y})`
     );
+
+    this.spinner.setAttribute(
+      "transform",
+      `rotate(${this.physics.position.x * this.rotationSpeed})`
+    );
   }
 
   render() {
@@ -214,30 +287,12 @@ class BGParticle extends React.Component {
           id={`circ_${this.index}`}
           transform={`translate(${this.physics.position.x} ${this.physics.position.y})`}
         >
-          {/* <img
-            style={{
-              width: this.physics.radius * 2,
-              height: this.physics.radius * 2,
-            }}
-            src={"./other/portfolio_portrait.png"}
-          /> */}
-          <circle
-            cx={0}
-            cy={0}
-            r={this.physics.radius}
-            fill={this.color}
-            fillOpacity={0.1}
-            stroke={"purple"}
-            strokeOpacity={0.2}
-            strokeWidth={1}
-          />
-          {/* <image
-            href={"./bubble.png"}
-            x={-this.physics.radius}
-            y={-this.physics.radius}
-            height={this.physics.radius * 2}
-            width={this.physics.radius * 2}
-          /> */}
+          <g
+            id={`spinner_${this.index}`}
+            transform={`rotate(${this.physics.position.x})`}
+          >
+            {this.getShape()}
+          </g>
         </g>
       </>
     );
