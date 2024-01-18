@@ -11,7 +11,7 @@ class BGParticle extends React.Component {
     this.index = index;
     this.strokeWidth = 1;
     this.fillOpacity = 0.05;
-    this.strokeOpacity = 0.2;
+    this.strokeOpacity = 1;
     this.rotationSpeed = Math.random() * 4 - 2;
 
     // boundary, position stuff;
@@ -179,7 +179,7 @@ class BGParticle extends React.Component {
             r={this.physics.radius}
             fill={this.color}
             fillOpacity={this.fillOpacity}
-            stroke={"purple"}
+            stroke={this.color}
             strokeOpacity={this.strokeOpacity}
             strokeWidth={this.strokeWidth}
           />
@@ -194,7 +194,7 @@ class BGParticle extends React.Component {
             height={this.physics.radius * 2}
             fill={this.color}
             fillOpacity={this.fillOpacity}
-            stroke={"purple"}
+            stroke={this.color}
             strokeOpacity={this.strokeOpacity}
             strokeWidth={this.strokeWidth}
           />
@@ -208,9 +208,22 @@ class BGParticle extends React.Component {
             } ${-this.physics.radius}, ${this.physics.radius}`}
             fill={this.color}
             fillOpacity={this.fillOpacity}
-            stroke={"purple"}
+            stroke={this.color}
             strokeOpacity={this.strokeOpacity}
             strokeWidth={this.strokeWidth}
+          />
+        );
+
+      case 3:
+        return (
+          <path
+            d={`M0,${-this.physics.radius / 2} v${this.physics.radius} M${
+              -this.physics.radius / 2
+            },0 h${this.physics.radius}`}
+            fill={"none"}
+            stroke={this.color}
+            strokeOpacity={this.strokeOpacity}
+            strokeWidth={this.strokeWidth * 2}
           />
         );
 
@@ -222,7 +235,7 @@ class BGParticle extends React.Component {
             r={this.physics.radius}
             fill={this.color}
             fillOpacity={this.fillOpacity}
-            stroke={"purple"}
+            stroke={this.color}
             strokeOpacity={this.strokeOpacity}
             strokeWidth={this.strokeWidth}
           />
