@@ -9,7 +9,7 @@
   -moz-user-select: none;
   pointer-events: none;
   z-index: -100;
-  background-color: #ffffff;
+  background-color: rgb(36, 1, 44);
 }
 
 .svgHolder > svg {
