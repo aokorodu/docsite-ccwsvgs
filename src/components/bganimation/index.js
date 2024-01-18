@@ -71,7 +71,7 @@ class BGAnimation extends React.Component {
           viewBox="0 0 1000 1000"
           preserveAspectRatio="xMidYMid slice"
         >
-          <g>{this.buildParticles()}</g>
+          <g style={{ opacity: 0.6 }}>{this.buildParticles()}</g>
         </svg>
       </div>
     );

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import './globals.css';
+import '../globals.css';
 import Navigation from '@/components/navigation';
 import styles from './layout.module.scss';
 import AppHeader from '@/components/appheader';
@@ -12,20 +12,20 @@ export const metadata: Metadata = {
   description: 'Creative Coding with SVGs DocSite',
 }
 
-export default function RootLayout({
+export default function ContentLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <div className={styles.holder}>
-          <AppHeader />
-          <div className={styles.contentHolder}>{children}</div>
-        </div>
-      </body>
 
-    </html>
+
+    <div className={styles.holder}>
+      <Navigation />
+      <div className={styles.contentHolder}>{children}</div>
+    </div>
+
+
+
   )
 }
