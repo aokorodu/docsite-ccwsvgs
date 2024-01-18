@@ -22,13 +22,15 @@ const Navigation = () => {
         <>
             <div className={styles.desktopContainer}>{getPages()}</div>
             <div className={styles.hamburgerHolder} onClick={() => { console.log('click'); toggleOpen(!open) }}>
-                {!open && <MenuIcon fontSize='large' />}
-                {open && <CloseIcon fontSize='large' />}
+
+                {!open && <div style={{ color: "white" }}><MenuIcon fontSize='large' color={'inherit'} /></div>}
+
+                {open && <div style={{ color: "black" }}><CloseIcon fontSize='large' color={'inherit'} /></div>}
             </div>
             {open && <div className={styles.mobileNavHolder}>
 
                 {open && <div className={styles.container}>
-                    <div className={styles.bg} />
+                    <div className={styles.bg} onClick={() => { toggleOpen(!open) }} />
                     <div className={styles.mobileButtonContainer}>
                         {getPages()}
                     </div>
