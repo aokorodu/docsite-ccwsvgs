@@ -7,15 +7,25 @@
 
 .subholder {
   position: relative;
-  margin-left: 1rem;
+  margin-left: 2rem;
   display: flex;
   flex-direction: column;
 }
 
 .link {
   color: black;
+  text-decoration: none;
+  &:hover {
+    font-weight: 500;
+  }
 }
 
 .activeLink {
   font-weight: 600;
+}
+
+.buttonNumber {
+  font-weight: 600;
+  margin-right: 0.5rem;
+  color: rgb(36, 1, 44);
 }
