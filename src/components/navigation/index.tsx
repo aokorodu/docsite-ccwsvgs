@@ -14,8 +14,8 @@ const Navigation = () => {
 
     const getPages = () => {
         console.log('get pages')
-        return pages.map((pageData) => {
-            return <NavButton key={pageData.title} {...pageData} />;
+        return pages.map((pageData, index) => {
+            return <NavButton key={pageData.title} index={index} {...pageData} />;
         });
     };
     return (
