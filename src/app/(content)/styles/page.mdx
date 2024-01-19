@@ -55,11 +55,11 @@ CSS styles can be **embedded** within the SVG itself.
 
 ---
 
-## External stylesheets
+## stylesheets
 
-CSS styles can be applied to Inline SVGs via a normal html page external stylesheet.
+CSS styles can be applied to Inline SVGs via a normal html page internal or external stylesheets.
 
-<Blocks>
+<Blocks caption="external stylesheet">
   {`<html
 .
 .
@@ -104,9 +104,9 @@ You can also reference an external stylesheet by using the @import statement in 
 
 The hierarchy for CSS styles is as follows:
 
-1. Inline Styles
-2. Embedded/External Styles
-3. Presentation Attributes
+1. (1) **Inline Styles** - top priority. Inline styles override all other styles.
+2. (2) **Embedded/External Styles** - Can be overridden by inline styles.
+3. (3) **Presentation Attributes** - lowest priority, overridden by both inline and embedded.external styles.
 
 <br />
 

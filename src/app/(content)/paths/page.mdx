@@ -8,7 +8,7 @@ import SBezierDemo from "@/components/sbezierdemo";
 
 ## The path element
 
-The path element is used to create complex shapes and curves. It can be used to create any other shape element
+The path element is used to create complex shapes and curves. It is the most powerful shape element, and can be used to create any other shape element.
 
 <svg width="600" height="600" viewBox="0 0 800 800" fill="none">
   <g>
@@ -375,11 +375,13 @@ The path element is used to create complex shapes and curves. It can be used to 
   </defs>
 </svg>
 
-The path “d” attribute contains the points, lines, and curve commands that define the shape.
+## the d attribute
+
+The “d” attribute contains all the **path commands** that define the path.
 
 <Blocks>{`<path d="M 397,319 c 0,177 -80,316 -178,319 C 90,643 -78,515 40,319 131,168 120,0 219,0 c 98,0 178,143 178,319 Z" fill="#EDE9E9"/>`}</Blocks>
 
-## M or m - moveTo
+### M or m - moveTo
 
 The “M” command stands for moveto, and is used designate the starting point of the path.
 
@@ -389,9 +391,7 @@ In the example below, the starting point is **100,100**. The **M** is always the
 
 ![path_commands_M.png](/path_commands_M.png)
 
----
-
-## L or l - lineTo
+### L or l - lineTo
 
 This command draws a line from the previous point to the designated coordinate
 
@@ -408,9 +408,7 @@ d="M 100,100 l300,0" />`}</Blocks>
 
 ![path_commands_lineTo.png](/path_commands_lineTo.png)
 
----
-
-## V or v - vertical line
+### V or v - vertical line
 
 Draws a vertical line to the designated y position.
 
@@ -427,9 +425,7 @@ d="... L400,100 v300" />`}</Blocks>
 
 ![path_commands_lineTo.png](/path_commands_V.png)
 
----
-
-## H or h - horizontal line
+### H or h - horizontal line
 
 Draws a horizontal line to the designated x position.
 
@@ -446,9 +442,7 @@ d="... v300 h-300" />`}</Blocks>
 
 ![path_commands_lineTo.png](/path_commands_H.png)
 
----
-
-## Z or z - close path
+### Z or z - close path
 
 The z command draws a line from the “current” point to the start point, closing the path.
 
@@ -462,17 +456,13 @@ d="...  h-300 z" />`}</Blocks>
 
 ![path_commands_lineTo.png](/path_commands_Z.png)
 
----
-
-## Bezier curves
+### Bezier curves
 
 The bezier curve commands allow you to create smooth curves from a **start point**, an **end point**, and one or two **control points**.
 
 The actual bezier curve math is beyond the scope of this course, but you can think of the control point as exerting a gravitational force that bends the line.
 
----
-
-## Q or q - Quadratic Bezier curve
+### Q or q - Quadratic Bezier curve
 
 ![paths_bezier_](/paths_bezier_intro.png)
 
@@ -498,9 +488,7 @@ fill="none"/>`}</Blocks>
 
 <QBezierDemo />
 
----
-
-## C or c - cubic bezier curves
+### C or c - cubic bezier curves
 
 Cubic bezier curves use two control points to bend a line. The coordinate right before the **C** (50, 250) represents the start point of the curve. The two points after the **C** (200,125 and 300,425) represent the absolute coordinates of the control points, which are followed by the end point (450, 250) of the curve. The capital **C** signifies that the control points are absolute coordinates.
 
@@ -522,9 +510,7 @@ fill="none"/>`}</Blocks>
 
 <CBezierDemo />
 
----
-
-## T or t - smooth quadratic curves
+### T or t - smooth quadratic curves
 
 The smooth quadratic command (T or t) draws a quadratic curve from the **current point** (the point prior to the command - in the example below, 250,250) to the point after the command, using an **implied** control point that is the REFLECTION of the **previous control** point (125, 100). So an implied control point that is the reflection of the prior control point would be 375, 400.
 
@@ -550,9 +536,7 @@ Here's the same curve with the implied point written out:
 
 <TBezierDemo />
 
----
-
-## Smooth Cubic
+### Smooth Cubic
 
 The smooth cubic command (S or s) draws a cubic curve from the **current** point to the cubic control point **after** the command, assuming a cubic control point that is the reflection of the previous cubic control point.
 
