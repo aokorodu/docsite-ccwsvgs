@@ -1,4 +1,5 @@
 import Blocks from "@/components/blocks";
+import Link from "next/link";
 
 # Shape Elements
 
@@ -8,11 +9,15 @@ The shape elements provide the foundational visual building blocks of an SVG.
 
 ![shapes_basics.png](/shapes_basics.png)
 
+In this section we'll discuss the basic shape elements and their attributes. A more detailed discussion of the **presentation attributes** that define look of the shape elements can be found <Link href={"/presentation-attributes"}>{"here"} </Link>.
+
+<br />
+
 ---
 
 ## path
 
-The path is the most powerful shape element, allowing for the most visual complexity. We’ll be studying the path element next lesson.
+The path is the most powerful shape element, allowing for the most visual complexity. We’ll be exploring the path element in detail in the <Link href={"/paths"}>{"next section"}</Link>.
 
 ![shapes_basics.png](/shapes_path.png)
 
@@ -23,6 +28,7 @@ The path is the most powerful shape element, allowing for the most visual comple
 - **cx, cy**: the x and y coordinates of the center of the circle
 - **r**: radius
 - **fill**: the internal color of the shape.
+- **stroke**: the outline color of the shape.
 
 <Blocks>{`<svg width="500" height="500" viewbox="0 0 500 500">
   <circle cx="250" cy="250" r="200" fill="orange" />
@@ -38,6 +44,7 @@ The path is the most powerful shape element, allowing for the most visual comple
 - **rx**: the radius of the ellipse along the x axis
 - **ry**: the radius of the ellipse along the y axis
 - **fill**: the internal color of the shape.
+- **stroke**: the outline color of the shape.
 
 <Blocks>{`<svg width="500" height="500" viewbox="0 0 500 500">
   <ellipse cx="250" cy="250" rx="200" ry="100" fill="orange" />
@@ -53,6 +60,7 @@ The path is the most powerful shape element, allowing for the most visual comple
 - **width**: width
 - **height**: height
 - **fill**: the internal color of the shape.
+- **stroke**: the outline color of the shape.
 
 <Blocks>{`<svg width="500" height="500" viewbox="0 0 500 500">
   <rect x="50" y="50" width="400" height="400" fill="orange"></rect>
@@ -68,6 +76,7 @@ The path is the most powerful shape element, allowing for the most visual comple
 - **width**: width
 - **height**: height
 - **fill**: the internal color of the shape.
+- **stroke**: the outline color of the shape.
 - **rx, ry**: the radius of the circle that defines the corners
 
 <Blocks>{`<svg width="500" height="500" viewbox="0 0 500 500">
@@ -133,6 +142,7 @@ The path is the most powerful shape element, allowing for the most visual comple
 - **points**: the x and y coordinates for all the points that define the line
 - **stroke**: the stroke color of the line
 - **fill**: fill color
+- **stroke**: the outline color of the shape.
 
 <Blocks>{`<svg width="500" height="500" viewbox="0 0 500 500">
   <polygon
