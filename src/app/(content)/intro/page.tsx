@@ -11,9 +11,9 @@ export default function Home() {
 
         <ul className={styles.list}>
           <li>the elements and syntax of an SVG</li>
-          <li>
+          {/* <li>
             how to create svgs using free drawing tools like Figma
-          </li>
+          </li> */}
           <li>
             how to create svg graphics dynamically using JavaScript
           </li>
