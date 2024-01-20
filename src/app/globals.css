@@ -91,6 +91,14 @@ svg text::selection {
   background: none;
 }
 
+span svg {
+  margin: 0;
+  border: none;
+  padding: none;
+  margin: none;
+  height: 1rem;
+}
+
 pre {
   background-color: #eaeaea;
   margin: 1rem 0;
