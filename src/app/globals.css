@@ -143,3 +143,15 @@ video {
     margin: 0 0 1rem;
   }
 }
+
+.codepenLink {
+  color: rgb(36, 1, 44);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 2px solid rgb(36, 1, 44);
+}
+
+.codepenLink::after {
+  position: relative;
+  content: " >";
+}

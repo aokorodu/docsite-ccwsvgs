@@ -5,10 +5,9 @@ export default function Home() {
   return (
     <>
       <div><h1>Creative Coding with SVGs</h1></div>
-
-      <div className={styles.subheading}>Welcome to the world of SVGs - one of the most powerful and versatile visual formats on the web today. SVGs allow you to create all kinds of interesting visualizations - from simple images to interactive infographics, animations, and even games.</div>
+      <br />
       <div className={styles.main}>
-        <strong>In this course, you'll learn:</strong>
+        <strong>What you'll learn:</strong>
 
         <ul className={styles.list}>
           <li>the elements and syntax of an SVG</li>
@@ -26,18 +25,13 @@ export default function Home() {
         </ul>
 
         <br />
-        <strong>Prerequisites - a beginners level understanding of:</strong>
+        <strong>Prerequisites</strong>
 
         <ul className={styles.list}>
           <li><strong>HTML</strong> A basic understanding of html, and the fundamental elements of an html page.</li>
-          <li><strong>CSS</strong> How to create and apply CSS styles</li>
+          <li><strong>CSS</strong> How to create and apply basic CSS styles</li>
           <li><strong>Javascript</strong> A fundamental understanding of variables, functions, and event listeners.</li>
         </ul>
-
-
-
-
-
 
         <br />
         <strong>Tools:</strong>
@@ -46,6 +40,12 @@ export default function Home() {
           <li>A <strong>code editor</strong> like VS Code, Atom, Sublime Text, or even a simple text editor.</li>
           <li>A drawing program capable of exporting files in the SVG format, like <strong>Figma</strong> </li>
         </ul>
+
+        <br />
+        <strong>Note:</strong>
+        <div>
+          Most chapters will contain a link to a <strong>codepen page</strong> so that you can "code along" with the examples and code snippets provided.
+        </div>
       </div>
     </>
   )
