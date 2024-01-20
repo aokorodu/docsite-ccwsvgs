@@ -95,7 +95,7 @@ span svg {
   margin: 0;
   border: none;
   padding: none;
-  margin: none;
+  margin-left: 0.5rem;
   height: 1rem;
 }
 
