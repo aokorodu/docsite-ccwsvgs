@@ -4,6 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import styles from "./navbutton.module.scss";
 import { usePathname } from "next/navigation";
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 type navprops = {
     index: number,
@@ -26,14 +28,18 @@ const NavButton = ({ index, title, link, subnav }: navprops) => {
     return (
         <>
             <div className={styles.holder}>
-                <div
+                <div className={styles.buttonContents}
                     onClick={() => {
                         setOpen(!open);
                     }}
                 >
-                    <span className={styles.buttonNumber}>{indexStr}</span>
-                    <Link href={link} className={`${styles.link} ${pathname == link ? styles.activeLink : ""}`}>{title} </Link>
-                    {subnav.length > 0 && <span>{open ? ' -' : ' +'}</span>}
+                    <div>
+                        <span className={styles.buttonNumber}>{indexStr}</span>
+                        <Link href={link} className={`${styles.link} ${pathname == link ? styles.activeLink : ""}`}>{title} </Link>
+                    </div>
+                    <div className={styles.iconHolder}>
+                        {subnav.length > 0 && <span>{open ? <ExpandLessIcon fontSize="small" /> : <ExpandMoreIcon fontSize="small" />}</span>}
+                    </div>
                 </div>
                 {open && (
                     <div className={styles.subholder}>
