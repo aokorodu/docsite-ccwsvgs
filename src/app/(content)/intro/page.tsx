@@ -7,13 +7,13 @@ export default function Home() {
       <div><h1>Creative Coding with SVGs</h1></div>
       <br />
       <div className={styles.main}>
-        <strong>What you'll learn:</strong>
+        <h2>What you'll learn:</h2>
 
         <ul className={styles.list}>
           <li>the elements and syntax of an SVG</li>
-          <li>
+          {/* <li>
             how to create svgs using free drawing tools like Figma
-          </li>
+          </li> */}
           <li>
             how to create svg graphics dynamically using JavaScript
           </li>
@@ -25,7 +25,7 @@ export default function Home() {
         </ul>
 
         <br />
-        <strong>Prerequisites</strong>
+        <h2>Prerequisites</h2>
 
         <ul className={styles.list}>
           <li><strong>HTML</strong> A basic understanding of html, and the fundamental elements of an html page.</li>
@@ -34,7 +34,7 @@ export default function Home() {
         </ul>
 
         <br />
-        <strong>Tools:</strong>
+        <h2>Tools:</h2>
 
         <ul className={styles.list}>
           <li>A <strong>code editor</strong> like VS Code, Atom, Sublime Text, or even a simple text editor.</li>
@@ -42,7 +42,7 @@ export default function Home() {
         </ul>
 
         <br />
-        <strong>Note:</strong>
+        <h2>Note:</h2>
         <div>
           Most chapters will contain a link to a <strong>codepen page</strong> so that you can "code along" with the examples and code snippets provided.
         </div>
