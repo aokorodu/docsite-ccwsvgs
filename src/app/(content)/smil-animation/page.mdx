@@ -1,0 +1,270 @@
+import Blocks from "@/components/blocks";
+import {
+  Example_Still,
+  Example_1,
+  Example_Fill_Freeze,
+  Example_End,
+} from "@/components/smil";
+
+# SMIL Animation
+
+## What is SMIL?
+
+SMIL is an acronym for **Synchronized Multimedia Integration Language**. SMIL animation involves the use of animation elements inside the SVG. There are three types of animation elements:
+
+**\<animate\>**
+
+**\<animateTransform\>**
+
+**\<animateMotion\>**
+
+While not quite as powerful as Javascript, SMIL elements provide a declarative way to chain and sequence complex animations. They also allow you to avoid the inconsistencies that you often see with CSS transform animations.
+
+Unlike CSS and Javascript, which can be used to animate both HTML and SVG DOM elements, SMIL animations can only be used with SVGs.
+
+## \<animate\>
+
+The \<animate\> element is used when you need to animate numeric attributes of an element, such as width, height, cx, cy, x, y, and fill.
+
+We’ll start with something familiar. Again, we’ll try to animate the circle from the top to the bottom of the svg using SMIL animations.
+
+<Example_Still />
+
+We start by adding an animate tag inside of the circle element.
+
+<Blocks highlight="2,3,4">{`<svg width="200" height="300" viewBox="0 0 200 300">
+<circle cx="100" cy="20" r="20" fill="#93C17E">
+     <animate/>
+</circle>
+</svg>`}</Blocks>
+
+### attributeName
+
+We’ll add the name of the attribute that we want to animate - cy.
+
+<Blocks highlight="3, 4">{`<svg width="200" height="300" viewBox="0 0 200 300">
+<circle cx="100" cy="20" r="20" fill="#93C17E">
+     <animate
+        attributeName="cy" />
+</circle>
+</svg>`}</Blocks>
+
+### from, to, dur
+
+Next we’ll set the beginning and end values using the from and to attributes, and the duration (dur) of the animation.
+
+<Blocks highlight="4, 5,6,7">{`<svg width="200" height="300" viewBox="0 0 200 300">
+<circle cx="100" cy="20" r="20" fill="#93C17E">
+     <animate
+            attributeName="cy"
+            from="20" 
+            to="230"
+            dur="2s" />
+</circle>
+</svg>`}</Blocks>
+
+### values
+
+Instead of using from and to/by to designate the beginning and end of the animation, we can use the values attribute, with the individual values separated by a semicolon. This is very useful when animating to several positions, instead of just two.
+
+<Blocks highlight="5">{`<svg width="200" height="300" viewBox="0 0 200 300">
+<circle cx="100" cy="20" r="20" fill="#93C17E">
+     <animate
+            attributeName="cy"
+            values="20; 230" 
+            dur="2s" />
+</circle>
+</svg>`}</Blocks>
+
+### repeatCount
+
+The repeatCount attribute is used to specify the number of times the animation runs. Like with CSS animation-iteration-count, it can be a number, or it can be “indefinite” (infinite).
+
+<Blocks highlight="4, 5,6,7, 8">{`<svg width="200" height="300" viewBox="0 0 200 300">
+<circle cx="100" cy="20" r="20" fill="#93C17E">
+     <animate
+            attributeName="cy"
+            from="20" 
+            to="230"
+            dur="2s"
+            repeatCount="indefinite" />
+</circle>
+</svg>`}</Blocks>
+
+<Example_1 />
+
+### fill
+
+To prevent the circle from popping back to its original state, we’ll need to set the fill attribute of the animate element to freeze, which is similar to CSS animation-fill-mode: forward, in that it defines the final state of the animation.
+
+<Blocks highlight="8,9">{`<svg width="200" height="300" viewBox="0 0 200 300">
+<circle cx="100" cy="20" r="20" fill="#93C17E">
+     <animate
+            attributeName="cy"
+            from="20" 
+            to="230"
+            dur="2s"
+            repeatCount="3"
+            fill="freeze" />
+</circle>
+</svg>`}</Blocks>
+
+<Example_Fill_Freeze />
+
+### begin
+
+To delay the animation we can use the **begin** attribute and pass it a time value:
+
+<Blocks highlight="10">{`<svg width="200" height="300" viewBox="0 0 200 300">
+<circle cx="100" cy="20" r="20" fill="#93C17E">
+     <animate
+            attributeName="cy"
+            from="20" 
+            to="230"
+            dur="2s"
+            repeatCount="3"
+            fill="freeze" 
+            begin="2s"/>
+</circle>
+</svg>`}</Blocks>
+
+<Example_Fill_Freeze begin={"2s"} />
+
+<br />
+
+Or we can set the begin to a when the user clicks the circle:
+
+<Blocks highlight="10">{`<svg width="200" height="300" viewBox="0 0 200 300">
+<circle cx="100" cy="20" r="20" fill="#93C17E">
+     <animate
+            attributeName="cy"
+            from="20" 
+            to="230"
+            dur="2s"
+            repeatCount="3"
+            fill="freeze" 
+            begin="click"/>
+</circle>
+</svg>`}</Blocks>
+
+{" "}
+
+<div style={{ width: "200px" }}>
+  <svg width="200" height="300" viewBox="0 0 200 300">
+    <circle id="my-circle" cx="100" cy="20" r="10" fill="green"></circle>
+    <animate
+      href="#my-circle"
+      attributeName="cy"
+      from="20"
+      to="230"
+      dur="2s"
+      repeatCount="3"
+      fill="freeze"
+      begin="click"
+    />
+    <text
+      x="100"
+      y="270"
+      dominantBaseline="hanging"
+      textAnchor="middle"
+      fill="black"
+    >
+      {"click circle to begin"}
+    </text>
+  </svg>
+</div>
+
+### end
+
+To stop the animation after a set period of time we can use the end attribute. In the example below we'll set the repeatCount to indefinite, but then we'll also set an end time.
+
+<Blocks highlight="10">{`<svg width="200" height="300" viewBox="0 0 200 300">
+<circle cx="100" cy="20" r="20" fill="#93C17E">
+     <animate
+            attributeName="cy"
+            from="20" 
+            to="230"
+            dur="1s"
+            repeatCount="indefinite"
+            fill="freeze" 
+            end="3.5s"/>
+</circle>
+</svg>`}</Blocks>
+
+<Example_End endvalue="3.5s"/>
+
+<br />
+
+Just like the begin attribute, we can end the animation when the circle is clicked. (I've slowed down the animtion to make the circle easier to click!)
+
+<Blocks highlight="10">{`<svg width="200" height="300" viewBox="0 0 200 300">
+<circle cx="100" cy="20" r="20" fill="#93C17E">
+     <animate
+            attributeName="cy"
+            from="20" 
+            to="230"
+            dur="10s"
+            repeatCount="indefinite"
+            fill="freeze" 
+            end="click"/>
+</circle>
+</svg>`}</Blocks>
+
+<Example_End endvalue="click"/>
+
+<Blocks>{``}</Blocks>
+
+### easing
+
+Now for something a bit more complex. How do we add easing to the animation? Unfortunately we don’t have pre-defined easing functions you find for CSS transition-timing-function or animation-timing-function.
+
+To add easing, we’ll need to use three more attributes:
+
+**calcMode**, **keyTimes**, and **keySplines**
+
+<div style={{ width: "200px" }}>
+  <svg width="200" height="300" viewBox="0 0 200 300">
+    <circle
+      id="first-circle"
+      cx="100"
+      cy="20"
+      r="10"
+      fill="green"
+      stroke="none"
+    >
+      <animate
+        attributeName="cy"
+        values="20; 280"
+        dur="2s"
+        calcMode="spline"
+        keyTimes="0; 1"
+        keySplines="0 0 .5 1"
+        repeatCount="indefinite"
+      />
+    </circle>
+  </svg>
+</div>
+
+### calcMode
+
+In order to use cubic-bezier curves within an animation, calcMode has to be set to “spline”. (The default value is linear)
+
+<Blocks highlight="7">{`<svg width="200" height="300" viewBox="0 0 200 300">
+    <circle ...>
+      <animate
+        attributeName="cy"
+        values="20; 280"
+        dur="2s"
+        calcMode="spline"
+        keyTimes="0; 1"
+        keySplines="0 0 .5 1"
+        repeatCount="indefinite"
+      />
+    </circle>
+  </svg>`}</Blocks>
+
+<Blocks highlight="10">{``}</Blocks>
+
+### keyTimes
+
+The keyTimes attribute allows you to set the pacing of the animation. You need to have the same number of keyTimes as values. Each keytime is a value from 0 to 1, and represents the point in time when each value is reached. In this case it means that cy should be 20 at keytime 0 (the beginning of the animation) and 280 at keytime 1 (the end).
