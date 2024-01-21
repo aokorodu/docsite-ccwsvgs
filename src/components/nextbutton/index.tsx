@@ -31,7 +31,7 @@ const Nextbutton = () => {
             if (path == pathname) return i + 1;
         }
 
-        return -1;
+        return 0;
     }
     return (<>
         <div className={styles.holder}><Link href={`${getLink()}`}>Next: {getPageNme()} &gt;</Link></div>
