@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import '../globals.css';
 import Navigation from '@/components/navigation';
 import styles from './layout.module.scss';
-import AppHeader from '@/components/appheader';
+import Nextbutton from '@/components/nextbutton';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,7 +22,8 @@ export default function ContentLayout({
 
     <div className={styles.holder}>
       <Navigation />
-      <div className={styles.contentHolder}>{children}</div>
+      <div className={styles.contentHolder}>{children}<Nextbutton /></div>
+
     </div>
 
 
