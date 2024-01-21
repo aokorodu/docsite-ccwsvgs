@@ -26,7 +26,7 @@ class BGParticle extends React.Component {
       velocity: new PVector(0, 0),
       position: new PVector(
         Math.random() * 1000,
-        Math.random() > 0.5 ? 0 : 1000
+        Math.random() > 0.5 ? 20 : 1020
       ),
       boundary: {
         right: 1000,
