@@ -1,4 +1,5 @@
 import styles from './Intro.module.css'
+import Nextbutton from '@/components/nextbutton'
 
 export default function Home() {
 
@@ -47,6 +48,7 @@ export default function Home() {
           Most chapters will contain a link to a <strong>codepen page</strong> so that you can "code along" with the examples and code snippets provided.
         </div>
       </div>
+      <Nextbutton />
     </>
   )
 }
