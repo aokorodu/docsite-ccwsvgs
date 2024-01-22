@@ -11,6 +11,14 @@ import Link from "next/link";
 
 # SMIL Animation
 
+<a
+  className="codepenLink"
+  href={"https://codepen.io/aokorodu/pen/eYXRqdX"}
+  target="_blank"
+>
+  {"SMIL pt.1 practice page"}
+</a>
+
 ## What is SMIL?
 
 SMIL is an acronym for **Synchronized Multimedia Integration Language**. SMIL animation involves the use of animation elements inside the SVG. There are three types of animation elements:
@@ -36,7 +44,7 @@ We’ll start with something familiar. Again, we’ll try to animate the circle 
 We start by adding an animate tag inside of the circle element.
 
 <Blocks highlight="2,3,4">{`<svg width="200" height="300" viewBox="0 0 200 300">
-<circle cx="100" cy="20" r="20" fill="#93C17E">
+<circle cx="100" cy="20" r="10" fill="green">
      <animate/>
 </circle>
 </svg>`}</Blocks>
@@ -46,7 +54,7 @@ We start by adding an animate tag inside of the circle element.
 We’ll add the name of the attribute that we want to animate - cy.
 
 <Blocks highlight="3, 4">{`<svg width="200" height="300" viewBox="0 0 200 300">
-<circle cx="100" cy="20" r="20" fill="#93C17E">
+<circle cx="100" cy="20" r="10" fill="green">
      <animate
         attributeName="cy" />
 </circle>
@@ -57,7 +65,7 @@ We’ll add the name of the attribute that we want to animate - cy.
 Next we’ll set the beginning and end values using the from and to attributes, and the duration (dur) of the animation.
 
 <Blocks highlight="4, 5,6,7">{`<svg width="200" height="300" viewBox="0 0 200 300">
-<circle cx="100" cy="20" r="20" fill="#93C17E">
+<circle cx="100" cy="20" r="10" fill="green">
      <animate
             attributeName="cy"
             from="20" 
@@ -75,7 +83,7 @@ values="<value 1>; <value 2>;..."
 ```
 
 <Blocks highlight="5">{`<svg width="200" height="300" viewBox="0 0 200 300">
-<circle cx="100" cy="20" r="20" fill="#93C17E">
+<circle cx="100" cy="20" r="10" fill="green">
      <animate
             attributeName="cy"
             values="20; 230" 
@@ -92,7 +100,7 @@ repeatCount="<number> | indefinite"
 ```
 
 <Blocks highlight="4, 5,6,7, 8">{`<svg width="200" height="300" viewBox="0 0 200 300">
-<circle cx="100" cy="20" r="20" fill="#93C17E">
+<circle cx="100" cy="20" r="10" fill="green">
      <animate
             attributeName="cy"
             from="20" 
@@ -113,7 +121,7 @@ fill="freeze | remove (default)"
 ```
 
 <Blocks highlight="8,9">{`<svg width="200" height="300" viewBox="0 0 200 300">
-<circle cx="100" cy="20" r="20" fill="#93C17E">
+<circle cx="100" cy="20" r="10" fill="green">
      <animate
             attributeName="cy"
             from="20" 
@@ -135,7 +143,7 @@ begin="<time in seconds> | click"
 ```
 
 <Blocks highlight="10">{`<svg width="200" height="300" viewBox="0 0 200 300">
-<circle cx="100" cy="20" r="20" fill="#93C17E">
+<circle cx="100" cy="20" r="10" fill="green">
      <animate
             attributeName="cy"
             from="20" 
@@ -154,7 +162,7 @@ begin="<time in seconds> | click"
 Or we can set the begin to a when the user clicks the circle:
 
 <Blocks highlight="10">{`<svg width="200" height="300" viewBox="0 0 200 300">
-<circle cx="100" cy="20" r="20" fill="#93C17E">
+<circle cx="100" cy="20" r="10" fill="green">
      <animate
             attributeName="cy"
             from="20" 
@@ -202,7 +210,7 @@ end="<time in seconds> | click"
 ```
 
 <Blocks highlight="10">{`<svg width="200" height="300" viewBox="0 0 200 300">
-<circle cx="100" cy="20" r="20" fill="#93C17E">
+<circle cx="100" cy="20" r="10" fill="green">
      <animate
             attributeName="cy"
             from="20" 
@@ -221,7 +229,7 @@ end="<time in seconds> | click"
 Just like the begin attribute, we can end the animation when the circle is clicked. (I've slowed down the animtion to make the circle easier to click!)
 
 <Blocks highlight="10">{`<svg width="200" height="300" viewBox="0 0 200 300">
-<circle cx="100" cy="20" r="20" fill="#93C17E">
+<circle cx="100" cy="20" r="10" fill="green">
      <animate
             attributeName="cy"
             from="20" 
@@ -486,3 +494,143 @@ begin="grow.begin + 500ms"
 </svg>`}</Blocks>
 
 <MultipleAnimSequ_Example />
+
+## animateTransform
+
+The animateTransform element is used only when you need to animate transformation attributes:
+
+- translate,
+- rotate,
+- scale
+- skewX, or skewY.
+
+<br />
+
+Otherwise the functionality of **\<animateTransform\>** is identical to **\<animate\>**. All the attributes - from, to, dur, fill, calcMode, etc. - have the same functionality.
+
+The only difference in the syntax of animateTransform from animate is that animateTransform has a **type** attribute, where you designate the type of transform animation to be performed.
+
+```
+type="translate | rotate | scale | skewX | skewY"
+```
+
+### rotate
+
+In this example, we’re animating a rectangles transform-rotate value from 0° to 360°. The first number in both the _from_ and _to_ attributes represents the angle, and the second and third represent the x and y position around which the rotation occurs.
+
+```
+from="<angle> <x> <y>"
+to="<angle> <x> <y>"
+```
+
+<Blocks highlight="6,7,8,9,10">{`<svg width="500" height="500" viewBox="0 0 500 500">
+  <rect x="150" y="150" 
+    rx="10" ry="10" 
+    width="200" height="200" 
+    fill="skyblue">
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      from="0 250 250"
+      to="360 250 250"
+      begin="0s"
+      dur="3s"
+      repeatCount="indefinite"
+    ></animateTransform>
+  </rect>
+</svg>`}</Blocks>
+
+<svg width="500" height="500" viewBox="0 0 500 500">
+  <rect x="150" y="150" rx="10" ry="10" width="200" height="200" fill="skyblue">
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      from="0 250 250"
+      to="360 250 250"
+      begin="0s"
+      dur="3s"
+      repeatCount="indefinite"
+    ></animateTransform>
+  </rect>
+</svg>
+
+If you set the _transform-origin_ presentation attribute to the point you want the rotation to occur around, you can dispense with the x and y values in the _from_ and _to_ attributes.
+
+<Blocks highlight="2,6,7,8,9,10">{`<svg width="500" height="500" viewBox="0 0 500 500">
+  <rect transform-origin="250 250" ...>
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      from="0"
+      to="360"
+      begin="0s"
+      dur="3s"
+      repeatCount="indefinite"
+    ></animateTransform>
+  </rect>
+</svg>`}</Blocks>
+
+For multiple rotations we can use the values attribute, with the angle values separated by a semicolon.
+
+<Blocks highlight="6">{`<svg width="500" height="500" viewBox="0 0 500 500">
+  <rect transform-origin="250 250" ...>
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      values="0; 360; 180; 360"
+      begin="0s"
+      dur="3s"
+      repeatCount="indefinite"
+    ></animateTransform>
+  </rect>
+</svg>`}</Blocks>
+
+<svg width="500" height="500" viewBox="0 0 500 500">
+  <rect
+    x="150"
+    y="150"
+    rx="10"
+    ry="10"
+    width="200"
+    height="200"
+    fill="skyblue"
+    transform-origin="250 250"
+  >
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      values="0; 360; 180; 360"
+      begin="0s"
+      dur="3s"
+      repeatCount="indefinite"
+    ></animateTransform>
+  </rect>
+</svg>
+
+Note that the rotations can have different center points. Look what happens when we get rid of the transform-origin attribute and instead include a changing rotation point in the values attribute.
+
+<Blocks highlight="6">{`<svg width="500" height="500" viewBox="0 0 500 500">
+  <rect x="150" y="150" rx="10" ry="10" width="200" height="200" fill="red">
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      values="0 250 250; 360 250 100; 180 250 400; 360 250 250"
+      begin="0s"
+      dur="3s"
+      repeatCount="indefinite"
+    ></animateTransform>
+  </rect>
+</svg>`}</Blocks>
+
+<svg width="500" height="500" viewBox="0 0 500 500">
+  <rect x="150" y="150" rx="10" ry="10" width="200" height="200" fill="red">
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      values="0 250 250; 360 250 100; 180 250 400; 360 250 250"
+      begin="0s"
+      dur="3s"
+      repeatCount="indefinite"
+    ></animateTransform>
+  </rect>
+</svg>

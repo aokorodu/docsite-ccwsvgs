@@ -38,7 +38,7 @@ type exampleProps = {
     end: string,
 }
 
-export const Example_Fill_Freeze = ({ begin = '2s', end = 'click' }: exampleProps) => {
+export const Example_Fill_Freeze = ({ begin = '0s', end = 'click' }: exampleProps) => {
 
     const [started, setStarted] = useState(false);
     const animateElement = useRef<SVGAnimateElement>(null)
@@ -98,6 +98,7 @@ export const Example_End = ({ endvalue }: endprops) => {
                             fill="freeze"
                             end={endvalue} />
                     </circle>
+                    <text x="100" y="280" dominantBaseline={"hanging"} textAnchor='middle'>click circle to stop</text>
                 </svg>}
                 <button onClick={() => {
                     setStarted(!started);
