@@ -146,3 +146,45 @@ export const MultipleAnim_Example = () => {
         </div>
     </>)
 }
+
+export const MultipleAnimSequ_Example = () => {
+    const [started, setStarted] = useState(false);
+
+    return (<>
+        <div className={styles.fillStuffContainer}>
+            {!started && <svg width="500" height="500" viewBox="0 0 500 500">
+                <circle cx="50" cy="250" r="20" fill="#93C17E" />
+            </svg>}
+            {started && <svg width="500" height="500" viewBox="0 0 500 500">
+                <circle cx="50" cy="250" r="20" fill="#93C17E">
+                    <animate
+                        id="slide"
+                        attributeName="cx"
+                        values="50; 450; 250"
+                        dur="2s"
+                        begin="0"
+                        fill="freeze"
+                    />
+                    <animate
+                        id="grow"
+                        attributeName="r"
+                        values="20; 100"
+                        dur="2s"
+                        fill="freeze"
+                        begin="slide.end"
+                    />
+                    <animate
+                        attributeName="fill"
+                        values="#93C17E; #ff00ff; #009900"
+                        dur="4s"
+                        fill="freeze"
+                        begin="grow.begin + 500ms"
+                    />
+                </circle>
+            </svg>}
+            <button onClick={() => {
+                setStarted(!started);
+            }}>{started ? "reset" : "play"} </button>
+        </div>
+    </>)
+}

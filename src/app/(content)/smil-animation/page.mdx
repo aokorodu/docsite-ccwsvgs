@@ -5,6 +5,7 @@ import {
   Example_Fill_Freeze,
   Example_End,
   MultipleAnim_Example,
+  MultipleAnimSequ_Example,
 } from "@/components/smil";
 import Link from "next/link";
 
@@ -387,4 +388,101 @@ You can define your own bezier curves at <Link href={"https://cubic-bezier.com/"
 
 We can define multiple simultaneous animations for the same element. Here we’ll animate cx, radius, and fill color.
 
+<Blocks>{`<circle cx="50" cy="250" r="20" fill="#93C17E">
+   <animate
+       attributeName="cx"
+       values="50; 450; 250"
+       dur="2s" begin="0"
+       fill="freeze" />
+   <animate
+       attributeName="r"
+       values="20; 100"
+       dur="2s"
+       fill="freeze" />
+   <animate
+       attributeName="fill"
+       values="#93C17E; #ff00ff; #009900"
+       dur="4s"
+       fill="freeze" />
+</circle>`}</Blocks>
+
 <MultipleAnim_Example />
+
+## sequential animations
+
+We can also make the animations run sequentially by using the “begin” attribute and setting it to run at either the beginning or end of another animation. In order to do so we'll need to give each animate element an id:
+
+<Blocks highlight="3,9,15">{`<circle cx="50" cy="250" r="20" fill="#93C17E">
+   <animate
+        id="slide"
+        attributeName="cx"
+        values="50; 450; 250"
+        dur="2s" begin="0"
+        fill="freeze" />
+   <animate
+        id="grow"
+        attributeName="r"
+        values="20; 100"
+        dur="2s"
+        fill="freeze" />
+   <animate
+        id="change"
+        attributeName="fill"
+        values="#93C17E; #ff00ff; #009900"
+        dur="4s"
+        fill="freeze" />
+</circle>`}</Blocks>
+
+To set an animation to run in coordination with another animation, you use the id of that other animation followed by a "." and either begin or end. The value can include a _time offset_ as well.
+
+```
+begin="<animation name>.< begin | end> + <time offset>"
+```
+
+For example, I can set an animation to run 3 seconds after another animation ends as follows.
+
+```
+begin="some_animation.end + 3s"
+```
+
+So to get the "grow" animation to run after the "slide" animation, you'd use the following begin attribute in the "grow" animation:
+
+```
+begin="slide.end"
+```
+
+And to get the "change" animation to run half a second after the start of the "grow" animation, you'd use the following begin attribute in the "change" animation:
+
+```
+begin="grow.begin + 500ms"
+```
+
+<Blocks highlight="4,17,24">{`<svg width="500" height="500" viewBox="0 0 500 500">
+    <circle cx="50" cy="250" r="20" fill="#93C17E">
+        <animate
+            id="slide"
+            attributeName="cx"
+            values="50; 450; 250"
+            dur="2s"
+            begin="0"
+            fill="freeze"
+        />
+        <animate
+            id="grow"
+            attributeName="r"
+            values="20; 100"
+            dur="2s"
+            fill="freeze"
+            begin="slide.end"
+        />
+        <animate
+            attributeName="fill"
+            values="#93C17E; #ff00ff; #009900"
+            dur="4s"
+            fill="freeze"
+            begin="grow.begin + 500ms"
+        />
+    </circle>
+</svg>`}</Blocks>
+
+<MultipleAnimSequ_Example />
