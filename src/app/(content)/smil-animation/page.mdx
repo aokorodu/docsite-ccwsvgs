@@ -243,6 +243,24 @@ Just like the begin attribute, we can end the animation when the circle is click
 
 <Example_End endvalue="click"/>
 
+### href
+
+You've probably noticed that all of the animate elements in the examples have been "encapsulated" by the element we wish to animate.
+
+```
+<shape-element>
+  <animate .../>
+</shape-element>
+```
+
+If you want to keep them separate, all you have to do is pass the id of the element you wish to animate to the animate element via the _href_ attribute
+
+```
+<circle id="my-circle" ... />
+
+<animate href="#my-circle" .../>
+```
+
 ### easing
 
 Now for something a bit more complex. How do we add easing to the animation? Unfortunately we don’t have pre-defined easing functions you find for CSS transition-timing-function or animation-timing-function.

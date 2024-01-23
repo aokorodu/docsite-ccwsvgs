@@ -98,7 +98,7 @@ export const Example_End = ({ endvalue }: endprops) => {
                             fill="freeze"
                             end={endvalue} />
                     </circle>
-                    <text x="100" y="280" dominantBaseline={"hanging"} textAnchor='middle'>click circle to stop</text>
+                    <text x="100" y="280" dominantBaseline={"hanging"} textAnchor='middle'>{endvalue == "click" ? "click circle to stop" : ""}</text>
                 </svg>}
                 <button onClick={() => {
                     setStarted(!started);
@@ -175,6 +175,7 @@ export const MultipleAnimSequ_Example = () => {
                         begin="slide.end"
                     />
                     <animate
+                        id="fill"
                         attributeName="fill"
                         values="#93C17E; #ff00ff; #009900"
                         dur="4s"
