@@ -467,3 +467,47 @@ If you want multiple objects to move along the same path, you can use the mpath 
     </use>
 
 </svg>
+
+## SMIL attributes:
+
+1. **id** - needed to chain animations, i.e begin=”first.end”
+1. **href** - (needed if animate element is not encapsulated by the element you wish to animate)
+1. **attributeName**=\<name of attribute\>
+1. **from** - \<value\>
+1. **to** - \<value\>
+1. **begin** - \<value\>
+
+- time in seconds - ex. from=”2s”
+- time based on beginning of another animation -ex. from=”firstAnim.begin”,
+- time based on end of another animation - ex. from=”firstAnim.end”
+- time based on begin or end of another animation + time offset - ex. from=”firstAnim.end+2s”
+- click interaction - ex. begin=”click”
+
+7. **dur** - \<value\>
+
+- time in seconds (s) or milliseconds (ms) - dur=”5s”
+
+8. **repeatCount** - \<value\>
+
+- number - repeatCount=”4”
+- indefinite- ex. repeatCount=”indefinite”
+
+9. **fill**
+
+- freeze
+- remove
+
+10. **calcMode** - \<value\> - used to set pacing, animation curves, type of motion
+
+- linear
+- discrete
+- paced
+- spline
+
+11. **values**
+
+- Animation values, used with keyTimes to dictate the pace of the animation - ex. values=”20; 50; 300”
+
+12. **keyTimes**
+
+- List of values from 0 to 1 used to to dictate the pace of the animation - ex. keytimes=”0; .3; .9; 1”
