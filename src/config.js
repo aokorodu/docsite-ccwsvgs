@@ -128,6 +128,6 @@ export const navConfig = {
     { title: "SMIL animation", link: "/smil-animation" },
     { title: "more SMIL", link: "/smil-animation-II" },
     { title: "Sprites", link: "/sprites" },
-    { title: "Aspect Ratio", link: "aspect-ratio" },
+    { title: "Aspect Ratio", link: "/aspect-ratio" },
   ],
 };
