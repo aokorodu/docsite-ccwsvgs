@@ -415,12 +415,16 @@ As a final touch, lets swap out the star path for another star with rounded corn
 
 If you want multiple objects to move along the same path, you can use the mpath element to specify the path for animateMotion element (instead of using the path attribute). Pass the path via the href attribute.
 
+```
+<mpath href="#path-id" />
+```
+
 <svg width="500" height="500" viewBox="0 0 500 500">
   <defs>
     <g id="nice_car_5" transform="translate(-25 -15)">
       <path
         d="M0 6.0402C0 3.81542 1.81533 2.01815 4.04 2.0404L46.04 2.4604C48.2334 2.48233 50 4.26667 50 6.4602V22.5398C50 24.7333 48.2334 26.5177 46.04 26.5396L4.04 26.9596C1.81534 26.9818 0 25.1846 0 22.9598V6.0402Z"
-        fill="#A50000"
+        
       />
       <path
         d="M30.5 7.5L37.4275 4C39.7363 12.8342 39.3008 17.3136 37.4275 25L30 22C31.9406 13.9053 32.6638 15.8211 30.5 7.5Z"
@@ -432,8 +436,8 @@ If you want multiple objects to move along the same path, you can use the mpath 
       />
       <path d="M12 4H34L28.28 6H16.4L12 4Z" fill="black" />
       <path d="M34 25H12L17.72 23H29.6L34 25Z" fill="black" />
-      <path d="M33.5 0H32V3H34.5L33.5 0Z" fill="#A50000" />
-      <path d="M33.5 29H32V26H34.5L33.5 29Z" fill="#A50000" />
+      <path d="M33.5 0H32V3H34.5L33.5 0Z"  />
+      <path d="M33.5 29H32V26H34.5L33.5 29Z"  />
       <path
         d="M48.9117 7.44174C48.963 7.18489 49.1885 7 49.4505 7C49.754 7 50 7.24602 50 7.54951V11.4505C50 11.754 49.754 12 49.4505 12C49.1885 12 48.963 11.8151 48.9117 11.5583L48.5784 9.89223C48.5267 9.63331 48.5267 9.36669 48.5784 9.10777L48.9117 7.44174Z"
         fill="#E8E6E6"
@@ -450,13 +454,13 @@ If you want multiple objects to move along the same path, you can use the mpath 
     stroke="black"
     stroke-width="2"
   />
-    <use href="#nice_car_5" x="0" y="0">
+    <use href="#nice_car_5" x="0" y="0" fill="red">
         <animateMotion dur="8s" begin="0s" repeatCount="indefinite" rotate="auto">
             <mpath href="#starfish" />
         </animateMotion>
     </use>
 
-    <use href="#nice_car_5" x="0" y="0">
+    <use href="#nice_car_5" x="0" y="0" fill="green">
         <animateMotion dur="8s" begin="2s" repeatCount="indefinite" rotate="auto">
             <mpath href="#starfish" />
         </animateMotion>
