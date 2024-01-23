@@ -36,7 +36,7 @@ const Nextbutton = () => {
 
     return (<>
         <div className={styles.holder}>
-            {getIndex(0) >= 0 && <Link href={`${getLink(-1)}`}>&lt; Prev: {getPageNme(-1)}</Link>}
+            {getIndex(0) > 0 && <Link href={`${getLink(-1)}`}>&lt; Prev: {getPageNme(-1)}</Link>}
             {getIndex(0) < links.length - 1 && <Link href={`${getLink(1)}`}>Next: {getPageNme(1)} &gt;</Link>}
         </div>
 
