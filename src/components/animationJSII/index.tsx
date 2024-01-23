@@ -50,14 +50,12 @@ export const AnimationFrameExample = () => {
     let ypos = 10;
 
     const playAnimation = () => {
-        console.log("playAnimation")
         playing = true;
         moveCircle();
         if (myButton.current) myButton.current.textContent = "RESET";
     }
 
     const moveCircle = () => {
-        console.log('move circle')
         if (ypos > 290 || !playing) return;
 
         myCircle.current?.setAttribute("cy", String(ypos));
@@ -67,7 +65,6 @@ export const AnimationFrameExample = () => {
     }
 
     const reset = () => {
-        console.log('reset')
         ypos = 10;
         myCircle.current?.setAttribute("cy", String(ypos));
         if (myButton.current) myButton.current.textContent = "PLAY";
@@ -96,7 +93,6 @@ export const SimpleBounceExample = ({ top = false }: SimpleBounceProps) => {
     let speed = 1;
 
     const playAnimation = () => {
-        console.log("playAnimation")
         playing = true;
         moveCircle();
         if (myButton.current) myButton.current.textContent = "RESET";
@@ -124,7 +120,6 @@ export const SimpleBounceExample = ({ top = false }: SimpleBounceProps) => {
     }
 
     const reset = () => {
-        console.log('reset')
         ypos = 10;
         myCircle.current?.setAttribute("cy", String(ypos));
         if (myButton.current) myButton.current.textContent = "PLAY";
@@ -165,7 +160,6 @@ export const ComplexBounceExample = ({ randomized = false }: ComplexBounceProps)
     }
 
     const playAnimation = () => {
-        console.log("playAnimation")
         playing = true;
         moveCircle();
         if (myButton.current) myButton.current.textContent = "RESET";
@@ -202,7 +196,6 @@ export const ComplexBounceExample = ({ randomized = false }: ComplexBounceProps)
     }
 
     const reset = () => {
-        console.log('reset')
         pos.x = startPos.x;
         pos.y = startPos.y;
         speed.x = randomized ? Math.random() * 10 - 5 : 1;

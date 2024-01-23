@@ -77,7 +77,6 @@ export const ToggleKeyframeAnimBroke = () => {
 export const AnimEnd = () => {
     let square = useRef<SVGRectElement>(null);
     const animEndHandler = () => {
-        console.log('animation end');
         square.current?.removeEventListener("animationend", animEndHandler);
         //square.current?.classList.remove(styles.shrinkAnimation);
         square.current?.classList.add(styles.expandAnimation);

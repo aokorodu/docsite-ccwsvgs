@@ -10,31 +10,35 @@ const Nextbutton = () => {
     const nav = navConfig;
     const links = nav.links;
 
-    const getLink = (): string => {
-        const nextIndex = getNextIndex();
-        console.log('next index: ', links[nextIndex].link)
+    const getLink = (val: number): string => {
+        const nextIndex = getIndex(val);
         return links[nextIndex].link;
     }
 
-    const getPageNme = (): string => {
-        const nextIndex = getNextIndex();
-        console.log('next index: ', links[nextIndex].title)
+    const getPageNme = (val: number): string => {
+        const nextIndex = getIndex(val);
         return links[nextIndex].title;
     }
 
 
-
-    const getNextIndex = () => {
+    const getIndex = (val: number) => {
         const num = links.length;
         for (let i = 0; i < num; i++) {
             const path = links[i].link;
-            if (path == pathname) return i + 1;
+            if (path == pathname) {
+
+                return (i + val)
+            }
         }
 
-        return 0;
+        return -1;
     }
+
     return (<>
-        <div className={styles.holder}><Link href={`${getLink()}`}>Next: {getPageNme()} &gt;</Link></div>
+        <div className={styles.holder}>
+            {getIndex(0) > 0 && <Link href={`${getLink(-1)}`}>&lt; Prev: {getPageNme(-1)}</Link>}
+            {getIndex(0) < links.length - 1 && <Link href={`${getLink(1)}`}>Next: {getPageNme(1)} &gt;</Link>}
+        </div>
 
     </>)
 }
