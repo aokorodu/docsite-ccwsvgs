@@ -477,7 +477,7 @@ If you want multiple objects to move along the same path, you can use the mpath 
 
 </svg>
 
-## SMIL attributes:
+### animate attributes
 
 1. **id** - needed to chain animations, i.e begin=”first.end”
 1. **href** - (needed if animate element is not encapsulated by the element you wish to animate)
@@ -520,3 +520,21 @@ If you want multiple objects to move along the same path, you can use the mpath 
 12. **keyTimes**
 
 - List of values from 0 to 1 used to to dictate the pace of the animation - ex. keytimes=”0; .3; .9; 1”
+
+<br />
+
+### additional attributes for animateTransform:
+
+1. **attributeName** - ”transform”
+2. **transform-origin** - “\<x\> \<y\>” default is “0 0”
+3. **type** - ”\<type keyword\>”
+
+- translate
+- rotate
+- scale
+- skewX, skewY
+
+### additional attributes for animateMotion:
+
+1. **path** - ”\<path data\>”
+2. **mpath** - \<mpath href="#id-of-path" /\>
