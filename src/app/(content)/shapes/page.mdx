@@ -164,6 +164,26 @@ The path is the most powerful shape element, allowing for the most visual comple
 
 ---
 
+## image
+
+The image element allows you to add bitmap images - pngs or jpegs - to your svg.
+
+- **href**: the image path
+- **x** horizontal position
+- **y** vertical position
+- **width**: width
+- **height**: height
+
+<Blocks>{`<svg width="500" height="500" viewbox="0 0 500 500">
+  <image href="/shapes_basics.png" x="50" y="50" height="400" width="400" />
+</svg>`}</Blocks>
+
+<svg width="500" height="500" viewbox="0 0 500 500">
+  <image href="/shapes_basics.png" x="50" y="50" height="400" width="400" />
+</svg>
+
+---
+
 ## stacking order
 
 Shapes are stacked in order of appearance, with later elements on top.
