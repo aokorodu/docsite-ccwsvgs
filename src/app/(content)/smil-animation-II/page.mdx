@@ -50,7 +50,7 @@ Now let’s add the animateMotion element. You’ll see that it looks similar to
 
 Now let's copy the “d” contents of the path and paste it into the “path” attribute of the animateMotion element.
 
-<Blocks highlight="13">{`<svg width="500" height="500" viewBox="0 0 500 500">
+<Blocks highlight="3,13">{`<svg width="500" height="500" viewBox="0 0 500 500">
   <path
     d="M249.5 97L283.738 202.375H394.536L304.899 267.5L339.137 372.875L249.5 307.75L159.863 372.875L194.101 267.5L104.464 202.375H215.262L249.5 97Z"
     fill="none"
@@ -418,6 +418,15 @@ If you want multiple objects to move along the same path, you can use the mpath 
 ```
 <mpath href="#path-id" />
 ```
+
+<Blocks highlight="2,4,5,6">{`<svg width="500" height="500" viewBox="0 0 500 500">
+  <path id="starfish" .../>
+    <use href="#nice_car_5" x="0" y="0" fill="red">
+        <animateMotion dur="8s" begin="0s" repeatCount="indefinite" rotate="auto">
+            <mpath href="#starfish" />
+        </animateMotion>
+    </use>
+</svg>`}</Blocks>
 
 <svg width="500" height="500" viewBox="0 0 500 500">
   <defs>
