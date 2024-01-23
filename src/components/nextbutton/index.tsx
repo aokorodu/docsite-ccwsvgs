@@ -4,7 +4,6 @@ import Link from "next/link"
 import { usePathname } from "next/navigation";
 import { navConfig } from '../../config';
 import styles from './nextbutton.module.scss';
-import { PassThrough } from "stream";
 
 const Nextbutton = () => {
     const pathname = usePathname();
@@ -13,13 +12,11 @@ const Nextbutton = () => {
 
     const getLink = (val: number): string => {
         const nextIndex = getIndex(val);
-        console.log('next link: ', links[nextIndex].link)
         return links[nextIndex].link;
     }
 
     const getPageNme = (val: number): string => {
         const nextIndex = getIndex(val);
-        console.log('next title: ', links[nextIndex].title)
         return links[nextIndex].title;
     }
 
@@ -28,10 +25,7 @@ const Nextbutton = () => {
         const num = links.length;
         for (let i = 0; i < num; i++) {
             const path = links[i].link;
-            console.log('path: ', path)
             if (path == pathname) {
-                console.log('ind', i + val);
-                console.log('length: ', links.length)
 
                 return (i + val)
             }
