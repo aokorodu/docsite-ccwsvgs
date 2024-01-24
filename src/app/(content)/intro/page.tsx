@@ -1,4 +1,5 @@
 import styles from './Intro.module.css'
+import Blocks from "@/components/blocks";
 
 export default function Home() {
 
@@ -43,10 +44,37 @@ export default function Home() {
 
         <br />
         <h2>Note:</h2>
-        <div>
-          Most chapters will contain a link to a <strong>codepen page</strong> so that you can "code along" with the examples and code snippets provided.
-        </div>
-      </div>
+
+
+        <div> Most pages will contain <strong>code snippets</strong> and a link to a <strong>codepen page</strong> that you can use to "code along" with the provided examples.</div>
+
+        <br />
+
+        <div>Here's an example of a code snippet:</div>
+
+        <Blocks caption={""} title={""} highlight=''>{`<svg width="362" height="362" viewBox="0 0 362 362" fill="none">
+  <circle cx="181" cy="181" r="181" fill="#F3C729" />
+  <circle cx="118.5" cy="140.5" r="12.5" fill="black" />
+  <circle cx="243.5" cy="140.5" r="12.5" fill="black" />
+  <path
+    d="M80 224C121 271 241 276 291 224"
+    stroke="black"
+    stroke-width="13"
+    stroke-linecap="round"
+  />
+</svg>`}</Blocks>
+
+        <br />
+
+        <div>And here's a link to a <a href='https://codepen.io/aokorodu/pen/ExMwgxO' target='_blank'><strong>blank codepen page</strong></a>.</div>
+
+        <br />
+
+        <div>Feel free to copy and paste the provided code snippets into the codepen so that you can experiment directly with the code. It's the best way to learn!</div>
+
+
+
+      </div >
     </>
   )
 }
