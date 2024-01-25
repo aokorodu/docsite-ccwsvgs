@@ -11,7 +11,7 @@ export default function Home() {
 
   useEffect(() => {
     if (anim.current) {
-      const anims = ["waterFlow", "orbit", "float", "sin"][Math.round(Math.random() * 3)]
+      const anims = ["waterFlow", "orbit", "float", "sin"][Math.floor(Math.random() * 4)]
       anim.current.start();
       anim.current.changeFlow(anims)
     }
