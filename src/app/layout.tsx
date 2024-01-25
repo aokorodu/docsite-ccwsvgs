@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css';
-import Navigation from '@/components/navigation';
 import styles from './layout.module.scss';
 import AppHeader from '@/components/appheader';
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,7 +22,10 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className={styles.holder}>
           <AppHeader />
-          <div className={styles.contentHolder}>{children}</div>
+          <div className={styles.contentHolder}>
+            {children}
+            <Analytics />
+          </div>
         </div>
       </body>
 
