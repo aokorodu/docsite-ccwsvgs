@@ -79,6 +79,7 @@ img {
   width: 100%;
   height: auto;
   border: 1px solid #eaeaea;
+  border-radius: 10px;
 }
 
 svg {
