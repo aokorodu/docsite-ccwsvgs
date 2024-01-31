@@ -1,5 +1,9 @@
 import Blocks from "@/components/blocks";
-import { AppendLeafExample, GenerateLeafs } from "@/components/dynamichapter";
+import {
+  AppendLeafExample,
+  GenerateLeafs,
+  SliderStuff,
+} from "@/components/dynamichapter";
 
 # Changing SVGs Dynamically
 
@@ -567,3 +571,62 @@ Now let's use the **setAttribute** method to change the stop-colors.
   </defs>
   <circle cx="150" cy="150" r="100" fill="url(#sun-gradient-3)" />
 </svg>
+
+In the example below the radialGradient's cx and cy percentage values are changed by range sliders.
+
+<SliderStuff />
+
+<br />
+
+While the complete code for this example is a bit long to be posted in code snippets (the complete code can be found <a
+href={"https://codepen.io/aokorodu/pen/MWxOdrR?editors=0011"}
+target="\_blank">{"in this codepen"}</a>), a summary of how it's done can be found below.
+
+First we create a radialGradient in the defs section, making sure to give it an id so that we can target it later.
+
+<Blocks highlight="3-6">{`<svg...>
+  <defs>
+    <radialGradient id="sun-gradient" cx="50%" cy="50%">
+        <stop offset="0%" stop-color="yellow" />
+        <stop offset="100%" stop-color="orange" />
+    </radialGradient>
+  </defs>
+</svg>`}</Blocks>
+
+Next we add a circle element and apply the radialGradient fill:
+
+<Blocks highlight="3,4,5">{`<svg...>
+  <defs>...</defs>
+  <circle id="my-circle" 
+    cx="250" cy="250" r="200" 
+    fill="url(#sun-gradient)" />
+</svg>`}</Blocks>
+
+We'll also need to add range sliders that will be used to change the circle element's attributes. The input below will be used to set the cx value of the radial gradient.
+
+<Blocks>{`<input type="range" id="radial_cx" min="0" max="100" val="50" />`}</Blocks>
+
+In the \<scripts\> section we'll create variables for gradient, the circle, and the input sliders.
+
+<Blocks>{`const my_circle = document.querySelector('#my-circle');
+const sun_gradient = document.querySelector('#sun-gradient');
+const radial_cx_slider = document.querySelector("#radial_cx");
+// other slider varibles`}</Blocks>
+
+We'll need to add an "input" event listener to the range sliders like so:
+
+<Blocks>{`radial_cx_slider.addEventListener("input", updateRadialCX);
+radial_cy_slider.addEventListener("input", updateRadialCY);`}</Blocks>
+
+Let's create the functions that update the cx and cy attributes of the radial gradient;
+
+<Blocks>{`function updateRadialCX(e) {
+    radial_cx = {e.target.value} + "%";
+    sun_gradient.setAttribute("cx", radial_cx);
+};
+function updateRadialCY(e) {
+    radial_cy = {e.target.value} + "%";
+    sun_gradient.setAttribute("cy", radial_cy);
+};`}</Blocks>
+
+And that's it!

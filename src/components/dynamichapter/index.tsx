@@ -1,6 +1,7 @@
 'use client'
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
+import styles from './DChap.module.scss';
 
 type positionProps = {
     x: number,
@@ -90,5 +91,80 @@ export const GenerateLeafs = ({ rotate, color, canremove = false }: genleafprops
                 </g>
             </defs>
         </svg>
+    </>)
+}
+
+export const SliderStuff = () => {
+    const dynoCircle = useRef<SVGCircleElement>(null);
+    const [xpos, setXPos] = useState(250);
+    const [ypos, setYPos] = useState(250);
+    const [xgradval, setXGradVal] = useState("50%");
+    const [ygradval, setYGradVal] = useState("50%");
+    const [radius, setRadius] = useState(100);
+    const rangeValCX = useRef(250);
+    const rangeValCY = useRef(250);
+    const rangeValRadius = useRef(100);
+    const rangeValGradCX = useRef("50%");
+    const rangeValGradCY = useRef("50%");
+    return (<>
+        <svg width="500" height="500" viewBox="0 0 500 500">
+            <defs>
+                <radialGradient id="dynamic-gradient" cx={xgradval} cy={ygradval}>
+                    <stop id="first_stop" offset="0%" stop-color="yellow"></stop>
+                    <stop id="second_stop" offset="100%" stop-color="orange"></stop>
+                </radialGradient>
+                <linearGradient id="thebg" x1={"0%"} y1={"0%"} x2={"0%"} y2={"100%"}>
+                    <stop id="first_stop" offset="0%" stop-color="lightblue"></stop>
+                    <stop id="second_stop" offset="100%" stop-color="violet"></stop>
+                </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="500" height="500" fill="url(#thebg)" />
+            <circle ref={dynoCircle} cx={xpos} cy={ypos} r={radius} fill="url(#dynamic-gradient)" stroke="white" strokeWidth={3} strokeOpacity={.2} />
+        </svg>
+        <div className={styles.allSlideHolder}>
+            <div className={styles.sliderHolder}>
+                <label>radial gradient cx</label>
+                <input id="radius" type="range" min="0" max="100" value={rangeValGradCX.current} onChange={(e) => {
+                    const neval = `${e.target.value}%`;
+                    console.log('new value: ', neval)
+                    setXGradVal(neval);
+                    rangeValGradCX.current = e.target.value;
+                }}></input>
+            </div>
+            <div className={styles.sliderHolder}>
+                <label>radial gradient cy</label>
+                <input id="radius" type="range" min="0" max="100" value={rangeValGradCY.current} onChange={(e) => {
+                    const neval = `${e.target.value}%`;
+                    setYGradVal(neval);
+                    rangeValGradCY.current = e.target.value;
+                }}></input>
+            </div>
+            <div className={styles.sliderHolder}>
+                <label>cx</label>
+                <input id="radius" type="range" min="0" max="500" value={rangeValCX.current} onChange={(e) => {
+                    const neval = Number(e.target.value);
+                    setXPos(neval);
+                    rangeValCX.current = neval;
+                }}></input>
+            </div>
+            <div className={styles.sliderHolder}>
+                <label>cy</label>
+                <input id="radius" type="range" min="0" max="500" value={rangeValCY.current} onChange={(e) => {
+                    const neval = Number(e.target.value);
+                    setYPos(neval);
+                    rangeValCY.current = neval;
+                }}></input>
+            </div>
+            <div className={styles.sliderHolder}>
+                <label>radius</label>
+                <input id="radius" type="range" min="10" max="250" value={rangeValRadius.current} onChange={(e) => {
+                    const neval = Number(e.target.value);
+                    setRadius(neval);
+                    rangeValRadius.current = neval;
+                }}></input>
+            </div>
+
+
+        </div>
     </>)
 }
