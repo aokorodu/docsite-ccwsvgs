@@ -15,8 +15,34 @@ const CBezierDemo = () => {
         dragging = true;
 
         stage.current?.addEventListener("mousemove", drag);
+        stage.current?.addEventListener("touchmove", touchdrag);
         stage.current?.addEventListener("mouseup", stopDragging);
+        stage.current?.addEventListener("touchstop", stopDragging);
 
+    }
+
+    const touchdrag = (e: TouchEvent) => {
+        if (!dragging) return;
+        e.preventDefault();
+        e.stopImmediatePropagation();
+
+        const x = e.touches[0].clientX;
+        const y = e.touches[0].clientY;
+
+
+        if (stage.current != null) {
+
+            const p = toSVGPoint(stage.current, x, y);
+            if ((p.x < 20) || (p.x > 480) || (p.y < 20) || (p.y > 480)) {
+                stopDragging();
+                return;
+            }
+
+            currentBall.current?.setAttribute("cx", String(Math.round(p.x)));
+            currentBall.current?.setAttribute("cy", String(Math.round(p.y)));
+
+            updatePath();
+        }
     }
 
 
@@ -64,14 +90,16 @@ const CBezierDemo = () => {
         dragging = false;
         console.log('stop dragging')
         stage.current?.removeEventListener("mousemove", drag)
-        stage.current?.removeEventListener("mouseup", stopDragging)
+        stage.current?.removeEventListener("mouseup", stopDragging);
+        stage.current?.removeEventListener("touchmove", touchdrag);
+        stage.current?.removeEventListener("touchend", stopDragging);
     }
 
     return (<>
         <svg ref={stage} width={500} height={500} viewBox="0 0 500 500">
-            <rect x={20} y={20} width={460} height={460} fill={"#eaeaea"} stroke={"none"} />
+            <rect x={0} y={0} width={500} height={500} fill={"#eaeaea"} stroke={"none"} />
             <path ref={path} d="M 0,250 L 50,250 C 200,125 300,425 450,250 L 500,250" stroke={"black"} strokeWidth={2} fill="none" />
-            <text x={250} y={100} textAnchor={"middle"}>Drag the control points</text>
+            <text x={200} y={70} textAnchor={"middle"}>Drag the control points</text>
             <text x={250} y={460} textAnchor={"middle"}>"M 0,250 L 50,250 <tspan stroke={"red"} ref={pathText}>C 200, 125 300, 425</tspan> 450,250 L 500,250"</text>
             <circle
                 onMouseDown={() => {
@@ -79,14 +107,26 @@ const CBezierDemo = () => {
                     startDragging();
                     console.log('dragging');
                 }}
-                ref={ball_1} cx={200} cy={125} r={10} fill={"red"} />
+
+                onTouchStart={() => {
+                    currentBall = ball_1;
+                    startDragging();
+                    console.log('dragging');
+                }}
+                ref={ball_1} cx={200} cy={125} r={20} fill={"red"} />
             <circle
                 onMouseDown={() => {
                     currentBall = ball_2;
                     startDragging();
                     console.log('dragging');
                 }}
-                ref={ball_2} cx={300} cy={425} r={10} fill={"blue"} />
+
+                onTouchStart={() => {
+                    currentBall = ball_2;
+                    startDragging();
+                    console.log('dragging');
+                }}
+                ref={ball_2} cx={300} cy={425} r={20} fill={"blue"} />
 
         </svg>
     </>)
