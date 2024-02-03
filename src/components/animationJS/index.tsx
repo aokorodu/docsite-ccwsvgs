@@ -1,6 +1,7 @@
 'use client'
 
 import styles from './AnimJS.module.scss';
+import componentStyles from '../ComponentStyles.module.scss'
 import { useRef, useState } from 'react';
 
 export const FrameRateExample = () => {
@@ -90,7 +91,7 @@ export const AnimEnd = () => {
     }
     const [started, setStarted] = useState(false)
     return (<>
-        <div className={styles.containerWithButton}>
+        <div className={componentStyles.containerWithButton}>
             <svg width="500" height="500" viewBox="0 0 500 500">
                 <g id="square" transform="translate(250 250)" onClick={() => {
 

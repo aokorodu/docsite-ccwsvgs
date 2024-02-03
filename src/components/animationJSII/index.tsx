@@ -1,6 +1,7 @@
 'use client'
 
 import styles from './AnimationJSII.module.scss';
+import componentStyles from '../ComponentStyles.module.scss'
 import { useEffect, useRef, useState } from 'react';
 
 export const BackAndForthExample = () => {
@@ -33,7 +34,7 @@ export const FailExample = () => {
         setPlayed(false);
     }
     return (<>
-        <div className={styles.containerWithButton}>
+        <div className={componentStyles.containerWithButton}>
             <svg width="200" height="300" viewBox="0 0 200 300">
                 <circle ref={myCircle} cx="100" cy="10" r="10" fill="green" />
             </svg>
@@ -72,7 +73,7 @@ export const AnimationFrameExample = () => {
         window.cancelAnimationFrame(animID);
     }
     return (<>
-        <div className={styles.containerWithButton}>
+        <div className={componentStyles.containerWithButton}>
             <svg width="200" height="300" viewBox="0 0 200 300">
                 <circle ref={myCircle} cx="100" cy="10" r="10" fill="green" />
             </svg>
@@ -127,7 +128,7 @@ export const SimpleBounceExample = ({ top = false }: SimpleBounceProps) => {
         window.cancelAnimationFrame(animID);
     }
     return (<>
-        <div className={styles.containerWithButton}>
+        <div className={componentStyles.containerWithButton}>
             <svg width="200" height="300" viewBox="0 0 200 300">
                 <circle ref={myCircle} cx="100" cy="10" r="10" fill="green" />
             </svg>
@@ -207,7 +208,7 @@ export const ComplexBounceExample = ({ randomized = false }: ComplexBounceProps)
         window.cancelAnimationFrame(animID);
     }
     return (<>
-        <div className={styles.containerWithButton}>
+        <div className={componentStyles.containerWithButton}>
             <svg width="200" height="300" viewBox="0 0 200 300">
                 <circle ref={myCircle} cx="100" cy="150" r="10" fill="green" />
             </svg>
@@ -300,7 +301,7 @@ export const ParticleExample = () => {
     }, [])
 
     return (<>
-        <div className={styles.containerWithButton}>
+        <div className={componentStyles.containerWithButton}>
             <svg width="500" height="500" viewBox="0 0 500 500" fill="none">
                 {getParticles()}
             </svg>
