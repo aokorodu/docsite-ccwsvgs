@@ -19,9 +19,46 @@ const SBezierDemo = () => {
 
         stage.current?.addEventListener("mousemove", drag);
         stage.current?.addEventListener("mouseup", stopDragging);
+        stage.current?.addEventListener("touchmove", touchdrag);
+        stage.current?.addEventListener("touchend", stopDragging);
 
     }
 
+
+    const touchdrag = (e: TouchEvent) => {
+        if (!dragging) return;
+
+        e.preventDefault();
+        e.stopImmediatePropagation();
+
+        const x = e.touches[0].clientX;
+        const y = e.touches[0].clientY;
+
+
+        if (stage.current != null) {
+
+            const p = toSVGPoint(stage.current, x, y);
+            console.log('p ', p.y);
+            if ((p.x < 20) || (p.x > 480) || (p.y < 20) || (p.y > 480)) {
+                stopDragging();
+                return;
+            }
+
+            const xpos = p.x;
+            const ypos = p.y;
+            const xmirror = 500 - xpos;
+            const ymirror = 500 - ypos;
+            currentBall.current?.setAttribute("cx", String(Math.round(p.x)));
+            currentBall.current?.setAttribute("cy", String(Math.round(p.y)));
+            if (currentBall == ball_2) {
+                ball_reflection.current?.setAttribute("cx", String(Math.round(xmirror)));
+                ball_reflection.current?.setAttribute("cy", String(Math.round(ymirror)));
+            }
+
+
+            updatePath();
+        }
+    }
 
     const drag = (e: MouseEvent) => {
         if (!dragging) return;
@@ -82,14 +119,16 @@ const SBezierDemo = () => {
         console.log('stop dragging')
         stage.current?.removeEventListener("mousemove", drag)
         stage.current?.removeEventListener("mouseup", stopDragging)
+        stage.current?.removeEventListener("touchmove", touchdrag);
+        stage.current?.removeEventListener("touchend", stopDragging);
     }
 
     return (<>
         <svg ref={stage} width={500} height={500} viewBox="0 0 500 500">
-            <rect x={20} y={20} width={460} height={460} fill={"#eaeaea"} stroke={"none"} />
+            <rect x={0} y={0} width={500} height={500} fill={"#eaeaea"} stroke={"none"} />
             <path ref={path} d="M 0,250 C 25,100 225,100 250,250 S 475,400 500,250" stroke={"black"} strokeWidth={2} fill="none" />
             <path ref={connector} d="M225, 100 L275, 400" stroke={"black"} strokeWidth={1} strokeDasharray={10} />
-            <text x={250} y={100} textAnchor={"middle"}>Drag the control points</text>
+            <text x={225} y={70} textAnchor={"middle"}>Drag the control points</text>
             <text x={250} y={460} textAnchor={"middle"}>"M 0,250 <tspan stroke={"red"} ref={pathText}>C 25,100 225,100 250,250 S 475,400</tspan> 500,250"</text>
             <circle
                 onMouseDown={() => {
@@ -97,28 +136,49 @@ const SBezierDemo = () => {
                     startDragging();
                     console.log('dragging');
                 }}
-                ref={ball_1} cx={25} cy={100} r={10} fill={"red"} />
+
+                onTouchStart={() => {
+                    currentBall = ball_1;
+                    startDragging();
+                    console.log('dragging');
+                }}
+                ref={ball_1} cx={25} cy={100} r={20} fill={"red"} />
             <circle
                 onMouseDown={() => {
                     currentBall = ball_2;
                     startDragging();
                     console.log('dragging');
                 }}
-                ref={ball_2} cx={225} cy={100} r={10} fill={"red"} />
+                onTouchStart={() => {
+                    currentBall = ball_2;
+                    startDragging();
+                    console.log('dragging');
+                }}
+                ref={ball_2} cx={225} cy={100} r={20} fill={"green"} />
             <circle
                 onMouseDown={() => {
                     currentBall = ball_3;
                     startDragging();
                     console.log('dragging');
                 }}
-                ref={ball_3} cx={475} cy={400} r={10} fill={"blue"} />
+                onTouchStart={() => {
+                    currentBall = ball_3;
+                    startDragging();
+                    console.log('dragging');
+                }}
+                ref={ball_3} cx={475} cy={400} r={20} fill={"blue"} />
             <circle
                 onMouseDown={() => {
                     currentBall = ball_3;
                     startDragging();
                     console.log('dragging');
                 }}
-                ref={ball_reflection} cx={275} cy={400} r={10} fill={"none"} stroke={"black"} strokeWidth={2} strokeDasharray={3} />
+                onTouchStart={() => {
+                    currentBall = ball_3;
+                    startDragging();
+                    console.log('dragging');
+                }}
+                ref={ball_reflection} cx={275} cy={400} r={20} fill={"none"} stroke={"black"} strokeWidth={2} strokeDasharray={3} />
 
         </svg>
     </>)
