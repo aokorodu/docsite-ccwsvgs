@@ -53,8 +53,11 @@ const TBezierDemo = () => {
     }
 
 
-    const drag = () => {
+    const drag = (e: MouseEvent) => {
         if (!dragging) return;
+
+        const x = e.clientX;
+        const y = e.clientY;
 
         if (stage.current != null) {
 
