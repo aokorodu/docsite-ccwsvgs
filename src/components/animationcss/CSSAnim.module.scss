@@ -195,3 +195,24 @@ $exampleDuration: 3s;
   animation-direction: alternate;
   animation-timing-function: cubic-bezier(0.13, 0.74, 0, 1);
 }
+
+.letter {
+}
+
+.on {
+  stroke-dashoffset: 0;
+}
+
+.off {
+  stroke-dashoffset: -100;
+}
+
+@keyframes drawLetter {
+  0% {
+    stroke-dashoffset: -100;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
