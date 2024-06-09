@@ -18,15 +18,9 @@ export default function ContentLayout({
   children: React.ReactNode
 }) {
   return (
-
-
     <div className={styles.holder}>
       <Navigation />
       <div className={styles.contentHolder}>{children}<Nextbutton /></div>
-
     </div>
-
-
-
   )
 }
