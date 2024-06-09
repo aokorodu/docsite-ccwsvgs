@@ -93,7 +93,7 @@ Attaches the marker with the designated id (**url(#box)** in this case) to the f
   {`<polyline 
     marker-start="url(#box)" 
     points="50,150 150,150 250,150 350,150 450,150" 
-    stroke="black" strokeWidth="2" fill="none" />`}
+    stroke="black" stroke-width="2" fill="none" />`}
 </Blocks>
 
 <MarkerPosDemo position={"start"} />
@@ -106,7 +106,7 @@ Attaches a marker to all of the points between the start and end points of a pol
   {`<polyline 
     marker-mid="url(#ball)" 
     points="50,150 150,150 250,150 350,150 450,150" 
-    stroke="black" strokeWidth="2" fill="none" />`}
+    stroke="black" stroke-width="2" fill="none" />`}
 </Blocks>
 
 #### points="50,150 **150,100 250,200 350,150** 450,150"
@@ -121,7 +121,7 @@ Attaches the marker to the last point of the polyline.
   {`<polyline 
     marker-end="url(#arrowhead)" 
     points="50,150 150,150 250,150 350,150 450,150" 
-    stroke="black" strokeWidth="2" fill="none" />`}
+    stroke="black" stroke-width="2" fill="none" />`}
 </Blocks>
 
 #### points="50,150 150,150 250,150 350,150 **450,150**"
@@ -131,10 +131,10 @@ Attaches the marker to the last point of the polyline.
 <Blocks>
   {`<polyline 
     marker-start="url(#box)" 
-    markerEnd="url(#arrowhead)" 
+    marker-end="url(#arrowhead)" 
     marker-mid="url(#ball)" 
     points="50,150 150,150 250,150 350,150 450,150"
-    stroke="black" strokeWidth="2" fill="none"  />`}
+    stroke="black" stroke-width="2" fill="none"  />`}
 </Blocks>
 
 <MarkerPosDemo position={"all"} />
@@ -166,8 +166,8 @@ The arrowhead is clearly pointing in the wrong direction. To get it pointed so t
     </marker>
 </defs>
 <polyline 
-    markerStart="url(#arrowhead)" 
-    markerEnd="url(#arrowhead-3)" 
+    marker-start="url(#arrowhead)" 
+    marker-end="url(#arrowhead-3)" 
     stroke="black" strokeWidth="2" 
     fill="none" 
     points="50, 250 450,50" />`}
