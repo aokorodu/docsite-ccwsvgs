@@ -9,6 +9,8 @@ import {
   RadialGradientOrientation_2,
   RadialGradientRadius,
   RadialGradientRadius_2,
+  StrokeLinearGradient,
+  FillLinearGradient,
 } from "@/components/reusegradientchapter";
 
 # Gradients
@@ -76,8 +78,8 @@ Here the offset position of the first stop-color has been moved to 50%.
 
 <Blocks>
   {`<linearGradient id="lin-grad_50">
-    <stop offset="50%" stopColor="red" />
-    <stop offset="100%" stopColor="blue" />
+    <stop offset="50%" stop-color="red" />
+    <stop offset="100%" stop-color="blue" />
 </linearGradient>`}
 </Blocks>
 
@@ -89,9 +91,9 @@ This gradient has three stop colors.
 
 <Blocks>
   {`<linearGradient id="three_stops">
-    <stop offset="00%" stopColor="red" />
-    <stop offset="50%" stopColor="gold" />
-    <stop offset="100%" stopColor="green" />
+    <stop offset="00%" stop-color="red" />
+    <stop offset="50%" stop-color="gold" />
+    <stop offset="100%" stop-color="green" />
 </linearGradient>`}
 </Blocks>
 
@@ -258,3 +260,51 @@ In this example below we’ve changed the radius of the focal point circle to 25
 </Blocks>
 
 ![gradient_rad_focal_radius_size_2.png](gradient_rad_focal_radius_size_2.png)
+
+## using a gradient as a fill
+
+Once you've defined the gradeint, you can use it as a fill by simply passing in the gradient's id:
+
+```
+fill="url(#lin-grad_0)"
+```
+
+<Blocks highlight="9">
+  {`<svg width="500" height="500" viewBox="0 0 500 500">
+    <defs>
+        <linearGradient id="lin-grad_0">
+            <stop offset="0%" stop-color="red" />
+            <stop offset="100%" stop-color="blue" />
+        </linearGradient>
+    </defs>
+
+    <circle cx="250" cy="250" r="200" fill="url(#lin-grad_0)" />
+
+</svg>`}
+</Blocks>
+
+<FillLinearGradient />
+
+## using a gradient as a stroke
+
+You can also use the gradient as a stroke:
+
+```
+stroke="url(#lin-grad_0)"
+```
+
+<Blocks highlight="9">
+  {`<svg width="500" height="500" viewBox="0 0 500 500">
+    <defs>
+        <linearGradient id="lin-grad_0">
+            <stop offset="0%" stop-color="red" />
+            <stop offset="100%" stop-color="blue" />
+        </linearGradient>
+    </defs>
+
+    <circle cx="250" cy="250" r="200" stroke="url(#lin-grad_0)"  stroke-width="15" fill="none" />
+
+</svg>`}
+</Blocks>
+
+<StrokeLinearGradient />
