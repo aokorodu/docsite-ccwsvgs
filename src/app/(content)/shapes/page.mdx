@@ -175,12 +175,28 @@ The image element allows you to add bitmap images - pngs or jpegs - to your svg.
 - **height**: height
 
 <Blocks>{`<svg width="500" height="500" viewbox="0 0 500 500">
-  <image href="/shapes_basics.png" x="50" y="50" height="400" width="400" />
+  <image 
+      href="https://plus.unsplash.com/premium_vector-1724876723896..." 
+      x="50" y="50" height="400" width="400" />
 </svg>`}</Blocks>
 
 <svg width="500" height="500" viewbox="0 0 500 500">
-  <image href="/shapes_basics.png" x="50" y="50" height="400" width="400" />
+  <image
+    href="https://plus.unsplash.com/premium_vector-1724876723896-43f7b29c8e70?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    x="50"
+    y="50"
+    height="400"
+    width="400"
+  />
 </svg>
+
+### \*note
+
+#### The image element also has a **preserveAspectRatio** attribute that may affect it's appearance. Please refer to the **Aspect Ratio** lesson for more information.
+
+<a className="codepenLink" href={"/aspect-ratio"}>
+  {"Aspect Ratio"}
+</a>
 
 ---
 
