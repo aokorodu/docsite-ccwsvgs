@@ -151,3 +151,37 @@ export const RadialGradientRadius_2 = () => {
         </>
     )
 }
+
+export const FillLinearGradient = () => {
+    return (
+        <>
+            <svg width="500" height="500" viewBox="0 0 500 500">
+                <defs>
+                    <linearGradient id="lin-grad_0">
+                        <stop offset="0%" stopColor="red" />
+                        <stop offset="100%" stopColor="blue" />
+                    </linearGradient>
+                </defs>
+
+                <circle cx="250" cy="250" r="200" fill="url(#lin-grad_0)" />
+            </svg>
+        </>
+    )
+}
+
+export const StrokeLinearGradient = () => {
+    return (
+        <>
+            <svg width="500" height="500" viewBox="0 0 500 500">
+                <defs>
+                    <linearGradient id="lin-grad_0">
+                        <stop offset="0%" stopColor="red" />
+                        <stop offset="100%" stopColor="blue" />
+                    </linearGradient>
+                </defs>
+
+                <circle cx="250" cy="250" r="200" stroke="url(#lin-grad_0)" strokeWidth="15" fill="none" />
+            </svg>
+        </>
+    )
+}
