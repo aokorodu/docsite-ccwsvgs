@@ -11,6 +11,10 @@ import { DynamicAspectRatio } from "@/components/aspectratio";
   {"Aspect Ratio codepen practice page"}
 </a>
 
+### note:
+
+The majority of this section discusses aspec-ratio in terms of the entire SVG, but towards the end we'll briefly discuss how it applies to the **image** element.
+
 ## overview
 
 The aspect ratio is the ratio of an objects width to it's height. In this example the aspect ratio of the top box, where the width = height, is 1:1. The bottom box is twice as wide as it is tall, so the aspect ratio is 2:1
@@ -222,3 +226,82 @@ But what if you don't care about the aspect ratio, and you just want the image t
   viewbox="0 0 500 500"
   aspectRatio="none"
 />
+
+## Images
+
+The **preserveAspectRatio** attribute can also be used with the image element. The examples below have a rectangle the same width, height, and position as the image so you can see the effect of using preserveAspectRatio.
+
+### xMidYMid meet
+
+```
+<image
+    href="https://images.unsplash.com..."
+    x="100"
+    y="100"
+    width="300"
+    height="300"
+    preserveAspectRatio="xMidYMid meet"
+  />
+```
+
+<svg width="500" height="500" viewbox="0 0 500 500">
+  <image
+    href="https://images.unsplash.com/photo-1722021244430-fd99e56a6f31?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjUxMjc0NzJ8&ixlib=rb-4.0.3&q=85"
+    x="100"
+    y="100"
+    width="300"
+    height="300"
+    preserveAspectRatio="xMidYMid meet"
+  />
+  <rect x="100" y="100" width="300" height="300" stroke="black" fill="none" />
+</svg>
+
+### xMidYMid slice
+
+```
+<image
+    href="https://images.unsplash.com..."
+    x="100"
+    y="100"
+    width="300"
+    height="300"
+    preserveAspectRatio="xMidYMid slice"
+  />
+```
+
+<svg width="500" height="500" viewbox="0 0 500 500">
+  <image
+    href="https://images.unsplash.com/photo-1722021244430-fd99e56a6f31?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjUxMjc0NzJ8&ixlib=rb-4.0.3&q=85"
+    x="100"
+    y="100"
+    width="300"
+    height="300"
+    preserveAspectRatio="xMidYMid slice"
+  />
+  <rect x="100" y="100" width="300" height="300" stroke="black" fill="none" />
+</svg>
+
+### xMinYMin meet
+
+```
+<image
+    href="https://images.unsplash.com..."
+    x="100"
+    y="100"
+    width="300"
+    height="300"
+    preserveAspectRatio="xMinYMin meet"
+  />
+```
+
+<svg width="500" height="500" viewbox="0 0 500 500">
+  <image
+    href="https://images.unsplash.com/photo-1722021244430-fd99e56a6f31?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjUxMjc0NzJ8&ixlib=rb-4.0.3&q=85"
+    x="100"
+    y="100"
+    width="300"
+    height="300"
+    preserveAspectRatio="xMinYMin meet"
+  />
+  <rect x="100" y="100" width="300" height="300" stroke="black" fill="none" />
+</svg>
