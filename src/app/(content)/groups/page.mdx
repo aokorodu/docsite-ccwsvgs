@@ -5,7 +5,7 @@ import { Example1, Example2 } from "@/components/groupschapter";
 
 <a
   className="codepenLink"
-  href={"https://codepen.io/aokorodu/pen/bGZWyaN"}
+  href={"https://codepen.io/aokorodu/pen/eYwPRdG"}
   target="_blank"
 >
   {"codepen practice page"}
@@ -14,6 +14,8 @@ import { Example1, Example2 } from "@/components/groupschapter";
 ## the group element
 
 The group element acts as a container for other elements (or groups), similar to a div in html.
+
+### groups and presentation attributes
 
 Presentation attributes (fills, strokes, etc.) applied to the group are inherited by the children, as long as that child doesn’t have the same presentation attribute defined.
 
@@ -47,7 +49,11 @@ Note how the group level stroke and stroke-width are still applied to the child 
 
 ![viewbox](/groups_translate.png)
 
-<Blocks caption="translates are cumulative">{`<g id="tree">
+### groups and readability
+
+Groups also make svg code more readable by allowing for the collection of logically related elements.
+
+<Blocks caption="grouping of related elements">{`<g id="tree">
    <g id="leaves" fill="green">
        <circle cx="145" cy="250" r="10"/>
        <circle cx="115" cy="250" r="20"/>
@@ -57,7 +63,5 @@ Note how the group level stroke and stroke-width are still applied to the child 
       <!-- more branches -–>
    </g>
 </g>`}</Blocks>
-
-Groups also make svg code more readable by allowing for the collection of logically related elements.
 
 ![viewbox](/groups_tree.png)
