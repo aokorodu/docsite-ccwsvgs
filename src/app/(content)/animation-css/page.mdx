@@ -2,11 +2,13 @@ import Blocks from "@/components/blocks";
 import {
   HoverExample,
   StrokeDash,
+  StrokeText,
   GeoProperties,
   KeyframeExample,
   BalloonExample,
   EaseExample,
 } from "@/components/animationcss";
+import Link from "next/link";
 
 # CSS Animation
 
@@ -215,9 +217,15 @@ Now let's add the transition for stroke-dashoffset and the **:hover** pseudo cla
 `}
 </Blocks>
 
-#### **hover over circle to see transition**
+#### hover over circle to see transition
 
 <StrokeDash hover={true} />
+
+#### hover to see a similar css stroke animation with text
+
+<StrokeText />
+
+#### \*See the text stroke animation example in [codepen](https://codepen.io/aokorodu/pen/poXmpXb)
 
 ### geometric property transitions
 
