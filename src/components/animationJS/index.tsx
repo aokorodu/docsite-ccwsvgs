@@ -119,3 +119,37 @@ export const AnimEnd = () => {
             {started && <button onClick={() => { reset() }}>{"reset"}</button>}
         </div></>)
 }
+
+export const BitterEnd = () => {
+    let square = useRef<SVGRectElement>(null);
+    const animEndHandler = () => {
+        square.current?.removeEventListener("animationend", animEndHandler);
+        square.current?.classList.add(styles.expandAnimation);
+    }
+    return (<>
+        <div className={componentStyles.containerWithButton}>
+            <svg width="500" height="500" viewBox="0 0 500 500">
+                <g id="square" transform="translate(250 250)" onClick={() => {
+
+                    const list = square.current?.classList;
+                    if (list?.contains(styles.expandAnimation)) {
+                        list?.remove(styles.expandAnimation);
+                    }
+                    list?.add(styles.shrinkAnimation);
+                    square.current?.addEventListener("animationend", animEndHandler)
+
+
+                }}>
+                    <rect
+                        ref={square}
+                        className={styles.squareStyle}
+                        x="-150" y="-150"
+                        rx="20" ry="20"
+                        width="300" height="300"
+
+                    />
+
+                </g>
+            </svg>
+        </div></>)
+}

@@ -47,9 +47,11 @@
 @keyframes shrink {
   from {
     transform: scale(1);
+    fill: cornflowerblue;
   }
   to {
     transform: scale(0.5);
+    fill: red;
   }
 }
 
@@ -63,9 +65,10 @@
 @keyframes expand {
   from {
     transform: scale(0.5);
+    fill: red;
   }
   to {
     transform: scale(1);
-    fill: red;
+    fill: cornflowerblue;
   }
 }

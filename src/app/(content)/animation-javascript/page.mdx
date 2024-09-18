@@ -4,6 +4,7 @@ import {
   ToggleClassWithJS,
   ToggleKeyframeAnimBroke,
   AnimEnd,
+  BitterEnd,
 } from "@/components/animationJS";
 
 # JavaScript Animation
@@ -42,13 +43,8 @@ For example, let's add a rotation animation to this square
 
 <Blocks>
   {`<svg width="500" height="500" viewbox="0 0 500 500">
-  <g id="square" transform="translate(250 250)">
-    <rect
-      class="square-style"
-      x="-150" y="-150"
-      width="300" height="300"
-      ...
-    />
+  <g transform="translate(250 250)">
+    <rect class="square" x="-150" y="-150" width="300" height="300" fill="cornflowerblue" rx="10" ry="10" />
   </g>
 </svg>`}
 </Blocks>
@@ -69,18 +65,17 @@ For example, let's add a rotation animation to this square
   </g>
 </svg>
 
-First, let's set up a style that sets up the initial rotation transform and the transition properties (**square-style**). We'll create a second class, (**spin-style-transition**), that we'll apply to the element dynamically using javascript.
+First, let's set up a style that sets up the initial rotation transform and the transition properties (**square**). We'll create a second class, (**spin-style-transition**), that we'll apply to the element dynamically using javascript.
 
 <Blocks>
   {`<style>
-   .square-style {
-       transform: rotate(0deg);
-       transition: 500ms ease-in-out;
-   }
-
-    .spin-style-transition {
-        transform: rotate(360deg);
-    }.
+  .square {
+      transform: rotate(0deg);
+      transition: 500ms ease-in-out;
+  }
+  .spin-style-transition {
+      transform: rotate(360deg);
+  }
 
 </style>`}
 </Blocks>
@@ -89,7 +84,7 @@ We'll use querySelector to get a reference to the square using it's id:
 
 <Blocks>
   {`<script>
-   const square = document.querySelector("#square");
+   const square = document.querySelector(".square");
 </script>`}
 </Blocks>
 
@@ -97,7 +92,7 @@ Next we'll add a click event listener to the square.
 
 <Blocks highlight="3-5">
   {`<script>
-   const square = document.querySelector("#square");
+   const square = document.querySelector(".square");
    square.addEventListener("click", () => {
 	// code goes here
  })
@@ -108,13 +103,13 @@ Finally we'll use the **classList** property that returns a **DOMTokenList** of 
 
 <Blocks highlight="4-8">
   {`<script>
-    const square = document.querySelector("#square");
-    square.addEventListener("click", () => {
-        const list = square.classList;
-        list.contains("spin-style-transition") 
-        ? square.classList.remove("spin-style-transition") 
-        : square.classList.add("spin-style-transition")
- })
+  const square = document.querySelector(".square");
+  square.addEventListener("click", () => {
+    const list = square.classList;
+    list.contains("spin-style-transition")
+      ? square.classList.remove("spin-style-transition")
+      : square.classList.add("spin-style-transition");
+  });
 </script>`}
 </Blocks>
 
@@ -126,22 +121,20 @@ We can also toggle keyframe animations.
 
 <Blocks>
   {`<style>
-  .square-style {
-      transform: rotate(0deg);
-  }
-
-    .spin-style-animation {
-      animation-name: spin;
-      animation-duration: 1s;
-      animation-timing-function: ease-in-out;
-      animation-fill-mode: forwards;
+.square {
+    transform: rotate(0deg);
+}
+.spin-style-animation {
+    animation: spin 1s ease-in-out;
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
     }
-
-    @keyframes spin {
-      from {transform: rotate(0deg)}
-      to {transform: rotate(360deg)}
+    to {
+        transform: rotate(360deg);
     }
-
+}
 </style>`}
 </Blocks>
 
@@ -167,26 +160,33 @@ Removing the animation class doesn't trigger a transition - the element just rev
 
 The solution: we swap animation classes. Let's create the forwards (spin) and backwards (spinBack) animations:
 
-<Blocks>
+<Blocks highlight="8,9,10,19-26">
   {`<style>
-   .spin-style-animation {
-       animation: spin 1s ease-in-out;
-   }
-
-    .spin-back-style-animation {
-      animation: spinBack 1s ease-in-out;
+.square {
+  transform: rotate(0deg);
+}
+.spin-style-animation {
+  animation: spin 1s ease-in-out;
+}
+.spin-back-style-animation {
+  animation: spinBack 1s ease-in-out;
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
     }
-
-    @keyframes spin {
-        from {transform: rotate(0deg)}
-        to { transform: rotate(360deg)}
+    to {
+        transform: rotate(360deg);
     }
-
-    @keyframes spinBack {
-        from {transform: rotate(360deg)}
-        to {transform: rotate(0deg)}
+}
+@keyframes spinBack {
+    from {
+        transform: rotate(360deg);
     }
-
+    to {
+        ransform: rotate(0deg);
+    }
+}
 </style>`}
 </Blocks>
 
@@ -216,39 +216,40 @@ Another tool we can use to make css animations more robust is the "animationend"
 In the following example we'll listen for the end of one animation and trigger the next when it occurs. Here's the animation CSS classes and keyframes. **TLDR;** the **shrinkAnimation** shrinks the cube and the **expandAnimation** expands it.
 
 <Blocks>
-  {`.shrinkAnimation {
+  {`<style>
+.shrinkAnimation {
   animation-name: shrink;
   animation-duration: 1s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
 }
-
-    @keyframes shrink {
-      from {
+@keyframes shrink {
+    from {
         transform: scale(1);
-      }
-      to {
-        transform: scale(0.5);
-      }
+        fill: conflowerblue;
     }
-
-    .expandAnimation {
-      animation-name: expand;
-      animation-duration: 1s;
-      animation-timing-function: ease-in-out;
-      animation-fill-mode: both;
-    }
-
-    @keyframes expand {
-      from {
+    to {
         transform: scale(0.5);
-      }
-      to {
+        fill: red;
+    }
+}
+.expandAnimation {
+    animation-name: expand;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+}
+@keyframes expand {
+    from {
+        transform: scale(0.5);
+        fill: red;
+    }
+    to {
         transform: scale(1);
-      fill: red;
+        fill: cornflowerblue;
     }
-
-}`}
+}
+</style>`}
 
 </Blocks>
 
@@ -283,3 +284,30 @@ Next we'll add an "animationend" event listener to the square, and use it to bot
 </Blocks>
 
 <AnimEnd />
+
+## Finishing up...
+
+You may have noticed that you have to click the "reset" button in order to run through the animation again. Why can't we just click the square to have the animation repeat? Well, after the animation shrinks and expands the first time the square still has the "expandAnimation" class as part of it's classList. When you click the square the second time, you add the shrinkAnimation class, but it's cancelled out by the expandAnimation class. In order to repeat the shrinkAnimation, we'll need to remove the expandAnimation class first:
+
+<Blocks highlight="5,6,7">
+  {`<script>
+  const square = document.querySelector("#square");
+  
+  square.addEventListener("click", () => {
+        if(square.classList.contains("expandAnimation")){
+          square.classList.remove("expandAnimation");
+        }
+        square.classList.add("shrinkAnimation")
+    })
+
+    square.addEventListener('animationend', () => {
+        square.classList.remove("shrinkAnimation")
+        square.classList.add("expandAnimation")
+    });
+
+  </script>`}
+</Blocks>
+
+<BitterEnd />
+
+#### \*Check out this example in [codepen](https://codepen.io/aokorodu/pen/zYVVWyV)
