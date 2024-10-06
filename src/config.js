@@ -91,6 +91,7 @@ export const navConfig = {
         { title: "SMIL", link: "/smil-animation" },
         { title: "more SMIL", link: "/smil-animation-II" },
         { title: "Sprites", link: "/sprites" },
+        { title: "matter.js", link: "/matterjs" },
       ],
     },
     {
@@ -128,6 +129,7 @@ export const navConfig = {
     { title: "SMIL animation", link: "/smil-animation" },
     { title: "more SMIL", link: "/smil-animation-II" },
     { title: "Sprites", link: "/sprites" },
+    { title: "matter.js", link: "/matterjs" },
     { title: "Aspect Ratio", link: "/aspect-ratio" },
   ],
 };
