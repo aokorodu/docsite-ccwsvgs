@@ -71,8 +71,12 @@ export const navConfig = {
     },
     {
       title: "Dynamic Changes",
-      link: "/dynamic",
-      subnav: [],
+      link: "",
+      subnav: [
+        { title: "changing attributes", link: "/dynamic-changing" },
+        { title: "generating elements", link: "/dynamic-generating" },
+        { title: "dragging elements", link: "/dynamic-dragging" },
+      ],
     },
     // {
     //   title: "Making SVGs Interactive",
@@ -120,7 +124,9 @@ export const navConfig = {
     { title: "clip-paths", link: "/reusable-clippath" },
     { title: "masks", link: "/reusable-mask" },
     { title: "filters", link: "/reusable-filter" },
-    { title: "Dynamic Changes", link: "/dynamic" },
+    { title: "changing attributes", link: "/dynamic-changing" },
+    { title: "generating elements", link: "/dynamic-generating" },
+    { title: "dragging elements", link: "/dynamic-dragging" },
     { title: "intro", link: "/animation-intro" },
     { title: "css", link: "/animation-css" },
     { title: "more css", link: "/animation-css-II" },
