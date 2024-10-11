@@ -1,0 +1,304 @@
+import Blocks from "@/components/blocks";
+import {
+  AppendLeafExample,
+  GenerateLeafs,
+  SliderStuff,
+} from "@/components/dynamichapter";
+
+# Generating Elements
+
+## createElementNS
+
+You can _create_ an svg element using the **createElementNS** method.
+
+```
+document.createElementNS(<namespace>, <element name>)
+```
+
+You may be familiar with the similarly named **createElement** method, used to create HTML elements. Why can’t we just use that? Because the SVG “namespace” isn’t the same as the HTML namespace. If you try to create an svg “circle” element with createElement, the browser won’t know what to do with it because it thinks it’s just an unknown html element. By passing the SVG namespace, you’re telling the browser that you want to create an SVG element, and NOT an HTML element.
+
+```
+namespace = "http://www.w3.org/2000/svg"
+```
+
+So let's create a circle element and add it to this empty svg:
+
+<Blocks>
+  {`<body>
+...
+<svg id="my-svg" width="300" height="300" viewbox="0 0 00 300">
+</svg>
+...
+</body>`}
+</Blocks>
+
+#### here is our empty svg
+
+<svg id="my-svg" width="300" height="300" viewbox="0 0 00 300"></svg>
+
+First we'll create the circle element
+
+<Blocks>{`<script>
+  const namespace = "http://www.w3.org/2000/svg";
+  let my_circle = document.createElementNS(namespace, "circle");
+</script>`}</Blocks>
+
+Next, we'll add the presentation attributes to style the circle using **setAttribute**.
+
+<Blocks>{`<script>
+   const namespace = "http://www.w3.org/2000/svg"
+   let my_circle = document.createElementNS(namespace, "circle");
+   my_circle.setAttribute('cx', 150);
+   my_circle.setAttribute('cy', 150);
+   my_circle.setAttribute('r', 100);
+   my_circle.setAttribute('fill', purple);
+   my_circle.setAttribute('stroke', none);
+</script>`}</Blocks>
+
+#### still nothing!
+
+<svg id="my-svg" width="300" height="300" viewbox="0 0 00 300"></svg>
+
+The SVG is still blank! We still need to _append_ the circle to the svg using **appendChild**:
+
+```
+element.appendChild(<another_element>)
+```
+
+<Blocks>{`<script>
+   const namespace = "http://www.w3.org/2000/svg"
+   let my_circle = document.createElementNS(namespace, "circle");
+   my_circle.setAttribute('cx', 150);
+   my_circle.setAttribute('cy', 150);
+   my_circle.setAttribute('r', 100);
+   my_circle.setAttribute('fill', purple);
+   my_circle.setAttribute('stroke', none);
+   my_svg.appendChild(my_circle)
+</script>`}</Blocks>
+
+<svg width="300" height="300" viewbox="0 0 300 300">
+  <circle id="my_circle" cx="150" cy="150" r="100" fill="purple" />
+</svg>
+
+## generating elements
+
+Creating simple shapes and paths is easy enough, but what if you want to create something a bit more complex? One way to do so is to replicate objects defined in the defs section.
+
+For example suppose you created a leaf graphic in Figma, and you wanted to create multiple copies of it.
+
+<svg width="300" height="300" viewBox="0 0 300 300">
+  <g transform="translate(120 115)">
+    <path d="M28.817 0C6.04933 16.1538 -22.6636 70 28.817 70C85.8145 70 51.5847 30.5128 28.817 0Z" fill="#06B943"/>
+<path d="M27.3982 10.3379L29.8304 65.4764H27.3982V10.3379Z" fill="#280505"/>
+<path d="M39.1777 38.1504L28.926 51.876L27.3982 49.598L39.1777 38.1504Z" fill="#280505"/>
+<path d="M16.4536 45.1719L29.185 55.4583L27.5264 57.5996L16.4536 45.1719Z" fill="#280505"/>
+<path d="M21.3179 33.2305L29.023 41.4565L27.4858 42.8802L21.3179 33.2305Z" fill="#280505"/>
+<path d="M34.1602 26.4414L28.4894 36.54L27.3982 35.3383L34.1602 26.4414Z" fill="#280505"/>
+<path d="M23.75 22.1055L28.0837 28.1223L27.6937 28.4724L23.75 22.1055Z" fill="#280505"/>
+
+  </g>
+</svg>
+
+Let's add the leaf code to the defs section and give it an id of _"leaf"_ so that we can use it in the svg:
+
+<Blocks>{`<svg id="my-svg" ...>
+    <defs>
+        <g id="leaf">
+            <path "surface" ... fill="#06B943"/>
+            <!-- more leaf stuff here -->
+        </g>
+    </defs>
+
+</svg>`}</Blocks>
+
+To place the leaf dynamically, we can create the \<use\> element and pass in the leaf id as the href value. First, we need to get a reference to the svg using it's id.
+
+<Blocks>{`<defs>
+   <g id="leaf">
+    <path "surface" ... fill="#06B943"/>
+       <!--leaf stuff here-->
+   </g>
+</defs>
+<script>
+   const svg = document.querySelector("svg");
+</script>`}</Blocks>
+
+Next, we'll create a \<use\> element and pass in the id of the leaf graphic in \<defs\>
+
+```
+let my_leaf = document.createElementNS(namespace, "use");
+my_leaf.setAttribute('href', '#leaf');
+```
+
+<Blocks>{`<defs>
+   <g id="leaf">
+    <path "surface" ... fill="#06B943"/>
+       <!--leaf stuff here-->
+   </g>
+</defs>
+<script>
+   const svg = document.querySelector("svg");
+   const namespace = "http://www.w3.org/2000/svg"
+   let my_leaf = document.createElementNS(namespace, "use");
+   my_leaf.setAttribute('href', '#leaf');
+</script>`}</Blocks>
+
+Finally, we'll append the \<use\> element to the svg:
+
+```
+svg.appendChild(my_leaf);
+```
+
+<Blocks>{`<defs>
+   <g id="leaf">
+    <path "surface" ... fill="#06B943"/>
+       <!--leaf stuff here-->
+   </g>
+</defs>
+<script>
+    const svg = document.querySelector("svg");
+    const namespace = "http://www.w3.org/2000/svg"
+    let my_leaf = document.createElementNS(namespace, "use");
+    my_leaf.setAttribute('href', '#leaf');
+    svg.appendChild(my_leaf);
+</script>`}</Blocks>
+
+<AppendLeafExample />
+
+We can change the leaf’s position by adding x and y values.
+
+```
+my_leaf.setAttribute("x", 120);
+my_leaf.setAttribute("y", 115);
+```
+
+<Blocks>{`<defs>
+   <g id="leaf">
+    <path "surface" ... fill="#06B943"/>
+       <!--leaf stuff here-->
+   </g>
+</defs>
+<script>
+    const svg = document.querySelector("svg");
+    const namespace = "http://www.w3.org/2000/svg"
+    let my_leaf = document.createElementNS(namespace, "use");
+    my_leaf.setAttribute('href', '#leaf');
+    my_leaf.setAttribute("x", 120);
+    my_leaf.setAttribute("y", 115);
+    svg.appendChild(my_leaf);
+</script>`}</Blocks>
+
+<AppendLeafExample x={120} y={115} />
+
+Instead of just placing one leaf, let’s use a loop to create a bunch of leaves and position them randomly. We'll create random **x** and **y** positions using **Math.random()** (We'll multiply Math.random() x 500 to make sure we have x and y points that fit inside the 500x500 svg).
+
+<Blocks>{`<script>
+   const svg = document.querySelector("svg");
+   const namespace = "http://www.w3.org/2000/svg"
+   for (let i = 0; i < 30; i++) {
+       let my_leaf = document.createElementNS(namespace, "use");
+       my_leaf.setAttribute('href', '#leaf');
+       // let’s create random x and y values
+       const xpos = Math.random() * 500; // value between 0-500
+       const ypos = Math.random() * 500; // value between 0-500
+       my_leaf.setAttribute("x", xpos);
+       my_leaf.setAttribute("y", ypos);
+       svg.appendChild(my_leaf);
+   }
+</script>`}</Blocks>
+
+<GenerateLeafs rotate={true} />
+
+Now we’ll rotate and scale the leaves to make for a more realistic scatter
+
+<Blocks>{`<script>
+    const svg = document.querySelector("svg");
+    const namespace = "http://www.w3.org/2000/svg"
+    for (let i = 0; i < 30; i++) {
+    let my_leaf = document.createElementNS(namespace, "use");
+    my_leaf.setAttribute('href', '#leaf');
+    // let’s create random x and y values
+    const xpos = Math.random() * 500; // value between 0-500
+    const ypos = Math.random() * 500; // value between 0-500;
+    const angle = Math.random() * 180;
+    const transformString = \`rotate($\{angle\} $\{xpos\} $\{ypos\})\`;
+    my_leaf.setAttribute("x", xpos);
+    my_leaf.setAttribute("y", ypos);
+    my_leaf.setAttribute("transform, transformString)
+    svg.appendChild(my_leaf);
+   }
+</script>`}</Blocks>
+
+Now when we try changing the color of each leaf from green to orange by setting the fill, nothing happens. Why?
+
+```
+my_leaf.setAttribute("fill, "orange");
+```
+
+<Blocks>{`<script>
+    // all previous code
+    my_leaf.setAttribute("fill, "orange");
+    svg.appendChild(my_leaf);
+   }
+</script>`}</Blocks>
+
+<GenerateLeafs rotate={true} />
+
+The “surface” path (which defines the leaf surface) already has a fill attribute defined. Remember from our lesson on groups - presentation attributes defined on child elements override those set on the group. So setting a fill of orange on the group would have no effect on the child "surface" path.
+
+```
+<g id="leaf" fill="orange">
+    <path id="surface" ... fill="#06B943"/>
+```
+
+If we want to set the fill dynamically on the group level, we need to delete the fill defined on the surface path
+
+<Blocks>{`<defs>
+<g id="leaf">
+    <path d="M28.817 0C6.04933..." />`}</Blocks>
+
+<GenerateLeafs rotate={true} color={"orange"} />
+
+Just for fun, let’s set the leaves to random colors. I've created a **getColor()** function that returns an hsl color string we can use with the **setAttribute** method to set the fill color.
+
+<Blocks>{`const getColor = () => \{
+    const h = Math.round(Math.random() * 360);
+    const s = 50 + Math.round(Math.random() * 50);
+    const l = 40 + Math.round(Math.random() * 50);
+
+    return \`hsl($\{h\}, $\{s\}%, $\{l\}%)\`;
+
+\}`}</Blocks>
+
+<Blocks>{`<script>
+   const svg = document.querySelector("svg");
+   const namespace = "http://www.w3.org/2000/svg"
+   for (let i = 0; i < 30; i++) {
+        // ...
+       my_leaf.setAttribute("fill", getColor());
+       svg.appendChild(my_leaf);
+   }
+</script>`}</Blocks>
+
+<GenerateLeafs rotate={true} color={"random"} />
+
+## removing elements
+
+Removing elements is even easier. Just use the DOM’s **element.remove()** method. Let’s add a click event handler to each leaf to do just that.
+
+<Blocks>{`<script>
+   const svg = document.querySelector("svg");
+   const namespace = "http://www.w3.org/2000/svg"
+   for (let i = 0; i < 30; i++) {
+        // ...
+       my_leaf.addEventListener("click", () => {
+            my_leaf.remove();
+        });
+        // ...
+}
+
+</script>`}</Blocks>
+
+#### click on the leaves to remove them!
+
+<GenerateLeafs rotate={true} color={"random"} canremove={true} />

@@ -1,0 +1,38 @@
+import Blocks from "@/components/blocks";
+import {
+  AppendLeafExample,
+  GenerateLeafs,
+  SliderStuff,
+} from "@/components/dynamichapter";
+
+# Dragging Elements
+
+## translating mouse position
+
+If you want to drag svg elements, you’ll need to translate the mouse position to the svg coordinate system. You’ll need to pass the mousemove event’s clientX and clientY to the following method.
+
+The mousemove listener will be attached to the svg itself, and not the element you’re trying to drag. Think about it. If you’re dragging an element the mouse cursor is not being dragged across that element, because the element is moving with the cursor.
+
+```
+svg.addEventListener(“mousemove”, drag)
+```
+
+For the drag method, you have the mouse event, which has the clientX and clientY properties. You’ll pass these properties, along with a reference to the svg itself, to the toSVGPoint method to get the corresponding SVG point
+
+<Blocks>{`
+const toSVGPoint = (svg, x, y) => {
+    let p = new DOMPoint(x, y);
+    ...
+};`}</Blocks>
+
+You can then take the points x and y value to re-position the element that you’re dragging
+
+<Blocks highlight="4,5,6">{`
+const toSVGPoint = (svg, x, y) => {
+    let p = new DOMPoint(x, y);
+    p.matrixTransform(svg.getScreenCTM().inverse());
+    my_circle.setAttribute(“x”, p.x);
+    my_circle.setAttribute(“y”, p.y);
+};`}</Blocks>
+
+https://stackoverflow.com/questions/69916593/what-is-the-replacement-for-the-deprecated-svgpoint-javascript-api
