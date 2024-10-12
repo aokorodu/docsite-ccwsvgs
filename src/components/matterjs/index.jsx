@@ -33,7 +33,7 @@ export const MatterDemo = () => {
   // particle vars
   const particleGraphics = useRef([]);
   const particleBodies = [];
-  const numberOfParticles = 100;
+  const numberOfParticles = 200;
   const particleWidth = 20;
   const particleHeight = 20;
 
@@ -41,10 +41,10 @@ export const MatterDemo = () => {
   let leftwall, rightwall, floor;
 
   // pegs
-  const peg = useRef(null);
+  const pegGraphics = useRef([]);
   let pegBodies = [];
 
-  const w = 1000;
+  const w = 750;
   const h = 1000;
 
   // particle holder
@@ -53,9 +53,13 @@ export const MatterDemo = () => {
   // ui
   const replayButton = useRef(null);
 
+  // framecount - stop updating at a certain point
+  let currentFrame = 0;
+  let frameCount = 0;
+
   useEffect(() => {
     initParticleBodies();
-    initPegBodies(0);
+    initPegBodies();
     initWallAndFloor();
     makeWorld();
     initUI();
@@ -65,6 +69,12 @@ export const MatterDemo = () => {
   const addToRefs = (el) => {
     if (el && !particleGraphics.current.includes(el)) {
       particleGraphics.current.push(el);
+    }
+  };
+
+  const addToPegRefs = (el) => {
+    if (el && !pegGraphics.current.includes(el)) {
+      pegGraphics.current.push(el);
     }
   };
 
@@ -85,35 +95,36 @@ export const MatterDemo = () => {
           y={-particleHeight / 2}
           width={particleWidth}
           height={particleHeight}
-          fill={getRandomColor()}
-          stroke="none"
+          fill="none"
+          stroke={getRandomColor()}
+          strokeWidth={3}
         />
       </g>
     );
   };
 
-  const getCircleGraphic = () => {
-    return (
-      <g ref={addToRefs}>
-        <circle
-          cx={0}
-          cy={0}
-          r={particleWidth}
-          fill={getRandomColor()}
-          stroke="none"
-        />
-      </g>
-    );
-  };
+  // const getCircleGraphic = () => {
+  //   return (
+  //     <g ref={addToRefs}>
+  //       <circle
+  //         cx={0}
+  //         cy={0}
+  //         r={particleWidth}
+  //         fill={getRandomColor()}
+  //         stroke="none"
+  //       />
+  //     </g>
+  //   );
+  // };
 
   const getRandomColor = () => {
-    return `hsl(${Math.round(Math.random() * 360)} 50% 50%)`;
+    return `hsl(${Math.round(Math.random() * 360)} 100% 50%)`;
   };
 
   const initParticleBodies = () => {
     for (let i = 0; i < numberOfParticles; i++) {
       const particleBody = getRectBody(i);
-      const xpos = 400 + Math.random() * (w - 800);
+      const xpos = w / 3 + (Math.random() * w) / 3;
       const ypos = -i * 30;
       Matter.Body.setPosition(particleBody, { x: xpos, y: ypos });
       Matter.Body.rotate(particleBody, Math.random() * 2 * Math.PI);
@@ -122,19 +133,21 @@ export const MatterDemo = () => {
     }
   };
 
-  const initPegBodies = (index) => {
-    const xpos = peg.current.getAttribute("cx");
-    const ypos = peg.current.getAttribute("cy");
-    const r = peg.current.getAttribute("r");
+  const initPegBodies = () => {
+    pegGraphics.current.forEach((peg, index) => {
+      const xpos = peg.getAttribute("cx");
+      const ypos = peg.getAttribute("cy");
+      const r = peg.getAttribute("r");
 
-    const pb = Bodies.circle(xpos, ypos, r, {
-      id: `peg_${index}`,
-      isStatic: true,
-      friction: 0,
-      restitution: 0.7,
+      const pb = Bodies.circle(xpos, ypos, r, {
+        id: `peg_${index}`,
+        isStatic: true,
+        friction: 0,
+        restitution: 0.7,
+      });
+
+      pegBodies.push(pb);
     });
-
-    pegBodies.push(pb);
   };
 
   const getRectBody = (index) => {
@@ -142,24 +155,24 @@ export const MatterDemo = () => {
       id: `particleBody_${index}`,
       isStatic: false,
       friction: 0,
-      restitution: 0.7,
+      restitution: 0.1 + Math.random() * 0.6,
     });
 
     return particleBody;
   };
 
   const initWallAndFloor = () => {
-    floor = Bodies.rectangle(500, 1050, 1000, 100, {
+    floor = Bodies.rectangle(w / 2, h + 50, w, 100, {
       isStatic: true,
       id: "floor",
     });
 
-    leftwall = Bodies.rectangle(-50, 500, 100, 1000, {
+    leftwall = Bodies.rectangle(-50, h / 2, 100, h, {
       isStatic: true,
       id: "leftwall",
     });
 
-    rightwall = Bodies.rectangle(1050, 500, 100, 1000, {
+    rightwall = Bodies.rectangle(w + 50, h / 2, 100, h, {
       isStatic: true,
       id: "righttwall",
     });
@@ -178,7 +191,7 @@ export const MatterDemo = () => {
   const initUI = () => {
     replayButton.current.addEventListener("click", () => {
       particleBodies.forEach((particleBody, index) => {
-        const xpos = 400 + Math.random() * (w - 800);
+        const xpos = w / 3 + (Math.random() * w) / 3;
         const ypos = -index * 30;
         Matter.Body.setPosition(particleBody, { x: xpos, y: ypos });
         Matter.Body.setSpeed(particleBody, 0);
@@ -190,6 +203,7 @@ export const MatterDemo = () => {
 
   const update = (e) => {
     // look at the particleBody position and update graphic position accordingly.
+    console.log("update");
     Matter.Engine.update(engine);
     particleGraphics.current.forEach((pg, index) => {
       const pos = particleBodies[index].position;
@@ -207,14 +221,70 @@ export const MatterDemo = () => {
   return (
     <>
       <div className={styles.containerWithButton}>
-        <svg width="500" height="500" viewBox={`0 0 ${w} ${h}`}>
+        <svg width={w / 2} height={h / 2} viewBox={`0 0 ${w} ${h}`}>
+          <rect x="0" y="0" width={w} height={h} fill="#212121" />{" "}
           <circle
-            ref={peg}
+            ref={addToPegRefs}
+            cx={(w / 10) * 3.5}
+            cy={h / 4}
+            r={w / 10}
+            fill="#800000"
+            stroke="black"
+            strokeWidth={5}
+          />
+          <circle
+            ref={addToPegRefs}
+            cx={(w / 10) * 6.5}
+            cy={h / 4}
+            r={w / 10}
+            fill="#800000"
+            stroke="black"
+            strokeWidth={5}
+          />
+          <circle
+            ref={addToPegRefs}
+            cx={(w / 10) * 3.5}
+            cy={(3 * h) / 4}
+            r={w / 10}
+            fill="#800000"
+            stroke="black"
+            strokeWidth={5}
+          />
+          <circle
+            ref={addToPegRefs}
+            cx={(w / 10) * 6.5}
+            cy={(3 * h) / 4}
+            r={w / 10}
+            fill="#800000"
+            stroke="black"
+            strokeWidth={5}
+          />
+          <circle
+            ref={addToPegRefs}
             cx={w / 2}
             cy={h / 2}
-            r={h / 5}
-            fill="#eaeaea"
-            stroke="none"
+            r={w / 10}
+            fill="#800000"
+            stroke="black"
+            strokeWidth={5}
+          />
+          <circle
+            ref={addToPegRefs}
+            cx={w / 5}
+            cy={h / 2}
+            r={w / 10}
+            fill="#800000"
+            stroke="black"
+            strokeWidth={5}
+          />
+          <circle
+            ref={addToPegRefs}
+            cx={(4 * w) / 5}
+            cy={h / 2}
+            r={w / 10}
+            fill="#800000"
+            stroke="black"
+            strokeWidth={5}
           />
           <g ref={holder}>{getGraphics()}</g>
         </svg>
