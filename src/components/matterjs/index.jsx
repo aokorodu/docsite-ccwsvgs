@@ -27,22 +27,23 @@ export const EmbedExample = () => {
 };
 
 export const MatterDemo = () => {
-  const { Engine, Runner, Bodies, Composite, World } = Matter;
+  const { Engine, Bodies, Composite } = Matter;
   const engine = Engine.create();
-  const runner = Runner.create();
 
   // particle vars
-
   const particleGraphics = useRef([]);
   const particleBodies = [];
   const numberOfParticles = 100;
-  const particleWidth = 5;
-  const particleHeight = 100;
+  const particleWidth = 20;
+  const particleHeight = 20;
 
   // boundaries
   let leftwall, rightwall, floor;
 
-  const namespace = "http://www.w3.org/2000/svg";
+  // pegs
+  const peg = useRef(null);
+  let pegBodies = [];
+
   const w = 1000;
   const h = 1000;
 
@@ -54,9 +55,9 @@ export const MatterDemo = () => {
 
   useEffect(() => {
     initParticleBodies();
+    initPegBodies(0);
     initWallAndFloor();
     makeWorld();
-    initRunner();
     initUI();
     update();
   }, []);
@@ -70,23 +71,39 @@ export const MatterDemo = () => {
   const getGraphics = () => {
     const arr = [];
     for (let i = 0; i < numberOfParticles; i++) {
-      console.log("i:", i);
-
-      arr.push(
-        <g ref={addToRefs}>
-          <rect
-            x={-particleWidth / 2}
-            y={-particleHeight / 2}
-            width={particleWidth}
-            height={particleHeight}
-            fill={getRandomColor()}
-            stroke="black"
-          />
-        </g>
-      );
+      arr.push(getRectGraphic());
     }
 
     return arr;
+  };
+
+  const getRectGraphic = () => {
+    return (
+      <g ref={addToRefs}>
+        <rect
+          x={-particleWidth / 2}
+          y={-particleHeight / 2}
+          width={particleWidth}
+          height={particleHeight}
+          fill={getRandomColor()}
+          stroke="none"
+        />
+      </g>
+    );
+  };
+
+  const getCircleGraphic = () => {
+    return (
+      <g ref={addToRefs}>
+        <circle
+          cx={0}
+          cy={0}
+          r={particleWidth}
+          fill={getRandomColor()}
+          stroke="none"
+        />
+      </g>
+    );
   };
 
   const getRandomColor = () => {
@@ -95,26 +112,40 @@ export const MatterDemo = () => {
 
   const initParticleBodies = () => {
     for (let i = 0; i < numberOfParticles; i++) {
-      console.log("init body: ", i);
-      const particleBody = Bodies.rectangle(
-        0,
-        0,
-        particleWidth,
-        particleHeight,
-        {
-          id: `particleBody_${i}`,
-          isStatic: false,
-          ifriction: 0,
-          restitution: 0.7,
-        }
-      );
-      const xpos = 200 + Math.random() * (w - 400);
+      const particleBody = getRectBody(i);
+      const xpos = 400 + Math.random() * (w - 800);
       const ypos = -i * 30;
       Matter.Body.setPosition(particleBody, { x: xpos, y: ypos });
       Matter.Body.rotate(particleBody, Math.random() * 2 * Math.PI);
       Matter.Body.setAngularSpeed(particleBody, 0.1);
       particleBodies.push(particleBody);
     }
+  };
+
+  const initPegBodies = (index) => {
+    const xpos = peg.current.getAttribute("cx");
+    const ypos = peg.current.getAttribute("cy");
+    const r = peg.current.getAttribute("r");
+
+    const pb = Bodies.circle(xpos, ypos, r, {
+      id: `peg_${index}`,
+      isStatic: true,
+      friction: 0,
+      restitution: 0.7,
+    });
+
+    pegBodies.push(pb);
+  };
+
+  const getRectBody = (index) => {
+    const particleBody = Bodies.rectangle(0, 0, particleWidth, particleHeight, {
+      id: `particleBody_${index}`,
+      isStatic: false,
+      friction: 0,
+      restitution: 0.7,
+    });
+
+    return particleBody;
   };
 
   const initWallAndFloor = () => {
@@ -137,20 +168,17 @@ export const MatterDemo = () => {
   const makeWorld = () => {
     Composite.add(engine.world, [
       ...particleBodies,
+      ...pegBodies,
       leftwall,
       rightwall,
       floor,
     ]);
   };
 
-  const initRunner = () => {
-    //Runner.run(runner, engine);
-  };
-
   const initUI = () => {
     replayButton.current.addEventListener("click", () => {
       particleBodies.forEach((particleBody, index) => {
-        const xpos = 200 + Math.random() * (w - 400);
+        const xpos = 400 + Math.random() * (w - 800);
         const ypos = -index * 30;
         Matter.Body.setPosition(particleBody, { x: xpos, y: ypos });
         Matter.Body.setSpeed(particleBody, 0);
@@ -180,6 +208,14 @@ export const MatterDemo = () => {
     <>
       <div className={styles.containerWithButton}>
         <svg width="500" height="500" viewBox={`0 0 ${w} ${h}`}>
+          <circle
+            ref={peg}
+            cx={w / 2}
+            cy={h / 2}
+            r={h / 5}
+            fill="#eaeaea"
+            stroke="none"
+          />
           <g ref={holder}>{getGraphics()}</g>
         </svg>
         <button ref={replayButton}>replay</button>
