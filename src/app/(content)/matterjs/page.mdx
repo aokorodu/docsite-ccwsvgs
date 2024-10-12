@@ -7,6 +7,30 @@ import { EmbedExample, MatterDemo } from "@/components/matterjs";
 
 <MatterDemo />
 
-Matter.JS is a popular javascript library used to simulate two-dimensional physics on web pages. While the library includes a renderer that draws graphics using the canvas element, we can also use the physics engine to animate individual SVG elements. We use the engine to create a variety of shapes similar to svg elements - circles, rectangles, and paths made of verticies (points). Whe can then use the positional data from these bodies to position svg elements.
+Matter.JS is a popular javascript library used to simulate two-dimensional physics on web pages. While the library typically uses it's built-in renderer to draw graphics using the canvas element, we can also use it's physics engine to animate individual SVG elements.
+
+## Matter.JS modules
+
+We'll use Matter JS to create " rigid bodies" - two-dimensional objects posessing size, shape, elasticity (bounciness), friction etc. Then we'll use these matterjs bodies to animate our svg elements.
+
+### Matter.Bodies
+
+The **Bodies** module allows us to create simpe shapes, like circles or rectangle, or complex shapes like polygons using a collection of points (vertices). Each body we create will have properties like position, speed, rotation, and velocity that we'll use to position our svg elements.
+
+### Matter.Composite
+
+Once we define the bodies we'll use the Composite module to put them in a matter.js **world**, which can be thought of as a container for all of our rigid bodies.
+
+### Matter.Engine
+
+This is where the magic happens. The engine calculates physical properties for all bodies contained in a world - properties like position, speed, velocity, and rotation - based on the world each body is contained in, and interactions with other bodies in that world.
+
+### Matter.Event
+
+Event module allows us to listen for important events, like collisions. For example, if you're building a game where you are trying to shoot down some flying objects, you'll need to be able to detect when the collision between your projectile and your target.
+
+### Matter.Runner
+
+The Runner module is used to create an automatic update loop with the engine. Similar to window.requestAnimationFrame, it prompts the engine to re-calculate the position and orientation of each body in a world based upon a time delta. Since we can also just update the engine directly in the request animation frame, the Runner is optional
 
 <EmbedExample />
