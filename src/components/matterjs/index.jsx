@@ -55,7 +55,7 @@ export const MatterDemo = () => {
 
   // framecount - stop updating at a certain point
   let currentFrame = 0;
-  let frameCount = 0;
+  let frameCount = 1000;
 
   useEffect(() => {
     initParticleBodies();
@@ -190,6 +190,13 @@ export const MatterDemo = () => {
 
   const initUI = () => {
     replayButton.current.addEventListener("click", () => {
+      if (currentFrame >= frameCount) {
+        currentFrame = 0;
+        update();
+      } else {
+        currentFrame = 0;
+      }
+
       particleBodies.forEach((particleBody, index) => {
         const xpos = w / 3 + (Math.random() * w) / 3;
         const ypos = -index * 30;
@@ -203,7 +210,9 @@ export const MatterDemo = () => {
 
   const update = (e) => {
     // look at the particleBody position and update graphic position accordingly.
-    console.log("update");
+    if (currentFrame >= frameCount) return;
+    currentFrame++;
+    console.log(currentFrame);
     Matter.Engine.update(engine);
     particleGraphics.current.forEach((pg, index) => {
       const pos = particleBodies[index].position;
