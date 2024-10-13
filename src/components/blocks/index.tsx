@@ -1,7 +1,7 @@
 'use client'
 import styles from './Block.module.scss';
 
-import { CopyBlock, solarizedDark, shadesOfPurple } from "react-code-blocks";
+import { CopyBlock, CodeBlock, solarizedDark, shadesOfPurple } from "react-code-blocks";
 
 type Props = {
     title: string | null;
@@ -11,18 +11,17 @@ type Props = {
 }
 
 const Blocks = ({ caption, title, highlight, children }: Props) => {
-    const lang = children.indexOf("<") == -1 ? "css" : "html";
+    const lang = children.indexOf("<") == -1 ? "js" : "html";
     return (
         <>
             <div className={styles.holder}>
                 {title && <div className={styles.title}>{title}</div>}
-                <CopyBlock
+                <CodeBlock
                     text={children}
                     language={lang}
                     showLineNumbers={true}
                     highlight={highlight}
                     theme={shadesOfPurple}
-                    codeBlock
                 />
                 <div>{caption}</div>
             </div>

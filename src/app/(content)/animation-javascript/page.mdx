@@ -68,49 +68,39 @@ For example, let's add a rotation animation to this square
 First, let's set up a style that sets up the initial rotation transform and the transition properties (**square**). We'll create a second class, (**spin-style-transition**), that we'll apply to the element dynamically using javascript.
 
 <Blocks>
-  {`<style>
-  .square {
+  {`.square {
       transform: rotate(0deg);
       transition: 500ms ease-in-out;
   }
   .spin-style-transition {
       transform: rotate(360deg);
   }
-
-</style>`}
+`}
 </Blocks>
 
 We'll use querySelector to get a reference to the square using it's id:
 
-<Blocks>
-  {`<script>
-   const square = document.querySelector(".square");
-</script>`}
-</Blocks>
+<Blocks>{`const square = document.querySelector(".square");`}</Blocks>
 
 Next we'll add a click event listener to the square.
 
-<Blocks highlight="3-5">
-  {`<script>
-   const square = document.querySelector(".square");
+<Blocks highlight="2-4">
+  {`const square = document.querySelector(".square");
    square.addEventListener("click", () => {
 	// code goes here
- })
-</script>`}
+ })`}
 </Blocks>
 
 Finally we'll use the **classList** property that returns a **DOMTokenList** of classes currently applied to an element. The DomTokenList has a **contains** method that we can use to see if the _spin-style-transition_ class is part of the classlist. If so, we'll remove it. If not, we'll add it.
 
-<Blocks highlight="4-8">
-  {`<script>
-  const square = document.querySelector(".square");
+<Blocks highlight="3-7">
+  {`const square = document.querySelector(".square");
   square.addEventListener("click", () => {
     const list = square.classList;
     list.contains("spin-style-transition")
       ? square.classList.remove("spin-style-transition")
       : square.classList.add("spin-style-transition");
-  });
-</script>`}
+  });`}
 </Blocks>
 
 <ToggleClassWithJS />
@@ -120,8 +110,7 @@ Finally we'll use the **classList** property that returns a **DOMTokenList** of 
 We can also toggle keyframe animations.
 
 <Blocks>
-  {`<style>
-.square {
+  {`.square {
     transform: rotate(0deg);
 }
 .spin-style-animation {
@@ -134,22 +123,17 @@ We can also toggle keyframe animations.
     to {
         transform: rotate(360deg);
     }
-}
-</style>`}
+}`}
 </Blocks>
 
-<Blocks highlight="4-8">
-  {`<script>
-    const square = document.querySelector("#square");
+<Blocks highlight="3-7">
+  {`   const square = document.querySelector("#square");
     square.addEventListener("click", () => {
-        const list = square.classList;
-        list.contains("spin-style-animation") 
+    const list = square.classList;
+    list.contains("spin-style-animation") 
         ? square.classList.remove("spin-style-animation") 
-        : square.classList.add("spin-style-animation")
+        : square.classList.add("spin-style-animation")})`}
 
-})
-
-</script>`}
 </Blocks>
 
 If we simply try to swap out the transitions for the keyframe animation, the animation doesn't toggle like it did with the transitions. The first click works, but nothing seems to happen with the second click. Why?
@@ -161,7 +145,7 @@ Removing the animation class doesn't trigger a transition - the element just rev
 The solution: we swap animation classes. Let's create the forwards (spin) and backwards (spinBack) animations:
 
 <Blocks highlight="8,9,10,19-26">
-  {`<style>
+  {`
 .square {
   transform: rotate(0deg);
 }
@@ -186,8 +170,7 @@ The solution: we swap animation classes. Let's create the forwards (spin) and ba
     to {
         ransform: rotate(0deg);
     }
-}
-</style>`}
+}`}
 </Blocks>
 
 Now we'll use javascript to swap them out.
@@ -216,7 +199,7 @@ Another tool we can use to make css animations more robust is the "animationend"
 In the following example we'll listen for the end of one animation and trigger the next when it occurs. Here's the animation CSS classes and keyframes. **TLDR;** the **shrinkAnimation** shrinks the cube and the **expandAnimation** expands it.
 
 <Blocks>
-  {`<style>
+  {`
 .shrinkAnimation {
   animation-name: shrink;
   animation-duration: 1s;
@@ -248,28 +231,24 @@ In the following example we'll listen for the end of one animation and trigger t
         transform: scale(1);
         fill: cornflowerblue;
     }
-}
-</style>`}
+}`}
 
 </Blocks>
 
 First we'll add a click event handler to the square, and use it to add the shrink animation.
 
 <Blocks>
-  {`<script>
-  const square = document.querySelector("#square");
+  {`  const square = document.querySelector("#square");
   
   square.addEventListener("click", () => {
         square.classList.add("shrinkAnimation")
-    })
-  </script>`}
+    })`}
 </Blocks>
 
 Next we'll add an "animationend" event listener to the square, and use it to both remove the shrinkAnimation class and add the expandAnimation:
 
-<Blocks highlight="8,9,10,11">
-  {`<script>
-  const square = document.querySelector("#square");
+<Blocks highlight="6,7,8,9">
+  {`  const square = document.querySelector("#square");
   
   square.addEventListener("click", () => {
         square.classList.add("shrinkAnimation")
@@ -278,9 +257,8 @@ Next we'll add an "animationend" event listener to the square, and use it to bot
     square.addEventListener('animationend', () => {
         square.classList.remove("shrinkAnimation")
         square.classList.add("expandAnimation")
-    });
+    });`}
 
-  </script>`}
 </Blocks>
 
 <AnimEnd />
@@ -290,8 +268,7 @@ Next we'll add an "animationend" event listener to the square, and use it to bot
 You may have noticed that you have to click the "reset" button in order to run through the animation again. Why can't we just click the square to have the animation repeat? Well, after the animation shrinks and expands the first time the square still has the "expandAnimation" class as part of it's classList. When you click the square the second time, you add the shrinkAnimation class, but it's cancelled out by the expandAnimation class. In order to repeat the shrinkAnimation, we'll need to remove the expandAnimation class first:
 
 <Blocks highlight="5,6,7">
-  {`<script>
-  const square = document.querySelector("#square");
+  {`  const square = document.querySelector("#square");
   
   square.addEventListener("click", () => {
         if(square.classList.contains("expandAnimation")){
@@ -303,9 +280,8 @@ You may have noticed that you have to click the "reset" button in order to run t
     square.addEventListener('animationend', () => {
         square.classList.remove("shrinkAnimation")
         square.classList.add("expandAnimation")
-    });
+    });`}
 
-  </script>`}
 </Blocks>
 
 <BitterEnd />

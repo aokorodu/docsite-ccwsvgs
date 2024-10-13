@@ -38,10 +38,11 @@ So let's create a circle element and add it to this empty svg:
 
 First we'll create the circle element
 
-<Blocks>{`<script>
-  const namespace = "http://www.w3.org/2000/svg";
-  let my_circle = document.createElementNS(namespace, "circle");
-</script>`}</Blocks>
+<Blocks>
+  {`const namespace = "http://www.w3.org/2000/svg";
+    let my_circle = document.createElementNS(namespace, "circle");
+`}
+</Blocks>
 
 Next, we'll add the presentation attributes to style the circle using **setAttribute**.
 

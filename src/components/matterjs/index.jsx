@@ -4,19 +4,26 @@ import Matter, { Body } from "matter-js";
 import { useEffect, useRef } from "react";
 import styles from "../ComponentStyles.module.scss";
 
+/*
+<iframe height="300" style="width: 100%;" scrolling="no" title="MatterJS - Single Particle" src="https://codepen.io/aokorodu/embed/preview/GRVrbjz?default-tab=result&theme-id=dark" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/aokorodu/pen/GRVrbjz">
+  MatterJS - Single Particle</a> by zuubaDigital (<a href="https://codepen.io/aokorodu">@aokorodu</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+*/
 export const EmbedExample = () => {
   return (
     <>
       <iframe
         height="700px"
         style={{ width: "100%" }}
-        title="MatterJS - Multiple Particles - Rectangles"
-        src="https://codepen.io/aokorodu/embed/preview/OJKXoqd?default-tab=result&theme-id=light"
+        title="MatterJS - Single Particle"
+        src="https://codepen.io/aokorodu/embed/preview/GRVrbjz?default-tab=result&theme-id=light"
         frameBorder="no"
         loading="lazy"
       >
         See the Pen{" "}
-        <a href="https://codepen.io/aokorodu/pen/OJKXoqd">
+        <a href="https://codepen.io/aokorodu/pen/GRVrbjz">
           MatterJS - Multiple Particles - Rectangles
         </a>{" "}
         by zuubaDigital (<a href="https://codepen.io/aokorodu">@aokorodu</a>) on{" "}
