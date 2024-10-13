@@ -31,6 +31,251 @@ Event module allows us to listen for important events, like collisions. For exam
 
 ### Matter.Runner
 
-The Runner module is used to create an automatic update loop with the engine. Similar to window.requestAnimationFrame, it prompts the engine to re-calculate the position and orientation of each body in a world based upon a time delta. Since we can also just update the engine directly in the request animation frame, the Runner is optional
+The Runner module is used to create an automatic update loop with the engine. Similar to window.requestAnimationFrame, it prompts the engine to re-calculate the position and orientation of each body in a world based upon a time delta. Since we can also just update the engine directly in the request animation frame, the Runner is optional.
+
+### Matter.Render
+
+"The Matter.Render module is a lightweight, optional utility which provides a simple canvas based renderer for visualising instances of Matter.Engine"
+
+## Creating a simple matter.js particle animation
+
+#### Installing the library
+
+The most basic way to import the MatterJS library is via the script tag. (CDN information)
+
+<Blocks>{`<script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.20.0/matter.min.js"></script>`}</Blocks>
+
+(I've created a codepen that imports the library that you can use [here.](https://codepen.io/aokorodu/pen/xxvgarN))
+
+### Set up the SVG
+
+The first thing we'll need to do is set up our svg. I've created a group with an id of "holder" that will contain the particle graphic we'll eventually create.
+
+<Blocks>{`<svg width="500" height="500" viewBox="0 0 1000 1000">
+  <g id="holder"></g>
+</svg>`}</Blocks>
+
+### Inport the Modules
+
+Now let's import all of the MatterJS modules that we'll need.
+
+<Blocks>{`  const { Engine, Runner, Bodies, Composite } = Matter;`}</Blocks>
+
+### Create the engine and the runner
+
+Next we'll create the physics engine and the runner. Again, the engine is responsible for all the physics calculations, and the runner is the game loop.
+
+<Blocks highlight="2,3">{`  const { Engine, Runner, Bodies, Composite } = Matter;
+  const engine = Engine.create();
+  const runner = Runner.create();`}</Blocks>
+
+### Create the particle graphic and the MatterJS particle body.
+
+We'll need variables for particle body and the particle graphic. The particle body will all the properties we'll need to animate the particle graphic.
+
+<Blocks highlight="5,6">{`  const { Engine, Runner, Bodies, Composite } = Matter;
+  const engine = Engine.create();
+  const runner = Runner.create();
+  
+  // particle vars
+  let particleGraphic, particleBody;`}</Blocks>
+
+We'll need a method to create the particle graphic using the dynamic element creation skills we learned in an earlier lesson. In the code below we create a circle with a radius of 50, and place it at the top-center of the SVG:
+
+<Blocks highlight="8,9,10,11,12,13,14,155">{`  const { Engine, Runner, Bodies, Composite } = Matter;
+  const engine = Engine.create();
+  const runner = Runner.create();
+  
+  // particle vars
+  let particleGraphic, particleBody;
+  
+  const initParticleGraphic = () => {
+    particleGraphic = document.createElementNS(namespace, "circle");
+    particleGraphic.setAttribute("cx", "500");
+    particleGraphic.setAttribute("cy", "50");
+    particleGraphic.setAttribute("r", 50);
+    particleGraphic.setAttribute("fill", "black");
+    holder.appendChild(particleGraphic);
+  };`}</Blocks>
+
+Now let's create the body. The MatterJS **Bodies** module has a circle method that we'll use to create a 2D body that's the same size and shape as the particle graphic. It looks like this:
+
+```js
+Matter.Bodies.circle(x, y, radius, [options]);
+```
+
+The options object is used to set all kinds of physical properties on a MatterJS body. We'll just be setting three - **id**, **friction** and **restitution**.
+
+**id**: A unique name that the engine needs to keep track of the body within the world. The id _must_ be unique. If not, _all sorts of buggieness_ will ensue, as we'll see in a later lesson!
+
+**friction**: A number between 0-1 that defines the friction of the body.
+
+**restitution**: A number between 0-1 that defines the elasticity (bounciness) of the object
+
+<Blocks
+  caption="In the course of using MatterJS you'll probably end up experimenting a lot with different values for friction and elasticity, as they don't always produce the results you expect!"
+  highlight="12,13,14,15,16,17,19"
+>{`  const { Engine, Runner, Bodies, Composite } = Matter;
+  const engine = Engine.create();
+  const runner = Runner.create();
+  
+  // particle vars
+  let particleGraphic, particleBody;
+  
+  const initParticleGraphic = () => {
+    // ...
+  };
+  
+  const initParticleBody = () => {
+    particleBody = Bodies.circle(0, 0, 50, {
+      id: "particleBody",
+      friction: 0,
+      restitution: 0.99
+    });
+    
+    Matter.Body.setPosition(particleBody, { x: 500, y: 50 });
+  };`}</Blocks>
+
+Once we create the particle body, we use the **setPosition** method of the Body module to position the body at the top of the SVG.
+
+```
+Matter.Body.setPosition(body, { x: number, y: number });
+```
+
+Remember, the MatterJS body _isn't actually rendered at all_. Think of it as existing in a virtual world that we'll refer to every frame, and use it's position and orientation to position our graphic.
+
+### Create the floor
+
+To prevent our particle from just falling in infinite space, we'll need to create some sort of floor body. We want this floor to be different than our particle - it needs to be completely stationary and unaffected by gravity. We'll do this by creating a **static** body.
+
+<Blocks
+  caption="caption"
+  highlight="8,9,19,20,21,22,23,24"
+>{`  const { Engine, Runner, Bodies, Composite } = Matter;
+  const engine = Engine.create();
+  const runner = Runner.create();
+  
+  // particle variables
+  let particleGraphic, particleBody;
+  
+  // floor variable
+  let floor;
+  
+  const initParticleGraphic = () => {
+    // ...
+  };
+  
+  const initParticleBody = () => {
+    // ...
+  };
+  
+  const initFloor = () => {
+    floor = Bodies.rectangle(500, 1050, 1000, 100, {
+      id: "floor",
+      friction: .1,
+      isStatic: true,
+    });
+};`}</Blocks>
+
+We'll use the Bodies **rectangle** method to create the floor;
+
+```js
+Matter.Bodies.rectangle(x, y, radius, height, [options]);
+```
+
+You might be confused by the values we have for the x and y position (x:500, y:1050). If we're creating a space that's 1000 units wide and 1000 units tall, and we want the floor to span the bottom of this space, shouldn't it's x=0 and y=1000? Well, the way MatterJS defines rectangles is a bit different than how they're defined in SVGs, in that the x and y position represent the _center of gravity_ of the body, and not the upper right hand corner. For rectangles, and circles, the center of gravity is always in the middle of the body. For irregularly shaped objects, the center can be elswhere, as we'll see in a later lesson.
+
+Since the floor is 1000 units wide, to have it span the entire width of the space we'll need to place it horizontally at 500. Since it's 100 units tall, and we want the top of the floor to line up with the bottom of the space, we'll need to place it vertically at 1050.
+
+#### Position the floor using it's center of gravity as it's x,y position.
+
+![Drag Racing](/MatterJS_floor_body.png)
+
+As you can see, instead of an eleasticity property the floor has a boolean **isStatic** property that is set to _true_. As a result, the floor isn't effected by gravity, and remains stationary.
+
+### Creating the MatterJS world and everything in it
+
+Now we have to create the world, and put the particle and floor in it using the **Composite** module:
+
+```
+Matter.Composite.add(composite, [objects])
+```
+
+A Composite is just a container for a collection of objects. In this case we'll use the pre-defined **engine.world** as our composite, and add the particle and floor as an array of objects:
+
+<Blocks
+  caption="caption"
+  highlight="23,24,25"
+>{`  const { Engine, Runner, Bodies, Composite } = Matter;
+  const engine = Engine.create();
+  const runner = Runner.create();
+  
+  // particle variables
+  let particleGraphic, particleBody;
+  
+  // floor variable
+  let floor;
+  
+  const initParticleGraphic = () => {
+    // ...
+  };
+  
+  const initParticleBody = () => {
+    // ...
+  };
+  
+  const initFloor = () => {
+    // ...
+  };
+  
+  const makeWorld = () => {
+    Composite.add(engine.world, [particleBody, floor]);
+  };
+  `}</Blocks>
+
+### Adding the game loop
+
+Now it's time to animate our graphic using our trusted update/requestAnimationFrame method.
+
+<Blocks
+  caption="caption"
+  highlight="27,28,29,30,31,32,33,34, 35"
+>{`  const { Engine, Runner, Bodies, Composite } = Matter;
+  const engine = Engine.create();
+  const runner = Runner.create();
+  
+  // particle variables
+  let particleGraphic, particleBody;
+  
+  // floor variable
+  let floor;
+  
+  const initParticleGraphic = () => {
+    // ...
+  };
+  
+  const initParticleBody = () => {
+    // ...
+  };
+  
+  const initFloor = () => {
+    // ...
+  };
+  
+  const makeWorld = () => {
+    Composite.add(engine.world, [particleBody, floor]);
+  };
+  
+  const update = () => {
+    // update the engine.
+    Engine.update(engine);
+    // look at the particleBody position and update graphic position accordingly.
+    const pos = particleBody.position;
+    particleGraphic.setAttribute("cx", pos.x);
+    particleGraphic.setAttribute("cy", pos.y);
+    window.requestAnimationFrame(update);
+  };
+
+`}</Blocks>
 
 <EmbedExample />

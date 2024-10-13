@@ -66,8 +66,8 @@ In order to animate the circle, we’ll need to update it’s position once per 
 
 First, let’s create a method that increments the circle’s cy attribute:
 
-<Blocks>{`<script>
-    const circ = document.querySelector("#my-circle");
+<Blocks>
+{`   const circ = document.querySelector("#my-circle");
     let ypos = 10;
 
     moveCircle();
@@ -75,16 +75,13 @@ First, let’s create a method that increments the circle’s cy attribute:
     function moveCircle(){
         circ.setAttribute("cy", ypos);
         ypos += 1;
-    }
-
-</script>
-`}</Blocks>
+    }`}</Blocks>
 
 As a reminder, the browser has a own frame rate of about 60 fps. This means that it _repaints_ itself 60 times per second. The **requestAnimationFrame** method is used to call an animation function prior to “repainting” the screen. So you’ll want to pass it a function that updates some visual aspect of the svg - in this case, the moveCircle() method.
 
 We'll recursively call the moveCircle method by adding the window.requestAnimationFrame to the end of the function. So the function runs, updates the cy value, and then calls itself to run again on the next frame. The method keeps going until cy >= 290. Once it reaches that value, a return statement prevents the requestAnimationFrame method from being called again.
 
-<Blocks>{`<script>
+<Blocks>{`
     const circ = document.querySelector("#my-circle");
     let ypos = 10;
 
@@ -94,13 +91,10 @@ We'll recursively call the moveCircle method by adding the window.requestAnimati
         ypos += 1;
         circ.setAttribute("cy", ypos);
 
-        if(ypos >= 290) return;
+        if (ypos >= 290) return;
 
         window.requestAnimationFrame(moveCircle);
-    }
-
-</script>
-`}</Blocks>
+    }`}</Blocks>
 
 <AnimationFrameExample />
 
@@ -112,7 +106,7 @@ Instead of just stopping, let's make the ball bounce off the wall and head the o
 let speed = 1;
 ```
 
-<Blocks highlight="4">{`<script>
+<Blocks highlight="4">{`  
     const circ = document.querySelector("#my-circle");
     let ypos = 10;
     let speed = 1;
@@ -123,17 +117,14 @@ let speed = 1;
         ypos += 1;
         circ.setAttribute("cy", ypos);
 
-        if(ypos >= 290) return;
+        if (ypos >= 290) return;
 
         window.requestAnimationFrame(moveCircle);
-    }
-
-</script>
-`}</Blocks>
+    }`}</Blocks>
 
 Now let's update the _moveCircle_ method so that when the ypos variable is greaterthan or equal to 290, whe change the speed variable so the ball heads in the opposite direction. An easy way to do this is to just multiply it by -1.
 
-<Blocks highlight="12,13,14,15">{`<script>
+<Blocks highlight="12,13,14,15">{`
     const circ = document.querySelector("#my-circle");
     let ypos = 10;
     let speed = 1;
@@ -150,10 +141,7 @@ Now let's update the _moveCircle_ method so that when the ypos variable is great
         }
 
         window.requestAnimationFrame(moveCircle);
-    }
-
-</script>
-`}</Blocks>
+    }`}</Blocks>
 
 <SimpleBounceExample />
 
@@ -161,7 +149,7 @@ Now let's update the _moveCircle_ method so that when the ypos variable is great
 
 As you can see, the ball bounces off the bottom but not the top. We’ll also need to reverse the speed when the circle hits the top edge of the svg (ypos < 10).
 
-<Blocks highlight="12,13,14,15, 17,18,19,20">{`<script>
+<Blocks highlight="12,13,14,15, 17,18,19,20">{`
     const circ = document.querySelector("#my-circle");
     let ypos = 10;
     let speed = 1;
@@ -183,10 +171,7 @@ As you can see, the ball bounces off the bottom but not the top. We’ll also ne
         }
 
         window.requestAnimationFrame(moveCircle);
-    }
-
-</script>
-`}</Blocks>
+    }`}</Blocks>
 
 <SimpleBounceExample top={true} />
 
@@ -194,7 +179,7 @@ As you can see, the ball bounces off the bottom but not the top. We’ll also ne
 
 Let's make this work in two dimensions by adding speed variables for both x and y, and updating the speed variables when the ball collides with ANY of the walls.
 
-<Blocks highlight="3,4,5,6,11,12,13,14,16,17,18,19,20,21,22, 24,25,26,27,28,29,30">{`<script>
+<Blocks highlight="3,4,5,6,11,12,13,14,16,17,18,19,20,21,22, 24,25,26,27,28,29,30">{`
     const circ = document.querySelector("#my-circle");
     let xpos = 100; 
     let ypos = 150;
@@ -226,10 +211,7 @@ Let's make this work in two dimensions by adding speed variables for both x and 
         }
 
         window.requestAnimationFrame(moveCircle);
-    }
-
-</script>
-`}</Blocks>
+    }`}</Blocks>
 
 <ComplexBounceExample />
 
@@ -304,7 +286,7 @@ let x_speed = Math.random() * 10 - 5;
 
 This is all well and good for one bouncing particle, but what if we wanted more? What if we wanted dozens, or even hundreds? We’ll need to create a particle class for that. Let’s start with the constructor. We’ll want to pass in several variables as parameters, the x and y position, the radius, and the width and height of the svg.
 
-<Blocks>{`<script>
+<Blocks>{`
 class Particle {
     constructor(x, y, r, w, h) {
         this.x = x; this.y = y; this.r = r;
@@ -314,7 +296,7 @@ class Particle {
         this.y_speed = Math.random() _ 10 - 5;
         this.circ = null
     }
-}</script>`}</Blocks>
+}`}</Blocks>
 
 We used the w (width) and h (height) variables to create a **right** and **top** variable. These will be used for wall collision detection.
 
