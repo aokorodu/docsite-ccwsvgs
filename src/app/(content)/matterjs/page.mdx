@@ -314,9 +314,7 @@ Then we get the position data from the particleBody, and set the cx and cy attri
 
 Now all we need to do to kick things off is call all the methods we created above:
 
-<Blocks
-  highlight="34,35,36,37,38,39"
->{`  const { Engine, Body, Bodies, Composite } = Matter;
+<Blocks highlight="34,35,36,37,38,39">{`  const { Engine, Body, Bodies, Composite } = Matter;
   const engine = Engine.create();
   const runner = Runner.create();
   
@@ -348,13 +346,13 @@ Now all we need to do to kick things off is call all the methods we created abov
   const update = () => {
     //...
   };
-
-initParticleGraphic();
-initParticleBody();
-initFloor();
-makeWorld();
-initUI();
-update();
+  
+  initParticleGraphic();
+  initParticleBody();
+  initFloor();
+  makeWorld();
+  initUI();
+  update();
 `}</Blocks>
 
 And that's it! You can check out and play around with the code for this lesson [at this codepen](https://codepen.io/aokorodu/pen/GRVrbjz). There are a few minor differences to the code apove - I've added a **replay** button, for example - but for all intents and purposes it's identical to what we've just discussed.
