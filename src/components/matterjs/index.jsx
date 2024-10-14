@@ -4,13 +4,6 @@ import Matter, { Body } from "matter-js";
 import { useEffect, useRef } from "react";
 import styles from "../ComponentStyles.module.scss";
 
-/*
-<iframe height="300" style="width: 100%;" scrolling="no" title="MatterJS - Single Particle" src="https://codepen.io/aokorodu/embed/preview/GRVrbjz?default-tab=result&theme-id=dark" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href="https://codepen.io/aokorodu/pen/GRVrbjz">
-  MatterJS - Single Particle</a> by zuubaDigital (<a href="https://codepen.io/aokorodu">@aokorodu</a>)
-  on <a href="https://codepen.io">CodePen</a>.
-</iframe>
-*/
 export const EmbedExample = () => {
   return (
     <>
@@ -306,6 +299,91 @@ export const MatterDemo = () => {
         </svg>
         <button ref={replayButton}>replay</button>
       </div>
+    </>
+  );
+};
+
+export const MultiParticleEmbedExample = () => {
+  return (
+    <>
+      <iframe
+        height="700px"
+        style={{ width: "100%" }}
+        title="MatterJS - Single Particle"
+        src="https://codepen.io/aokorodu/embed/preview/OJKXoBa?default-tab=result&theme-id=light"
+        frameBorder="no"
+        loading="lazy"
+      >
+        See the Pen{" "}
+        <a href="https://codepen.io/aokorodu/pen/OJKXoBa">
+          MatterJS - Multiple Particles - Rectangles
+        </a>{" "}
+        by zuubaDigital (<a href="https://codepen.io/aokorodu">@aokorodu</a>) on{" "}
+        <a href="https://codepen.io">CodePen</a>.
+      </iframe>
+    </>
+  );
+};
+
+<iframe
+  height="300"
+  style="width: 100%;"
+  scrolling="no"
+  title="MatterJS - Multiple Particles - Rectangle no rotation"
+  src="https://codepen.io/aokorodu/embed/preview/eYqvBxp?default-tab=result&theme-id=dark"
+  frameborder="no"
+  loading="lazy"
+  allowtransparency="true"
+  allowfullscreen="true"
+>
+  See the Pen{" "}
+  <a href="https://codepen.io/aokorodu/pen/eYqvBxp">
+    MatterJS - Multiple Particles - Rectangle no rotation
+  </a>{" "}
+  by zuubaDigital (<a href="https://codepen.io/aokorodu">@aokorodu</a>) on{" "}
+  <a href="https://codepen.io">CodePen</a>.
+</iframe>;
+
+export const SquareNoRotateExample = () => {
+  return (
+    <>
+      <iframe
+        height="700px"
+        style={{ width: "100%" }}
+        title="MatterJS - Rectangular Particles"
+        src="https://codepen.io/aokorodu/embed/preview/eYqvBxp?default-tab=result&theme-id=light"
+        frameBorder="no"
+        loading="lazy"
+      >
+        See the Pen{" "}
+        <a href="https://codepen.io/aokorodu/pen/eYqvBxp">
+          MatterJS - Rectangular Particles
+        </a>{" "}
+        by zuubaDigital (<a href="https://codepen.io/aokorodu">@aokorodu</a>) on{" "}
+        <a href="https://codepen.io">CodePen</a>.
+      </iframe>
+    </>
+  );
+};
+
+export const SquareRotateExample = () => {
+  return (
+    <>
+      <iframe
+        height="700px"
+        style={{ width: "100%" }}
+        title="MatterJS - Rectangular Particles"
+        src="https://codepen.io/aokorodu/embed/preview/OJKXoqd?default-tab=result&theme-id=light"
+        frameBorder="no"
+        loading="lazy"
+      >
+        See the Pen{" "}
+        <a href="https://codepen.io/aokorodu/pen/OJKXoqd">
+          MatterJS - Rectangular Particles
+        </a>{" "}
+        by zuubaDigital (<a href="https://codepen.io/aokorodu">@aokorodu</a>) on{" "}
+        <a href="https://codepen.io">CodePen</a>.
+      </iframe>
     </>
   );
 };
