@@ -65,13 +65,12 @@ Now let's use javascript destructuring to create variables for all the MatterJS 
 
 <Blocks>{`  const { Engine, Body, Bodies, Composite } = Matter;`}</Blocks>
 
-### Create the engine and the runner
+### Create the engine
 
-Next we'll create the physics engine and the runner. Again, the engine is responsible for all the physics calculations, and the runner is the game loop.
+Next we'll create the physics engine. Again, the engine is responsible for all the physics calculations.
 
 <Blocks highlight="2,3">{`  const { Engine, Body, Bodies, Composite } = Matter;
-  const engine = Engine.create();
-  const runner = Runner.create();`}</Blocks>
+  const engine = Engine.create();`}</Blocks>
 
 ### Create the particle graphic and the MatterJS particle body.
 
@@ -79,9 +78,8 @@ We'll need variables for particle body and the particle graphic. The particle bo
 
 We'll be appending the dynamically created particle graphic to the group with an id of "holder" in the svg, so we'll also need a variable for that.
 
-<Blocks highlight="5,6,8,9">{`  const { Engine, Body, Bodies, Composite } = Matter;
+<Blocks highlight="4,5,7,8">{`  const { Engine, Body, Bodies, Composite } = Matter;
   const engine = Engine.create();
-  const runner = Runner.create();
   
   // particle vars
   let particleGraphic, particleBody;
@@ -92,9 +90,8 @@ We'll be appending the dynamically created particle graphic to the group with an
 
 We'll need a method to create the particle graphic using the dynamic element creation skills we learned in an earlier lesson. The **initParticleGraphic** method below creates a circle with a radius of 50, and places it at the top-center of the SVG:
 
-<Blocks highlight="11,12,13,14,15,16,17,18">{`  const { Engine, Body, Bodies, Composite } = Matter;
+<Blocks highlight="10,11,12,13,14,15,16,17">{`  const { Engine, Body, Bodies, Composite } = Matter;
   const engine = Engine.create();
-  const runner = Runner.create();
   
   // particle vars
   let particleGraphic, particleBody;
@@ -127,10 +124,9 @@ The options object is used to set all kinds of physical properties on a MatterJS
 
 <Blocks
   caption="In the course of using MatterJS you'll probably end up experimenting a lot with different values for friction and elasticity, as they don't always produce the results you expect!"
-  highlight="15,16,17,18,1920,22,23"
+  highlight="14,15,16,17,18,19,21,22"
 >{`  const { Engine, Body, Bodies, Composite } = Matter;
   const engine = Engine.create();
-  const runner = Runner.create();
   
   // particle vars
   let particleGraphic, particleBody;
@@ -149,7 +145,7 @@ The options object is used to set all kinds of physical properties on a MatterJS
       restitution: 0.99
     });
     
-    ,Body.setPosition(particleBody, { x: 500, y: 50 });
+    Body.setPosition(particleBody, { x: 500, y: 50 });
   };`}</Blocks>
 
 Once we create the particle body, we use the **setPosition** method of the Body module to position the body at the top of the SVG.
@@ -166,10 +162,9 @@ To prevent our particle from just falling in infinite space, we'll need to creat
 
 <Blocks
   caption="caption"
-  highlight="11,12,22,23,24,25,26,27,28"
+  highlight="10,11,21,22,23,24,25,26"
 >{`  const { Engine, Body, Bodies, Composite } = Matter;
   const engine = Engine.create();
-  const runner = Runner.create();
   
   // particle vars
   let particleGraphic, particleBody;
@@ -224,10 +219,9 @@ A Composite is just a container for a collection of objects. In this case we'll 
 
 <Blocks
   caption="caption"
-  highlight="26,27,28"
+  highlight="25,26,27"
 >{`  const { Engine, Body, Bodies, Composite } = Matter;
   const engine = Engine.create();
-  const runner = Runner.create();
   
   // particle vars
   let particleGraphic, particleBody;
@@ -261,10 +255,9 @@ Now it's time to animate our graphic using our trusted update/requestAnimationFr
 
 <Blocks
   caption="caption"
-  highlight="30,31,32,33,34,35,36,37,38"
+  highlight="29,30,31,32,33,34,35,36,37"
 >{`  const { Engine, Body, Bodies, Composite } = Matter;
   const engine = Engine.create();
-  const runner = Runner.create();
   
   // particle vars
   let particleGraphic, particleBody;
@@ -314,9 +307,8 @@ Then we get the position data from the particleBody, and set the cx and cy attri
 
 Now all we need to do to kick things off is call all the methods we created above:
 
-<Blocks highlight="34,35,36,37,38,39">{`  const { Engine, Body, Bodies, Composite } = Matter;
+<Blocks highlight="33,34,35,36,37,38">{`  const { Engine, Body, Bodies, Composite } = Matter;
   const engine = Engine.create();
-  const runner = Runner.create();
   
   // particle vars
   let particleGraphic, particleBody;
