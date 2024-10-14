@@ -1,0 +1,141 @@
+import Blocks from "@/components/blocks";
+import {
+  MultiParticleEmbedExample,
+  SquareNoRotateExample,
+  SquareRotateExample,
+} from "@/components/matterjs";
+
+# Particles II
+
+## Multiple Particle example
+
+Now that we know the basics, let's create something with multiple particles. This won't require much of a change from our first example. The main difference is that we'll use an array to keep track of our particle graphics (particleGraphics) and our particle bodies (particleBodies). We'll also need a variable for the number of particles we want to create (numberOfParticles).
+
+<Blocks>{`const { Engine, Body, Bodies, Composite } = Matter;
+const engine = Engine.create();
+
+// particle vars
+const particleGraphics = [];
+const particleBodies = [];
+const numberOfParticles = 50;
+`}</Blocks>
+
+When creating the particle graphics we'll just use a loop and push the particles we create into the particleGraphics array.
+
+<Blocks>{`function initParticleGraphics() {
+  for (let i = numberOfParticles; i > 0; i--) {
+    const particleGraphic = document.createElementNS(namespace, "circle");
+    particleGraphic.setAttribute("cx", 0);
+    particleGraphic.setAttribute("cy", 0);
+    particleGraphic.setAttribute("r", particleRadius);
+    particleGraphic.setAttribute("fill", getRandomColor());
+    holder.appendChild(particleGraphic);
+    particleGraphics.push(particleGraphic);
+  }
+}
+`}</Blocks>
+
+We'll do the same with the particle bodies as well - each body will be pushed into the particleBodies array:
+
+<Blocks>{`function initParticleBodies() {
+    for (let i = numberOfParticles; i > 0; i--) {
+      const particleBody = Bodies.circle(0, 0, particleRadius, {
+        id: "particleBody_" + i,
+        friction: 0,
+        restitution: 0.9
+      });
+      const xpos = w/3 + Math.random() * w/3;;
+      const ypos = Math.random() * (-i * particleRadius*2);
+      Body.setPosition(particleBody, { x: xpos, y: ypos });
+  
+      particleBodies.push(particleBody);
+    }
+  };
+  `}</Blocks>
+
+In the update function we'll just loop through all off the particleGraphics and set the position using the corresponding body in the particleBodies array:
+
+<Blocks highlight="4,5,6,7,8,9">{`function update() {
+    // update the engine
+    Engine.update(engine);
+    // look at the particleBody position and update graphic position accordingly.
+    particleGraphics.forEach((pg, index) => {
+      const pos = particleBodies[index].position;
+      pg.setAttribute("cx", pos.x);
+      pg.setAttribute("cy", pos.y);
+    });
+  
+    window.requestAnimationFrame(update);
+  };
+  `}</Blocks>
+
+You can check out and play around with the code [here](https://codepen.io/aokorodu/pen/OJKXoBa)..
+
+<MultiParticleEmbedExample />
+
+## Square Particles
+
+Let's update the example to use square instead of round particles. We'll need to change up both our **initParticleGraphics** and **initParticleBodies** slightly.
+
+As we discussed when making the floor body in a prior lesson, rectangles in MatterJS are created in such a way that the x and y represent the center of gravity, as opposed to an svg rectangle, where the x and y represent the upper-left-hand corner of the shape.
+
+![Rectangle Positioning](/rectPositioning.png)
+
+To make them consistent, we'll create an svg rectangle and put it inside a group element, then shift the rectangle so that it's center lines up with the group element's origin.
+
+![Rectangle Centering](/rectCentering.png)
+
+We'll need to create variables for the particles height and width:
+
+<Blocks highlight="5,6">{`
+  const particleGraphics = [];
+  const particleBodies = [];
+  const numberOfParticles = 50;
+  const particleWidth = 40;
+  const particleHeight = 40;
+`}</Blocks>
+
+In our **initParticleGraphics** method, we'll create a group element and our particle graphic. We'll set rectangle's x to -particleWidth/2, and the y to -particleHeight/2, so that it's center lines up with the center of it's parent group.
+
+<Blocks>{`function initParticleGraphics() {
+  for (let i = numberOfParticles; i > 0; i--) {
+    const particleHolder = document.createElementNS(namespace, "g");
+    const particleGraphic = document.createElementNS(namespace, "rect");
+    particleGraphic.setAttribute("x", -particleWidth/2);
+    particleGraphic.setAttribute("y", -particleHeight/2);
+    particleGraphic.setAttribute("width", particleWidth);
+    particleGraphic.setAttribute("height", particleHeight);
+    particleGraphic.setAttribute("fill", getRandomColor());
+    
+    particleHolder.appendChild(particleGraphic);
+    holder.appendChild(particleHolder);
+    particleGraphics.push(particleHolder);
+  }
+};
+`}</Blocks>
+
+That _should_ be it, right? But when we run our code, something looks a bit off:
+
+<SquareNoRotateExample />
+
+The rectangles aren't acting like real particles - they keep the same orientation, and don't bounce around and rotate like a real rectangular particle would. There's a reasonable explaination - we haven't wired up the particles to rotate at all. Fortunately the rotation information is easy to get from our particle body. When we translate our graphic, we'll just make sure to set the rotation as well. We'll just need to change our update method like this:
+
+<Blocks>{`const update = () => {
+  // look at the particleBody position and update graphic position accordingly.
+  particleGraphics.forEach((pg, index) => {
+    const pos = particleBodies[index].position;
+    const angle = particleBodies[index].angle;
+
+    // the body angle property is in radians, so we need to convert it to degrees
+    const degrees = (angle * 180) / Math.PI;
+    pg.setAttribute(
+      "transform",
+      "translate(" + pos.x + " " + pos.y + ") rotate(" + degrees + ")"
+    );});
+
+window.requestAnimationFrame(update);
+};`}</Blocks>
+
+And now it works!
+
+<SquareRotateExample />

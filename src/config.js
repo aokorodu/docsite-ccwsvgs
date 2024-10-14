@@ -78,11 +78,6 @@ export const navConfig = {
         { title: "dragging elements", link: "/dynamic-dragging" },
       ],
     },
-    // {
-    //   title: "Making SVGs Interactive",
-    //   link: "",
-    //   subnav: [],
-    // },
     {
       title: "Animation",
       link: "",
@@ -95,7 +90,15 @@ export const navConfig = {
         { title: "SMIL", link: "/smil-animation" },
         { title: "more SMIL", link: "/smil-animation-II" },
         { title: "Sprites", link: "/sprites" },
-        { title: "matter.js", link: "/matterjs" },
+      ],
+    },
+    {
+      title: "Adding Physics",
+      link: "",
+      subnav: [
+        { title: "matter.js intro", link: "/matterjs-intro" },
+        { title: "particles", link: "/matterjs-particles" },
+        { title: "particles II", link: "/matterjs-particles-II" },
       ],
     },
     {
@@ -135,7 +138,9 @@ export const navConfig = {
     { title: "SMIL animation", link: "/smil-animation" },
     { title: "more SMIL", link: "/smil-animation-II" },
     { title: "Sprites", link: "/sprites" },
-    { title: "matter.js", link: "/matterjs" },
+    { title: "matter.js intro", link: "/matterjs-intro" },
+    { title: "particles", link: "/matterjs-particles" },
+    { title: "particles II", link: "/matterjs-particles-II" },
     { title: "Aspect Ratio", link: "/aspect-ratio" },
   ],
 };
