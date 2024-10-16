@@ -1,0 +1,61 @@
+import Blocks from "@/components/blocks";
+import {
+  MultiParticleEmbedExample,
+  SquareNoRotateExample,
+  SquareRotateExample,
+  WindSliderExample,
+  PopcornExample,
+} from "@/components/matterjs";
+
+# Particles III
+
+## Applying Forces
+
+A "force" is a push or pull on an object that can cause it to change its motion, speed, or direction. A force is a _vector_, meaning that it has **magnitude** and **direction**.
+
+> **vector**: a quantity that has magnitude and direction and that is commonly represented by a directed line segment whose length represents the magnitude and whose orientation in space represents the direction. [Merriam-Webster Dictionary](https://www.merriam-webster.com/dictionary/vector#:~:text=a,direction%20especially%20of%20an%20airplane)
+
+![Vector Drawing](/vector_drawing.png)
+
+So the force above with a magnitude of 10 and an angle of 60° will be represented as a vector like this:
+
+```
+const someForce = {x:5, y:8.66}
+```
+
+We can apply a force to an object using the Body modules \*applyForce" module:
+
+```
+Body.applyForce(body, position, someForce);
+```
+
+Let's update our <a href="https://codepen.io/aokorodu/pen/OJKXoBa" target="_blank">MatterJS - Multiple Particles</a> codepen so that we can apply a wind force to our particles. First we'll need to create a variable for our force:
+
+<Blocks>{`  // wind force
+  let windForce = { x: 0, y: 0 };
+  `}</Blocks>
+
+The force of wind is a bit different than the force of a bat hitting a baseball, in that the force is applied over a longer period of time. So for this exercise we'll apply the force in our **update** method.
+
+<Blocks highlight="5">{`  function update() {
+  // look at the particleBody position and update graphic position accordingly.
+  particleBodies.forEach((particleBody, index) => {
+    const pos = particleBody.position;
+    Matter.Body.applyForce(particleBody, pos, windForce);
+    const particleGraphic = particleGraphics[index];
+    particleGraphic.setAttribute("cx", pos.x);
+    particleGraphic.setAttribute("cy", pos.y);
+  });
+
+window.requestAnimationFrame(update);
+};`}</Blocks>
+
+Since the windForce is essentially 0, you won't see any change in the way the particles move. Go ahead and set a _really_ small value for x - something like 0.001. You'll see the particles look like they are being pushed to the right of our scene. Changing to a negative value pushes the particles to the left.
+
+I've created an interactive version that let's you adjust the wind force with an input slider:
+
+<WindSliderExample />
+
+Here's another example where I apply an upward force once the particle falls to a certain level. You'll notice that the force is much larger than the force applied in the wind example (0.2 for the popcorn example vs 0.005 maximum for the wind example). That's because the wind force is being applied every frame, which causes the particle to accelerate. If the force is to large, it ends up accelerating so fast that you can't even see it. In the "popcorn" force example, the force is only applied briefly, when it falls below a certain y threshold, so the particle doesn't continue to accelerate.
+
+<PopcornExample />

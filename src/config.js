@@ -99,6 +99,7 @@ export const navConfig = {
         { title: "matter.js intro", link: "/matterjs-intro" },
         { title: "particles", link: "/matterjs-particles" },
         { title: "particles II", link: "/matterjs-particles-II" },
+        { title: "particles III", link: "/matterjs-particles-III" },
       ],
     },
     {
@@ -141,6 +142,7 @@ export const navConfig = {
     { title: "matter.js intro", link: "/matterjs-intro" },
     { title: "particles", link: "/matterjs-particles" },
     { title: "particles II", link: "/matterjs-particles-II" },
+    { title: "particles III", link: "/matterjs-particles-III" },
     { title: "Aspect Ratio", link: "/aspect-ratio" },
   ],
 };

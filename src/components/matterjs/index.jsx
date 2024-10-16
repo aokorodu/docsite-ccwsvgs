@@ -325,25 +325,6 @@ export const MultiParticleEmbedExample = () => {
   );
 };
 
-<iframe
-  height="300"
-  style="width: 100%;"
-  scrolling="no"
-  title="MatterJS - Multiple Particles - Rectangle no rotation"
-  src="https://codepen.io/aokorodu/embed/preview/eYqvBxp?default-tab=result&theme-id=dark"
-  frameborder="no"
-  loading="lazy"
-  allowtransparency="true"
-  allowfullscreen="true"
->
-  See the Pen{" "}
-  <a href="https://codepen.io/aokorodu/pen/eYqvBxp">
-    MatterJS - Multiple Particles - Rectangle no rotation
-  </a>{" "}
-  by zuubaDigital (<a href="https://codepen.io/aokorodu">@aokorodu</a>) on{" "}
-  <a href="https://codepen.io">CodePen</a>.
-</iframe>;
-
 export const SquareNoRotateExample = () => {
   return (
     <>
@@ -380,6 +361,50 @@ export const SquareRotateExample = () => {
         See the Pen{" "}
         <a href="https://codepen.io/aokorodu/pen/OJKXoqd">
           MatterJS - Rectangular Particles
+        </a>{" "}
+        by zuubaDigital (<a href="https://codepen.io/aokorodu">@aokorodu</a>) on{" "}
+        <a href="https://codepen.io">CodePen</a>.
+      </iframe>
+    </>
+  );
+};
+
+export const WindSliderExample = () => {
+  return (
+    <>
+      <iframe
+        height="600px"
+        style={{ width: "100%" }}
+        title="MatterJS - Multiple Particles with wind force"
+        src="https://codepen.io/aokorodu/embed/preview/jOgVRzv?default-tab=result&theme-id=light"
+        frameBorder="no"
+        loading="lazy"
+      >
+        See the Pen{" "}
+        <a href="https://codepen.io/aokorodu/pen/jOgVRzv">
+          MatterJS - Multiple Particles with wind force
+        </a>{" "}
+        by zuubaDigital (<a href="https://codepen.io/aokorodu">@aokorodu</a>) on{" "}
+        <a href="https://codepen.io">CodePen</a>.
+      </iframe>
+    </>
+  );
+};
+
+export const PopcornExample = () => {
+  return (
+    <>
+      <iframe
+        height="600px"
+        style={{ width: "100%" }}
+        title="MatterJS - Multiple Particles-Forces-Popcorn"
+        src="https://codepen.io/aokorodu/embed/preview/QWevjbR?default-tab=result&theme-id=light"
+        frameBorder="no"
+        loading="lazy"
+      >
+        See the Pen{" "}
+        <a href="https://codepen.io/aokorodu/pen/QWevjbR">
+          MatterJS - Multiple Particles-Forces-Popcorn
         </a>{" "}
         by zuubaDigital (<a href="https://codepen.io/aokorodu">@aokorodu</a>) on{" "}
         <a href="https://codepen.io">CodePen</a>.
