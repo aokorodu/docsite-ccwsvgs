@@ -111,7 +111,7 @@ The options object is used to set all kinds of physical properties on a MatterJS
 Once we create the particle body, we use the **setPosition** method of the Body module to position the body at the top of the SVG.
 
 ```
-,Body.setPosition(body, { x: number, y: number });
+Body.setPosition(body, { x: number, y: number });
 ```
 
 Remember, the MatterJS body _isn't actually rendered at all_. Think of it as existing in a virtual world that we'll refer to every frame, and use it's position and orientation to position our graphic.
