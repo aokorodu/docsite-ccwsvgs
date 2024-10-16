@@ -58,4 +58,23 @@ I've created an interactive version that let's you adjust the wind force with an
 
 Here's another example where I apply an upward force once the particle falls to a certain level. You'll notice that the force is much larger than the force applied in the wind example (0.2 for the popcorn example vs 0.005 maximum for the wind example). That's because the wind force is being applied every frame, which causes the particle to accelerate. If the force is to large, it ends up accelerating so fast that you can't even see it. In the "popcorn" force example, the force is only applied briefly, when it falls below a certain y threshold, so the particle doesn't continue to accelerate.
 
+<Blocks
+  highlight="7,8,9"
+  caption="The force is only being applied when the particle is close to the bottom - height (h) - 50"
+>{`  function update() {
+  // update the engine
+  Engine.update(engine);
+  // look at the particleBody position and update graphic position accordingly.
+  particleBodies.forEach((particleBody, index) => {
+    const pos = particleBody.position;
+    if (pos.y > h-50){
+      Matter.Body.applyForce(particleBody, pos, popcornForce)
+    }
+    const particleGraphic = particleGraphics[index];
+    particleGraphic.setAttribute("cx", pos.x);
+    particleGraphic.setAttribute("cy", pos.y);
+  });
+  window.requestAnimationFrame(update);
+};`}</Blocks>
+
 <PopcornExample />
