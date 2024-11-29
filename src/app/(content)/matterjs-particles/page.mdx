@@ -1,5 +1,9 @@
 import Blocks from "@/components/blocks";
-import { EmbedExample, MatterDemo } from "@/components/matterjs";
+import {
+  EmbedExample,
+  SingleParticleWidthRender,
+  MatterDemo,
+} from "@/components/matterjs";
 
 # Creating Particles
 
@@ -13,10 +17,10 @@ The most basic way to import the MatterJS library is via the script tag. (CDN in
 
 ### Set up the SVG
 
-The first thing we'll need to do is set up our svg. I've created a group with an id of "holder" that will contain the particle graphic we'll eventually create.
+The first thing we'll need to do is set up our svg. I've created a group with an id of "holder" that will contain the particle graphic we'll eventually create. You'll notice that I've intentionally left the values for width, height, and viewBox blank - I'll be setting those values later with javascript.
 
-<Blocks>{`<svg width="500" height="500" viewBox="0 0 1000 1000">
-  <g id="holder"></g>
+<Blocks>{`<svg width="" height="" viewBox="">
+  <g id="particleHolder"></g>
 </svg>`}</Blocks>
 
 ### Create aliases for the modules
@@ -34,44 +38,83 @@ Next we'll create the physics engine. Again, the engine is responsible for all t
 
 ### Create the particle graphic and the MatterJS particle body.
 
-We'll need variables for particle body and the particle graphic. The particle body will all the properties we'll need to animate the particle graphic.
+We'll need variables for particle body and the particle graphic. The particle body is a MatterJS object that will contain all the properties we'll need to animate the particle graphic. We'll also need a variable for the particle radius (particleRadius).
 
-We'll be appending the dynamically created particle graphic to the group with an id of "holder" in the svg, so we'll also need a variable for that.
+We'll be appending the dynamically created particle graphic to the group with an id of "particleHolder" in the svg, so we'll also need a variable for that.
 
-<Blocks highlight="4,5,7,8">{`  const { Engine, Body, Bodies, Composite } = Matter;
+<Blocks highlight="4,5,6,8,9">{`  const { Engine, Body, Bodies, Composite } = Matter;
   const engine = Engine.create();
   
   // particle vars
-  let particleGraphic, particleBody;
-  
-  // holder variable
-  const holder = document.querySelector("#holder");
+let particleGraphic, particleBody;
+const particleRadius = 20;
+
+// holder variable
+const particleHolder = document.querySelector("#particleHolder");
 `}</Blocks>
 
-We'll need a method to create the particle graphic using the dynamic element creation skills we learned in an earlier lesson. The **initParticleGraphic** method below creates a circle with a radius of 50, and places it at the top-center of the SVG:
+I'm also setting up variables for the svg properties - viewport width and height (viewportWidth, viewportHeight), and the viewBox width and height (w, h). I could just hard-code these values, but I like setting them dynamically - it makes it easier to change things around and experiment.
 
-<Blocks highlight="10,11,12,13,14,15,16,17">{`  const { Engine, Body, Bodies, Composite } = Matter;
+<Blocks highlight="11,12,13,14,15,16">{`  const { Engine, Body, Bodies, Composite } = Matter;
   const engine = Engine.create();
   
   // particle vars
-  let particleGraphic, particleBody;
-  
+let particleGraphic, particleBody;
+const particleRadius = 20;
+
+// holder variable
+const particleHolder = document.querySelector("#particleHolder");
+
+// svg variables
+const viewportWidth = 500;
+const viewportHeight = 500;
+const w = 500;
+const h = 500;
+const namespace = "http://www.w3.org/2000/svg";
+`}</Blocks>
+
+The first thing we need is a method to set up our SVG viewport and viewBox.
+
+<Blocks highlight="9,10,11,12,13,14">{`  const { Engine, Body, Bodies, Composite } = Matter;
+  const engine = Engine.create();
+// particle vars
+...
+// holder variable
+...
+// svg variables
+...
+function initSVG() {
+  const svg = document.querySelector("svg");
+  svg.setAttribute("width", \`\${viewportWidth}\`\);
+  svg.setAttribute("height", \`\${viewportHeight}\`\);
+  svg.setAttribute("viewBox",  \`0 0  \${w} \${h}\`);
+}`}</Blocks>
+
+We'll need a method to create the particle graphic using the dynamic element creation skills we learned in an earlier lesson. The **initParticleGraphic** method below creates a circle with a radius of 50. The cx/cy position doesn't really matter right now, as we'll be positioning the particle later.
+
+<Blocks highlight="11,12,13,14,15,16,17,18">{`  const { Engine, Body, Bodies, Composite } = Matter;
+  const engine = Engine.create();
+  // particle vars
+  ...
   // holder variable
-  const holder = document.querySelector("#holder");
+  ...
+  // svg variables
+  ...
+  function initSVG() { ...}
   
-  const initParticleGraphic = () => {
+  function initParticleGraphic() {
     particleGraphic = document.createElementNS(namespace, "circle");
-    particleGraphic.setAttribute("cx", "500");
-    particleGraphic.setAttribute("cy", "50");
-    particleGraphic.setAttribute("r", 50);
+    particleGraphic.setAttribute("cx", "0");
+    particleGraphic.setAttribute("cy", "0");
+    particleGraphic.setAttribute("r", particleRadius);
     particleGraphic.setAttribute("fill", "black");
-    holder.appendChild(particleGraphic);
-  };`}</Blocks>
+    particleHolder.appendChild(particleGraphic);
+}`}</Blocks>
 
 Now let's create the body. The MatterJS **Bodies** module has a circle method that we'll use to create a 2D body that's the same size and shape as the particle graphic. It looks like this:
 
 ```js
-,Bodies.circle(x, y, radius, [options]);
+Bodies.circle(x, y, radius, [options]);
 ```
 
 The options object is used to set all kinds of physical properties on a MatterJS body. We'll just be setting three - **id**, **friction** and **restitution**.
@@ -82,31 +125,27 @@ The options object is used to set all kinds of physical properties on a MatterJS
 
 **restitution**: A number between 0-1 that defines the elasticity (bounciness) of the object
 
-<Blocks
-  caption="In the course of using MatterJS you'll probably end up experimenting a lot with different values for friction and elasticity, as they don't always produce the results you expect!"
-  highlight="14,15,16,17,18,19,21,22"
->{`  const { Engine, Body, Bodies, Composite } = Matter;
+<Blocks highlight="13,14,15,16,17,18,19,20">{`  const { Engine, Body, Bodies, Composite } = Matter;
   const engine = Engine.create();
-  
   // particle vars
-  let particleGraphic, particleBody;
-  
+  ...
   // holder variable
-  const holder = document.querySelector("#holder");
+  ...
+  // svg variables
+  ...
+  function initSVG() { ...}
   
-  const initParticleGraphic = () => {
-    // ...
-  };
+  function initParticleGraphic() {...};
   
-  const initParticleBody = () => {
-    particleBody = Bodies.circle(0, 0, 50, {
-      id: "particleBody",
+  function initParticleBody() {
+    particleBody = Bodies.circle(0, 0, particleRadius, {
+      id: \`particleBody\`,
       friction: 0,
       restitution: 0.99
     });
-    
-    Body.setPosition(particleBody, { x: 500, y: 50 });
-  };`}</Blocks>
+  Body.setPosition(particleBody, { x: w/2, y: particleRadius })
+  };
+  `}</Blocks>
 
 Once we create the particle body, we use the **setPosition** method of the Body module to position the body at the top of the SVG.
 
@@ -120,46 +159,43 @@ Remember, the MatterJS body _isn't actually rendered at all_. Think of it as exi
 
 To prevent our particle from just falling in infinite space, we'll need to create some sort of floor body. We want this floor to be different than our particle - it needs to be completely stationary and unaffected by gravity. We'll do this by creating a **static** body.
 
-<Blocks
-  caption="caption"
-  highlight="10,11,21,22,23,24,25,26"
->{`  const { Engine, Body, Bodies, Composite } = Matter;
-  const engine = Engine.create();
-  
-  // particle vars
-  let particleGraphic, particleBody;
-  
-  // holder variable
-  const holder = document.querySelector("#holder");
-  
-  // floor variable
-  let floor;
-  
-  const initParticleGraphic = () => {
-    // ...
-  };
-  
-  const initParticleBody = () => {
-    // ...
-  };
-  
-  const initFloor = () => {
-    floor = Bodies.rectangle(500, 1050, 1000, 100, {
-      id: "floor",
-      friction: .1,
-      isStatic: true,
-    });
-};`}</Blocks>
-
 We'll use the Bodies **rectangle** method to create the floor;
 
 ```js
-,Bodies.rectangle(x, y, radius, height, [options]);
+Bodies.rectangle(x, y, radius, height, [options]);
 ```
 
-You might be confused by the values we have for the x and y position (x:500, y:1050). If we're creating a space that's 1000 units wide and 1000 units tall, and we want the floor to span the bottom of this space, shouldn't it's x=0 and y=1000? Well, the way MatterJS defines rectangles is a bit different than how they're defined in SVGs, in that the x and y position represent the _center of gravity_ of the body, and not the upper right hand corner. For rectangles, and circles, the center of gravity is always in the middle of the body. For irregularly shaped objects, the center can be elswhere, as we'll see in a later lesson.
+<Blocks highlight="8,9,10,21,22,23,24,25,26,27">{`  const { Engine, Body, Bodies, Composite } = Matter;
+  const engine = Engine.create();
+  // particle vars
+  ...
+  // holder variable
+  ...
+  
+  // floor variables
+  let floor;
+  const floorThickness = 100;
+  
+  // svg variables
+  ...
+  
+  function initSVG() { ...}
+  
+  function initParticleGraphic() {...};
+  
+  function initParticleBody() {...};
+  
+  function initFloor() {
+    floor = Bodies.rectangle(w/2, h + floorThickness/2, w, floorThickness, {
+        isStatic: true,
+        id: "floor"
+      });
+    }
+`}</Blocks>
 
-Since the floor is 1000 units wide, to have it span the entire width of the space we'll need to place it horizontally at 500. Since it's 100 units tall, and we want the top of the floor to line up with the bottom of the space, we'll need to place it vertically at 1050.
+You might be confused by the values we have for the x and y position (x:w/2, y:h + floorThickness/2). If we're creating the floor at the bottom of the space, shouldn't x=0 and y = h (the height of the space)? Well, the way MatterJS defines rectangles is a bit different than how they're defined in SVGs, in that the x and y position represent the _center of gravity_ of the body, and not the upper right hand corner. For rectangles, and circles, the center of gravity is always in the middle of the body. For irregularly shaped objects, the center can be elswhere, as we'll see in a later lesson.
+
+In this example, since the "room" is 500 units wide (w), to have it span the entire width of the space we'll need to also make the floor 500 units wide, and place it horizontally at 250 (w/2). Since it's 100 units tall (floorThickness=100), and we want the top of the floor to line up with the bottom of the space, we'll need to place it vertically at h + floorThickness/2.
 
 #### Position the floor using it's center of gravity as it's x,y position.
 
@@ -172,79 +208,66 @@ As you can see, instead of an eleasticity property the floor has a boolean **isS
 Now we have to create the world, and put the particle and floor in it using the **Composite** module:
 
 ```
-,Composite.add(composite, [objects])
+Composite.add(composite, [objects])
 ```
 
 A Composite is just a container for a collection of objects. In this case we'll use the pre-defined **engine.world** as our composite, and add the particle and floor as an array of objects:
 
-<Blocks
-  caption="caption"
-  highlight="25,26,27"
->{`  const { Engine, Body, Bodies, Composite } = Matter;
+<Blocks highlight="23,24,25">{`  const { Engine, Body, Bodies, Composite } = Matter;
   const engine = Engine.create();
-  
   // particle vars
-  let particleGraphic, particleBody;
-  
+  ...
   // holder variable
-  const holder = document.querySelector("#holder");
+  ...
   
-  // floor variable
+  // floor variables
   let floor;
+  const floorThickness = 100;
   
-  const initParticleGraphic = () => {
-    // ...
-  };
+  // svg variables
+  ...
   
-  const initParticleBody = () => {
-    // ...
-  };
+  function initSVG() { ...}
   
-  const initFloor = () => {
-    // ...
-  };
+  function initParticleGraphic() {...};
   
-  const makeWorld = () => {
+  function initParticleBody() {...};
+  
+  function initFloor() {...};
+  
+  function makeWorld() {
     Composite.add(engine.world, [particleBody, floor]);
-  };
-  `}</Blocks>
+  }
+`}</Blocks>
 
 ### Adding the game loop
 
 Now it's time to animate our graphic using our trusted update/requestAnimationFrame method.
 
-<Blocks
-  caption="caption"
-  highlight="29,30,31,32,33,34,35,36,37"
->{`  const { Engine, Body, Bodies, Composite } = Matter;
+<Blocks highlight="24,25,26,27,28,29,30,31,32">{`  const { Engine, Body, Bodies, Composite } = Matter;
   const engine = Engine.create();
-  
   // particle vars
-  let particleGraphic, particleBody;
-  
+  ...
   // holder variable
-  const holder = document.querySelector("#holder");
+  ...
   
-  // floor variable
-  let floor;
+  // floor variables
+  ...
   
-  const initParticleGraphic = () => {
-    // ...
-  };
+  // svg variables
+  ...
   
-  const initParticleBody = () => {
-    // ...
-  };
+  function initSVG() { ...}
   
-  const initFloor = () => {
-    // ...
-  };
+  function initParticleGraphic() {...};
   
-  const makeWorld = () => {
-    Composite.add(engine.world, [particleBody, floor]);
-  };
+  function initParticleBody() {...};
   
-  const update = () => {
+  function initFloor() {...};
+  
+  function makeWorld() {...}
+  
+  function update() {
     // update the engine.
     Engine.update(engine);
     // look at the particleBody position and update graphic position accordingly.
@@ -253,7 +276,7 @@ Now it's time to animate our graphic using our trusted update/requestAnimationFr
     particleGraphic.setAttribute("cy", pos.y);
     window.requestAnimationFrame(update);
   };
-  `}</Blocks>
+`}</Blocks>
 
 The update loop is pretty simple. First we call the update method on our engine, which will advance it one "frame".
 
@@ -267,36 +290,37 @@ Then we get the position data from the particleBody, and set the cx and cy attri
 
 Now all we need to do to kick things off is call all the methods we created above:
 
-<Blocks highlight="33,34,35,36,37,38">{`  const { Engine, Body, Bodies, Composite } = Matter;
+<Blocks highlight="34,35,36,37,38,39">{`  const { Engine, Body, Bodies, Composite } = Matter;
   const engine = Engine.create();
-  
   // particle vars
-  let particleGraphic, particleBody;
-  
+  ...
   // holder variable
-  const holder = document.querySelector("#holder");
+  ...
   
-  // floor variable
-  let floor;
+  // floor variables
+  ...
   
-  const initParticleGraphic = () => {
-    // ...
-  };
+  // svg variables
+  ...
   
-  const initParticleBody = () => {
-    // ...
-  };
+  function initSVG() { ...}
   
-  const initFloor = () => {
-    // ...
-  };
+  function initParticleGraphic() {...};
   
-  const makeWorld = () => {
-    Composite.add(engine.world, [particleBody, floor]);
-  };
+  function initParticleBody() {...};
   
-  const update = () => {
-    //...
+  function initFloor() {...};
+  
+  function makeWorld() {...}
+  
+  function update() {
+    // update the engine.
+    Engine.update(engine);
+    // look at the particleBody position and update graphic position accordingly.
+    const pos = particleBody.position;
+    particleGraphic.setAttribute("cx", pos.x);
+    particleGraphic.setAttribute("cy", pos.y);
+    window.requestAnimationFrame(update);
   };
   
   initParticleGraphic();
@@ -307,6 +331,77 @@ Now all we need to do to kick things off is call all the methods we created abov
   update();
 `}</Blocks>
 
-And that's it! You can check out and play around with the code for this lesson [at this codepen](https://codepen.io/aokorodu/pen/GRVrbjz). There are a few minor differences to the code apove - I've added a **replay** button, for example - but for all intents and purposes it's identical to what we've just discussed.
+You can check out and play around with the code for this lesson [at this codepen](https://codepen.io/aokorodu/pen/GRVrbjz). There are a few minor differences to the code apove - I've added a **replay** button, for example - but for all intents and purposes it's identical to what we've just discussed.
 
 <EmbedExample />
+
+## Using the renderer
+
+Sometimes it can be useful to see what's going on in the MatterJS world as we're buiding out the svg graphics that we'll be animating, especially when we're creating complex rigid body shapes (as we'll do in an upcoming lesson). Activating the renderer only takes a few lines of code.
+
+With our HTML, we'll need to create a div that we can attach the renderer to:
+
+<Blocks highlight="6">{`<div class="visHolder">
+  <svg id="svg" width="" height="" viewBox="">
+  <rect id="bg" x="0" y="0" width="" height="" />
+  <g id="particleHolder"></g>
+</svg>
+  <div id="rendererHolder"></div>
+</div>`}</Blocks>
+
+In our code we need to make sure that we're importing the Render module:
+
+<Blocks>{`const { Engine, Render, Body, Bodies, Composite } = Matter;`}</Blocks>
+
+Next we'll create the renderer using the Render.create method:
+
+```
+ Render.create({
+    element: someHTMLElement,
+    engine: engine,
+    options: {
+      width: someWidthValue,
+      height: someHeightValue,
+      showAngleIndicator: true
+    }
+  })
+```
+
+The options are pretty self-explanitory for the most part. The _width_ and _height_ properties should match the viewBox values. The _showAngleIndicator_ indicator is a boolean value, and it makes the renderer draw a red tick mark on our objects so we can see their rotation. After we create the renderer we just need to actually tell it to start running:
+
+```
+Render.run(rendererName)
+```
+
+Here's the actual method I use in the example below to create the renderer:
+
+<Blocks highlight="1-16,19">{`function initRenderer() {
+  // create renderer
+  const rendererHolder = document.querySelector("#rendererHolder");
+  const render = Render.create({
+    element: rendererHolder,
+    engine: engine,
+    options: {
+      width: w,
+      height: h,
+      showAngleIndicator: true
+    }
+  });
+
+    Render.run(render);
+
+}
+
+initSVG();
+initRenderer();
+initParticleGraphic();
+initParticleBody();
+initFloor();
+makeWorld();
+initUI();
+update();
+`}</Blocks>
+
+And that's it! You can check out what the render actually looks like in the codepen below. I'd absolutely recommend using the render while you're figuring out how to create svg elements that correspond to the MatterJS bodies. It can be tricky sometimes, and having a visual of what's really happening in the MatterJS world can be helpful.
+
+<SingleParticleWidthRender />

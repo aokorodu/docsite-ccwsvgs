@@ -26,6 +26,28 @@ export const EmbedExample = () => {
   );
 };
 
+export const SingleParticleWidthRender = () => {
+  return (
+    <>
+      <iframe
+        height="1000px"
+        style={{ width: "100%" }}
+        title="MatterJS - Single Particle"
+        src="https://codepen.io/aokorodu/embed/preview/WNVEQQK?default-tab=result&theme-id=light"
+        frameBorder="no"
+        loading="lazy"
+      >
+        See the Pen{" "}
+        <a href="https://codepen.io/aokorodu/pen/WNVEQQK">
+          MatterJS - Single Particle Example w/ Render
+        </a>{" "}
+        by zuubaDigital (<a href="https://codepen.io/aokorodu">@aokorodu</a>) on{" "}
+        <a href="https://codepen.io">CodePen</a>.
+      </iframe>
+    </>
+  );
+};
+
 export const MatterDemo = () => {
   const { Engine, Bodies, Composite } = Matter;
   const engine = Engine.create();
@@ -347,6 +369,28 @@ export const SquareNoRotateExample = () => {
   );
 };
 
+export const SquareNoRotateWithRenderExample = () => {
+  return (
+    <>
+      <iframe
+        height="1000px"
+        style={{ width: "100%" }}
+        title="MatterJS - Multiple Particles - Rectangle no rotation with Renderer"
+        src="https://codepen.io/aokorodu/embed/preview/rNXzVRb?default-tab=result&theme-id=light"
+        frameBorder="no"
+        loading="lazy"
+      >
+        See the Pen{" "}
+        <a href="https://codepen.io/aokorodu/pen/rNXzVRb">
+          MatterJS - Multiple Particles - Rectangle no rotation with Renderer
+        </a>{" "}
+        by zuubaDigital (<a href="https://codepen.io/aokorodu">@aokorodu</a>) on{" "}
+        <a href="https://codepen.io">CodePen</a>.
+      </iframe>
+    </>
+  );
+};
+
 export const SquareRotateExample = () => {
   return (
     <>
@@ -373,7 +417,7 @@ export const WindSliderExample = () => {
   return (
     <>
       <iframe
-        height="600px"
+        height="800px"
         style={{ width: "100%" }}
         title="MatterJS - Multiple Particles with wind force"
         src="https://codepen.io/aokorodu/embed/preview/jOgVRzv?default-tab=result&theme-id=light"
@@ -395,7 +439,7 @@ export const PopcornExample = () => {
   return (
     <>
       <iframe
-        height="600px"
+        height="800px"
         style={{ width: "100%" }}
         title="MatterJS - Multiple Particles-Forces-Popcorn"
         src="https://codepen.io/aokorodu/embed/preview/QWevjbR?default-tab=result&theme-id=light"
