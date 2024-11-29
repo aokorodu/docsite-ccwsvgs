@@ -93,13 +93,13 @@ export const navConfig = {
       ],
     },
     {
-      title: "Adding Physics",
+      title: "Physics with Matter.js",
       link: "",
       subnav: [
         { title: "matter.js intro", link: "/matterjs-intro" },
-        { title: "particles", link: "/matterjs-particles" },
-        { title: "particles II", link: "/matterjs-particles-II" },
-        { title: "particles III", link: "/matterjs-particles-III" },
+        { title: "creating a particle", link: "/matterjs-particles" },
+        { title: "multiple particles", link: "/matterjs-particles-II" },
+        { title: "applying forces", link: "/matterjs-particles-III" },
       ],
     },
     {

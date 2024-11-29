@@ -417,7 +417,7 @@ export const WindSliderExample = () => {
   return (
     <>
       <iframe
-        height="600px"
+        height="800px"
         style={{ width: "100%" }}
         title="MatterJS - Multiple Particles with wind force"
         src="https://codepen.io/aokorodu/embed/preview/jOgVRzv?default-tab=result&theme-id=light"
@@ -439,7 +439,7 @@ export const PopcornExample = () => {
   return (
     <>
       <iframe
-        height="600px"
+        height="800px"
         style={{ width: "100%" }}
         title="MatterJS - Multiple Particles-Forces-Popcorn"
         src="https://codepen.io/aokorodu/embed/preview/QWevjbR?default-tab=result&theme-id=light"

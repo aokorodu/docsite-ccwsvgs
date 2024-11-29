@@ -375,7 +375,7 @@ Render.run(rendererName)
 
 Here's the actual method I use in the example below to create the renderer:
 
-<Blocks>{`function initRenderer() {
+<Blocks highlight="1-16,19">{`function initRenderer() {
   // create renderer
   const rendererHolder = document.querySelector("#rendererHolder");
   const render = Render.create({
@@ -388,8 +388,19 @@ Here's the actual method I use in the example below to create the renderer:
     }
   });
 
-Render.run(render);
-}`}</Blocks>
+    Render.run(render);
+
+}
+
+initSVG();
+initRenderer();
+initParticleGraphic();
+initParticleBody();
+initFloor();
+makeWorld();
+initUI();
+update();
+`}</Blocks>
 
 And that's it! You can check out what the render actually looks like in the codepen below. I'd absolutely recommend using the render while you're figuring out how to create svg elements that correspond to the MatterJS bodies. It can be tricky sometimes, and having a visual of what's really happening in the MatterJS world can be helpful.
 

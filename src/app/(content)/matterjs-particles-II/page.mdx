@@ -125,7 +125,8 @@ Here's a version with the renderer, so you can see how the square particles are 
 
 The svg rectangles aren't acting like real particles - they keep the same orientation, and don't bounce around and rotate like a real rectangular particle would. There's a reasonable explaination - we haven't wired up the particles to rotate at all. Fortunately the rotation information is easy to get from our particle body. When we translate our graphic, we'll just make sure to set the rotation as well. We'll just need to change our update method like this:
 
-<Blocks>{`const update = () => {
+<Blocks>{`function update() {
+  Engine.update(engine);
   // look at the particleBody position and update graphic position accordingly.
   particleGraphics.forEach((pg, index) => {
     const pos = particleBodies[index].position;
