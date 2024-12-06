@@ -98,8 +98,10 @@ export const navConfig = {
       subnav: [
         { title: "matter.js intro", link: "/matterjs-intro" },
         { title: "creating a particle", link: "/matterjs-particles" },
-        { title: "multiple particles", link: "/matterjs-particles-II" },
-        { title: "applying forces", link: "/matterjs-particles-III" },
+        { title: "multiple particles", link: "/matterjs-particles-multiple" },
+        { title: "square particles", link: "/matterjs-particles-squares" },
+        { title: "polygon particles", link: "/matterjs-particles-polygons" },
+        { title: "applying forces", link: "/matterjs-particles-forces" },
       ],
     },
     {
@@ -141,8 +143,10 @@ export const navConfig = {
     { title: "Sprites", link: "/sprites" },
     { title: "matter.js intro", link: "/matterjs-intro" },
     { title: "particles", link: "/matterjs-particles" },
-    { title: "particles II", link: "/matterjs-particles-II" },
-    { title: "particles III", link: "/matterjs-particles-III" },
+    { title: "multiple particles", link: "/matterjs-particles-multiple" },
+    { title: "square particles", link: "/matterjs-particles-squares" },
+    { title: "polygon particles", link: "/matterjs-particles-polygons" },
+    { title: "particles III", link: "/matterjs-particles-forces" },
     { title: "Aspect Ratio", link: "/aspect-ratio" },
   ],
 };
