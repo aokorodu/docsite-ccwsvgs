@@ -3,6 +3,14 @@ import { SVGShapeExample } from "@/components/matterjs";
 
 # SVG Path Particles
 
+<a
+  className="codepenLink"
+  href={"https://codepen.io/aokorodu/pen/XJrdJmE"}
+  target="_blank"
+>
+  {"SVG Path Particles codepen practice page"}
+</a>
+
 ## Creating MatterJS bodies from paths
 
 So far our particles have been relatively simple shapes - circles, squares, and polygons. But what if we want our particle to be something more complex? What if we wanted it to be in the shape of a letter?
@@ -22,10 +30,12 @@ Luckily MatterJS provides a module that helps us create a body from an svg path:
 Matter.Svg.pathToVertices(path)
 ```
 
-In order to use this module we'll need to import two other libraries: poly-decomp.js and SVGPathSeg polyfill. These libraries allow MatterJS to convert complex shapes (like our letter above) into rigid MatterJS bodies. We'll be using a starter codepen where both of these libraries have already been imported.
+In order to use this module we'll need to import two other libraries: **poly-decomp.js** and **SVGPathSeg** polyfill.
 
-https://www.npmjs.com/package/poly-decomp
-https://www.npmjs.com/package/pathseg
+<Blocks>{`<script src="https://cdn.jsdelivr.net/npm/poly-decomp-es@0.4.2/dist/poly-decomp-es.cjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pathseg@1.2.1/pathseg.min.js"></script>`}</Blocks>
+
+These libraries allow MatterJS to convert complex shapes (like our letter above) into rigid MatterJS bodies. We'll be using a <a target="_blank" href="https://codepen.io/aokorodu/pen/XJrdJmE">starter codepen</a> where both of these libraries have already been imported.
 
 Let's get started.
 
@@ -51,7 +61,7 @@ Open the svg in your text editor and just copy the path. That's all we'll need, 
 
 ![Copy Path](/MatterJS_CopyPath.png)
 
-In the HTML portion of our codepen let's paste the path into our SVG, and give it an id of "svgPath" so we can reference it later.
+In the HTML portion of our <a target="_blank" href="https://codepen.io/aokorodu/pen/XJrdJmE">starter codepen</a> let's paste the path into our SVG, and give it an id of "svgPath" so we can reference it later.
 
 <Blocks highlight="4">{`<div class="visHolder">
   <svg id="svg" width="" height="" viewBox="">
