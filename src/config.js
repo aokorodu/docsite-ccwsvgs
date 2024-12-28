@@ -107,7 +107,7 @@ export const navConfig = {
     },
     {
       title: "Aspect Ratio",
-      link: "aspect-ratio",
+      link: "/aspect-ratio",
       subnav: [],
     },
   ],
