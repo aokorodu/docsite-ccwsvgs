@@ -508,7 +508,7 @@ export const SVGShapeExample = () => {
         height="600px"
         style={{ width: "100%" }}
         title="MatterJS - SVG Bodies"
-        src="https://codepen.io/aokorodu/embed/preview/XJrdJmE?default-tab=js%2Cresult&theme-id=dark"
+        src="https://codepen.io/aokorodu/embed/preview/KwPvGJO?default-tab=js%2Cresult&theme-id=dark"
         frameBorder="no"
         loading="lazy"
       >

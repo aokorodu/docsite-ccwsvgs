@@ -119,7 +119,7 @@ Bodies.circle(x, y, radius, [options]);
 
 The options object is used to set all kinds of physical properties on a MatterJS body. We'll just be setting three - **id**, **friction** and **restitution**.
 
-**id**: A unique name that the engine needs to keep track of the body within the world. The id _must_ be unique. If not, _all sorts of buggieness_ will ensue, as we'll see in a later lesson!
+**id**: A unique name that the engine needs to keep track of the body within the world. The id _must_ be unique. It's not a big deal for this example, since we'll only have one particle, but it's **super** important when you have multiple particles to make sure they all have unique IDs. If not, _all sorts of buggieness_ will ensue, as we'll see in a later lesson!
 
 **friction**: A number between 0-1 that defines the friction of the body.
 
