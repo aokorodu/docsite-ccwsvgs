@@ -500,3 +500,25 @@ export const SinglePolygonWithReplayExample = () => {
     </>
   );
 };
+
+export const SVGShapeExample = () => {
+  return (
+    <>
+      <iframe
+        height="600px"
+        style={{ width: "100%" }}
+        title="MatterJS - SVG Bodies"
+        src="https://codepen.io/aokorodu/embed/preview/XJrdJmE?default-tab=js%2Cresult&theme-id=dark"
+        frameBorder="no"
+        loading="lazy"
+      >
+        See the Pen{" "}
+        <a href="https://codepen.io/aokorodu/pen/qEWdEbd">
+          MatterJS - SVG Bodies
+        </a>{" "}
+        by zuubaDigital (<a href="https://codepen.io/aokorodu">@aokorodu</a>) on{" "}
+        <a href="https://codepen.io">CodePen</a>.
+      </iframe>
+    </>
+  );
+};

@@ -101,6 +101,7 @@ export const navConfig = {
         { title: "multiple particles", link: "/matterjs-particles-multiple" },
         { title: "square particles", link: "/matterjs-particles-squares" },
         { title: "polygon particles", link: "/matterjs-particles-polygons" },
+        { title: "svg path particles", link: "/matterjs-particles-svgbodies" },
         { title: "applying forces", link: "/matterjs-particles-forces" },
       ],
     },
@@ -146,7 +147,8 @@ export const navConfig = {
     { title: "multiple particles", link: "/matterjs-particles-multiple" },
     { title: "square particles", link: "/matterjs-particles-squares" },
     { title: "polygon particles", link: "/matterjs-particles-polygons" },
-    { title: "particles III", link: "/matterjs-particles-forces" },
+    { title: "svg path particles", link: "/matterjs-particles-svgbodies" },
+    { title: "applying forces", link: "/matterjs-particles-forces" },
     { title: "Aspect Ratio", link: "/aspect-ratio" },
   ],
 };
