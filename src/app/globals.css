@@ -1,9 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 
-:root {
-}
-
 * {
   font-family: "IBM Plex Sans", sans-serif;
   font-weight: 300;
@@ -126,9 +123,9 @@ hr {
   border-top: 1px solid #d3d2d2;
 }
 
-code {
+code span {
   font-family: monospace;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 video {
