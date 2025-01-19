@@ -168,3 +168,22 @@ export const SliderStuff = () => {
         </div>
     </>)
 }
+
+export const DraggingExample = () => {
+    return (
+        <>
+            <iframe
+                height="600px"
+                style={{ width: "100%" }}
+                title="Dragging Elements"
+                src="https://codepen.io/aokorodu/embed/preview/MWNbdyg?default-tab=result&theme-id=dark"
+                frameBorder="no"
+                loading="lazy"
+            >
+                See the Pen <a href="https://codepen.io/aokorodu/pen/MWNbdyg">
+                    Dragging SVG Elements</a> by zuubaDigital (<a href="https://codepen.io/aokorodu">@aokorodu</a>)
+                on <a href="https://codepen.io">CodePen</a>
+            </iframe>
+        </>
+    );
+};
