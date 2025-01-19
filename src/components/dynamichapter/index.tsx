@@ -187,3 +187,23 @@ export const DraggingExample = () => {
         </>
     );
 };
+
+export const DraggingExample2 = () => {
+    return (
+        <>
+            <iframe
+                height="600px"
+                style={{ width: "100%" }}
+                title="Dragging Elements"
+                src="https://codepen.io/aokorodu/embed/preview/emOjoqw?default-tab=result&theme-id=dark"
+                frameBorder="no"
+                loading="lazy"
+            >
+                See the Pen <a href="https://codepen.io/aokorodu/pen/emOjoqw?editors=0010">
+                    Dragging SVG Elements - Multiple Dynamic</a> by zuubaDigital (<a href="https://codepen.io/aokorodu">@aokorodu</a>)
+                on <a href="https://codepen.io">CodePen</a>
+            </iframe>
+        </>
+    );
+};
+
