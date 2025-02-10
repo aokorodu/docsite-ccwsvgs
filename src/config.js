@@ -106,6 +106,11 @@ export const navConfig = {
       ],
     },
     {
+      title: "GreenSock Animation",
+      link: "",
+      subnav: [{ title: "GSAP intro", link: "/greensock-intro" }],
+    },
+    {
       title: "Aspect Ratio",
       link: "/aspect-ratio",
       subnav: [],
@@ -149,6 +154,7 @@ export const navConfig = {
     { title: "polygon particles", link: "/matterjs-particles-polygons" },
     { title: "svg path particles", link: "/matterjs-particles-svgbodies" },
     { title: "applying forces", link: "/matterjs-particles-forces" },
+    { title: "GSAP intro", link: "/greensock-intro" },
     { title: "Aspect Ratio", link: "/aspect-ratio" },
   ],
 };
