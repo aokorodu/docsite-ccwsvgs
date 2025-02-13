@@ -1,5 +1,5 @@
 "use client";
-import React, { use } from "react";
+import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import styles from "./gsap.module.scss";
@@ -254,6 +254,305 @@ export const GsapDemo = () => {
           l
         </text>
       </g>
+    </svg>
+  );
+};
+
+export const BasicToAnim = () => {
+  const red = useRef(null);
+  const green = useRef(null);
+  const blue = useRef(null);
+
+  useGSAP(() => {
+    animate();
+  }); // <-- scope for selector text (optional)
+
+  const animate = () => {
+    gsap.to([red.current, green.current, blue.current], {
+      attr: {
+        cx: 470,
+      },
+      duration: 2,
+      repeat: -1,
+    });
+  };
+
+  return (
+    <svg width="500" height="500" viewBox="0 0 500 500">
+      <circle ref={red} cx="30" cy="150" r="30" fill="red" />
+      <circle
+        ref={green}
+        id="green"
+        class="ball"
+        cx="30"
+        cy="250"
+        r="25"
+        fill="green"
+      />
+      <circle
+        ref={blue}
+        id="blue"
+        class="ball"
+        cx="30"
+        cy="350"
+        r="20"
+        fill="blue"
+      />
+    </svg>
+  );
+};
+
+export const BasicToAnim1A = () => {
+  const red = useRef(null);
+  const green = useRef(null);
+  const blue = useRef(null);
+
+  useGSAP(() => {
+    animate();
+  }); // <-- scope for selector text (optional)
+
+  const animate = () => {
+    gsap.to([red.current, green.current, blue.current], {
+      attr: {
+        cx: 470,
+        r: 100,
+        fill: "purple",
+        opacity: 0.5,
+      },
+      duration: 2,
+      repeat: -1,
+    });
+  };
+
+  return (
+    <svg width="500" height="500" viewBox="0 0 500 500">
+      <circle ref={red} cx="30" cy="150" r="30" fill="red" />
+      <circle
+        ref={green}
+        id="green"
+        class="ball"
+        cx="30"
+        cy="250"
+        r="25"
+        fill="green"
+      />
+      <circle
+        ref={blue}
+        id="blue"
+        class="ball"
+        cx="30"
+        cy="350"
+        r="20"
+        fill="blue"
+      />
+    </svg>
+  );
+};
+
+export const BasicToAnim2 = () => {
+  const red = useRef(null);
+  const green = useRef(null);
+  const blue = useRef(null);
+
+  useGSAP(() => {
+    animate();
+  }); // <-- scope for selector text (optional)
+
+  const animate = () => {
+    gsap.to([red.current, green.current, blue.current], {
+      attr: {
+        cx: 470,
+      },
+      duration: 2,
+      repeat: -1,
+      yoyo: true,
+      ease: "back.inOut",
+      stagger: 0.5,
+    });
+  };
+
+  return (
+    <svg width="500" height="500" viewBox="0 0 500 500">
+      <circle ref={red} cx="30" cy="150" r="30" fill="red" />
+      <circle
+        ref={green}
+        id="green"
+        class="ball"
+        cx="30"
+        cy="250"
+        r="25"
+        fill="green"
+      />
+      <circle
+        ref={blue}
+        id="blue"
+        class="ball"
+        cx="30"
+        cy="350"
+        r="20"
+        fill="blue"
+      />
+    </svg>
+  );
+};
+
+export const BasicToAnim3 = () => {
+  const red = useRef(null);
+  const green = useRef(null);
+  const blue = useRef(null);
+
+  useGSAP(() => {
+    animate();
+  }); // <-- scope for selector text (optional)
+
+  const animate = () => {
+    gsap.to([red.current, green.current, blue.current], {
+      attr: {
+        cx: 470,
+      },
+      duration: 2,
+
+      ease: "back.inOut",
+      stagger: {
+        each: 0.5,
+        repeat: -1,
+        yoyo: true, // Repeats immediately, not waiting for the other staggered animations to finish
+      },
+    });
+  };
+
+  return (
+    <svg width="500" height="500" viewBox="0 0 500 500">
+      <circle ref={red} cx="30" cy="150" r="30" fill="red" />
+      <circle
+        ref={green}
+        id="green"
+        class="ball"
+        cx="30"
+        cy="250"
+        r="25"
+        fill="green"
+      />
+      <circle
+        ref={blue}
+        id="blue"
+        class="ball"
+        cx="30"
+        cy="350"
+        r="20"
+        fill="blue"
+      />
+    </svg>
+  );
+};
+
+export const BasicFromAnim = () => {
+  const red = useRef(null);
+  const green = useRef(null);
+  const blue = useRef(null);
+
+  useGSAP(() => {
+    animate();
+  }); // <-- scope for selector text (optional)
+
+  const animate = () => {
+    gsap.from([red.current, green.current, blue.current], {
+      attr: {
+        cx: 470,
+        cy: 250,
+      },
+      duration: 2,
+      ease: "back.inOut",
+      repeat: -1,
+      yoyo: true,
+    });
+  };
+
+  return (
+    <svg width="500" height="500" viewBox="0 0 500 500">
+      <circle ref={red} cx="30" cy="150" r="30" fill="red" />
+      <circle
+        ref={green}
+        id="green"
+        class="ball"
+        cx="30"
+        cy="250"
+        r="25"
+        fill="green"
+      />
+      <circle
+        ref={blue}
+        id="blue"
+        class="ball"
+        cx="30"
+        cy="350"
+        r="20"
+        fill="blue"
+      />
+    </svg>
+  );
+};
+
+export const BasicFromToAnim = () => {
+  const red = useRef(null);
+  const green = useRef(null);
+  const blue = useRef(null);
+
+  useGSAP(() => {
+    animate();
+  }); // <-- scope for selector text (optional)
+
+  const animate = () => {
+    gsap.fromTo(
+      [red.current, green.current, blue.current],
+      // from state
+      {
+        attr: {
+          cx: 250,
+          cy: 50,
+          fill: "red",
+        },
+      },
+      // to state
+      {
+        attr: {
+          cx: 250,
+          cy: 450,
+          fill: "blue",
+        },
+        duration: 2,
+        stagger: {
+          each: 0.5,
+          repeat: -1,
+          yoyo: true,
+        },
+
+        ease: "back.inOut",
+      }
+    );
+  };
+
+  return (
+    <svg width="500" height="500" viewBox="0 0 500 500">
+      <circle ref={red} cx="30" cy="150" r="30" fill="red" />
+      <circle
+        ref={green}
+        id="green"
+        class="ball"
+        cx="30"
+        cy="250"
+        r="25"
+        fill="green"
+      />
+      <circle
+        ref={blue}
+        id="blue"
+        class="ball"
+        cx="30"
+        cy="350"
+        r="20"
+        fill="blue"
+      />
     </svg>
   );
 };

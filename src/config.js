@@ -108,7 +108,10 @@ export const navConfig = {
     {
       title: "GreenSock Animation",
       link: "",
-      subnav: [{ title: "GSAP intro", link: "/greensock-intro" }],
+      subnav: [
+        { title: "GSAP intro", link: "/greensock-intro" },
+        { title: "tweening methods", link: "/greensock-methods" },
+      ],
     },
     {
       title: "Aspect Ratio",
@@ -155,6 +158,7 @@ export const navConfig = {
     { title: "svg path particles", link: "/matterjs-particles-svgbodies" },
     { title: "applying forces", link: "/matterjs-particles-forces" },
     { title: "GSAP intro", link: "/greensock-intro" },
+    { title: "tweening methods", link: "/greensock-methods" },
     { title: "Aspect Ratio", link: "/aspect-ratio" },
   ],
 };
