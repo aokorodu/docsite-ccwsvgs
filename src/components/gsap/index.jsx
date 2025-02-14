@@ -367,7 +367,7 @@ export const BasicToAnim2 = () => {
       repeat: -1,
       yoyo: true,
       ease: "back.inOut",
-      stagger: 0.5,
+      stagger: 1,
     });
   };
 
@@ -414,7 +414,7 @@ export const BasicToAnim3 = () => {
 
       ease: "back.inOut",
       stagger: {
-        each: 0.5,
+        each: 1,
         repeat: -1,
         yoyo: true, // Repeats immediately, not waiting for the other staggered animations to finish
       },
@@ -554,5 +554,27 @@ export const BasicFromToAnim = () => {
         fill="blue"
       />
     </svg>
+  );
+};
+
+export const GSAPMethods = () => {
+  return (
+    <>
+      <iframe
+        height="500px"
+        style={{ width: "100%" }}
+        title="GSAP to, from, fromTo"
+        src="https://codepen.io/aokorodu/embed/preview/azorBvJ?default-tab=js%2Cresult&theme-id=dark"
+        frameBorder="no"
+        loading="lazy"
+      >
+        See the Pen{" "}
+        <a href="https://codepen.io/aokorodu/pen/azorBvJ">
+          GSAP to, from, fromTo
+        </a>{" "}
+        by zuubaDigital (<a href="https://codepen.io/aokorodu">@aokorodu</a>) on{" "}
+        <a href="https://codepen.io">CodePen</a>.
+      </iframe>
+    </>
   );
 };

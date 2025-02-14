@@ -7,6 +7,7 @@ import {
   BasicToAnim3,
   BasicFromAnim,
   BasicFromToAnim,
+  GSAPMethods,
 } from "@/components/gsap";
 
 # Tweening
@@ -115,7 +116,7 @@ The default duration of any tween is 0.5 seconds, but we can specify our own usi
 
 Right now the animation runs just one time, but we can change that using the **repeat** property and assigning a value. To get the animation to repeat infinitely, assign a value of -1.
 
-<Blocks highlight="5">{`gsap.to(".ball", {
+<Blocks highlight="6">{`gsap.to(".ball", {
   attr: {
       cx: 470
   },
@@ -168,16 +169,17 @@ When defining an animation for multiple objects, this property staggers the star
   repeat: -1,
   yoyo: true,
   ease: "back.inOut",
-  stagger: 0.5,
+  stagger: 1,
 });`}</Blocks>
 
 <BasicToAnim2 />
 
+**stagger object:**
 You'll notice that the repeat only occurs after all three of the staggered animations have completed. What if you want each ball to repeat/yoyo right away, instead of waiting for thee others? You'll need to use the **stagger object**, which gives you more fine-tuned control over the animation.
 
 By using the stagger object and and defining the repeat and yoyo _inside_ that object, you get a different result. The _each_ property sets the delay in the start time for each sub-tween.
 
-<Blocks>{`gsap.to([red, green, blue], {
+<Blocks highlight="7,8,9,10,11,12">{`gsap.to([red, green, blue], {
   attr: {
     cx: 470,
   },
@@ -185,7 +187,7 @@ By using the stagger object and and defining the repeat and yoyo _inside_ that o
   ease: "back.inOut",
   // Repeats immediately, not waiting for the other staggered animations to finish
   stagger: {
-    each: 0.5,
+    each: 1,
     repeat: -1,
     yoyo: true, 
   },
@@ -215,7 +217,7 @@ The _from_ method is used to animate an element _from_ the designated state to i
 The _fromTo_ method is used to animate elements from one state to another.
 
 <Blocks>{`gsap.fromTo(
-  [red.current, green.current, blue.current],
+  [red, green, blue],
   // from state
   {
     attr: {
@@ -244,3 +246,7 @@ The _fromTo_ method is used to animate elements from one state to another.
 );`}</Blocks>
 
 <BasicFromToAnim />
+
+I've created a codepen containing all the methods we just discussed. Go ahead and modify the code, and see the results!
+
+<GSAPMethods />
