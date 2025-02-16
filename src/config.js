@@ -112,6 +112,7 @@ export const navConfig = {
         { title: "GSAP intro", link: "/greensock-intro" },
         { title: "tweening methods", link: "/greensock-methods" },
         { title: "timelines", link: "/greensock-timelines" },
+        { title: "playback controls", link: "/greensock-playback-controls" },
       ],
     },
     {
@@ -161,6 +162,7 @@ export const navConfig = {
     { title: "GSAP intro", link: "/greensock-intro" },
     { title: "tweening methods", link: "/greensock-methods" },
     { title: "timelines", link: "/greensock-timelines" },
+    { title: "playback controls", link: "/greensock-playback-controls" },
     { title: "Aspect Ratio", link: "/aspect-ratio" },
   ],
 };

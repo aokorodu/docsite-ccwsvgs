@@ -1194,3 +1194,25 @@ export const GSAPTimelineEnder = () => {
     </>
   );
 };
+
+export const GSAPPlaybackStarter = () => {
+  return (
+    <>
+      <iframe
+        height="500px"
+        style={{ width: "100%" }}
+        title="GSAP - PLAYBACK CONTROL - START"
+        src="https://codepen.io/aokorodu/embed/preview/xbxGEWp?default-tab=js%2Cresult&theme-id=dark"
+        frameBorder="no"
+        loading="lazy"
+      >
+        See the Pen{" "}
+        <a href="https://codepen.io/aokorodu/pen/xbxGEWp">
+          GSAP - PLAYBACK CONTROL - START
+        </a>{" "}
+        by zuubaDigital (<a href="https://codepen.io/aokorodu">@aokorodu</a>) on{" "}
+        <a href="https://codepen.io">CodePen</a>.
+      </iframe>
+    </>
+  );
+};
