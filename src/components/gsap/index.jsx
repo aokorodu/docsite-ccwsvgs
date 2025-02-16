@@ -578,3 +578,619 @@ export const GSAPMethods = () => {
     </>
   );
 };
+
+export const TimlineDemo = () => {
+  let theTween = null;
+  const dur = 1;
+
+  useGSAP(() => {
+    animate();
+  }); // <-- scope for selector text (optional)
+
+  const animate = () => {
+    theTween = gsap.timeline({ repeat: -1, yoyo: true, repeatDelay: 1 });
+    theTween
+      .fromTo(
+        "#bgHolder",
+        { attr: { transform: "translate(250 -30) scale(.03)" } },
+        {
+          attr: { transform: "translate(250 250) scale(.03)" },
+          duration: dur,
+          stagger: 0.5,
+          ease: "back",
+        }
+      )
+      .fromTo(
+        "#bgHolder",
+        { attr: { transform: "translate(250 250) scale(.03)" } },
+        {
+          attr: { transform: "translate(250 250) scale(1)" },
+          duration: dur,
+          stagger: 0.5,
+        }
+      )
+      .fromTo(
+        "#lineHolder",
+        { attr: { transform: "translate(250 250) scale(0 1)" } },
+        {
+          attr: { transform: "translate(250 250) scale(1 1)" },
+          duration: dur,
+          stagger: 0.5,
+        }
+      )
+      .fromTo(
+        ".letter",
+        { attr: { y: 100, opacity: 1 } },
+        {
+          attr: { y: 0, opacity: 1 },
+          duration: dur,
+          stagger: 0.1,
+          ease: "back",
+        }
+      );
+  };
+
+  return (
+    <svg width="500" height="500" viewBox="0 0 500 500">
+      <defs>
+        <clipPath id="text-clip-path">
+          <rect x="0" y="0" width="500" height="250" />
+        </clipPath>
+      </defs>
+      <g id="bgHolder" transform="translate(250 250)">
+        <circle cx="0" cy="0" r="400" fill="black" stroke="none" />
+      </g>
+      <g id="lineHolder" transform="translate(250 250) scale(1 1)">
+        <path d="M-250,0 h500" stroke="white" stroke-width="2" />
+      </g>
+      <g id="holder" clip-path="url(#text-clip-path)">
+        <g
+          id="textHolder"
+          transform="translate(80, 230)"
+          fill="white"
+          fontSize={35}
+        >
+          <text
+            x="10"
+            y="0"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            class="letter"
+          >
+            T
+          </text>
+          <text
+            x="35"
+            y="0"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            class="letter"
+          >
+            E
+          </text>
+          <text
+            x="60"
+            y="0"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            class="letter"
+          >
+            X
+          </text>
+          <text
+            x="85"
+            y="0"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            class="letter"
+          >
+            T
+          </text>
+          <text
+            x="135"
+            y="0"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            class="letter"
+          >
+            A
+          </text>
+          <text
+            x="160"
+            y="0"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            class="letter"
+          >
+            N
+          </text>
+          <text
+            x="185"
+            y="0"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            class="letter"
+          >
+            I
+          </text>
+          <text
+            x="210"
+            y="0"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            class="letter"
+          >
+            M
+          </text>
+          <text
+            x="235"
+            y="0"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            class="letter"
+          >
+            A
+          </text>
+          <text
+            x="260"
+            y="0"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            class="letter"
+          >
+            T
+          </text>
+          <text
+            x="285"
+            y="0"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            class="letter"
+          >
+            I
+          </text>
+          <text
+            x="310"
+            y="0"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            class="letter"
+          >
+            O
+          </text>
+          <text
+            x="335"
+            y="0"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            class="letter"
+          >
+            N
+          </text>
+        </g>
+      </g>
+    </svg>
+  );
+};
+
+export const GSAPTimelineStarter = () => {
+  return (
+    <>
+      <iframe
+        height="500px"
+        style={{ width: "100%" }}
+        title="GSAP - Timelines - Start"
+        src="https://codepen.io/aokorodu/embed/preview/yyLNqoZ?default-tab=js%2Cresult&theme-id=dark"
+        frameBorder="no"
+        loading="lazy"
+      >
+        See the Pen{" "}
+        <a href="https://codepen.io/aokorodu/pen/yyLNqoZ">
+          GSAP - Timelines - Start
+        </a>{" "}
+        by zuubaDigital (<a href="https://codepen.io/aokorodu">@aokorodu</a>) on{" "}
+        <a href="https://codepen.io">CodePen</a>.
+      </iframe>
+    </>
+  );
+};
+
+export const TimlineDemoError = () => {
+  let theTween = null;
+  const dur = 1;
+
+  useGSAP(() => {
+    animate();
+  }); // <-- scope for selector text (optional)
+
+  const animate = () => {
+    theTween = gsap.timeline({ repeat: -1, yoyo: true, repeatDelay: 1 });
+    theTween
+      .fromTo(
+        "#bgHolder_error",
+        { attr: { transform: "translate(250 -30) scale(.03)" } },
+        {
+          attr: { transform: "translate(250 250) scale(.03)" },
+          duration: dur,
+          stagger: 0.5,
+          ease: "back",
+        }
+      )
+      .fromTo(
+        "#bgHolder_error",
+        { attr: { transform: "scale(.03)" } },
+        {
+          attr: { transform: "scale(1)" },
+          duration: dur,
+          stagger: 0.5,
+        }
+      );
+  };
+
+  return (
+    <svg width="500" height="500" viewBox="0 0 500 500">
+      <g id="bgHolder_error" transform="translate(250 250)">
+        <circle cx="0" cy="0" r="400" fill="black" stroke="none" />
+      </g>
+      <g transform="translate(250 250) scale(1 1)">
+        <path d="M-250,0 h500" stroke="white" stroke-width="2" />
+      </g>
+      <g clip-path="url(#text-clip-path)">
+        <g
+          id="textHolder"
+          transform="translate(80, 230)"
+          fill="white"
+          fontSize={35}
+        >
+          <text x="10" y="0" text-anchor="middle" dominant-baseline="middle">
+            T
+          </text>
+          <text x="35" y="0" text-anchor="middle" dominant-baseline="middle">
+            E
+          </text>
+          <text x="60" y="0" text-anchor="middle" dominant-baseline="middle">
+            X
+          </text>
+          <text x="85" y="0" text-anchor="middle" dominant-baseline="middle">
+            T
+          </text>
+          <text x="135" y="0" text-anchor="middle" dominant-baseline="middle">
+            A
+          </text>
+          <text x="160" y="0" text-anchor="middle" dominant-baseline="middle">
+            N
+          </text>
+          <text x="185" y="0" text-anchor="middle" dominant-baseline="middle">
+            I
+          </text>
+          <text x="210" y="0" text-anchor="middle" dominant-baseline="middle">
+            M
+          </text>
+          <text x="235" y="0" text-anchor="middle" dominant-baseline="middle">
+            A
+          </text>
+          <text x="260" y="0" text-anchor="middle" dominant-baseline="middle">
+            T
+          </text>
+          <text x="285" y="0" text-anchor="middle" dominant-baseline="middle">
+            I
+          </text>
+          <text x="310" y="0" text-anchor="middle" dominant-baseline="middle">
+            O
+          </text>
+          <text x="335" y="0" text-anchor="middle" dominant-baseline="middle">
+            N
+          </text>
+        </g>
+      </g>
+    </svg>
+  );
+};
+
+export const TimlineDemoErrorFix = () => {
+  let theTween = null;
+  const dur = 1;
+
+  useGSAP(() => {
+    animate();
+  }); // <-- scope for selector text (optional)
+
+  const animate = () => {
+    theTween = gsap.timeline({ repeat: -1, yoyo: true, repeatDelay: 1 });
+    theTween
+      .fromTo(
+        "#bgHolder_fix",
+        { attr: { transform: "translate(250 -30) scale(.03)" } },
+        {
+          attr: { transform: "translate(250 250) scale(.03)" },
+          duration: dur,
+          stagger: 0.5,
+          ease: "back",
+        }
+      )
+      .fromTo(
+        "#bgHolder_fix",
+        { attr: { transform: "translate(250 250) scale(.03)" } },
+        {
+          attr: { transform: "translate(250 250) scale(1)" },
+          duration: dur,
+          stagger: 0.5,
+        }
+      );
+  };
+
+  return (
+    <svg width="500" height="500" viewBox="0 0 500 500">
+      <g id="bgHolder_fix" transform="translate(250 250)">
+        <circle cx="0" cy="0" r="400" fill="black" stroke="none" />
+      </g>
+      <g transform="translate(250 250) scale(1 1)">
+        <path d="M-250,0 h500" stroke="white" stroke-width="2" />
+      </g>
+      <g clip-path="url(#text-clip-path)">
+        <g
+          id="textHolder"
+          transform="translate(80, 230)"
+          fill="white"
+          fontSize={35}
+        >
+          <text x="10" y="0" text-anchor="middle" dominant-baseline="middle">
+            T
+          </text>
+          <text x="35" y="0" text-anchor="middle" dominant-baseline="middle">
+            E
+          </text>
+          <text x="60" y="0" text-anchor="middle" dominant-baseline="middle">
+            X
+          </text>
+          <text x="85" y="0" text-anchor="middle" dominant-baseline="middle">
+            T
+          </text>
+          <text x="135" y="0" text-anchor="middle" dominant-baseline="middle">
+            A
+          </text>
+          <text x="160" y="0" text-anchor="middle" dominant-baseline="middle">
+            N
+          </text>
+          <text x="185" y="0" text-anchor="middle" dominant-baseline="middle">
+            I
+          </text>
+          <text x="210" y="0" text-anchor="middle" dominant-baseline="middle">
+            M
+          </text>
+          <text x="235" y="0" text-anchor="middle" dominant-baseline="middle">
+            A
+          </text>
+          <text x="260" y="0" text-anchor="middle" dominant-baseline="middle">
+            T
+          </text>
+          <text x="285" y="0" text-anchor="middle" dominant-baseline="middle">
+            I
+          </text>
+          <text x="310" y="0" text-anchor="middle" dominant-baseline="middle">
+            O
+          </text>
+          <text x="335" y="0" text-anchor="middle" dominant-baseline="middle">
+            N
+          </text>
+        </g>
+      </g>
+    </svg>
+  );
+};
+
+export const TimlineDemoNoClip = () => {
+  let theTween = null;
+  const dur = 1;
+
+  useGSAP(() => {
+    animate();
+  }); // <-- scope for selector text (optional)
+
+  const animate = () => {
+    theTween = gsap.timeline({ repeat: -1, yoyo: true, repeatDelay: 1 });
+    theTween
+      .fromTo(
+        "#bgHolder_noclip",
+        { attr: { transform: "translate(250 -30) scale(.03)" } },
+        {
+          attr: { transform: "translate(250 250) scale(.03)" },
+          duration: dur,
+          stagger: 0.5,
+          ease: "back",
+        }
+      )
+      .fromTo(
+        "#bgHolder_noclip",
+        { attr: { transform: "translate(250 250) scale(.03)" } },
+        {
+          attr: { transform: "translate(250 250) scale(1)" },
+          duration: dur,
+          stagger: 0.5,
+        }
+      )
+      .fromTo(
+        "#lineHolder_noclip",
+        { attr: { transform: "translate(250 250) scale(0 1)" } },
+        {
+          attr: { transform: "translate(250 250) scale(1 1)" },
+          duration: dur,
+          stagger: 0.5,
+        }
+      )
+      .fromTo(
+        ".letter_noclip",
+        { attr: { y: 100, opacity: 1 } },
+        {
+          attr: { y: 0, opacity: 1 },
+          duration: dur,
+          stagger: 0.1,
+          ease: "back",
+        }
+      );
+  };
+
+  return (
+    <svg width="500" height="500" viewBox="0 0 500 500">
+      <defs>
+        <clipPath id="text-clip-path">
+          <rect x="0" y="0" width="500" height="250" />
+        </clipPath>
+      </defs>
+      <g id="bgHolder_noclip" transform="translate(250 250)">
+        <circle cx="0" cy="0" r="400" fill="black" stroke="none" />
+      </g>
+      <g id="lineHolder_noclip" transform="translate(250 250) scale(1 1)">
+        <path d="M-250,0 h500" stroke="white" stroke-width="2" />
+      </g>
+      <g id="holder">
+        <g
+          id="textHolder"
+          transform="translate(80, 230)"
+          fill="white"
+          fontSize={35}
+        >
+          <text
+            x="10"
+            y="0"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            class="letter_noclip"
+          >
+            T
+          </text>
+          <text
+            x="35"
+            y="0"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            class="letter_noclip"
+          >
+            E
+          </text>
+          <text
+            x="60"
+            y="0"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            class="letter_noclip"
+          >
+            X
+          </text>
+          <text
+            x="85"
+            y="0"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            class="letter_noclip"
+          >
+            T
+          </text>
+          <text
+            x="135"
+            y="0"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            class="letter_noclip"
+          >
+            A
+          </text>
+          <text
+            x="160"
+            y="0"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            class="letter_noclip"
+          >
+            N
+          </text>
+          <text
+            x="185"
+            y="0"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            class="letter_noclip"
+          >
+            I
+          </text>
+          <text
+            x="210"
+            y="0"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            class="letter_noclip"
+          >
+            M
+          </text>
+          <text
+            x="235"
+            y="0"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            class="letter_noclip"
+          >
+            A
+          </text>
+          <text
+            x="260"
+            y="0"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            class="letter_noclip"
+          >
+            T
+          </text>
+          <text
+            x="285"
+            y="0"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            class="letter_noclip"
+          >
+            I
+          </text>
+          <text
+            x="310"
+            y="0"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            class="letter_noclip"
+          >
+            O
+          </text>
+          <text
+            x="335"
+            y="0"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            class="letter_noclip"
+          >
+            N
+          </text>
+        </g>
+      </g>
+    </svg>
+  );
+};
+
+export const GSAPTimelineEnder = () => {
+  return (
+    <>
+      <iframe
+        height="500px"
+        style={{ width: "100%" }}
+        title="GSAP - Timelines - FINAL"
+        src="https://codepen.io/aokorodu/embed/preview/gbOpjoX?default-tab=js%2Cresult&theme-id=dark"
+        frameBorder="no"
+        loading="lazy"
+      >
+        See the Pen{" "}
+        <a href="https://codepen.io/aokorodu/pen/gbOpjoX">
+          GSAP - Timelines - FINAL
+        </a>{" "}
+        by zuubaDigital (<a href="https://codepen.io/aokorodu">@aokorodu</a>) on{" "}
+        <a href="https://codepen.io">CodePen</a>.
+      </iframe>
+    </>
+  );
+};

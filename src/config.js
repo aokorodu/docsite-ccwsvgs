@@ -111,6 +111,7 @@ export const navConfig = {
       subnav: [
         { title: "GSAP intro", link: "/greensock-intro" },
         { title: "tweening methods", link: "/greensock-methods" },
+        { title: "timelines", link: "/greensock-timelines" },
       ],
     },
     {
@@ -159,6 +160,7 @@ export const navConfig = {
     { title: "applying forces", link: "/matterjs-particles-forces" },
     { title: "GSAP intro", link: "/greensock-intro" },
     { title: "tweening methods", link: "/greensock-methods" },
+    { title: "timelines", link: "/greensock-timelines" },
     { title: "Aspect Ratio", link: "/aspect-ratio" },
   ],
 };
