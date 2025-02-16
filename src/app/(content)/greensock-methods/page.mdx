@@ -32,7 +32,7 @@ A **tween** is simply a method used to animate a property (or multiple properies
 
 ## gsap.to()
 
-As stated above, the **gsap.to()** method allows you to animate an object from its current state to a new state over a specified duration. Let's start with an example. In the HTML section of our practice codepen page let's create three circles, each with a different id and a class of _ball_.
+As stated above, the **gsap.to()** method allows you to animate an object from its current state to a new state over a specified duration. Let's start with an example. In the HTML section of our practice codepen page you'll see three circles, each with a different id and a class of _ball_.
 
 <Blocks>{`<circle id="red" class="ball" cx="30" cy="150" r="30" fill="red" />
 <circle id="green" class="ball" cx="30" cy="250" r="25" fill="green" />
@@ -60,7 +60,7 @@ In the JS section let's create variables for the three circles:
 const green = document.querySelector("#green");
 const blue = document.querySelector("#blue");`}</Blocks>
 
-In order to animate an element you'll need to change one or more of it's presentation attributes using the following syntax:
+In order to animate an element you'll need to change one or more of it's **presentation attributes** using the following syntax:
 
 ```
 gsap.to(<object>, {
@@ -73,7 +73,7 @@ gsap.to(<object>, {
   });
 ```
 
-Let's say we want to move the red ball horizontally across the screen. To do so we'll need to tween the _cx_ value like so:
+The **attr** object can be used to animte valid svg presentation attribue. Let's say we want to move the red ball horizontally across the screen. To do so we'll need to tween the _cx_ value like so:
 
 <Blocks>{`gsap.to(red, {
   attr: {
