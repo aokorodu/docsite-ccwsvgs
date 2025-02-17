@@ -18,7 +18,7 @@ here</a>.
 
 <GSAPPlaybackStarter />
 
-You'll notice that the starter page contains four buttons below the SVG - **play**, **pause**, **reverse** and **restart**. We'll be connecting these buttons to the methods we'll use to control our animation. I've created variables for all the UI elements:
+You'll notice that the starter page contains four buttons below the SVG - **play**, **pause**, **reverse** and **restart**, as well as range slider input that will be used later as a video scrub bar. I've created variables for all the UI elements:
 
 <Blocks>{`// ui
 const playButton = document.querySelector("#play");
@@ -89,9 +89,9 @@ First let's create a variable to store our animation duration.
 
 <Blocks highlight="3">{`// tween variables
 let theTween = null;
-let tweenDuration = 0;`}</Blocks>
+let animationDuration = 0;`}</Blocks>
 
-We can set the value of tweenDuration using the **duration()** method once we create our timeline.
+We can set the value of animationDuration using the **duration()** method once we create our timeline.
 
 ```
 theTween.duration();
@@ -103,7 +103,7 @@ theTween.duration();
     .fromTo(...
      // tween code
     );
-  tweenDuration = theTween.duration();
+  animationDuration = theTween.duration();
 }`}</Blocks>
 
 GSAP allows you to pass a callback function to your tween that will execute every time the animation updates. We pass the callback to our tween using the **vars** object, which we've used previously to configure our **repeat** and **yoyo** values. The property we'll need to set is **onUpdate**, and we'll pass it a function called **updateScrubber** which we'll create in a second.
@@ -111,6 +111,13 @@ GSAP allows you to pass a callback function to your tween that will execute ever
 <Blocks>{`function animate() {
   theTween = gsap.timeline({ onUpdate:updateScrubber});
   // rest of our animate code`}</Blocks>
+
+The **updateScrubber()** method will be used to update the slider position. In order to do so we'll need to know how much time has elapsed in the animation, and then devide that by the animationDuration
+
+<Blocks>{`function updateScrubber(){
+  const perc = theTween.time()/animationDuration;
+  scrubber.value = perc;
+}`}</Blocks>
 
 <Blocks>{``}</Blocks>
 ```

@@ -58,10 +58,10 @@ There are essentially three elements that we'll be animating
 
 ### Creating the timeline object
 
-The first thing we need to do is create our timeline object
+The first thing we need to do is create our timeline object.
 
 ```
-gsap.timeline({options});
+gsap.timeline( {vars} );
 ```
 
 In the animate method let's put the following:
@@ -70,7 +70,7 @@ In the animate method let's put the following:
   theTween = gsap.timeline();
 }`}</Blocks>
 
-We'll want our animation to yoyo and repeat, so let's add those options. I want the animation to delay slightly every time so I'll add a _repeatDelay_ of 1 second.
+You can configure your timeline object by passing it a **vars** object that allows you to set various options. For example, we want our animation to _yoyo_ and _repeat_, so we'll be including those properties in the vars object. Additionally, we'll add a _repeatDelay_ of 1 second to introduce a slight delay between each repetition.
 
 <Blocks>{`function animate(){
   theTween = gsap.timeline({repeat: -1, yoyo:true, repeatDelay: 1});
