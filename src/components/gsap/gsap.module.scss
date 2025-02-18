@@ -17,3 +17,17 @@
   fill: white;
   color: white;
 }
+
+.playbackControls {
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border: none;
+}
+
+.playback {
+  padding: 0.5rem 1rem;
+}
