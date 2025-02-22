@@ -40,7 +40,7 @@ For example, let’s say we have a simple SVG that contains a purple circle. We 
 <Blocks>
   {`<svg width="500" height="500" viewbox="0 0 500 500">
    <circle 
-   id="my_circle"
+    id="my_circle"
     cx="250" cy="250" r="150" 
     stroke="black" 
     stroke-opacity=".5" 
@@ -49,15 +49,10 @@ For example, let’s say we have a simple SVG that contains a purple circle. We 
 </svg>`}
 </Blocks>
 
-> REFER TO A BLANK PAGE THAT THEY CAN ADD CODE TO!!!
+In the **JS** section of <a href="https://codepen.io/aokorodu/pen/GRemaGb" target="_blank">
+our starter codepen</a> I've added the following reference to our circle element:
 
-To do so, we’ll first need to create a reference to the circle element.
-
-<Blocks>
-  {`<script>
-    let my_circle = document.getElementById("my_circle");
-</script>`}
-</Blocks>
+<Blocks>{`let my_circle = document.getElementById("my_circle");`}</Blocks>
 
 You can then change an element's attributes using the **setAttribute** method.
 
@@ -70,13 +65,11 @@ element.setAttribute(name, value)
 Now let’s change the fill, stroke, stroke-width, and stroke-opacity:
 
 <Blocks>
-  {`<script>
-   let my_circle = document.getElementById("my_circle");
-   my_circle.setAttribute('fill', 'blue');
-   my_circle.setAttribute('stroke', 'orange');
-   my_circle.setAttribute('stroke-width', '20');
-   my_circle.setAttribute('stroke-opacity', '1'); 
-</script>`}
+  {`let my_circle = document.getElementById("my_circle");
+my_circle.setAttribute('fill', 'blue');
+my_circle.setAttribute('stroke', 'orange');
+my_circle.setAttribute('stroke-width', '20');
+my_circle.setAttribute('stroke-opacity', '1');`}
 </Blocks>
 
 <svg width="500" height="500" viewbox="0 0 500 500">
@@ -127,11 +120,9 @@ textElement.setAttribute(<attribute name>, <value>)
 </svg>
 
 <Blocks>
-  {`<script>
-    const myText = document.getElementById("my-text");
-    myText.setAttribute("fill", "red");
-    myText.setAttribute("font-size", 60);
-</script>`}
+  {`const myText = document.getElementById("my-text");
+myText.setAttribute("fill", "red");
+myText.setAttribute("font-size", 60);`}
 </Blocks>
 
 <svg width="500" height="200" viewbox="0 0 500 200">
@@ -155,10 +146,8 @@ textElement.firstChild.textContent = "new text"
 ```
 
 <Blocks>
-  {`<script>
-    const myText = document.getElementById("my-text");
-    myText.firstChild.textContent = "Dynamically changing text content";
-</script>`}
+  {`const myText = document.getElementById("my-text");
+myText.firstChild.textContent = "Dynamically changing text content";`}
 </Blocks>
 
 <svg width="500" height="200" viewbox="0 0 500 200">
@@ -183,21 +172,24 @@ What if you wanted to _retrieve_ the value of an element attribute? You would us
 element.getAttribute("<name>")
 ```
 
-<svg width="300" height="300" viewbox="0 0 00 500">
-  <circle id="my_circle" cx="150" cy="150" r="100" fill="purple" />
+<svg width="500" height="500" viewbox="0 0 500 500">
+  <circle
+    cx="250"
+    cy="250"
+    r="150"
+    stroke="black"
+    stroke-width="10"
+    fill="purple"
+  />
 </svg>
+
+Let's get the value of the fill for the circle above:
 
 <Blocks>
-  {`<svg width="300" height="300" viewbox="0 0 00 500">
-  <circle id="my_circle" cx="150" cy="150" r="100" fill="purple" />
-</svg>
-<script>
-   let my_circle = document.getElementById("my_circle");
-   let fill_value = my_circle.getAttribute("fill"); 
+  {`let my_circle = document.getElementById("my_circle");
+let fill_value = my_circle.getAttribute("fill"); 
    
-   // fill_value = "purple"
-
-</script>`}
+// fill_value = "purple"`}
 </Blocks>
 
 The getAttribute method is particularly useful when animating elements, as we’ll see later in the course

@@ -1,0 +1,30 @@
+import Blocks from "@/components/blocks";
+import { GsapDemo } from "@/components/gsap";
+
+# Tweening object properties
+
+<a
+  className="codepenLink"
+  href={"https://codepen.io/aokorodu/pen/JojPMMz"}
+  target="_blank"
+>
+  {"codepen practice page"}
+</a>
+
+## Intro
+
+One of the most interesting aspects of GSAP tweens and timelines is that they can be used to tween numeric properties of generic objects. For example, imagine you have a simple object with numeric x and y property.
+
+<Blocks>{`let numberObject = {
+  x: 0,
+  y:1000
+};`}</Blocks>
+
+Since x and y are numeric properties can use gsap to tween their values.
+
+<Blocks>{`function animate() {
+  const pointTween = gsap.timeline();
+  pointTween.to(pointObject, { x: 1000, y:0, duration: 20 });
+}`}</Blocks>
+
+That's great, but how can we use this? Well, what if we just wanted to tween the value of a single point in a path?
