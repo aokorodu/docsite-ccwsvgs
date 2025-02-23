@@ -1523,3 +1523,172 @@ export const PlaybackControlsScrub = () => {
     </>
   );
 };
+
+export const SimplePropertyAnimation = () => {
+  const thePath = useRef(null);
+  let propertyTween = null;
+  let propertyObject = {
+    x: 240,
+    y: 0,
+  };
+
+  useGSAP(() => {
+    animate();
+  });
+
+  function animate() {
+    propertyTween = gsap.timeline({ onUpdate: update, repeat: -1, yoyo: true });
+    propertyTween.to(propertyObject, {
+      x: 260,
+      y: 500,
+      duration: 2.5,
+      ease: "power1.inOut",
+    });
+  }
+
+  function update() {
+    const pathString = `M-10,250 Q${propertyObject.x},${propertyObject.y} 510,250`;
+    thePath.current.setAttribute("d", pathString);
+  }
+
+  return (
+    <svg width="500" height="500" viewBox="0 0 500 500">
+      <rect
+        id="bg"
+        x="0"
+        y="0"
+        width="500"
+        height="500"
+        fill="#121212"
+        stroke="black"
+        stroke-width="2"
+      />
+      <path
+        ref={thePath}
+        d="M-10,250 Q250,250 510,250"
+        stroke="white"
+        stroke-width="5"
+        stroke-linecap="round"
+        fill="none"
+      />
+      <text
+        id="myText"
+        x="10"
+        y="10"
+        text-anchor="left"
+        dominant-baseline="hanging"
+        font-size="20"
+        fill="#eaeaea"
+      ></text>
+    </svg>
+  );
+};
+
+export const FlowerPropertyAnimation = () => {
+  const thePath = useRef(null);
+  // tween variable
+  let pointTween = null;
+  let obj = {
+    x: 200,
+    y: 150,
+  };
+
+  useGSAP(() => {
+    animate();
+  });
+
+  function animate() {
+    pointTween = gsap.to(obj, {
+      x: 300,
+      y: 150,
+      yoyo: true,
+      repeat: -1,
+      duration: 2,
+      ease: "sine.inOut",
+      onUpdate: () => {
+        updatePath(obj.x, obj.y);
+      },
+    });
+  }
+
+  function updatePath(newX, newY) {
+    const pathString = `M 250,500 Q 250,350 ${newX},${newY}`;
+    thePath.current.setAttribute("d", pathString);
+  }
+
+  return (
+    <svg width="500" height="500" viewBox="0 0 500 500">
+      <defs>
+        <marker
+          id="flower"
+          refX="25"
+          refY="25"
+          markerWidth="50"
+          markerHeight="50"
+          orient="auto"
+        >
+          <path
+            fill="gold"
+            fill-rule="evenodd"
+            d="M25 0c3 0 5 14 5 20 6 0 20 2 20 5s-14 5-20 5c0 6-2 20-5 20s-5-14-5-20c-6 0-20-2-20-5s14-5 20-5c0-6 2-20 5-20Zm0 25Z"
+            clip-rule="evenodd"
+          />
+          <path
+            fill="orange"
+            fill-rule="evenodd"
+            d="M25 17C20 14 9 5 7 7s7 13 11 18C14 29 6 41 8 43c3 2 13-6 17-10 5 4 16 13 18 11s-7-14-10-18c3-5 11-16 9-19-2-2-13 7-17 10Zm0 9Z"
+            clip-rule="evenodd"
+          />
+          <ellipse cx="25.4" cy="25" fill="#8C8989" rx="4.4" ry="4.6" />
+        </marker>
+        <marker id="leaf" refX="10" refY="6" markerWidth="20" markerHeight="6">
+          <path
+            fill="#09C01B"
+            d="m0 0 10 3c0 2 0 2-2 3L0 0Zm20 0-8 6c-2-1-2-1-2-3l10-3Z"
+          />
+        </marker>
+      </defs>
+      <rect
+        id="bg"
+        x="0"
+        y="0"
+        width="500"
+        height="500"
+        fill="#212121"
+        stroke="black"
+        stroke-width="2"
+      />
+      <path
+        ref={thePath}
+        marker-start="url(#leaf)"
+        marker-end="url(#flower)"
+        d="M 250,500 Q 250,250 250,100"
+        stroke="green"
+        stroke-width="2"
+        fill="none"
+      />
+    </svg>
+  );
+};
+
+export const Expressions = () => {
+  return (
+    <>
+      <iframe
+        height="500px"
+        style={{ width: "100%", height: "800px" }}
+        title="GSAP - animating properties - EXPRESSIONS - FINAL"
+        src="https://codepen.io/aokorodu/embed/preview/dPyXdqm?default-tab=js%2Cresult&theme-id=dark"
+        frameBorder="no"
+        loading="lazy"
+      >
+        See the Pen{" "}
+        <a href="https://codepen.io/aokorodu/pen/dPyXdqm">
+          GSAP - animating properties - EXPRESSIONS - FINAL
+        </a>{" "}
+        by zuubaDigital (<a href="https://codepen.io/aokorodu">@aokorodu</a>) on{" "}
+        <a href="https://codepen.io">CodePen</a>.
+      </iframe>
+    </>
+  );
+};
