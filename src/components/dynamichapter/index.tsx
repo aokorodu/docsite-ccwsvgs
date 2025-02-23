@@ -207,3 +207,22 @@ export const DraggingExample2 = () => {
     );
 };
 
+
+export const DynamicLeavesExample = () => {
+    return (
+        <>
+            <iframe
+                height="600px"
+                style={{ width: "100%" }}
+                title="Generating Elements - Leaf FINAL"
+                src="https://codepen.io/aokorodu/embed/preview/MYWebOa?default-tab=js%2Cresult&theme-id=dark"
+                frameBorder="no"
+                loading="lazy"
+            >
+                See the Pen <a href="https://codepen.io/aokorodu/pen/MYWebOa">
+                    Generating Elements - Leaf FINAL</a> by zuubaDigital (<a href="https://codepen.io/aokorodu">@aokorodu</a>)
+                on <a href="https://codepen.io">CodePen</a>
+            </iframe>
+        </>
+    );
+};
