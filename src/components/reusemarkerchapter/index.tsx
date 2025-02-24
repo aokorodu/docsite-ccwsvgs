@@ -108,3 +108,25 @@ export const MarkerAngle = () => {
             </svg>
         </>)
 }
+
+export const MarkerExamples = () => {
+    return (
+        <>
+            <iframe
+                height="500px"
+                style={{ width: "100%", height: "800px" }}
+                title="Reusable Objects - Markers"
+                src="https://codepen.io/aokorodu/embed/preview/wBvWXdR?default-tab=js%2Cresult&theme-id=dark"
+                frameBorder="no"
+                loading="lazy"
+            >
+                See the Pen{" "}
+                <a href="https://codepen.io/aokorodu/pen/wBvWXdR">
+                    Reusable Objects - Markers
+                </a>{" "}
+                by zuubaDigital (<a href="https://codepen.io/aokorodu">@aokorodu</a>) on{" "}
+                <a href="https://codepen.io">CodePen</a>.
+            </iframe>
+        </>
+    );
+};
