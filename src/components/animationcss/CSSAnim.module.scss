@@ -16,16 +16,16 @@ $exampleDuration: 3s;
 }
 
 .strokeDash {
-  fill: #eaeaea;
+  fill: "orange";
   stroke: black;
-  stroke-width: 10;
+  stroke-width: 5;
   stroke-dasharray: 100;
   stroke-dashoffset: 100;
   stroke-linecap: none;
 }
 
 .strokeDashHover {
-  fill: #eaeaea;
+  fill: "orange";
   stroke: black;
   stroke-width: 5;
   stroke-dasharray: 100;
@@ -62,7 +62,7 @@ $exampleDuration: 3s;
 
 @mixin letter {
   stroke: white;
-  fill: #eaeaea;
+  fill: #ff0000;
   fill-opacity: 0;
   stroke-width: 0;
   stroke-dasharray: 100;
@@ -73,8 +73,8 @@ $exampleDuration: 3s;
 }
 
 @mixin letterDrawn {
-  fill-opacity: 0.1;
-  stroke-width: 2;
+  fill-opacity: 1;
+  stroke-width: 5;
   stroke-dashoffset: 0;
 }
 
@@ -98,15 +98,15 @@ $exampleDuration: 3s;
 }
 
 .geoPropAnimation {
-  cx: 150px;
-  cy: 150px;
-  r: 100px;
-  transition-property: r cy;
+  cx: 250px;
+  cy: 250px;
+  r: 150px;
+  transition-property: all;
   transition-duration: 0.33s;
 }
 .geoPropAnimation:hover {
-  r: 75px;
-  cy: 120px;
+  r: 200px;
+  cy: 225px;
 }
 
 @keyframes zoom {

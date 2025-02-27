@@ -5,10 +5,10 @@ import { useRef } from 'react'
 
 export const HoverExample = () => {
     return (<>
-        <svg width="300" height="300" viewBox="0 0 300 300">
+        <svg width="500" height="500" viewBox="0 0 500 500">
             <circle className={styles.circle}
                 id="my-circle"
-                cx="150" cy="150"
+                cx="250" cy="250"
                 r="100"></circle>
         </svg>
     </>)
@@ -19,18 +19,18 @@ type strokedashprops = {
 }
 export const StrokeDash = ({ hover = false }: strokedashprops) => {
     return (<>
-        <svg width="500" height="250" viewBox="0 0 500 250">
+        <svg width="500" height="500" viewBox="0 0 500 500">
             <circle className={!hover ? styles.strokeDash : styles.strokeDashHover}
                 id="my-circle"
-                cx="250" cy="125"
-                r="100" pathLength={100}></circle>
+                cx="250" cy="250"
+                r="100" pathLength={99} fill="orange" stroke="black" strokeWidth={5}></circle>
         </svg>
     </>)
 }
 
 export const GeoProperties = () => {
     return (<>
-        <svg width="300" height="300" viewBox="0 0 300 300">
+        <svg width="500" height="500" viewBox="0 0 500 500">
             <circle className={styles.geoPropAnimation}
                 id="my-circle"
                 fill="orange"></circle>

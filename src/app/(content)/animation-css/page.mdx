@@ -53,8 +53,6 @@ If you’ve ever applied a CSS transition to an html element, you already know h
 
 Pure CSS transitions are usually triggered by some sort of user interaction - typically set up using the **:hover**: or **::focus**: pseudo-class on whatever element you wish to animate. In the following example, we’ll set up a transition when the user **hovers** over a shape element.
 
-We’ll need to create a class for the property that we wish to animate, along with all the transition properties
-
 ```
 .my-class {
     <some animatable property>: start-value;
@@ -71,94 +69,75 @@ We’ll need to create a class for the property that we wish to animate, along w
 
 ### fill and stroke-width transitions
 
+Let's open up our <a href={"https://codepen.io/aokorodu/pen/OJqmeLy"}target="_blank"> starter codepen page</a> so we can try out some transitions. We’ll need to create a class for the property that we wish to animate, along with all the transition properties
 Let's create a transistion that will change the fill and stroke of a circle.
 
-We'll start off with the circle. Since there's no presentation attribute for fill the circle will show up black.
+We'll start off with a circle element with an id of "my-circle". Since there's no presentation attribute for fill the circle will show up black.
 
 <Blocks>
   {`<svg width="300" height="300" viewbox="0 0 300 300">
    <circle 
     id="my-circle"  
-    cx="150" cy="150" 
+    cx="250" cy="250" 
     r="100"></circle>
 </svg>`}
 </Blocks>
 
-<svg width="300" height="300" viewbox="0 0 300 300">
-  <circle id="my-circle" cx="150" cy="150" r="100"></circle>
+<svg width="500" height="500" viewbox="0 0 500 500">
+  <circle id="my-circle" cx="250" cy="250" r="100"></circle>
 </svg>
 
-Next, we'll add a style
+In the css section we'll add style to change the fill and stroke.
 
-<Blocks>
-  {`<style>
-   #my-circle {
-       fill: orange;
-       stroke: black;
-       stroke-width: 1;
-   }
-</style>
-...
-<svg width="300" height="300" viewbox="0 0 300 300">
-   <circle 
-    id="my-circle"  
-    cx="150" cy="150" 
-    r="100"></circle>
-</svg>`}
+<Blocks>{`#my-circle {
+  fill: orange;
+  stroke: black;
+  stroke-width: 1;
+}`}
+
 </Blocks>
 
-<svg width="300" height="300" viewbox="0 0 300 300">
+<svg width="500" height="500" viewbox="0 0 500 500">
   <circle
     id="my-circle"
     fill="orange"
     stroke="black"
-    cx="150"
-    cy="150"
+    cx="250"
+    cy="250"
     r="100"
   ></circle>
 </svg>
 
 Let's set up the transitions for both **stroke-width** and **fill**:
 
-<Blocks>
-  {`<style>
-   #my-circle {
-       fill: orange;
-       stroke: black;
-       stroke-width: 1;
-       
-       transition-property: stroke-width fill;
-       transition-duration: .33s;
-       transition-timing-function: linear;
-       transition-delay: 0;
-   }
-</style>
-...
-`}
+<Blocks highlight="5,6,7,8">
+  {`#my-circle {
+  fill: orange;
+  stroke: black;
+  stroke-width: 1;
+  transition-property: stroke-width fill;
+  transition-duration: 0.33s;
+  transition-timing-function: linear;
+  transition-delay: 0;
+}`}
 </Blocks>
 
-As a final step, we'll use the :hover pseudo-class to change the fill and stroke-width.
+As a final step, we'll use the **:hover** pseudo-class to change the fill and stroke-width.
 
-<Blocks>
-  {`<style>
-   #my-circle {
-        fill: orange;
-        stroke: black;
-        stroke-width: 1;
-        
-        transition-property: stroke-width fill;
-        transition-duration: .33s;
-        transition-timing-function: linear;
-        transition-delay: 0;
-   }
-    #my-circle:hover {
-        stroke-width: 10;
-        fill: red;
-    }
-
-</style>
-...
-`}
+<Blocks highlight="10,11,12,13">
+  {`#my-circle {
+  fill: orange;
+  stroke: black;
+  stroke-width: 1;
+  transition-property: stroke-width fill;
+  transition-duration: 0.33s;
+  transition-timing-function: linear;
+  transition-delay: 0;
+}
+#my-circle:hover {
+  stroke-width: 10;
+  fill: red;
+}`}
 </Blocks>
 
 #### **hover over circle to see transition**
@@ -167,54 +146,50 @@ As a final step, we'll use the :hover pseudo-class to change the fill and stroke
 
 ### stroke-dashoffset transitions
 
-For this animation we'll create a circle with a stroke-dasharray, and set the stroke-dashoffset so that the stroke isn't visible. For this effect it's important to set the pathLength attribute to "100".
+For this animation we'll create a circle with a stroke-dasharray, and set the stroke-dashoffset so that the stroke isn't visible.
 
-<Blocks>
-  {`<style>
-   #circle_path {
-        stroke-dasharray: 100;
-        stroke-dashoffset: 100;
-   }
-</style>
-
-<circle 
-        id="circle_path" 
-        cx="150" cy="150"  
-        r="100" 
-        fill="#eaeaea" 
-        stroke="black" 
-        stroke-width="10" 
-        pathLength="100"></circle>
-`}
+<Blocks highlight="5,9,10">
+  {`#my-circle {
+  fill: orange;
+  stroke: black;
+  stroke-width: 5;
+  transition-property: stroke-dashoffset;
+  transition-duration: 0.33s;
+  transition-timing-function: linear;
+  transition-delay: 0;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+}`}
 </Blocks>
+
+For this effect it's important to set the circle's **pathLength** attribute to "100".
+
+<Blocks highlight="4">{`<svg width="500" height="500" viewbox="0 0 300 300">
+  <circle id="my-circle" 
+    cx="150" cy="150" r="100" 
+    pathLength="100"></circle>
+</svg>`}</Blocks>
 
 <StrokeDash />
 
 Now let's add the transition for stroke-dashoffset and the **:hover** pseudo class:
 
 <Blocks>
-  {`<style>
-   #circle_path {
-        stroke-dasharray: 100;
-        stroke-dashoffset: 100;
-        transition-property: stroke-dashoffset;
-        transition-duration: 0.33s;
-        transition-timing-function: linear;
-   }
-   #circle_path:hover {
-       stroke-dashoffset: 0;
-   }
-</style>
+  {`#my-circle {
+  fill: orange;
+  stroke: black;
+  stroke-width: 5;
+  transition-property: stroke-dashoffset;
+  transition-duration: 0.33s;
+  transition-timing-function: linear;
+  transition-delay: 0;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+}
+#my-circle:hover {
+  stroke-dashoffset: 0;
+}`}
 
-<circle 
-        id="circle_path" 
-        cx="150" cy="150"  
-        r="100" 
-        fill="#eaeaea" 
-        stroke="black" 
-        stroke-width="10" 
-        pathLength="100"></circle>
-`}
 </Blocks>
 
 #### hover over circle to see transition
@@ -229,37 +204,35 @@ Now let's add the transition for stroke-dashoffset and the **:hover** pseudo cla
 
 ### geometric property transitions
 
-In the example below all of the geometric properties (cx, cy, and r) are defined in the css.
+Note the absence of geometric properties in the circle element below:
 
 <Blocks>
-  {`<style>
-   #circle_path {
-        cx: 150px;
-        cy: 150px;
-        r: 100px;
-        transition-property: r cy;
-        transition-duration: 0.33s;
-    }
+  {`<svg width="500" height="500" viewbox="0 0 300 300">
+  <circle id="my-circle" fill="orange"></circle>
+</svg>`}
+</Blocks>
 
-    #circle_path:hover {
-        r: 75px;
-        cy: 120px;
-    }
+In this example all of the geometric properties (cx, cy, and r) are defined in the css.
 
-</style>
-
-<circle 
-        id="circle_path" 
-        fill="orange">
-</circle>
-`}
+<Blocks>
+  {`#my-circle {
+  cx: 150px;
+  cy: 150px;
+  r: 100px;
+  transition-property: r cy;
+  transition-duration: 0.33s;
+}
+#my-circle:hover {
+  r: 125px;
+  cy:125px
+}`}
 </Blocks>
 
 #### **hover over circle to see transition**
 
 <GeoProperties />
 
-**You’ll need to use ‘px’ units with geometric props to use them with your CSS at all.** If you don't, your animations **may not work**, depending on your browser!!
+**NOTE: You’ll need to use ‘px’ units with geometric props in your styles to use them with your CSS at all.** If you don't, your animations **may not work**, depending on your browser!!
 
 ## keyframe animations
 
