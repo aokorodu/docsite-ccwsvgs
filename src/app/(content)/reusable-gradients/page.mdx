@@ -38,22 +38,22 @@ SVGs support two types of gradients :
 
 Gradients are defined in the **\<defs\>** section, making them reusable.
 
-## linearGradient
+## Creating linear gradients
 
-A linearGradient is a gradient that occurs along a straight line. The image below is an example of a horizontal linearGradient.
+A **linearGradient** is a gradient that occurs along a straight line. The image below is an example of a horizontal linearGradient.
 
 <LinearGradient />
 
 ### id
 
-Let's start with the linearGradient element inside the \<defs\> section. We'll need to give it an **id** in order to identify and apply the gradient
+Let's start with the linearGradient element inside the \<defs\> section. We'll need to give it an **id** in order to identify and apply the gradient as a fill or a stroke color.
 
-```
-<defs>
+<Blocks>
+  {`<defs>
     <linearGradient id="linear_gradient_horiz">
     </linearGradient>
-</defs>
-```
+</defs>`}
+</Blocks>
 
 ### stop colors
 
