@@ -11,32 +11,56 @@ import Link from "next/link";
   {"codepen practice page"}
 </a>
 
-## the basics
+## svg element
+
+Before we learn about the shape element's let's create a basic SVG in our <a href={"https://codepen.io/aokorodu/pen/bGZWyaN"} target="\_blank">{"starter codepen practice page"}</a>. We'll start with the `<svg>` element, which is the parent container for all our shape elements.
+
+<Blocks>{`<svg>
+</svg>`}</Blocks>
+
+Now we’ll define the **viewport**, which is just the **width** and **height** of the svg on the page that contains it. If the viewport is not defined, the svg will scale to fit whatever contains it.
+
+```
+width="<width>" height="<height>"
+```
+
+<Blocks>{`<svg width="500" height="500">
+</svg>`}</Blocks>
+
+There are other attributes that we can add to our svg element, like **viewport** and **namespace**, but this is all we need to get started for now. We'll learn about some more advanced svg attributes in our syntax chapter.
+
+## intro: shape elements
 
 The shape elements provide the foundational visual building blocks of an SVG.
 
-![shapes_basics.png](/shapes_basics.png)
+![shapes.svg](/shapes.svg)
 
-In this section we'll discuss the basic shape elements and their attributes. A more detailed discussion of the **presentation attributes** that define look of the shape elements can be found <Link href={"/presentation-attributes"}>{"here"} </Link>.
+In this section we'll discuss the basic shape elements and their attributes.
+
+### presentation attributes
+
+All shapes have presentation attributes that are used to define how they look. There are two types of presentation attributes:
+
+**Geometric Attributes**:
+These define the **position, size, and shape** of the shape element. Examples include x, y, width, height, cx, cy, r, etc. Each shape has it's own specific set of geometric attributes.
+
+**"Look and Feel"**: Attributes:
+These define the visual style of the SVG elements, such as color, stroke, fill, opacity, etc. These attributes are universal and can be used with any shape element.
+
+<br />
+
+In this section we'll focus on the **geometric attributes** for each shape. A more
+detailed discussion of the universal "look and feel" presentation attributes can
+be found <Link href={"/presentation-attributes"}>{"here"} </Link>.
 
 <br />
 
 ---
 
-## path
-
-The path is the most powerful shape element, allowing for the most visual complexity. We’ll be exploring the path element in detail in the <Link href={"/paths"}>{"next section"}</Link>.
-
-![shapes_basics.png](/shapes_path.png)
-
----
-
-## circle
+### circle
 
 - **cx, cy**: the x and y coordinates of the center of the circle
 - **r**: radius
-- **fill**: the internal color of the shape.
-- **stroke**: the outline color of the shape.
 
 <Blocks>{`<svg width="500" height="500" viewbox="0 0 500 500">
   <circle cx="250" cy="250" r="200" fill="orange" />
@@ -46,13 +70,11 @@ The path is the most powerful shape element, allowing for the most visual comple
 
 ---
 
-## ellipse
+### ellipse
 
 - **cx, cy**: the x and y coordinates of the center of the ellipse
 - **rx**: the radius of the ellipse along the x axis
 - **ry**: the radius of the ellipse along the y axis
-- **fill**: the internal color of the shape.
-- **stroke**: the outline color of the shape.
 
 <Blocks>{`<svg width="500" height="500" viewbox="0 0 500 500">
   <ellipse cx="250" cy="250" rx="200" ry="100" fill="orange" />
@@ -62,13 +84,11 @@ The path is the most powerful shape element, allowing for the most visual comple
 
 ---
 
-## rectangle
+### rectangle
 
 - **x, y**: the x and y coordinates of the upper left corner of the rectangle
 - **width**: width
 - **height**: height
-- **fill**: the internal color of the shape.
-- **stroke**: the outline color of the shape.
 
 <Blocks>{`<svg width="500" height="500" viewbox="0 0 500 500">
   <rect x="50" y="50" width="400" height="400" fill="orange"></rect>
@@ -78,13 +98,11 @@ The path is the most powerful shape element, allowing for the most visual comple
 
 ---
 
-## rectangle (rounded)
+### rectangle (rounded)
 
 - **x, y**: the x and y coordinates of the upper left hand cornder of the rectangle
 - **width**: width
 - **height**: height
-- **fill**: the internal color of the shape.
-- **stroke**: the outline color of the shape.
 - **rx, ry**: the radius of the circle that defines the corners
 
 <Blocks>{`<svg width="500" height="500" viewbox="0 0 500 500">
@@ -103,11 +121,10 @@ The path is the most powerful shape element, allowing for the most visual comple
 
 ---
 
-## line
+### line
 
 - **x1, y1**: the x and y coordinates of the starting point
 - **x2, y2**: the x and y coordinates of the end point
-- **stroke**: the stroke color of the line
 
 <Blocks>{`<svg width="500" height="500" viewbox="0 0 500 500">
   <line x1="100" y1="100" x2="400" y2="400" stroke="black" />
@@ -117,11 +134,9 @@ The path is the most powerful shape element, allowing for the most visual comple
 
 ---
 
-## polyline
+### polyline
 
 - **points**: the x and y coordinates for all the points that define the line
-- **stroke**: the stroke color of the line
-- **fill**: none if you just want the line, otherwise the browser will try to add a fill color - with sometimes unexpected results
 
 <Blocks caption="fill: none">{`<svg width="500" height="500" viewbox="0 0 500 500">
   <polyline
@@ -145,12 +160,10 @@ The path is the most powerful shape element, allowing for the most visual comple
 
 ---
 
-## polygon
+### polygon
 
 - **points**: the x and y coordinates for all the points that define the line
 - **stroke**: the stroke color of the line
-- **fill**: fill color
-- **stroke**: the outline color of the shape.
 
 <Blocks>{`<svg width="500" height="500" viewbox="0 0 500 500">
   <polygon
@@ -164,7 +177,7 @@ The path is the most powerful shape element, allowing for the most visual comple
 
 ---
 
-## image
+### image
 
 The image element allows you to add bitmap images - pngs or jpegs - to your svg.
 
@@ -196,7 +209,15 @@ The image element allows you to add bitmap images - pngs or jpegs - to your svg.
 
 ---
 
-## stacking order
+### path
+
+The path is the most powerful shape element, allowing for the most visual complexity. We’ll be exploring the path element in detail in the <Link href={"/paths"}>{"next section"}</Link>.
+
+![shapes_basics.png](/shapes_path.png)
+
+---
+
+### stacking order
 
 Shapes are stacked in order of appearance, with later elements on top.
 
