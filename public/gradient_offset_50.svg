@@ -1,0 +1,16 @@
+<svg width="500" height="250" viewBox="0 0 500 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="500" height="250" fill="white"/>
+<path d="M99.2929 108.707C99.6834 109.098 100.317 109.098 100.707 108.707L107.071 102.343C107.462 101.953 107.462 101.319 107.071 100.929C106.681 100.538 106.047 100.538 105.657 100.929L100 106.586L94.3431 100.929C93.9526 100.538 93.3195 100.538 92.9289 100.929C92.5384 101.319 92.5384 101.953 92.9289 102.343L99.2929 108.707ZM99 86L99 108L101 108L101 86L99 86Z" fill="black"/>
+<text fill="black" ><tspan x="247" y="72.2273">stop-color=&#x201d;blue&#x201d;</tspan></text>
+<text fill="black" ><tspan x="247" y="52.2273">offset=&#x201d;50%&#x201d;</tspan></text>
+<path d="M249.293 108.707C249.683 109.098 250.317 109.098 250.707 108.707L257.071 102.343C257.462 101.953 257.462 101.319 257.071 100.929C256.681 100.538 256.047 100.538 255.657 100.929L250 106.586L244.343 100.929C243.953 100.538 243.319 100.538 242.929 100.929C242.538 101.319 242.538 101.953 242.929 102.343L249.293 108.707ZM249 86L249 108L251 108L251 86L249 86Z" fill="black"/>
+<rect x="100" y="114" width="300" height="100" fill="url(#paint0_linear_726_1703)"/>
+<text fill="black" ><tspan x="38" y="52.2273">offset=&#x201c;0%&#x201d;</tspan></text>
+<text fill="black" ><tspan x="38" y="74.2273">stop-color=&#x201d;red&#x201d;</tspan></text>
+<defs>
+<linearGradient id="paint0_linear_726_1703" x1="100" y1="164" x2="400" y2="164" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FF0000"/>
+<stop offset="0.5" stop-color="#0000FF"/>
+</linearGradient>
+</defs>
+</svg>

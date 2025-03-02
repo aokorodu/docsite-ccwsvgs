@@ -11,6 +11,10 @@ import {
   RadialGradientRadius_2,
   StrokeLinearGradient,
   FillLinearGradient,
+  LGChartOffset100,
+  LGChartOffset50,
+  LnearGradientExample,
+  RadialGradientExample,
 } from "@/components/reusegradientchapter";
 
 # Gradients
@@ -44,9 +48,20 @@ A **linearGradient** is a gradient that occurs along a straight line. The image 
 
 <LinearGradient />
 
+### The \<linearGradient /\> element
+
+The `<linearGradient />` element is used to define a linear gradient in an SVG. It is defined within the `<defs>` section.
+
+<Blocks>
+  {`<defs>
+    <linearGradient>
+    </linearGradient>
+</defs>`}
+</Blocks>
+
 ### id
 
-Let's start with the linearGradient element inside the \<defs\> section. We'll need to give it an **id** in order to identify and apply the gradient as a fill or a stroke color.
+In order to use the gradient as a fill or stroke color, we have to be able to reference it by it's **id**
 
 <Blocks>
   {`<defs>
@@ -55,35 +70,56 @@ Let's start with the linearGradient element inside the \<defs\> section. We'll n
 </defs>`}
 </Blocks>
 
+There's nothing to this gradient yet, but to apply it as a fill we'll use the `fill` attribute with the gradient's id:
+
+```
+fill="url(#linear_gradient_horiz)"
+```
+
+<Blocks highlight="8,9,10">
+  {`<defs>
+    <linearGradient id="linear_gradient_horiz">
+    </linearGradient>
+</defs>
+.
+.
+.
+<rect x="0" y="0" 
+  width="500" height="500" 
+  fill="url(#linear_gradient_horiz)" />`}
+</Blocks>
+
 ### stop colors
 
-Now let's add the colors, which are defined in the \<stop\> elements that are children of the \<linearGradient\> element.
+Now let's add the colors, which are defined in the **\<stop\>** elements that are children of the **\<linearGradient\>** element.
 
-````
-<linearGradient id="linear_gradient_horiz">
-    <stop offset="0%" stop-color="red" />
-    <stop offset="95%" stop-color="blue" />
-    </linearGradient>```
-````
+<Blocks highlight="2,3">
+  {`<linearGradient id="linear_gradient_horiz">
+  <stop offset="0%" stop-color="red" />
+  <stop offset="95%" stop-color="blue" />
+</linearGradient>`}
+</Blocks>
 
-You'll notice that the stop element has two attributes **offset** and **stop-color**.
+You'll notice that the stop element has two attributes - **offset** and **stop-color**.
 
 The **offset** is the position of the color in a range of 0-100%. So 0% would be at the very beginning and 100% would be at the end of the gradient.
 
 The **stop-color** is the color at the offset position.
 
+<LGChartOffset100 />
+
 There's also a **stop-opacity** attribute not present here. It sets the opacity of the stop-color at the offset position. If omitted it defaults to 100%.
 
-Here the offset position of the first stop-color has been moved to 50%.
+Here the offset position for blue has been moved to 50%.
 
 <Blocks>
   {`<linearGradient id="lin-grad_50">
-    <stop offset="50%" stop-color="red" />
-    <stop offset="100%" stop-color="blue" />
+    <stop offset="0%" stop-color="red" />
+    <stop offset="50%" stop-color="blue" />
 </linearGradient>`}
 </Blocks>
 
-<LG_offset_50 />
+<LGChartOffset50 />
 
 ### multiple stop colors
 
@@ -111,6 +147,10 @@ You can change the direction of the gradient by defining a line using the x1, y1
 </Blocks>
 
 ![gradient_lin_diag.png](gradient_lin_diag.png)
+
+You can play around with the linear gradients we just discussed at the codepen below.
+
+<LnearGradientExample />
 
 ## radialGradient
 
@@ -260,6 +300,10 @@ In this example below we’ve changed the radius of the focal point circle to 25
 </Blocks>
 
 ![gradient_rad_focal_radius_size_2.png](gradient_rad_focal_radius_size_2.png)
+
+You can see examples of all the radial gradients we discussed in the codepen below.
+
+<RadialGradientExample />
 
 ## using a gradient as a fill
 
