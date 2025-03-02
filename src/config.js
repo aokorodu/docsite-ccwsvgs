@@ -11,11 +11,6 @@ export const navConfig = {
       subnav: [],
     },
     {
-      title: "SVG Syntax",
-      link: "/syntax",
-      subnav: [],
-    },
-    {
       title: "Basic Shape Elements",
       link: "/shapes",
       subnav: [],
@@ -53,6 +48,11 @@ export const navConfig = {
     {
       title: "Transforms",
       link: "/transforms",
+      subnav: [],
+    },
+    {
+      title: "SVG Syntax",
+      link: "/syntax",
       subnav: [],
     },
     {
@@ -125,7 +125,6 @@ export const navConfig = {
   links: [
     { title: "Intro", link: "/intro" },
     { title: "So, what's an SVG?", link: "/whatis" },
-    { title: "SVG Syntax", link: "/syntax" },
     { title: "Basic Shape Elements", link: "/shapes" },
     { title: "Paths", link: "/paths" },
     { title: "Text", link: "/text" },
@@ -134,6 +133,7 @@ export const navConfig = {
     { title: "Colors", link: "/colors" },
     { title: "Groups", link: "/groups" },
     { title: "Transforms", link: "/transforms" },
+    { title: "SVG Syntax", link: "/syntax" },
     { title: "use", link: "/reusable-use" },
     { title: "defs", link: "/reusable-defs" },
     { title: "markers", link: "/reusable-markers" },
