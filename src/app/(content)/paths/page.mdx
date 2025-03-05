@@ -385,17 +385,17 @@ The path element is used to create complex shapes and curves. It is the most pow
 
 ## the d attribute
 
-The “d” attribute contains all the **path commands** that define the path.
+The **d** attribute of a path element contains a series of **path commands** that define the shape of a path. These commands include both numbers, which represent coordinates and distances, and letters, which specify the type of command. In this chapter I'll explain what these commands mean, and how they can be used.
 
 <Blocks>{`<path d="M 397,319 c 0,177 -80,316 -178,319 C 90,643 -78,515 40,319 131,168 120,0 219,0 c 98,0 178,143 178,319 Z" fill="#EDE9E9"/>`}</Blocks>
 
 ### M or m - moveTo
 
-The “M” command stands for moveto, and is used designate the starting point of the path.
+The “M” command stands for **moveto**, and is used designate the starting point of the path.
 
 <Blocks>{`<path d="M 100,100" />`}</Blocks>
 
-In the example below, the starting point is **100,100**. The **M** is always the first command. It can also be used throughout the path, wherever you wish to “pick up” your pen and start drawing the path from a different location.
+In the example below, the starting point of the path is **100,100**. The **M** is always the first command. It can also be used throughout the path, wherever you wish to “pick up” your pen and start drawing from a different point.
 
 ![path_commands_M.png](/path_commands_M.png)
 
