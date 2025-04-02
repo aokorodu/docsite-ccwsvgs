@@ -1,0 +1,72 @@
+
+ <svg width="1500" height="300" viewBox="0 0 1500 300" xmlns="http://www.w3.org/2000/svg">
+  <g id="Creativity" fill="#DC3C36" font-size="96" font-weight="800">
+    <g class="text-particle" id="0 - C" transform="translate(246, 185)">
+      <text text-anchor="middle" dominant-baseline="auto">C</text>
+    </g>
+    <g class="text-particle" id="1 - r" transform="translate(317, 185)">
+      <text text-anchor="middle" dominant-baseline="auto">r</text>
+    </g>
+    <g class="text-particle" id="2 - e" transform="translate(358, 185)">
+      <text text-anchor="middle" dominant-baseline="auto">e</text>
+    </g>
+    <g class="text-particle" id="3 - a" transform="translate(413, 185)">
+      <text text-anchor="middle" dominant-baseline="auto">a</text>
+    </g>
+    <g class="text-particle" id="4 - t" transform="translate(471, 185)">
+      <text text-anchor="middle" dominant-baseline="auto">t</text>
+    </g>
+    <g class="text-particle" id="5 - i" transform="translate(515, 185)">
+      <text text-anchor="middle" dominant-baseline="auto">i</text>
+    </g>
+    <g class="text-particle" id="6 - v" transform="translate(546, 185)">
+      <text text-anchor="middle" dominant-baseline="auto">v</text>
+    </g>
+    <g class="text-particle" id="7 - i" transform="translate(606, 185)">
+      <text text-anchor="middle" dominant-baseline="auto">i</text>
+    </g>
+    <g class="text-particle" id="8 - t" transform="translate(640, 185)">
+      <text text-anchor="middle" dominant-baseline="auto">t</text>
+    </g>
+    <g class="text-particle" id="9 - y" transform="translate(679, 185)">
+      <text text-anchor="middle" dominant-baseline="auto">y</text>
+    </g>
+    <g class="text-particle" id="comma" transform="translate(726, 185)">
+      <text text-anchor="middle" dominant-baseline="auto">,</text>
+    </g>
+  </g>
+  <g id="REDefined" fill="#DC3C36" font-size="96" font-weight="800">
+    <g id="RED">
+      <g id="12 - R" transform="translate(768, 185)">
+        <text text-anchor="middle" dominant-baseline="auto">R</text>
+      </g>
+      <g id="13 - E" transform="translate(827, 185)">
+        <text text-anchor="middle" dominant-baseline="auto">E</text>
+      </g>
+      <g id="14 - D" transform="translate(882, 185)">
+        <text text-anchor="middle" dominant-baseline="auto">D</text>
+      </g>
+    </g>
+    <g class="text-particle" id="15 - e" transform="translate(947, 185)">
+      <text text-anchor="middle" dominant-baseline="auto">e</text>
+    </g>
+    <g class="text-particle" id="16 - f" transform="translate(1005, 185)">
+      <text text-anchor="middle" dominant-baseline="auto">f</text>
+    </g>
+    <g class="text-particle" id="17 - i" transform="translate(1050, 185)">
+      <text text-anchor="middle" dominant-baseline="auto">i</text>
+    </g>
+    <g class="text-particle" id="18 - n" transform="translate(1079, 185)">
+      <text text-anchor="middle" dominant-baseline="auto">n</text>
+    </g>
+    <g class="text-particle" id="19 - e" transform="translate(1136, 185)">
+      <text text-anchor="middle" dominant-baseline="auto">e</text>
+    </g>
+    <g class="text-particle" id="20 - d" transform="translate(1191, 185)">
+      <text text-anchor="middle" dominant-baseline="auto">d</text>
+    </g>
+  </g>
+  <g id="@Vanguard" transform="translate(776, 226)" fill="#DC3C36" font-size="40" font-weight="800">
+    <text text-anchor="middle" dominant-baseline="auto">@Vanguard</text>
+  </g>
+</svg>

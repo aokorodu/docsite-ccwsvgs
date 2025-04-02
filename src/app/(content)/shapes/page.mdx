@@ -13,7 +13,7 @@ import Link from "next/link";
 
 ## intro: shape elements
 
-The shape elements provide the foundational visual building blocks of an SVG.
+The shape elements provide the foundational visual building blocks of an SVG. You can think of the shape elements as the raw material that we're going to use to create our images, graphics, animations, and interactive objects
 
 ![shapes.svg](/shapes.svg)
 
@@ -26,7 +26,7 @@ Before we learn about the shape elements, let's create a basic SVG in our <a hre
 <Blocks>{`<svg>
 </svg>`}</Blocks>
 
-Now we’ll define the **viewport**, which is just the **width** and **height** of the svg on the page that contains it. If the viewport is not defined, the svg will scale to fit whatever contains it.
+Now we’ll define the **viewport**, which is just the **width** and **height** of the svg on the page that contains it.
 
 ```
 width="<width>" height="<height>"
@@ -37,21 +37,21 @@ width="<width>" height="<height>"
 
 There are other attributes that we can add to our svg element, like **viewbox** and **namespace**, but this is all we need for now. We'll learn about some advanced svg attributes in our <a href={"/syntax"} target="\_blank">{"syntax"}</a> chapter.
 
-### presentation attributes
+### shape attributes
 
-All shapes have presentation attributes that are used to define how they look. There are two types of presentation attributes:
+All shapes have a number of attributes that are used to define how they look. These attributes fall into one of two catagories:
 
 **Geometric Attributes**:
-These define the **position, size, and shape** of the shape element. Examples include x, y, width, height, cx, cy, r, etc. Each shape has it's own specific set of geometric attributes.
+These define the **position, size, and shape** of the element. So an attribute that sets the x and y coordinates, or the width and height would be considered a geometric attribute. Each shape has it's own specific set of geometric attributes.
 
-**"Look and Feel"**: Attributes:
+**Presentation Attributes**:
 These define the visual style of the SVG elements, such as color, stroke, fill, opacity, etc. These attributes are universal and can be used with any shape element.
 
 <br />
 
 In this section we'll focus on the **geometric attributes** for each shape. A more
-detailed discussion of the universal "look and feel" presentation attributes can
-be found <Link href={"/presentation-attributes"}>{"here"} </Link>.
+detailed discussion of the presentation attributes can
+be found <Link href={"/presentation-attributes"}>{"in the presentation attributes chapter"} </Link>.
 
 <br />
 
@@ -66,7 +66,7 @@ be found <Link href={"/presentation-attributes"}>{"here"} </Link>.
   <circle cx="250" cy="250" r="200" fill="orange" />
 </svg>`}</Blocks>
 
-![shapes_basics.png](/shapes_circle.png)
+![shapes_circle.png](/shapes_circle.png)
 
 ---
 

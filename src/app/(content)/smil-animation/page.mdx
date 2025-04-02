@@ -532,9 +532,54 @@ The only difference in the syntax of animateTransform from animate is that anima
 type="translate | rotate | scale | skewX | skewY"
 ```
 
+### translate
+
+Let's start by creating a rectangle and animating it's transform-translate value. All we need are two positions - the "from" position and a "to" position.
+
+```
+from="<x>,<y>"
+to=<x>,<y>"
+```
+
+You can also use the "value" attribute like so:
+
+```
+values="<x1>,<y1>;<x2>,<y2>;..."
+```
+
+I'll use **values** instead of **from to** so that I can make the animation bounce back and forth by setting the first and last value to the same x and y position. (SMIL doesn't have the equivalent to CSS **animation-direction:alternate**, unfortunately.)
+
+<Blocks highlight="3,4,5,6,7,8,9,10,11">{`<svg width="500" height="500" viewBox="0 0 500 500">
+  <rect x="0" y="0" rx="10" ry="10" width="200" height="200" fill="skyblue">
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0,0;300,300;0,0"
+      begin="0s"
+      dur="3s"
+      repeatCount="indefinite"
+      autoReverse="true"
+    ></animateTransform>
+  </rect>
+</svg>`}</Blocks>
+
+<svg width="500" height="500" viewBox="0 0 500 500">
+  <rect x="0" y="0" rx="10" ry="10" width="200" height="200" fill="skyblue">
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0,0;300,300;0,0"
+      begin="0s"
+      dur="3s"
+      repeatCount="indefinite"
+      autoReverse="true"
+    ></animateTransform>
+  </rect>
+</svg>
+
 ### rotate
 
-In this example, we’re animating a rectangles transform-rotate value from 0° to 360°. The first number in both the _from_ and _to_ attributes represents the angle, and the second and third represent the x and y position around which the rotation occurs.
+In this example, we’re animating a rectangle's transform-rotate value from 0° to 360°. The first number in both the _from_ and _to_ attributes represents the angle, and the second and third represent the x and y position around which the rotation occurs.
 
 ```
 from="<angle> <x> <y>"
@@ -553,8 +598,8 @@ to="<angle> <x> <y>"
       to="360 250 250"
       begin="0s"
       dur="3s"
-      repeatCount="indefinite"
-    ></animateTransform>
+      repeatCount="indefinite">
+    </animateTransform>
   </rect>
 </svg>`}</Blocks>
 
