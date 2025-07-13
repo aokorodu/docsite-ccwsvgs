@@ -19,7 +19,7 @@ export const Exampletwo = () => {
             height="500"
             viewBox="0 0 500 500"
         >
-            <text x="65" y="250" fontSize="50" font-family="Arial, Helvetica, sans-serif" font-weight="normal"
+            <text x="65" y="250" fontSize="50" font-family="IBM Plex Sans, sans-serif" font-weight="normal"
             >The text element</text>
         </svg>
     )

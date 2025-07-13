@@ -115,19 +115,30 @@ Since an SVG is drawn by the browser using math, it's **infinitely scalable**. N
 
 ## Inline vs External SVGs
 
-**External** - SVG files that are loaded and used like any other image format.
+### External
 
-<Blocks
-  title={"HTML"}
->{`<img src="/images/smiley_face.svg" alt="svg smiley face">`}</Blocks>
+External SVG files that are loaded and used like any other image format.
 
-<Blocks title={"CSS"}>{`.myclass {
+<Blocks title={"HTML - img element"}>{`<img 
+  src="assets/smiley_face.svg" 
+  alt="svg smiley face"
+>`}</Blocks>
+
+<Blocks title={"HTML - object element"}>{`<object
+  id="clown-object"
+  data="assets/clown.svg"
+  type="image/svg+xml"
+>`}</Blocks>
+
+<Blocks title={"CSS - background-image"}>{`.myclass {
     background-image: url(/images/smiley_face.svg);
 }`}</Blocks>
 
-**Inline** - SVGs that are part of the html page. _In this course, we will be dealing **almost entirely** with **Inline SVGs**._
+### Inline
 
-<Blocks title={"INLINE SVG"}>{`<body>
+SVGs that are part of the html page. _In this course, we will be dealing **almost entirely** with **Inline SVGs**._
+
+<Blocks title={"inline svg"}>{`<body>
    <svg width="500" height="500" viewbox="0 0 500 500">
        <circle id="head" cx="250" cy="250" r="250" fill="orange"></circle>
        <circle id="lefteye" cx="150" cy="150" r="20" fill="black"></circle>
