@@ -115,6 +115,8 @@ Since an SVG is drawn by the browser using math, it's **infinitely scalable**. N
 
 ## Inline vs External SVGs
 
+**Inline** SVGs are embedded directly within the HTML markup, allowing you to manipulate their elements using CSS and JavaScript, and making them part of the page's DOM. This enables advanced styling, interactivity, and accessibility features. **External** SVGs, on the other hand, are stored as separate files and referenced in the HTML using elements like **\<img\>**, **\<object\>**, or as **CSS** background images. While external SVGs are easy to reuse and keep your HTML cleaner, they do not provide the same level of direct control or interactivity as inline SVGs.
+
 ### External
 
 External SVG files that are loaded and used like any other image format.
@@ -136,7 +138,7 @@ External SVG files that are loaded and used like any other image format.
 
 ### Inline
 
-SVGs that are part of the html page. _In this course, we will be dealing **almost entirely** with **Inline SVGs**._
+_In this course, we will be dealing **almost entirely** with **Inline SVGs**._
 
 <Blocks title={"inline svg"}>{`<body>
    <svg width="500" height="500" viewbox="0 0 500 500">
