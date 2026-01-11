@@ -12,10 +12,10 @@ const Navigation = () => {
     const pages = nav.pages;
     const [open, toggleOpen] = useState(false);
 
-    const getPages = () => {
+    const getPages = (onSelect?: () => void) => {
         console.log('get pages')
         return pages.map((pageData, index) => {
-            return <NavButton key={pageData.title} index={index} {...pageData} />;
+            return <NavButton key={pageData.title} index={index} {...pageData} onSelect={onSelect} />;
         });
     };
     return (
@@ -32,7 +32,7 @@ const Navigation = () => {
                 {open && <div className={styles.container}>
                     <div className={styles.bg} onClick={() => { toggleOpen(!open) }} />
                     <div className={styles.mobileButtonContainer}>
-                        {getPages()}
+                        {getPages(() => toggleOpen(false))}
                     </div>
                 </div>}
 

@@ -11,7 +11,8 @@ type navprops = {
     index: number,
     title: string,
     link: string,
-    subnav: subnavprops[]
+    subnav: subnavprops[],
+    onSelect?: () => void
 }
 
 type subnavprops = {
@@ -19,7 +20,7 @@ type subnavprops = {
     link: string,
 }
 
-const NavButton = ({ index, title, link, subnav }: navprops) => {
+const NavButton = ({ index, title, link, subnav, onSelect }: navprops) => {
     const pathname = usePathname();
     const [open, setOpen] = useState(false);
     let indexStr = String(index + 1);
@@ -35,7 +36,7 @@ const NavButton = ({ index, title, link, subnav }: navprops) => {
                 >
                     <div>
                         <span className={styles.buttonNumber}>{indexStr}</span>
-                        <Link href={link} className={`${styles.link} ${pathname == link ? styles.activeLink : ""}`}>{title} </Link>
+                        <Link href={link} onClick={subnav.length === 0 ? onSelect : undefined} className={`${styles.link} ${pathname == link ? styles.activeLink : ""}`}>{title} </Link>
                     </div>
                     <div className={styles.iconHolder}>
                         {subnav.length > 0 && <span>{open ? <ExpandLessIcon fontSize="small" /> : <ExpandMoreIcon fontSize="small" />}</span>}
@@ -46,7 +47,7 @@ const NavButton = ({ index, title, link, subnav }: navprops) => {
                         {subnav.map((item) => {
                             console.log('pathname: ', pathname, " link: ", item.link)
                             return (<>
-                                <Link key={item.title} href={item.link} className={`${styles.link} ${pathname == item.link ? styles.activeLink : ""}`}>{item.title} </Link></>);
+                                <Link key={item.title} href={item.link} onClick={onSelect} className={`${styles.link} ${pathname == item.link ? styles.activeLink : ""}`}>{item.title} </Link></>);
                         })}
                     </div>
                 )}
