@@ -34,6 +34,7 @@ export const GenerateLeafs = ({ rotate, color, canremove = false }: genleafprops
     const leafDef = useRef<SVGGElement>(null)
     useEffect(() => {
         buildLeaves();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const getColor = () => {

@@ -298,6 +298,7 @@ export const ParticleExample = () => {
 
     useEffect(() => {
         moveParticles();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (<>
