@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <svg width="500" height="500" viewBox="0 0 500 500" fill="none">
+      <rect width="1000" height="1000" fill="white" />
+      <rect
+        x="0.5"
+        y="0.5"
+        width="499"
+        height="499"
+        fill="#B40505"
+        stroke="black"
+      />
+      <rect
+        x="500.5"
+        y="0.5"
+        width="499"
+        height="499"
+        fill="#EDB313"
+        stroke="black"
+      />
+      <rect
+        x="0.5"
+        y="500.5"
+        width="499"
+        height="499"
+        fill="#D2D50D"
+        stroke="black"
+      />
+      <rect x="500" y="500" width="500" height="500" fill="#1DFB81" />
+      <text
+        fill="white"
+        font-size="20"
+        font-weight="300"
+        letter-spacing="0em"
+        transform="translate(232.49, 257.273)"
+      >
+        one
+      </text>
+      <text
+        fill="black"
+        font-size="20"
+        font-weight="300"
+        letter-spacing="0em"
+        transform="translate(732.49, 757.273)"
+      >
+        one
+      </text>
+      <text
+        fill="#060000"
+        font-size="20"
+        font-weight="300"
+        letter-spacing="0em"
+        transform="translate(232.49, 757.273)"
+      >
+        one
+      </text>
+      <text
+        fill="black"
+        font-size="20"
+        font-weight="300"
+        letter-spacing="0em"
+        transform="translate(732.49, 257.273)"
+      >
+        one
+      </text>
+    </svg>
+  </body>
+  <script>
+    const svg = document.querySelector("svg");
+
+    const onePos = {
+      x: 0,
+      y: 0,
+      width: 500,
+      height: 500,
+    };
+
+    const twoPos = {
+      x: 500,
+      y: 0,
+      width: 500,
+      height: 500,
+    };
+
+    const threePos = {
+      x: 0,
+      y: 500,
+      width: 500,
+      height: 500,
+    };
+
+    const fourPos = {
+      x: 500,
+      y: 500,
+      width: 500,
+      height: 500,
+    };
+
+    const positions = {
+      one: onePos,
+      two: twoPos,
+      three: threePos,
+      four: fourPos,
+    };
+
+    let currentPos = onePos;
+    let targetPos = onePos;
+
+    // ui
+
+    const oneButton = document.querySelector("#one-button");
+    const twoButton = document.querySelector("#two-button");
+    const threeButton = document.querySelector("#three-button");
+    const fourButton = document.querySelector("#four-button");
+    const resetButton = document.querySelector("#reset-button");
+
+    const buttons = document.querySelectorAll("button");
+
+    function initButtons() {
+      buttons.forEach((button) => {
+        button.addEventListener("click", (e) => {
+          const str = button.firstChild.textContent;
+          const pos = positions[str];
+        });
+      });
+    }
+
+    initButtons();
+  </script>
+</html>

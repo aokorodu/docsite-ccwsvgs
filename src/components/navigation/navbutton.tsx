@@ -28,6 +28,7 @@ const NavButton = ({ index, title, link, subnav, onSelect }: navprops) => {
             <div className={styles.holder}>
                 <div className={styles.buttonContents}
                     onClick={() => {
+                        console.log("clicked");
                         setOpen(!open);
                     }}
                 >

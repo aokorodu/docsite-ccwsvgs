@@ -53,13 +53,17 @@ class BGAnimation extends React.Component {
   };
 
   start = () => {
+    console.log("start");
+    if (this.running) return;
     this.running = true;
     this.draw();
   };
 
   stop = () => {
     console.log("stop");
+    if (!this.running) return;
     window.cancelAnimationFrame(this.animFrameID);
+    this.running = false;
   };
 
   render() {

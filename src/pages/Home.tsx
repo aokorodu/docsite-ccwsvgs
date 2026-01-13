@@ -17,6 +17,7 @@ export default function Home() {
 
   return (
     <>
+
       <div className={styles.particleHolder}>
         <BGAnimation ref={anim} />
       </div>
