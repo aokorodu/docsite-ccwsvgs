@@ -1,0 +1,241 @@
+import Blocks from "@/components/blocks";
+import { SVGShapeExample } from "@/components/matterjs";
+
+const MatterjsParticlesSvgbodies = () => {
+  return (
+    <>
+      <h1>SVG Path Particles</h1>
+
+      <a
+        className="codepenLink"
+        href={"https://codepen.io/aokorodu/pen/XJrdJmE"}
+        target="_blank"
+      >
+        {"SVG Path Particles codepen practice page"}
+      </a>
+
+      <h2>Creating MatterJS bodies from paths</h2>
+
+      <p>
+        So far our particles have been relatively simple shapes - circles,
+        squares, and polygons. But what if we want our particle to be something
+        more complex? What if we wanted it to be in the shape of a letter?
+      </p>
+
+      <svg
+        id="svg"
+        width="400"
+        height="400"
+        viewBox="0 0 500 500"
+        fill="none"
+      >
+        <path
+          transform="translate(135 100)"
+          className="svgPath"
+          d="M108.268 233.127C121.251 233.127 131.792 231.696 139.891 228.836C155.256 223.353 162.938 213.163 162.938 198.265C162.938 189.564 159.127 182.83 151.504 178.063C143.881 173.415 131.911 169.303 115.593 165.727L87.7221 159.47C60.3275 153.272 41.3896 146.538 30.9082 139.268C13.1613 127.111 4.28784 108.101 4.28784 82.2379C4.28784 58.6392 12.8635 39.0332 30.0149 23.4199C47.1663 7.80665 72.3573 0 105.588 0C133.34 0 156.983 7.3895 176.516 22.1685C196.169 36.8283 206.471 58.1625 207.424 86.1711H154.541C153.588 70.3194 146.68 59.0564 133.816 52.382C125.241 47.9721 114.581 45.7672 101.836 45.7672C87.6625 45.7672 76.3474 48.6277 67.8908 54.3486C59.4342 60.0695 55.206 68.0549 55.206 78.3048C55.206 87.7205 59.3747 94.7524 67.7122 99.4006C73.072 102.499 84.5062 106.135 102.015 110.306L147.395 121.212C167.285 125.979 182.293 132.355 192.417 140.341C208.139 152.736 216 170.674 216 194.153C216 218.229 206.769 238.252 188.308 254.223C169.965 270.074 144 278 110.412 278C76.1092 278 49.1315 270.193 29.4789 254.58C9.8263 238.848 0 217.275 0 189.862H52.5261C54.1935 201.9 57.469 210.899 62.3524 216.858C71.2854 227.704 86.5906 233.127 108.268 233.127Z"
+          fill="black"
+        />
+      </svg>
+
+      <p>
+        Luckily MatterJS provides a module that helps us create a body from an
+        svg path:
+      </p>
+
+      <pre>
+        <code>{`Matter.Svg.pathToVertices(path)`}</code>
+      </pre>
+
+      <p>
+        In order to use this module we'll need to import two other libraries:{" "}
+        <strong>poly-decomp.js</strong> and <strong>SVGPathSeg</strong> polyfill.
+      </p>
+
+      <Blocks>{`<script src="https://cdn.jsdelivr.net/npm/poly-decomp-es@0.4.2/dist/poly-decomp-es.cjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pathseg@1.2.1/pathseg.min.js"></script>`}</Blocks>
+
+      <p>
+        These libraries allow MatterJS to convert complex shapes (like our
+        letter above) into rigid MatterJS bodies. We'll be using a{" "}
+        <a target="_blank" href="https://codepen.io/aokorodu/pen/XJrdJmE">
+          starter codepen
+        </a>{" "}
+        where both of these libraries have already been imported.
+      </p>
+
+      <p>Let's get started.</p>
+
+      <h3>Create your path</h3>
+
+      <p>
+        We'll use Figma to create our path. First we'll create a 500x500 frame:
+      </p>
+
+      <img src="/MatterJS_Figma_make_frame.png" alt="Make Frame" />
+
+      <p>
+        Then we'll use the text tool and add a letter to our frame. It can be
+        any size, but let's make it pretty large - I've made mine 200px.
+      </p>
+
+      <img src="/MatterJS_Figma_make_P.png" alt="Make P" />
+
+      <p>
+        In order to turn our letter into a path we'll need to <em>flatten</em>{" "}
+        it. Right click on the letter to bring up the menu, then select{" "}
+        <em>Flatten</em> from the options.
+      </p>
+
+      <img src="/MatterJS_Figma_flatten_P.png" alt="Flatten P" />
+
+      <p>Let's export the SVG so that we can use it in the codepen.</p>
+
+      <img src="/MatterJS_Figma_export_P.png" alt="Export P" />
+
+      <p>
+        Open the svg in your text editor and just copy the path. That's all
+        we'll need, everything else is in the starter codepen.
+      </p>
+
+      <img src="/MatterJS_CopyPath.png" alt="Copy Path" />
+
+      <p>
+        In the HTML portion of our{" "}
+        <a target="_blank" href="https://codepen.io/aokorodu/pen/XJrdJmE">
+          starter codepen
+        </a>{" "}
+        let's paste the path into our SVG, and give it an id of "svgPath" so we
+        can reference it later.
+      </p>
+
+      <Blocks highlight="4">{`<div class="visHolder">
+  <svg id="svg" width="" height="" viewBox="">
+  <rect id="bg" x="" y="" width="" height="" />
+  <path class="svgPath" d="M54.0039 89.1602H16.9922V69.7266H54.0039C60.4492 69.7266 65.6576 68.6849 69.6289 66.6016C73.6003 64.5182 76.4974 61.6536 78.3203 58.0078C80.2083 54.2969 81.1523 50.0651 81.1523 45.3125C81.1523 40.8203 80.2083 36.6211 78.3203 32.7148C76.4974 28.7435 73.6003 25.5534 69.6289 23.1445C65.6576 20.7357 60.4492 19.5312 54.0039 19.5312H24.5117V142.188H0V0H54.0039C65.0065 0 74.349 1.95312 82.0312 5.85938C89.7786 9.70052 95.6706 15.0391 99.707 21.875C103.743 28.6458 105.762 36.3932 105.762 45.1172C105.762 54.2969 103.743 62.1745 99.707 68.75C95.6706 75.3255 89.7786 80.3711 82.0312 83.8867C74.349 87.4023 65.0065 89.1602 54.0039 89.1602Z" fill="black"/>
+</svg>
+  <div id="rendererHolder"></div>
+</div>`}</Blocks>
+
+      <p>
+        I won't go over the usual methods we've used to initialize our SVG and
+        set up the renderer, since we've discussed them in prior lessons. Let's
+        start with building our initParticle method.It's only slightly more
+        complicated that the initParticle methods we've used before.
+      </p>
+
+      <p>The first thing we need to do is get the vertices from our path:</p>
+
+      <Blocks>{`function initParticle() {
+  const svgPath = document.querySelector(".svgPath");
+  const verticies = Matter.Svg.pathToVertices(svgPath);
+}`}</Blocks>
+
+      <p>Now we can create our MatterJS body</p>
+
+      <Blocks highlight="3,5,6,7,8">{`function initParticle() {
+  const svgPath = document.querySelector(".svgPath");
+  const verticies = Matter.Svg.pathToVertices(svgPath);
+
+  svgBody = Matter.Bodies.fromVertices(0, 0, [verticies], {
+    restitution: 0.6,
+    isStatic: false});
+}`}</Blocks>
+
+      <p>
+        The next thing we need to do is to put our path inside a container so
+        that we can animate it. We'll need to make sure that the path is
+        positioned so that it's center of gravity is at the 0,0 point of the
+        container. For circles and squares, that's easy to do - the center of
+        gravity is just half the width and half the height. For example, with a
+        100x100 square the center is at 50,50, so we'd need to shift the square
+        by -50, -50.
+      </p>
+
+      <img
+        src="/MatterJS_SVG_Body_COG_square.png"
+        alt="Center of Gravity square"
+      />
+
+      <p>
+        For irregular, asymetrically shaped objects, it's a bit more difficult -
+        the center of gravity wont be the same as the object's geometric center.
+        For example"
+      </p>
+
+      <img
+        src="/MatterJS_SVG_Body_CenterOfGrav.png"
+        alt="Center of Gravity vs. Geometric Center"
+      />
+
+      <p>
+        Fortunately our MatterJS body has a <em>bounds.min</em> property which
+        we can use to properly "center" our svg path.
+      </p>
+
+      <pre>
+        <code>{`svgBody.bounds.min.x
+svgBody.bounds.min.y`}</code>
+      </pre>
+
+      <Blocks highlight="10,11,12,13,14,15,16">{`function initParticle() {
+  const svgPath = document.querySelector(".svgPath");
+  const verticies = Matter.Svg.pathToVertices(svgPath);
+
+  svgBody = Matter.Bodies.fromVertices(0, 0, [verticies], {
+    restitution: 0.6,
+    isStatic: false});
+  }
+
+  const minX = svgBody.bounds.min.x;
+  const minY = svgBody.bounds.min.y;
+  console.log("minX: ", minX);
+  console.log("minY: ", minY);
+
+  // "minX: " -41.3878444381203
+  // "minY: " -60.1207653072272`}</Blocks>
+
+      <p>
+        Now that we have our <em>min</em> point (-41, -60) we can use it to
+        position our path inside a group element so that the center of gravity
+        lines up with the 0,0 point of it's parent group.
+      </p>
+
+      <img src="MatterJS_SVG_Body_COG_P.png" alt="center of gravity P" />
+
+      <Blocks highlight="10,11,15,16,17,18,19,20,21">{`function initParticle() {
+  const svgPath = document.querySelector(".svgPath");
+  const verticies = Matter.Svg.pathToVertices(svgPath);
+
+  svgBody = Matter.Bodies.fromVertices(0, 0, [verticies], {
+    restitution: 0.6,
+    isStatic: false});
+  }
+
+  const minX = svgBody.bounds.min.x;
+  const minY = svgBody.bounds.min.y;
+  console.log("minX: ", minX);
+  console.log("minY: ", minY);
+
+  // "minX: " -41.3878444381203
+  // "minY: " -60.1207653072272
+
+  svgGraphic = document.createElementNS(namespace, "g");
+  svgGraphic.appendChild(svgPath);
+  svgPath.setAttribute("transform", \`translate(\${minX} \${minY})\`);
+  svg.appendChild(svgGraphic);
+`}</Blocks>
+
+      <p>
+        The rest of the code is basically identical to what we've seen with our
+        other MatterJS animations. We'll add our wall and floor, initialize our
+        world by adding all the bodies to it, and create and call our update
+        method to change the position and rotation of the group containing our
+        path.
+      </p>
+
+      <SVGShapeExample />
+    </>
+  );
+};
+
+export default MatterjsParticlesSvgbodies;

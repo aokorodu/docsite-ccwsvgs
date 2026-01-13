@@ -1,4 +1,4 @@
-'use client'
+
 
 import styles from './CSSAnim.module.scss';
 import { useRef } from 'react'
@@ -15,7 +15,7 @@ export const HoverExample = () => {
 }
 
 type strokedashprops = {
-    hover: boolean
+    hover?: boolean
 }
 export const StrokeDash = ({ hover = false }: strokedashprops) => {
     return (<>
@@ -47,7 +47,7 @@ export const KeyframeExample = () => {
 }
 
 type BalloonProps = {
-    linear: boolean
+    linear?: boolean
 }
 
 export const BalloonExample = ({ linear = true }: BalloonProps) => {

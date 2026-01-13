@@ -1,12 +1,9 @@
-'use client'
-
-import Link from "next/link"
-import { usePathname } from "next/navigation";
+import { Link, useLocation } from "react-router-dom";
 import { navConfig } from '../../config';
 import styles from './nextbutton.module.scss';
 
 const Nextbutton = () => {
-    const pathname = usePathname();
+    const { pathname } = useLocation();
     const nav = navConfig;
     const links = nav.links;
 
@@ -36,8 +33,8 @@ const Nextbutton = () => {
 
     return (<>
         <div className={styles.holder}>
-            {getIndex(0) > 0 && <Link href={`${getLink(-1)}`}>&lt; Prev: {getPageNme(-1)}</Link>}
-            {getIndex(0) < links.length - 1 && <Link href={`${getLink(1)}`}>Next: {getPageNme(1)} &gt;</Link>}
+            {getIndex(0) > 0 && <Link to={`${getLink(-1)}`}>&lt; Prev: {getPageNme(-1)}</Link>}
+            {getIndex(0) < links.length - 1 && <Link to={`${getLink(1)}`}>Next: {getPageNme(1)} &gt;</Link>}
         </div>
 
     </>)

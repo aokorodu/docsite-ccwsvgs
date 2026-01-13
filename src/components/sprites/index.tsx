@@ -1,5 +1,4 @@
 import styles from './Sprite.module.scss';
-import Link from 'next/link';
 
 export const WalkExample = () => {
     return (<>
@@ -16,7 +15,7 @@ export const WalkExample = () => {
         </svg>
         <div>
             <span>Illustration by </span>
-            <Link href={"https://www.vecteezy.com/free-vector/walking-sequence"} target='_blank'>Yuliya Pauliukevich</Link>
+            <a href="https://www.vecteezy.com/free-vector/walking-sequence" target="_blank" rel="noopener noreferrer">Yuliya Pauliukevich</a>
         </div>
     </>)
 }

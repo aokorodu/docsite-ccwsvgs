@@ -1,10 +1,10 @@
 import styles from './AspectRatio.module.scss';
 
 type AspectRatioProp = {
-    width: number,
-    height: number;
+    width: number | string,
+    height: number | string;
     viewbox: string;
-    aspectRatio: string;
+    aspectRatio?: string;
 }
 
 export const DynamicAspectRatio = ({ width, height, viewbox, aspectRatio }: AspectRatioProp) => {

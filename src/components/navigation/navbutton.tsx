@@ -1,9 +1,6 @@
-'use client'
-
 import { useState } from "react";
-import Link from "next/link";
+import { Link, useLocation } from "react-router-dom";
 import styles from "./navbutton.module.scss";
-import { usePathname } from "next/navigation";
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
@@ -21,7 +18,7 @@ type subnavprops = {
 }
 
 const NavButton = ({ index, title, link, subnav, onSelect }: navprops) => {
-    const pathname = usePathname();
+    const { pathname } = useLocation();
     const [open, setOpen] = useState(false);
     let indexStr = String(index + 1);
     if (indexStr.length < 2) indexStr = `0${indexStr}`
@@ -36,7 +33,7 @@ const NavButton = ({ index, title, link, subnav, onSelect }: navprops) => {
                 >
                     <div>
                         <span className={styles.buttonNumber}>{indexStr}</span>
-                        <Link href={link} onClick={subnav.length === 0 ? onSelect : undefined} className={`${styles.link} ${pathname == link ? styles.activeLink : ""}`}>{title} </Link>
+                        <Link to={link} onClick={subnav.length === 0 ? onSelect : undefined} className={`${styles.link} ${pathname == link ? styles.activeLink : ""}`}>{title} </Link>
                     </div>
                     <div className={styles.iconHolder}>
                         {subnav.length > 0 && <span>{open ? <ExpandLessIcon fontSize="small" /> : <ExpandMoreIcon fontSize="small" />}</span>}
@@ -47,7 +44,7 @@ const NavButton = ({ index, title, link, subnav, onSelect }: navprops) => {
                         {subnav.map((item) => {
                             console.log('pathname: ', pathname, " link: ", item.link)
                             return (<>
-                                <Link key={item.title} href={item.link} onClick={onSelect} className={`${styles.link} ${pathname == item.link ? styles.activeLink : ""}`}>{item.title} </Link></>);
+                                <Link key={item.title} to={item.link} onClick={onSelect} className={`${styles.link} ${pathname == item.link ? styles.activeLink : ""}`}>{item.title} </Link></>);
                         })}
                     </div>
                 )}

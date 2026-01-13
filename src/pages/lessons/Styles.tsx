@@ -1,0 +1,275 @@
+import Blocks from "@/components/blocks";
+import { Example1, Example2, Example3 } from "@/components/styleschapter";
+
+const Styles = () => {
+  return (
+    <>
+      <h1>Styles</h1>
+
+      <a
+        className="codepenLink"
+        href={"https://codepen.io/aokorodu/pen/YzgVbed"}
+        target="_blank"
+      >
+        {"Styles codepen practice page"}
+      </a>
+
+      <h2>css styles</h2>
+
+      <p>
+        An SVG element's presentation attributes - properties like fill, stroke,
+        stroke-width, and opacity - can be styled via CSS using:
+      </p>
+
+      <ol>
+        <li>Inline styles</li>
+        <li>Embedded styles</li>
+        <li>External stylesheet for standalone svg files</li>
+        <li>External stylesheets for inline svgs.</li>
+      </ol>
+
+      <br />
+
+      <p>
+        <a href="https://www.w3.org/TR/SVG/propidx.html">Here is a list</a> of
+        all SVG attributes that can be styled via CSS.
+      </p>
+
+      <p>Now let's look at HOW CSS styles are applied.</p>
+
+      <hr />
+
+      <h2>Inline Styles</h2>
+
+      <p>The first method: inline via the "style" attribute.</p>
+
+      <Blocks>
+        {`<circle
+cx="250" cy="250" r="200"
+style="fill: lightgreen; stroke: seagreen; stroke-width: 20" />`}
+      </Blocks>
+
+      <Example1 />
+
+      <hr />
+
+      <h2>Embeded styles</h2>
+
+      <p>
+        CSS styles can be <strong>embedded</strong> within the SVG itself.
+      </p>
+
+      <Blocks>
+        {`<svg width="500" height="500" viewbox="0 0 500 500">
+   <style>
+       #my-circle {
+           fill: lightgreen;
+           stroke: seagreen;
+           stroke-width: 20;
+       }
+   </style>
+   <circle
+        id="my-circle"
+        cx="250" cy="250" r="200" />
+</svg>`}
+      </Blocks>
+
+      <hr />
+
+      <h2>stylesheets</h2>
+
+      <p>
+        CSS styles can be applied to Inline SVGs via a normal html page internal
+        or external stylesheets.
+      </p>
+
+      <Blocks caption="external stylesheet">
+        {`<html
+.
+.
+<link rel="stylesheet" href="myStyles.css">
+<body>
+   <svg width="500" height="500" viewbox="0 0 500 500">
+   <circle id="my-circle" cx="250" cy="250" r="250" />
+   </svg>
+</body>`}
+      </Blocks>
+
+      <hr />
+
+      <h2>Standalone svg files</h2>
+
+      <h3>External stylesheet</h3>
+
+      <p>
+        CSS styles can be applied to standalone svg files via an external
+        stylesheet You'll need to add the stylesheet reference to the beginning
+        of the file:
+      </p>
+
+      <Blocks>
+        {`<?xml-stylesheet type="text/css" href="myStyles.css" ?>
+<svg width="500" height="500" viewbox="0 0 500 500">...`}
+      </Blocks>
+
+      <h3>External stylesheet - @import</h3>
+
+      <p>
+        You can also reference an external stylesheet by using the @import
+        statement in the svg's style section
+      </p>
+
+      <Blocks>
+        {`<svg width="500" height="500" viewbox="0 0 500 500">
+ <style>
+   @import url(myStyles.css);
+ </style>
+ .
+ .
+</svg>`}
+      </Blocks>
+
+      <hr />
+
+      <h2>Style hierarchy</h2>
+
+      <p>The hierarchy for CSS styles is as follows:</p>
+
+      <ol>
+        <li>
+          (1) <strong>Inline Styles</strong> - top priority. Inline styles
+          override all other styles.
+        </li>
+        <li>
+          (2) <strong>Embedded/External Styles</strong> - Can be overridden by
+          inline styles.
+        </li>
+        <li>
+          (3) <strong>Presentation Attributes</strong> - lowest priority,
+          overridden by both inline and embedded.external styles.
+        </li>
+      </ol>
+
+      <br />
+
+      <p>
+        In the example below the inline style overrides both the "fill"
+        presentation attribute and the fill, stroke, and stroke-width styles
+        defined in the my-circle class in the myStyles.css external css file.
+      </p>
+
+      <Blocks>
+        {`// myStyles.css
+
+.my-circle {
+fill: blue;
+stroke: red;
+stroke-width: 5;
+}
+
+<circle
+    class="my-circle"
+    cx="250" cy="250" r="200"
+    fill="purple"
+    style="fill: orange; stroke: seagreen; stroke-width: 20"/>`}
+      </Blocks>
+
+      <Example2 />
+
+      <hr />
+
+      <h2>geometric attributes?</h2>
+
+      <p>
+        But what about geometric properties like cx, cy, width, r (radius) - can
+        these also be styled via CSS?
+      </p>
+
+      <p>
+        If we try to create a CSS class to set a circle element's cx and cy on
+        some browsers (like Firefox or Safari on a mac) we get a weird result.
+      </p>
+
+      <Blocks>
+        {`<svg width="500" height="500" viewbox="0 0 500 500">
+   <style>
+       .geo-style{
+           cx: 250;
+           cy: 250;
+       }
+   </style>
+   <circle class="geo-style" r="50" fill="purple" />
+</svg>`}
+      </Blocks>
+
+      <h4>safari and firefox</h4>
+
+      <img
+        src="/styles_geo_att_ff_safari.png"
+        alt="image"
+        width="500"
+        height="auto"
+      />
+
+      <h4>chrome</h4>
+
+      <img
+        src="/styles_geo_att_chrome.png"
+        alt="image"
+        width="500"
+        height="auto"
+      />
+
+      <p>
+        Some browsers don't understand the svg's geometric properties in css, so
+        the circle is just placed at 0, 0.
+      </p>
+
+      <p>
+        But when we add the px unit of measure, it magically works! Or it might
+        not work then either, depending on your browser and/or operating system!
+      </p>
+
+      <Blocks>
+        {`<svg width="500" height="500" viewbox="0 0 500 500">
+   <style>
+       .geo-style{
+           cx: 250px;
+           cy: 250px;
+       }
+   </style>
+   <circle class="geo-style" r="50" fill="purple" />
+</svg>`}
+      </Blocks>
+
+      <h4>
+        firefox,chrome, and safari with units of measure (px) added to geometric
+        properties
+      </h4>
+
+      <img
+        src="/styles_geo_att_chrome.png"
+        alt="image"
+        width="500"
+        height="auto"
+      />
+
+      <p>
+        So the answer to our question: Can geometric properties be styled via
+        CSS? Not at this time, at least not reliably.
+      </p>
+
+      <p>
+        The current version of the svg spec (1.1) does not allow geometric
+        attributes to be styled via CSS. The next version of the spec, SVG 2.0,
+        WILL allow for styling of geometric attributes. And while most browsers
+        have already started implementing the spec, implementation is spotty and
+        inconsistent at best, which means you'll see some odd behavior (like the
+        style working with the 'px' units when these aren't required in the
+        presentation attributes).
+      </p>
+    </>
+  );
+};
+
+export default Styles;

@@ -1,4 +1,4 @@
-'use client'
+
 
 import styles from './AnimationJSII.module.scss';
 import componentStyles from '../ComponentStyles.module.scss'
@@ -83,7 +83,7 @@ export const AnimationFrameExample = () => {
 }
 
 type SimpleBounceProps = {
-    top: boolean
+    top?: boolean
 }
 export const SimpleBounceExample = ({ top = false }: SimpleBounceProps) => {
     let animID: number = 0;
@@ -139,7 +139,7 @@ export const SimpleBounceExample = ({ top = false }: SimpleBounceProps) => {
 
 
 type ComplexBounceProps = {
-    randomized: boolean
+    randomized?: boolean
 }
 export const ComplexBounceExample = ({ randomized = false }: ComplexBounceProps) => {
     let animID: number = 0;

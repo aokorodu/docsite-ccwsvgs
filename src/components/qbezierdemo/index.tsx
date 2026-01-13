@@ -1,4 +1,4 @@
-'use client'
+
 
 import { useRef, useState } from "react"
 import styles from '../ComponentStyles.module.scss'

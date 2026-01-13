@@ -1,14 +1,14 @@
-'use client'
+
 
 import { useEffect, useRef, useState } from "react"
 import styles from './DChap.module.scss';
 
 type positionProps = {
-    x: number,
-    y: number
+    x?: number,
+    y?: number
 }
 
-export const AppendLeafExample = ({ x, y }: positionProps) => {
+export const AppendLeafExample = ({ x = 0, y = 0 }: positionProps) => {
     return (<>
         <svg width="500" height="500" viewBox="0 0 300 300">
             <g transform={`translate(${x}, ${y})`}>
@@ -24,12 +24,12 @@ export const AppendLeafExample = ({ x, y }: positionProps) => {
 }
 
 type genleafprops = {
-    rotate: boolean,
-    color: string,
-    canremove: boolean
+    rotate?: boolean,
+    color?: string,
+    canremove?: boolean
 }
 
-export const GenerateLeafs = ({ rotate, color, canremove = false }: genleafprops) => {
+export const GenerateLeafs = ({ rotate = false, color = "#06B943", canremove = false }: genleafprops) => {
     const svg = useRef<SVGSVGElement>(null);
     const leafDef = useRef<SVGGElement>(null)
     useEffect(() => {

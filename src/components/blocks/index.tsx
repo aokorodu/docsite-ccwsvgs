@@ -1,13 +1,12 @@
-'use client'
 import styles from './Block.module.scss';
 
 import { CopyBlock, CodeBlock, solarizedDark, shadesOfPurple } from "react-code-blocks";
 
 type Props = {
-    title: string | null;
-    caption: string | null;
+    title?: string | null;
+    caption?: string | null;
     children: string;
-    highlight: string;
+    highlight?: string;
 }
 
 const Blocks = ({ caption, title, highlight, children }: Props) => {

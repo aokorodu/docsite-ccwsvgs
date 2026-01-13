@@ -1,4 +1,4 @@
-'use client'
+
 
 import styles from './CSSAnim.module.scss';
 import { useState } from 'react';

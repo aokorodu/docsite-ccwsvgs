@@ -1,4 +1,4 @@
-'use client'
+
 
 import { useState, useRef } from 'react';
 import styles from './SMIL.module.scss';
@@ -34,8 +34,8 @@ export const Example_1 = () => {
 }
 
 type exampleProps = {
-    begin: string,
-    end: string,
+    begin?: string,
+    end?: string,
 }
 
 export const Example_Fill_Freeze = ({ begin = '0s', end = 'click' }: exampleProps) => {

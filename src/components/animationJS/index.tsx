@@ -1,4 +1,4 @@
-'use client'
+
 
 import styles from './AnimJS.module.scss';
 import componentStyles from '../ComponentStyles.module.scss'
