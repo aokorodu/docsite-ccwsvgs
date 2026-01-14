@@ -9,7 +9,6 @@ export const FrameRateExample = () => {
         <div className={styles.imageHolder}>
             <figure>
                 <figcaption>10 fps</figcaption>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img className={styles.image}
                     src="/javascript_animation_balloon_10fps.gif"
                     alt="Balloon animation at 10 frames per second"
@@ -18,7 +17,6 @@ export const FrameRateExample = () => {
                 /></figure>
             <figure>
                 <figcaption>30 fps</figcaption>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img className={styles.image}
                     src="/javascript_animation_balloon_30fps.gif"
                     alt="Balloon animation at 30 frames per second"

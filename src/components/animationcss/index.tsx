@@ -202,7 +202,6 @@ export const EaseExample = ({ type }: EaseType) => {
         return ease;
     }
     return (<>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img className={styles.exampleImage} src={getImage()} height="300px" alt="Easing curve diagram" />
         <svg width="200" height="300" viewBox="0 0 200 300">
             <circle className={getEasing()} cx="100" cy="250" r="10" fill="green" />
