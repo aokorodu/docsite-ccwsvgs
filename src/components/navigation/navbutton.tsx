@@ -34,7 +34,7 @@ const NavButton = ({ index, title, link, subnav, onSelect }: navprops) => {
                 >
                     <div>
                         <span className={styles.buttonNumber}>{indexStr}</span>
-                        <Link to={link} onClick={subnav.length === 0 ? onSelect : undefined} className={`${styles.link} ${pathname == link ? styles.activeLink : ""}`}>{title} </Link>
+                        <span className={`${styles.link} ${open ? styles.activeLink : ""}`}>{title} </span>
                     </div>
                     <div className={styles.iconHolder}>
                         {subnav.length > 0 && <span>{open ? <ExpandLessIcon fontSize="small" /> : <ExpandMoreIcon fontSize="small" />}</span>}
