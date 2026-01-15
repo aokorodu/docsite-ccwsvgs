@@ -20,24 +20,35 @@ type subnavprops = {
 const NavButton = ({ index, title, link, subnav, onSelect }: navprops) => {
     const { pathname } = useLocation();
     const [open, setOpen] = useState(false);
+
+    const hasSubnav = () => {
+        if (subnav.length > 0) return true;
+        return false;
+    }
+
     let indexStr = String(index + 1);
     if (indexStr.length < 2) indexStr = `0${indexStr}`
-    if (subnav.length > 0) console.log("subnav", subnav);
+    if (hasSubnav()) console.log("subnav", subnav);
     return (
         <>
             <div className={styles.holder}>
                 <div className={styles.buttonContents}
                     onClick={() => {
-                        console.log("clicked");
-                        setOpen(!open);
+                        if (hasSubnav()) {
+                            setOpen(!open);
+                        }
                     }}
                 >
                     <div>
-                        <span className={styles.buttonNumber}>{indexStr}</span>
-                        <span className={`${styles.link} ${open ? styles.activeLink : ""}`}>{title} </span>
+                        <span onClick={onSelect} className={styles.buttonNumber}>{indexStr}</span>
+                        {hasSubnav() ? (
+                            <span className={`${styles.link} ${open ? styles.activeLink : ""}`}>{title} </span>
+                        ) : (
+                            <Link to={link} onClick={onSelect} className={`${styles.link} ${pathname == link ? styles.activeLink : ""}`}>{title} </Link>
+                        )}
                     </div>
                     <div className={styles.iconHolder}>
-                        {subnav.length > 0 && <span>{open ? <ExpandLessIcon fontSize="small" /> : <ExpandMoreIcon fontSize="small" />}</span>}
+                        {hasSubnav() && <span>{open ? <ExpandLessIcon fontSize="small" /> : <ExpandMoreIcon fontSize="small" />}</span>}
                     </div>
                 </div>
                 {open && (
