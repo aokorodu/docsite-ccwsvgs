@@ -6,8 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Creative Coding with SVGs</title>
     <meta name="description" content="Creative Coding with SVGs - Learn SVG development from fundamentals to advanced animations" />
-    <script type="module" crossorigin src="/assets/index-Djaxq9SC.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-j3Yw5Rg1.css">
+    <script>
+      (function() {
+        var stored = localStorage.getItem('ccwsvgs-theme');
+        if (stored === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-CvRwq9uD.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-C0osGo2z.css">
   </head>
   <body>
     <div id="root"></div>
