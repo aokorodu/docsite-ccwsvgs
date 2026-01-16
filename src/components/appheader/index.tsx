@@ -1,9 +1,6 @@
 import styles from './AppHeader.module.scss';
 import { Link } from "react-router-dom";
 import { useTheme } from '../../context';
-import LightModeIcon from '@mui/icons-material/LightMode';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
-import IconButton from '@mui/material/IconButton';
 
 const AppHeader = () => {
     const { theme, toggleTheme } = useTheme();
@@ -14,17 +11,19 @@ const AppHeader = () => {
                 <div className={styles.title}>Creative Coding with SVGs</div>
             </Link>
             <div className={styles.rightSection}>
-                <IconButton
+                <div
                     onClick={toggleTheme}
                     className={styles.themeToggle}
                     aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
                 >
                     {theme === 'light' ? (
-                        <DarkModeIcon className={styles.themeIcon} />
+
+                        <div className={styles.darkMode} />
                     ) : (
-                        <LightModeIcon className={styles.themeIcon} />
+
+                        <div className={styles.lightMode} />
                     )}
-                </IconButton>
+                </div>
                 <div className={styles.zuubaDigital}>zuubaDigital</div>
             </div>
         </header>
