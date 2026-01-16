@@ -140,7 +140,6 @@ svg {
   margin-bottom: 1.5rem;
   width: 100%;
   max-width: 500px;
-  background: var(--color-bg-primary);
   border-radius: 10px;
 }
 
