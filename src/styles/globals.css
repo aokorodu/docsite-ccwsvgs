@@ -83,7 +83,7 @@ h1 {
 h2 {
   font-weight: 600;
   font-variant: all-petite-caps;
-  margin: 40px 0px 4px;
+  /* margin: 2rem 0px 4px; */
   font-size: 2rem;
   line-height: 1.5;
   letter-spacing: 0.1px;
