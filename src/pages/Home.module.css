@@ -36,3 +36,12 @@
   margin: auto;
   z-index: 100;
 }
+
+.title {
+  font-family: "Shrikhand", sans-serif;
+  font-size: 3.5rem;
+  margin-bottom: 0;
+  line-height: 1.1;
+  text-align: center;
+  z-index: 100;
+}

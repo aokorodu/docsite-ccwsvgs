@@ -104,6 +104,7 @@ p {
 ol {
   list-style: number inside;
   margin-left: 1rem;
+  margin-bottom: 2rem;
 }
 
 ul {
