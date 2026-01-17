@@ -43,6 +43,13 @@ Components in `src/components/`:
 - **Bezier demos** (`*bezierdemo/`): Path visualization tools
 - **UI components**: `blocks/` (code display with syntax highlighting), `navigation/`, `nextbutton/`, `appheader/`
 
+### Styling
+- Uses **SASS** for stylesheets (`.scss` files)
+
+### Deployment
+- Deployed on Vercel with SPA rewrites configured in `vercel.json`
+- Build output goes to `dist/` directory
+
 ### Key Dependencies
 - **GSAP** (`gsap`, `@gsap/react`): Animation library for greensock lesson demos
 - **Matter.js**: 2D physics engine for particle simulations
