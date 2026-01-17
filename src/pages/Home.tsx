@@ -23,7 +23,7 @@ export default function Home() {
       </div>
 
       <div className={styles.holder}>
-        <h1 style={{ color: "white" }}>Creative Coding with SVGs</h1>
+        <div style={{ color: "white" }} className={styles.title}>Creative Coding with SVGs</div>
 
         <div style={{ color: "white" }} className={styles.subheading}>
           Welcome to the world of SVGs - one of the most powerful, versatile and dynamic visual formats available today. SVGs allow you to create all kinds of interesting visualizations - from simple images to interactive infographics, animations, and even games.

@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Creative Coding with SVGs</title>
     <meta name="description" content="Creative Coding with SVGs - Learn SVG development from fundamentals to advanced animations" />
+    <script>
+      (function() {
+        var stored = localStorage.getItem('ccwsvgs-theme');
+        if (stored === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

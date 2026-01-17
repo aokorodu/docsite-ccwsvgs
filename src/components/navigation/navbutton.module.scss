@@ -6,7 +6,7 @@
   height: fit-content;
   font-size: 1rem;
   &:hover {
-    background-color: rgb(255, 165, 255, 0.2);
+    background-color: var(--color-bg-hover);
   }
 }
 
@@ -25,11 +25,11 @@
 }
 
 .link {
-  color: black;
+  color: var(--color-text-primary);
   text-decoration: none;
   padding: 0 0.125rem;
   &:hover {
-    background-color: rgb(255, 165, 255, 0.2);
+    background-color: var(--color-bg-hover);
   }
 }
 
@@ -40,9 +40,10 @@
 .buttonNumber {
   font-weight: 600;
   margin-right: 0.5rem;
-  color: rgb(36, 1, 44);
+  color: var(--color-link);
 }
 
 .iconHolder {
   height: 1rem;
+  color: var(--color-text-primary);
 }

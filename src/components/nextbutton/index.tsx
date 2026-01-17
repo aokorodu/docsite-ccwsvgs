@@ -33,8 +33,8 @@ const Nextbutton = () => {
 
     return (<>
         <div className={styles.holder}>
-            {getIndex(0) > 0 && <Link to={`${getLink(-1)}`}>&lt; Prev: {getPageNme(-1)}</Link>}
-            {getIndex(0) < links.length - 1 && <Link to={`${getLink(1)}`}>Next: {getPageNme(1)} &gt;</Link>}
+            {getIndex(0) > 0 && <Link className={styles.linkStyle} to={`${getLink(-1)}`}>&lt; Prev: {getPageNme(-1)}</Link>}
+            {getIndex(0) < links.length - 1 && <Link className={styles.linkStyle} to={`${getLink(1)}`}>Next: {getPageNme(1)} &gt;</Link>}
         </div>
 
     </>)
