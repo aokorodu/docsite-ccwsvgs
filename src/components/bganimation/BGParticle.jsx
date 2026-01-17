@@ -10,7 +10,7 @@ class BGParticle extends React.Component {
 
     this.index = index;
     this.strokeWidth = 1;
-    this.fillOpacity = 0.05;
+    this.fillOpacity = 0;
     this.strokeOpacity = 1;
     this.rotationSpeed = Math.random() * 4 - 2;
 
@@ -177,8 +177,7 @@ class BGParticle extends React.Component {
             cx={0}
             cy={0}
             r={this.physics.radius}
-            fill={this.color}
-            fillOpacity={this.fillOpacity}
+            fill={"none"}
             stroke={this.color}
             strokeOpacity={this.strokeOpacity}
             strokeWidth={this.strokeWidth}
@@ -192,8 +191,7 @@ class BGParticle extends React.Component {
             y={-this.physics.radius}
             width={this.physics.radius * 2}
             height={this.physics.radius * 2}
-            fill={this.color}
-            fillOpacity={this.fillOpacity}
+            fill={"none"}
             stroke={this.color}
             strokeOpacity={this.strokeOpacity}
             strokeWidth={this.strokeWidth}
@@ -206,8 +204,7 @@ class BGParticle extends React.Component {
             points={`0, ${-this.physics.radius} ${this.physics.radius}, ${
               this.physics.radius
             } ${-this.physics.radius}, ${this.physics.radius}`}
-            fill={this.color}
-            fillOpacity={this.fillOpacity}
+            fill={"none"}
             stroke={this.color}
             strokeOpacity={this.strokeOpacity}
             strokeWidth={this.strokeWidth}
@@ -233,8 +230,7 @@ class BGParticle extends React.Component {
             cx={0}
             cy={0}
             r={this.physics.radius}
-            fill={this.color}
-            fillOpacity={this.fillOpacity}
+            fill={"none"}
             stroke={this.color}
             strokeOpacity={this.strokeOpacity}
             strokeWidth={this.strokeWidth}

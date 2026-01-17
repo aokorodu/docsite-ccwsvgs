@@ -9,7 +9,7 @@
   -moz-user-select: none;
   pointer-events: none;
   /* z-index: -100; */
-  background-color: rgb(36, 1, 44);
+  background: linear-gradient(to bottom, rgb(127, 0, 155), rgb(37, 0, 44));
 }
 
 .svgHolder > svg {
