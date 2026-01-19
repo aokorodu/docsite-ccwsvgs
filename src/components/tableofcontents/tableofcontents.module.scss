@@ -1,0 +1,227 @@
+.toc {
+  position: fixed;
+  top: 100px;
+  right: 2rem;
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+  padding: 1rem 1rem 1rem 2rem;
+  width: 250px;
+  font-size: 0.875rem;
+  background-color: var(--color-bg-primary);
+  border-radius: 8px;
+  border: 1px solid var(--color-border-light);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  z-index: 50;
+
+  // Thin scrollbar
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+
+  &:hover {
+    scrollbar-color: var(--color-border-medium) transparent;
+  }
+}
+
+.title {
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  margin-bottom: 0.75rem;
+  padding-left: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item {
+  margin: 0;
+  border-left: 2px solid transparent;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+
+  a {
+    display: block;
+    padding: 0.4rem 0.5rem;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    line-height: 1.4;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--color-text-primary);
+    }
+  }
+
+  &.nested {
+    a {
+      padding-left: 1.25rem;
+      font-size: 0.8125rem;
+    }
+  }
+
+  &.active {
+    border-left-color: var(--color-link);
+    background-color: var(--color-bg-secondary);
+
+    a {
+      color: var(--color-link);
+      font-weight: 500;
+    }
+  }
+}
+
+// Mobile drawer styles
+.mobileToggle {
+  display: none;
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-brand-primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 90;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  &.visible {
+    opacity: 1;
+  }
+}
+
+.drawer {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-height: 60vh;
+  background-color: var(--color-bg-primary);
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  padding: 1.5rem;
+  padding-bottom: 2rem;
+  z-index: 95;
+  overflow-y: auto;
+  transform: translateY(100%);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+
+  &.open {
+    transform: translateY(0);
+  }
+
+  .drawerHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .drawerTitle {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--color-text-primary);
+  }
+
+  .closeButton {
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    color: var(--color-text-muted);
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--color-text-primary);
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .list {
+    .item {
+      a {
+        padding: 0.6rem 0.5rem;
+        font-size: 1rem;
+      }
+
+      &.nested a {
+        padding-left: 1.5rem;
+        font-size: 0.9375rem;
+      }
+    }
+  }
+}
+
+// Hide desktop TOC and show mobile elements on smaller screens
+@media screen and (max-width: 1100px) {
+  .toc {
+    display: none;
+  }
+
+  .mobileToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .overlay {
+    display: block;
+    pointer-events: none;
+
+    &.visible {
+      pointer-events: auto;
+    }
+  }
+
+  .drawer {
+    display: block;
+  }
+}
+
+// Adjust position when viewport is narrower but still desktop
+@media screen and (max-width: 1400px) and (min-width: 1101px) {
+  .toc {
+    right: 1rem;
+    min-width: 180px;
+    max-width: 200px;
+    font-size: 0.8125rem;
+  }
+}
