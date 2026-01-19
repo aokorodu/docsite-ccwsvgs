@@ -214,7 +214,7 @@ export const Example16 = () => {
 export const FO = () => {
     return (<><svg width="500" height="500" viewBox="0 0 500 500">
         <foreignObject x="125" y="100" width="250" height="160">
-            <div>
+            <div style={{ color: "#000000" }}>
                 This is text that wraps. You need to put it in a <strong>foreignObject</strong> tag and include the namespace for it to work!
             </div>
         </foreignObject>
