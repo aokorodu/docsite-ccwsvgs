@@ -168,7 +168,7 @@ const Transforms = () => {
 
       <img src="/transform_skew_none.png" alt="transform_skew_none.png" />
 
-      <Blocks caption="no skew">
+      <Blocks caption="skewX">
         {`<rect
     x="100" y="100"
     width="200" height="200"
@@ -208,7 +208,7 @@ const Transforms = () => {
         distance along the x and/or y axis.
       </p>
 
-      <Blocks caption="no skew">
+      <Blocks caption="css translate">
         {`<style>
 #my-circle {
     transform: translate(100 0);
