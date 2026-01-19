@@ -37,7 +37,7 @@ const Styles = () => {
 
       <p>Now let's look at HOW CSS styles are applied.</p>
 
-      <hr />
+
 
       <h2>Inline Styles</h2>
 
@@ -51,7 +51,7 @@ style="fill: lightgreen; stroke: seagreen; stroke-width: 20" />`}
 
       <Example1 />
 
-      <hr />
+
 
       <h2>Embeded styles</h2>
 
@@ -74,7 +74,7 @@ style="fill: lightgreen; stroke: seagreen; stroke-width: 20" />`}
 </svg>`}
       </Blocks>
 
-      <hr />
+
 
       <h2>stylesheets</h2>
 
@@ -95,7 +95,7 @@ style="fill: lightgreen; stroke: seagreen; stroke-width: 20" />`}
 </body>`}
       </Blocks>
 
-      <hr />
+
 
       <h2>Standalone svg files</h2>
 
@@ -129,7 +129,7 @@ style="fill: lightgreen; stroke: seagreen; stroke-width: 20" />`}
 </svg>`}
       </Blocks>
 
-      <hr />
+
 
       <h2>Style hierarchy</h2>
 
@@ -176,7 +176,7 @@ stroke-width: 5;
 
       <Example2 />
 
-      <hr />
+
 
       <h2>geometric attributes?</h2>
 

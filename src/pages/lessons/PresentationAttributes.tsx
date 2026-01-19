@@ -35,7 +35,7 @@ const PresentationAttributes = () => {
         elements to set the color, opacity, stroke color, etc.
       </p>
 
-      <hr />
+
 
       <h2>fill</h2>
 
@@ -57,7 +57,7 @@ const PresentationAttributes = () => {
 
       <Example1 />
 
-      <hr />
+
 
       <h2>fill-opacity</h2>
 
@@ -78,7 +78,7 @@ const PresentationAttributes = () => {
 
       <Example2 />
 
-      <hr />
+
 
       <h2>stroke</h2>
 
@@ -94,7 +94,7 @@ const PresentationAttributes = () => {
 
       <Example3 />
 
-      <hr />
+
 
       <h2>stroke-width</h2>
 
@@ -111,7 +111,7 @@ const PresentationAttributes = () => {
 
       <Example4 />
 
-      <hr />
+
 
       <h2>stroke-opacity</h2>
 
@@ -128,7 +128,7 @@ const PresentationAttributes = () => {
 
       <Example5 />
 
-      <hr />
+
 
       <h2>stroke-dasharray</h2>
 
@@ -164,7 +164,7 @@ const PresentationAttributes = () => {
 
       <Example8 />
 
-      <hr />
+
 
       <h2>stroke-dashoffset</h2>
 
@@ -176,7 +176,7 @@ const PresentationAttributes = () => {
 
       <Example9 />
 
-      <hr />
+
 
       <h2>pathlength</h2>
 
@@ -223,7 +223,7 @@ const PresentationAttributes = () => {
 
       <Example11 />
 
-      <hr />
+
 
       <h2>stroke-linecap</h2>
 
@@ -260,7 +260,7 @@ const PresentationAttributes = () => {
         width
       </p>
 
-      <hr />
+
 
       <h2>stroke-linejoin</h2>
 

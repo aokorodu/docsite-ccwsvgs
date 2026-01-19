@@ -30,7 +30,7 @@ const Colors = () => {
 
       <Example1 />
 
-      <hr />
+
 
       <h2>hexadecimal values</h2>
 
@@ -45,7 +45,7 @@ const Colors = () => {
     stroke="black"
     fill="#2e8b57	" /> `}</Blocks>
 
-      <hr />
+
 
       <h2>rgb values</h2>
 
@@ -58,7 +58,7 @@ const Colors = () => {
     stroke="black"
     fill="rgb(46,139,87)" />`}</Blocks>
 
-      <hr />
+
 
       <h2>hsl values</h2>
 

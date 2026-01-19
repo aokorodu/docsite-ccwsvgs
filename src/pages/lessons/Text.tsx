@@ -49,7 +49,7 @@ const Text = () => {
 
       <Exampleone />
 
-      <hr />
+
 
       <h2>font-size, font-family, and font-weight</h2>
 
@@ -73,7 +73,7 @@ const Text = () => {
 
       <Exampletwo />
 
-      <hr />
+
 
       <h2>y, dominant-baseline</h2>
 
@@ -111,7 +111,7 @@ const Text = () => {
 
       <Example3 />
 
-      <hr />
+
 
       <h2>x, text-anchor</h2>
 
@@ -138,7 +138,7 @@ const Text = () => {
 
       <ExampleFour />
 
-      <hr />
+
 
       <h2>tspan</h2>
 
@@ -161,7 +161,7 @@ const Text = () => {
 
       <Example5 />
 
-      <hr />
+
 
       <h3>tspan - x, y</h3>
 
@@ -254,7 +254,7 @@ const Text = () => {
 
       <Example9 />
 
-      <hr />
+
 
       <h2>textpath</h2>
 
@@ -393,7 +393,7 @@ const Text = () => {
 
       <Example16 />
 
-      <hr />
+
 
       <h2>foreignObject</h2>
 
