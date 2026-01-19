@@ -9,17 +9,30 @@
   position: relative;
   margin: 2rem 1rem 1rem 1rem;
   padding: 1rem;
-  width: clamp(400px, calc(90% - 250px), 900px);
   margin-left: 250px;
+  // Calculate width to leave room for TOC: 100vw - left nav (250px) - TOC (280px) - margins
+  width: calc(100vw - 250px - 280px - 2rem);
+  max-width: 800px;
+  min-width: 0;
 
   svg {
     background: white;
   }
 }
 
+// When TOC switches to mobile drawer, expand content area
+@media screen and (max-width: 1100px) {
+  .contentHolder {
+    width: calc(100vw - 250px - 2rem);
+    max-width: 900px;
+  }
+}
+
 @media screen and (max-width: 800px) {
   .contentHolder {
     margin: 2rem 0 0 0;
+    margin-left: 0;
     width: 100%;
+    max-width: 100%;
   }
 }
