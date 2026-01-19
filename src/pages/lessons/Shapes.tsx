@@ -1,5 +1,6 @@
 import Blocks from "@/components/blocks";
 import { Link } from "react-router-dom";
+import Leaf from "@/components/illustrations/Leaf";
 
 const Shapes = () => {
   return (
@@ -103,7 +104,7 @@ const Shapes = () => {
 
       <br />
 
-      <hr />
+
 
       <h3>circle</h3>
 
@@ -123,7 +124,7 @@ const Shapes = () => {
 
       <img src="/shapes_circle.png" alt="shapes circle" />
 
-      <hr />
+
 
       <h3>ellipse</h3>
 
@@ -146,7 +147,7 @@ const Shapes = () => {
 
       <img src="/shapes_ellipse.png" alt="shapes ellipse" />
 
-      <hr />
+
 
       <h3>rectangle</h3>
 
@@ -169,7 +170,7 @@ const Shapes = () => {
 
       <img src="/shapes_rect.png" alt="shapes rect" />
 
-      <hr />
+
 
       <h3>rectangle (rounded)</h3>
 
@@ -204,7 +205,7 @@ const Shapes = () => {
 
       <img src="/shapes_round_rect.png" alt="shapes round rect" />
 
-      <hr />
+
 
       <h3>line</h3>
 
@@ -223,7 +224,7 @@ const Shapes = () => {
 
       <img src="/shapes_line.png" alt="shapes line" />
 
-      <hr />
+
 
       <h3>polyline</h3>
 
@@ -254,7 +255,7 @@ const Shapes = () => {
 
       <img src="/shapes_polyline_filled.png" alt="shapes polyline filled" />
 
-      <hr />
+
 
       <h3>polygon</h3>
 
@@ -278,7 +279,7 @@ const Shapes = () => {
 
       <img src="/shapes_polygon.png" alt="shapes polygon" />
 
-      <hr />
+
 
       <h3>image</h3>
 
@@ -330,7 +331,7 @@ const Shapes = () => {
         information.
       </h4>
 
-      <hr />
+
 
       <h3>path</h3>
 
@@ -340,9 +341,20 @@ const Shapes = () => {
         <Link to={"/paths"}>{"next section"}</Link>.
       </p>
 
-      <img src="/shapes_path.png" alt="shapes path" />
+      <Leaf />
 
-      <hr />
+      <div className="attribution">
+        Illustrations by by <strong>Ramy Wafaa</strong>. See more at&nbsp;
+        <a
+          className="attributionLink"
+          href="https://www.getillustrations.com"
+          target="_blank"
+        >
+          getillustrations.com
+        </a>{" "}
+      </div>
+
+
 
       <h3>stacking order</h3>
 

@@ -36,7 +36,7 @@ const Transforms = () => {
         CSS.
       </p>
 
-      <hr />
+
 
       <h2>How do SVG and HTML transforms differ?</h2>
 
@@ -56,7 +56,7 @@ const Transforms = () => {
         HTML.
       </p>
 
-      <hr />
+
 
       <h2>translate</h2>
 
@@ -75,7 +75,7 @@ const Transforms = () => {
 
       <img src="/transform_translate_x.png" alt="transform_translate_x.png" />
 
-      <hr />
+
 
       <h2>rotate</h2>
 
@@ -115,7 +115,7 @@ const Transforms = () => {
         alt="transform_rotation_point.png"
       />
 
-      <hr />
+
 
       <h2>scale</h2>
 
@@ -146,7 +146,7 @@ const Transforms = () => {
         alt="transform_scale_scale_2_1.png"
       />
 
-      <hr />
+
 
       <h2>skewX, skewY</h2>
 
@@ -190,7 +190,7 @@ const Transforms = () => {
         presentation attributes
       </p>
 
-      <hr />
+
 
       <h2>CSS transforms</h2>
 
@@ -483,7 +483,7 @@ const Transforms = () => {
         alt="transform_transform-box_5.png"
       />
 
-      <hr />
+
 
       <h2>transform order</h2>
 

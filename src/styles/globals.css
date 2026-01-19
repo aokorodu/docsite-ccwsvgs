@@ -30,14 +30,14 @@
 [data-theme="dark"] {
   --color-brand-secondary: rgb(235, 209, 245);
 
-  --color-bg-primary: #1a1a2e;
+  --color-bg-primary: #181818;
   --color-bg-secondary: #16213e;
   --color-bg-nav: #1f1f3a;
   --color-bg-nav-overlay: rgba(0, 0, 0, 0.6);
   --color-bg-code: #2d2d44;
   --color-bg-hover: rgba(255, 165, 255, 0.15);
 
-  --color-text-primary: #e4e4e7;
+  --color-text-primary: #f0f0f0;
   --color-text-secondary: #c4c4c9;
   --color-text-muted: #a0a0a8;
 
@@ -231,6 +231,17 @@ video {
 .codepenLink::after {
   position: relative;
   content: " >";
+}
+
+.attribution {
+  font-style: italic;
+}
+
+.attributionLink {
+  color: var(--color-link);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-link);
 }
 
 blockquote > p {
