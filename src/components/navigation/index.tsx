@@ -25,17 +25,14 @@ const Navigation = () => {
 
                 {open && <div style={{ color: "black" }}><CloseIcon fontSize='large' color={'inherit'} /></div>}
             </div>
-            {open && <div className={styles.mobileNavHolder}>
-
-                {open && <div className={styles.container}>
+            <div className={`${styles.mobileNavHolder} ${open ? styles.open : styles.closed}`}>
+                <div className={styles.container}>
                     <div className={styles.bg} onClick={() => { toggleOpen(!open) }} />
                     <div className={styles.mobileButtonContainer}>
                         {getPages(() => toggleOpen(false))}
                     </div>
-                </div>}
-
-
-            </div>}
+                </div>
+            </div>
         </>
     );
 };
