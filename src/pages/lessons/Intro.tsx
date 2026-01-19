@@ -7,16 +7,23 @@ const Intro = () => {
 
       <h2>What you'll learn:</h2>
 
-      <ol>
+      <p>By the end of this course, you will have a solid understanding of the intricacies and creative power of SVGs, and how to use them effectively in creative web development projects. Some of the things you will learn include:</p>
+
+      <ul>
         <li>the <strong>elements</strong> and <strong>syntax</strong> of an SVG</li>
         <li>how to create svgs using free drawing tools like <strong>Figma</strong></li>
         <li>how to create svg graphics dynamically using <strong>JavaScript</strong></li>
         <li>Styling SVGs using <strong>presentation attributes</strong> and <strong>CSS</strong></li>
         <li>How to make SVGs <strong>interactive</strong></li>
         <li>How to <strong>animate</strong> SVGs</li>
-      </ol>
+      </ul>
 
+      <br />
       <h2>Prerequisites</h2>
+
+      <p>
+        While this is a beginner's couse, you will need to have at least a basic understanding of the following:
+      </p>
 
       <h3>HTML</h3>
 
@@ -33,8 +40,8 @@ const Intro = () => {
       <h2>Tools</h2>
 
       <ol>
-        <li>A <strong>Code Editor</strong> like <strong>Visual Studio Code</strong> or <strong>Atom</strong>.</li>
-        <li>A drawing program capable of exporting files in the SVG format, like <strong>Figma</strong></li>
+        <li>A <strong>Code Editor</strong> like <strong>Visual Studio Code</strong></li>
+        <li>A drawing program capable of exporting files in the SVG format, like <strong>Figma</strong>, <strong>Inkscape</strong> or <strong>Adobe Illustrator</strong>.</li>
       </ol>
 
       <h2>Code</h2>
