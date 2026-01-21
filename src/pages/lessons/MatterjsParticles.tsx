@@ -83,10 +83,10 @@ const MatterjsParticles = () => {
         for that.
       </p>
 
-      <Blocks highlight="4,5,6,8,9">{`  const { Engine, Body, Bodies, Composite } = Matter;
-  const engine = Engine.create();
+      <Blocks highlight="4,5,6,8,9">{`const { Engine, Body, Bodies, Composite } = Matter;
+const engine = Engine.create();
 
-  // particle vars
+// particle vars
 let particleGraphic, particleBody;
 const particleRadius = 20;
 
@@ -102,8 +102,8 @@ const particleHolder = document.querySelector("#particleHolder");
         experiment.
       </p>
 
-      <Blocks highlight="11,12,13,14,15,16">{`  const { Engine, Body, Bodies, Composite } = Matter;
-  const engine = Engine.create();
+      <Blocks highlight="11,12,13,14,15,16">{`const { Engine, Body, Bodies, Composite } = Matter;
+const engine = Engine.create();
 
   // particle vars
 let particleGraphic, particleBody;
@@ -125,8 +125,8 @@ const namespace = "http://www.w3.org/2000/svg";
         viewBox.
       </p>
 
-      <Blocks highlight="9,10,11,12,13,14">{`  const { Engine, Body, Bodies, Composite } = Matter;
-  const engine = Engine.create();
+      <Blocks highlight="9,10,11,12,13,14">{`const { Engine, Body, Bodies, Composite } = Matter;
+const engine = Engine.create();
 // particle vars
 ...
 // holder variable
@@ -148,23 +148,23 @@ function initSVG() {
         we'll be positioning the particle later.
       </p>
 
-      <Blocks highlight="11,12,13,14,15,16,17,18">{`  const { Engine, Body, Bodies, Composite } = Matter;
-  const engine = Engine.create();
-  // particle vars
-  ...
-  // holder variable
-  ...
-  // svg variables
-  ...
-  function initSVG() { ...}
+      <Blocks highlight="11,12,13,14,15,16,17,18">{`const { Engine, Body, Bodies, Composite } = Matter;
+const engine = Engine.create();
+// particle vars
+...
+// holder variable
+...
+// svg variables
+...
+function initSVG() { ...}
 
-  function initParticleGraphic() {
-    particleGraphic = document.createElementNS(namespace, "circle");
-    particleGraphic.setAttribute("cx", "0");
-    particleGraphic.setAttribute("cy", "0");
-    particleGraphic.setAttribute("r", particleRadius);
-    particleGraphic.setAttribute("fill", "black");
-    particleHolder.appendChild(particleGraphic);
+function initParticleGraphic() {
+  particleGraphic = document.createElementNS(namespace, "circle");
+  particleGraphic.setAttribute("cx", "0");
+  particleGraphic.setAttribute("cy", "0");
+  particleGraphic.setAttribute("r", particleRadius);
+  particleGraphic.setAttribute("fill", "black");
+  particleHolder.appendChild(particleGraphic);
 }`}</Blocks>
 
       <p>
@@ -173,9 +173,7 @@ function initSVG() {
         size and shape as the particle graphic. It looks like this:
       </p>
 
-      <pre>
-        <code>{`Bodies.circle(x, y, radius, [options]);`}</code>
-      </pre>
+      <Blocks>{`Bodies.circle(x, y, radius, [options]);`}</Blocks>
 
       <p>
         The options object is used to set all kinds of physical properties on a
@@ -203,27 +201,26 @@ function initSVG() {
         elasticity (bounciness) of the object
       </p>
 
-      <Blocks highlight="13,14,15,16,17,18,19,20">{`  const { Engine, Body, Bodies, Composite } = Matter;
-  const engine = Engine.create();
-  // particle vars
-  ...
-  // holder variable
-  ...
-  // svg variables
-  ...
-  function initSVG() { ...}
+      <Blocks highlight="13,14,15,16,17,18,19,20">{`const { Engine, Body, Bodies, Composite } = Matter;
+const engine = Engine.create();
+// particle vars
+... 
+// holder variable
+...
+// svg variables
+...
+function initSVG() { ...}
 
-  function initParticleGraphic() {...};
+function initParticleGraphic() {...};
 
-  function initParticleBody() {
-    particleBody = Bodies.circle(0, 0, particleRadius, {
-      id: \`particleBody\`,
-      friction: 0,
-      restitution: 0.99
-    });
-  Body.setPosition(particleBody, { x: w/2, y: particleRadius })
-  };
-  `}</Blocks>
+function initParticleBody() {
+  particleBody = Bodies.circle(0, 0, particleRadius, {
+    id: \`particleBody\`,
+    friction: 0,
+    restitution: 0.99
+  });
+Body.setPosition(particleBody, { x: w/2, y: particleRadius })
+};`}</Blocks>
 
       <p>
         Once we create the particle body, we use the{" "}
@@ -231,9 +228,7 @@ function initSVG() {
         body at the top of the SVG.
       </p>
 
-      <pre>
-        <code>{`Body.setPosition(body, { x: number, y: number });`}</code>
-      </pre>
+      <Blocks>{`Body.setPosition(body, { x: number, y: number });`}</Blocks>
 
       <p>
         Remember, the MatterJS body <em>isn't actually rendered at all</em>.
@@ -255,9 +250,7 @@ function initSVG() {
         floor;
       </p>
 
-      <pre>
-        <code>{`Bodies.rectangle(x, y, radius, height, [options]);`}</code>
-      </pre>
+      <Blocks>{`Bodies.rectangle(x, y, radius, height, [options]);`}</Blocks>
 
       <Blocks highlight="8,9,10,21,22,23,24,25,26,27">{`  const { Engine, Body, Bodies, Composite } = Matter;
   const engine = Engine.create();
@@ -326,9 +319,7 @@ function initSVG() {
         using the <strong>Composite</strong> module:
       </p>
 
-      <pre>
-        <code>{`Composite.add(composite, [objects])`}</code>
-      </pre>
+      <Blocks>{`Composite.add(composite, [objects])`}</Blocks>
 
       <p>
         A Composite is just a container for a collection of objects. In this
@@ -409,9 +400,7 @@ function initSVG() {
         engine, which will advance it one "frame".
       </p>
 
-      <pre>
-        <code>{`Engine.update(engine);`}</code>
-      </pre>
+      <Blocks>{`Engine.update(engine);`}</Blocks>
 
       <p>
         Then we get the position data from the particleBody, and set the cx and
@@ -496,9 +485,9 @@ function initSVG() {
 
       <Blocks highlight="6">{`<div class="visHolder">
   <svg id="svg" width="" height="" viewBox="">
-  <rect id="bg" x="0" y="0" width="" height="" />
-  <g id="particleHolder"></g>
-</svg>
+    <rect id="bg" x="0" y="0" width="" height="" />
+    <g id="particleHolder"></g>
+  </svg>
   <div id="rendererHolder"></div>
 </div>`}</Blocks>
 
@@ -510,8 +499,7 @@ function initSVG() {
 
       <p>Next we'll create the renderer using the Render.create method:</p>
 
-      <pre>
-        <code>{` Render.create({
+      <Blocks>{` Render.create({
     element: someHTMLElement,
     engine: engine,
     options: {
@@ -519,8 +507,7 @@ function initSVG() {
       height: someHeightValue,
       showAngleIndicator: true
     }
-  })`}</code>
-      </pre>
+  })`}</Blocks>
 
       <p>
         The options are pretty self-explanitory for the most part. The{" "}
@@ -531,9 +518,7 @@ function initSVG() {
         actually tell it to start running:
       </p>
 
-      <pre>
-        <code>{`Render.run(rendererName)`}</code>
-      </pre>
+      <Blocks>{`Render.run(rendererName)`}</Blocks>
 
       <p>
         Here's the actual method I use in the example below to create the

@@ -65,20 +65,19 @@ const SmilAnimation = () => {
       <p>We start by adding an animate tag inside of the circle element.</p>
 
       <Blocks highlight="2,3,4">{`<svg width="200" height="300" viewBox="0 0 200 300">
-<circle cx="100" cy="20" r="10" fill="green">
-     <animate/>
-</circle>
+  <circle cx="100" cy="20" r="10" fill="green">
+    <animate />
+  </circle>
 </svg>`}</Blocks>
 
       <h3>attributeName</h3>
 
       <p>We'll add the name of the attribute that we want to animate - cy.</p>
 
-      <Blocks highlight="3, 4">{`<svg width="200" height="300" viewBox="0 0 200 300">
-<circle cx="100" cy="20" r="10" fill="green">
-     <animate
-        attributeName="cy" />
-</circle>
+      <Blocks highlight="3,4">{`<svg width="200" height="300" viewBox="0 0 200 300">
+  <circle cx="100" cy="20" r="10" fill="green">
+    <animate attributeName="cy" />
+  </circle>
 </svg>`}</Blocks>
 
       <h3>from, to, dur</h3>
@@ -88,14 +87,14 @@ const SmilAnimation = () => {
         attributes, and the duration (dur) of the animation.
       </p>
 
-      <Blocks highlight="4, 5,6,7">{`<svg width="200" height="300" viewBox="0 0 200 300">
-<circle cx="100" cy="20" r="10" fill="green">
-     <animate
-            attributeName="cy"
-            from="20"
-            to="230"
-            dur="2s" />
-</circle>
+      <Blocks highlight="3,4,5,6">{`<svg width="200" height="300" viewBox="0 0 200 300">
+  <circle cx="100" cy="20" r="10" fill="green">
+    <animate
+      attributeName="cy"
+      from="20"
+      to="230"
+      dur="2s" />
+  </circle>
 </svg>`}</Blocks>
 
       <h3>values</h3>
@@ -107,17 +106,15 @@ const SmilAnimation = () => {
         several positions, instead of just two.
       </p>
 
-      <pre>
-        <code>{`values="<value 1>; <value 2>;..."`}</code>
-      </pre>
+      <Blocks>{`values="<value 1>; <value 2>;..."`}</Blocks>
 
       <Blocks highlight="5">{`<svg width="200" height="300" viewBox="0 0 200 300">
-<circle cx="100" cy="20" r="10" fill="green">
-     <animate
-            attributeName="cy"
-            values="20; 230"
-            dur="2s" />
-</circle>
+  <circle cx="100" cy="20" r="10" fill="green">
+    <animate
+      attributeName="cy"
+      values="20; 230"
+      dur="2s" />
+  </circle>
 </svg>`}</Blocks>
 
       <h3>repeatCount</h3>
@@ -128,19 +125,17 @@ const SmilAnimation = () => {
         number, or it can be "indefinite" (infinite).
       </p>
 
-      <pre>
-        <code>{`repeatCount="<number> | indefinite"`}</code>
-      </pre>
+      <Blocks>{`repeatCount="<number> | indefinite"`}</Blocks>
 
-      <Blocks highlight="4, 5,6,7, 8">{`<svg width="200" height="300" viewBox="0 0 200 300">
-<circle cx="100" cy="20" r="10" fill="green">
-     <animate
-            attributeName="cy"
-            from="20"
-            to="230"
-            dur="2s"
-            repeatCount="indefinite" />
-</circle>
+      <Blocks highlight="3,4,5,6,7">{`<svg width="200" height="300" viewBox="0 0 200 300">
+  <circle cx="100" cy="20" r="10" fill="green">
+    <animate
+      attributeName="cy"
+      from="20"
+      to="230"
+      dur="2s"
+      repeatCount="indefinite" />
+  </circle>
 </svg>`}</Blocks>
 
       <Example_1 />
@@ -154,20 +149,18 @@ const SmilAnimation = () => {
         final state of the animation.
       </p>
 
-      <pre>
-        <code>{`fill="freeze | remove (default)"`}</code>
-      </pre>
+      <Blocks>{`fill="freeze | remove (default)"`}</Blocks>
 
-      <Blocks highlight="8,9">{`<svg width="200" height="300" viewBox="0 0 200 300">
-<circle cx="100" cy="20" r="10" fill="green">
-     <animate
-            attributeName="cy"
-            from="20"
-            to="230"
-            dur="2s"
-            repeatCount="3"
-            fill="freeze" />
-</circle>
+      <Blocks highlight="7,8">{`<svg width="200" height="300" viewBox="0 0 200 300">
+  <circle cx="100" cy="20" r="10" fill="green">
+    <animate
+      attributeName="cy"
+      from="20"
+      to="230"
+      dur="2s"
+      repeatCount="3"
+      fill="freeze" />
+  </circle>
 </svg>`}</Blocks>
 
       <Example_Fill_Freeze />
@@ -179,21 +172,19 @@ const SmilAnimation = () => {
         and pass it a time value:
       </p>
 
-      <pre>
-        <code>{`begin="<time in seconds> | click"`}</code>
-      </pre>
+      <Blocks>{`begin="<time in seconds> | click"`}</Blocks>
 
-      <Blocks highlight="10">{`<svg width="200" height="300" viewBox="0 0 200 300">
-<circle cx="100" cy="20" r="10" fill="green">
-     <animate
-            attributeName="cy"
-            from="20"
-            to="230"
-            dur="2s"
-            repeatCount="3"
-            fill="freeze"
-            begin="2s"/>
-</circle>
+      <Blocks highlight="9">{`<svg width="200" height="300" viewBox="0 0 200 300">
+  <circle cx="100" cy="20" r="10" fill="green">
+    <animate
+      attributeName="cy"
+      from="20"
+      to="230"
+      dur="2s"
+      repeatCount="3"
+      fill="freeze"
+      begin="2s" />
+  </circle>
 </svg>`}</Blocks>
 
       <Example_Fill_Freeze begin={"2s"} />
@@ -202,17 +193,17 @@ const SmilAnimation = () => {
 
       <p>Or we can set the begin to a when the user clicks the circle:</p>
 
-      <Blocks highlight="10">{`<svg width="200" height="300" viewBox="0 0 200 300">
-<circle cx="100" cy="20" r="10" fill="green">
-     <animate
-            attributeName="cy"
-            from="20"
-            to="230"
-            dur="2s"
-            repeatCount="3"
-            fill="freeze"
-            begin="click"/>
-</circle>
+      <Blocks highlight="9">{`<svg width="200" height="300" viewBox="0 0 200 300">
+  <circle cx="100" cy="20" r="10" fill="green">
+    <animate
+      attributeName="cy"
+      from="20"
+      to="230"
+      dur="2s"
+      repeatCount="3"
+      fill="freeze"
+      begin="click" />
+  </circle>
 </svg>`}</Blocks>
 
       <div style={{ width: "200px" }}>
@@ -248,21 +239,19 @@ const SmilAnimation = () => {
         but then we'll also set an end time.
       </p>
 
-      <pre>
-        <code>{`end="<time in seconds> | click"`}</code>
-      </pre>
+      <Blocks>{`end="<time in seconds> | click"`}</Blocks>
 
-      <Blocks highlight="10">{`<svg width="200" height="300" viewBox="0 0 200 300">
-<circle cx="100" cy="20" r="10" fill="green">
-     <animate
-            attributeName="cy"
-            from="20"
-            to="230"
-            dur="1s"
-            repeatCount="indefinite"
-            fill="freeze"
-            end="3.5s"/>
-</circle>
+      <Blocks highlight="9">{`<svg width="200" height="300" viewBox="0 0 200 300">
+  <circle cx="100" cy="20" r="10" fill="green">
+    <animate
+      attributeName="cy"
+      from="20"
+      to="230"
+      dur="1s"
+      repeatCount="indefinite"
+      fill="freeze"
+      end="3.5s" />
+  </circle>
 </svg>`}</Blocks>
 
       <Example_End endvalue="3.5s" />
@@ -275,17 +264,17 @@ const SmilAnimation = () => {
         click!)
       </p>
 
-      <Blocks highlight="10">{`<svg width="200" height="300" viewBox="0 0 200 300">
-<circle cx="100" cy="20" r="10" fill="green">
-     <animate
-            attributeName="cy"
-            from="20"
-            to="230"
-            dur="10s"
-            repeatCount="indefinite"
-            fill="freeze"
-            end="click"/>
-</circle>
+      <Blocks highlight="9">{`<svg width="200" height="300" viewBox="0 0 200 300">
+  <circle cx="100" cy="20" r="10" fill="green">
+    <animate
+      attributeName="cy"
+      from="20"
+      to="230"
+      dur="10s"
+      repeatCount="indefinite"
+      fill="freeze"
+      end="click" />
+  </circle>
 </svg>`}</Blocks>
 
       <Example_End endvalue="click" />
@@ -297,11 +286,9 @@ const SmilAnimation = () => {
         have been "encapsulated" by the element we wish to animate.
       </p>
 
-      <pre>
-        <code>{`<shape-element>
-  <animate .../>
-</shape-element>`}</code>
-      </pre>
+      <Blocks>{`<shape-element>
+  <animate ... />
+</shape-element>`}</Blocks>
 
       <p>
         If you want to keep them separate, all you have to do is pass the id of
@@ -309,11 +296,8 @@ const SmilAnimation = () => {
         <em>href</em> attribute
       </p>
 
-      <pre>
-        <code>{`<circle id="my-circle" ... />
-
-<animate href="#my-circle" .../>`}</code>
-      </pre>
+      <Blocks>{`<circle id="my-circle" ... />
+<animate href="#my-circle" ... />`}</Blocks>
 
       <h3>easing</h3>
 
@@ -360,23 +344,20 @@ const SmilAnimation = () => {
         be set to "spline". (The default value is linear)
       </p>
 
-      <pre>
-        <code>{`calcMode="spline | remove (default)"`}</code>
-      </pre>
+      <Blocks>{`calcMode="spline | remove (default)"`}</Blocks>
 
       <Blocks highlight="7">{`<svg width="200" height="300" viewBox="0 0 200 300">
-    <circle ...>
-      <animate
-        attributeName="cy"
-        values="20; 280"
-        dur="2s"
-        calcMode="spline"
-        keyTimes="0; 1"
-        keySplines="0 0 .5 1"
-        repeatCount="indefinite"
-      />
-    </circle>
-  </svg>`}</Blocks>
+  <circle ...>
+    <animate
+      attributeName="cy"
+      values="20; 280"
+      dur="2s"
+      calcMode="spline"
+      keyTimes="0; 1"
+      keySplines="0 0 .5 1"
+      repeatCount="indefinite" />
+  </circle>
+</svg>`}</Blocks>
 
       <h3>keyTimes</h3>
 
@@ -388,24 +369,21 @@ const SmilAnimation = () => {
         beginning of the animation) and 280 at keytime 1 (the end).
       </p>
 
-      <pre>
-        <code>{`values="<value 1>; <value 2>; <value 3>; ..."
+      <Blocks>{`values="<value 1>; <value 2>; <value 3>; ..."
 ...
-keyTimes="<time 1>; <time 2>; <time 3>; ..."`}</code>
-      </pre>
+keyTimes="<time 1>; <time 2>; <time 3>; ..."`}</Blocks>
 
       <Blocks highlight="8">{`<svg width="200" height="300" viewBox="0 0 200 300">
-    <circle ...>
-      <animate
-        attributeName="cy"
-        values="20; 280"
-        dur="2s"
-        calcMode="spline"
-        keyTimes="0; 1"
-        repeatCount="indefinite"
-      />
-    </circle>
-  </svg>`}</Blocks>
+  <circle ...>
+    <animate
+      attributeName="cy"
+      values="20; 280"
+      dur="2s"
+      calcMode="spline"
+      keyTimes="0; 1"
+      repeatCount="indefinite" />
+  </circle>
+</svg>`}</Blocks>
 
       <p>
         It's easier to see the effect of keyTimes with multiple animation
@@ -415,17 +393,16 @@ keyTimes="<time 1>; <time 2>; <time 3>; ..."`}</code>
       </p>
 
       <Blocks highlight="5,8">{`<svg width="200" height="300" viewBox="0 0 200 300">
-    <circle ...>
-      <animate
-        attributeName="cy"
-        values="20;250;280"
-        dur="2s"
-        calcMode="spline"
-        keyTimes="0; .5; 1"
-        repeatCount="indefinite"
-      />
-    </circle>
-  </svg>`}</Blocks>
+  <circle ...>
+    <animate
+      attributeName="cy"
+      values="20;250;280"
+      dur="2s"
+      calcMode="spline"
+      keyTimes="0; .5; 1"
+      repeatCount="indefinite" />
+  </circle>
+</svg>`}</Blocks>
 
       <div style={{ width: "200px" }}>
         <svg width="200" height="300" viewBox="0 0 200 300">
@@ -454,25 +431,22 @@ keyTimes="<time 1>; <time 2>; <time 3>; ..."`}</code>
         will always have ONE LESS keySpline than values.
       </p>
 
-      <pre>
-        <code>{`values="<value 1>; <value 2>; <value 3>; ..."
+      <Blocks>{`values="<value 1>; <value 2>; <value 3>; ..."
 ...
-keySplines="<bezier curve 1 to 2>; <bezier curve 2 to 3>;..."`}</code>
-      </pre>
+keySplines="<bezier curve 1 to 2>; <bezier curve 2 to 3>;..."`}</Blocks>
 
       <Blocks highlight="5,9">{`<svg width="200" height="300" viewBox="0 0 200 300">
-    <circle cx="100" cy="20" r="10" fill="green">
-      <animate
-        attributeName="cy"
-        values="20; 150; 280"
-        dur="2s"
-        calcMode="spline"
-        keyTimes="0; 0.5; 1"
-        keySplines="0.5 0 0.5 1; 0.5 0 0.5 1"
-        repeatCount="indefinite"
-      />
-    </circle>
-  </svg>`}</Blocks>
+  <circle cx="100" cy="20" r="10" fill="green">
+    <animate
+      attributeName="cy"
+      values="20; 150; 280"
+      dur="2s"
+      calcMode="spline"
+      keyTimes="0; 0.5; 1"
+      keySplines="0.5 0 0.5 1; 0.5 0 0.5 1"
+      repeatCount="indefinite" />
+  </circle>
+</svg>`}</Blocks>
 
       <div style={{ width: "200px" }}>
         <svg width="200" height="300" viewBox="0 0 200 300">
@@ -505,21 +479,22 @@ keySplines="<bezier curve 1 to 2>; <bezier curve 2 to 3>;..."`}</code>
       </p>
 
       <Blocks>{`<circle cx="50" cy="250" r="20" fill="#93C17E">
-   <animate
-       attributeName="cx"
-       values="50; 450; 250"
-       dur="2s" begin="0"
-       fill="freeze" />
-   <animate
-       attributeName="r"
-       values="20; 100"
-       dur="2s"
-       fill="freeze" />
-   <animate
-       attributeName="fill"
-       values="#93C17E; #ff00ff; #009900"
-       dur="4s"
-       fill="freeze" />
+  <animate
+    attributeName="cx"
+    values="50; 450; 250"
+    dur="2s"
+    begin="0"
+    fill="freeze" />
+  <animate
+    attributeName="r"
+    values="20; 100"
+    dur="2s"
+    fill="freeze" />
+  <animate
+    attributeName="fill"
+    values="#93C17E; #ff00ff; #009900"
+    dur="4s"
+    fill="freeze" />
 </circle>`}</Blocks>
 
       <MultipleAnim_Example />
@@ -533,25 +508,26 @@ keySplines="<bezier curve 1 to 2>; <bezier curve 2 to 3>;..."`}</code>
         element an id:
       </p>
 
-      <Blocks highlight="3,9,15">{`<circle cx="50" cy="250" r="20" fill="#93C17E">
-   <animate
-        id="slide"
-        attributeName="cx"
-        values="50; 450; 250"
-        dur="2s" begin="0"
-        fill="freeze" />
-   <animate
-        id="grow"
-        attributeName="r"
-        values="20; 100"
-        dur="2s"
-        fill="freeze" />
-   <animate
-        id="change"
-        attributeName="fill"
-        values="#93C17E; #ff00ff; #009900"
-        dur="4s"
-        fill="freeze" />
+      <Blocks highlight="3,10,17">{`<circle cx="50" cy="250" r="20" fill="#93C17E">
+  <animate
+    id="slide"
+    attributeName="cx"
+    values="50; 450; 250"
+    dur="2s"
+    begin="0"
+    fill="freeze" />
+  <animate
+    id="grow"
+    attributeName="r"
+    values="20; 100"
+    dur="2s"
+    fill="freeze" />
+  <animate
+    id="change"
+    attributeName="fill"
+    values="#93C17E; #ff00ff; #009900"
+    dur="4s"
+    fill="freeze" />
 </circle>`}</Blocks>
 
       <p>
@@ -560,27 +536,21 @@ keySplines="<bezier curve 1 to 2>; <bezier curve 2 to 3>;..."`}</code>
         end. The value can include a <em>time offset</em> as well.
       </p>
 
-      <pre>
-        <code>{`begin="<animation name>.< begin | end> + <time offset>"`}</code>
-      </pre>
+      <Blocks>{`begin="<animation name>.< begin | end> + <time offset>"`}</Blocks>
 
       <p>
         For example, I can set an animation to run 3 seconds after another
         animation ends as follows.
       </p>
 
-      <pre>
-        <code>{`begin="some_animation.end + 3s"`}</code>
-      </pre>
+      <Blocks>{`begin="some_animation.end + 3s"`}</Blocks>
 
       <p>
         So to get the "grow" animation to run after the "slide" animation, you'd
         use the following begin attribute in the "grow" animation:
       </p>
 
-      <pre>
-        <code>{`begin="slide.end"`}</code>
-      </pre>
+      <Blocks>{`begin="slide.end"`}</Blocks>
 
       <p>
         And to get the "change" animation to run half a second after the start
@@ -588,36 +558,31 @@ keySplines="<bezier curve 1 to 2>; <bezier curve 2 to 3>;..."`}</code>
         "change" animation:
       </p>
 
-      <pre>
-        <code>{`begin="grow.begin + 500ms"`}</code>
-      </pre>
+      <Blocks>{`begin="grow.begin + 500ms"`}</Blocks>
 
-      <Blocks highlight="4,17,24">{`<svg width="500" height="500" viewBox="0 0 500 500">
-    <circle cx="50" cy="250" r="20" fill="#93C17E">
-        <animate
-            id="slide"
-            attributeName="cx"
-            values="50; 450; 250"
-            dur="2s"
-            begin="0"
-            fill="freeze"
-        />
-        <animate
-            id="grow"
-            attributeName="r"
-            values="20; 100"
-            dur="2s"
-            fill="freeze"
-            begin="slide.end"
-        />
-        <animate
-            attributeName="fill"
-            values="#93C17E; #ff00ff; #009900"
-            dur="4s"
-            fill="freeze"
-            begin="grow.begin + 500ms"
-        />
-    </circle>
+      <Blocks highlight="4,14,21">{`<svg width="500" height="500" viewBox="0 0 500 500">
+  <circle cx="50" cy="250" r="20" fill="#93C17E">
+    <animate
+      id="slide"
+      attributeName="cx"
+      values="50; 450; 250"
+      dur="2s"
+      begin="0"
+      fill="freeze" />
+    <animate
+      id="grow"
+      attributeName="r"
+      values="20; 100"
+      dur="2s"
+      fill="freeze"
+      begin="slide.end" />
+    <animate
+      attributeName="fill"
+      values="#93C17E; #ff00ff; #009900"
+      dur="4s"
+      fill="freeze"
+      begin="grow.begin + 500ms" />
+  </circle>
 </svg>`}</Blocks>
 
       <MultipleAnimSequ_Example />
@@ -650,9 +615,7 @@ keySplines="<bezier curve 1 to 2>; <bezier curve 2 to 3>;..."`}</code>
         designate the type of transform animation to be performed.
       </p>
 
-      <pre>
-        <code>{`type="translate | rotate | scale | skewX | skewY"`}</code>
-      </pre>
+      <Blocks>{`type="translate | rotate | scale | skewX | skewY"`}</Blocks>
 
       <h3>translate</h3>
 
@@ -662,16 +625,12 @@ keySplines="<bezier curve 1 to 2>; <bezier curve 2 to 3>;..."`}</code>
         position.
       </p>
 
-      <pre>
-        <code>{`from="<x>,<y>"
-to=<x>,<y>"`}</code>
-      </pre>
+      <Blocks>{`from="<x>,<y>"
+to=<x>,<y>"`}</Blocks>
 
       <p>You can also use the "value" attribute like so:</p>
 
-      <pre>
-        <code>{`values="<x1>,<y1>;<x2>,<y2>;..."`}</code>
-      </pre>
+      <Blocks>{`values="<x1>,<y1>;<x2>,<y2>;..."`}</Blocks>
 
       <p>
         I'll use <strong>values</strong> instead of <strong>from to</strong> so
@@ -718,16 +677,11 @@ to=<x>,<y>"`}</code>
         represent the x and y position around which the rotation occurs.
       </p>
 
-      <pre>
-        <code>{`from="<angle> <x> <y>"
-to="<angle> <x> <y>"`}</code>
-      </pre>
+      <Blocks>{`from="<angle> <x> <y>"
+to="<angle> <x> <y>"`}</Blocks>
 
-      <Blocks highlight="6,7,8,9,10">{`<svg width="500" height="500" viewBox="0 0 500 500">
-  <rect x="150" y="150"
-    rx="10" ry="10"
-    width="200" height="200"
-    fill="skyblue">
+      <Blocks highlight="3,4,5,6,7">{`<svg width="500" height="500" viewBox="0 0 500 500">
+  <rect x="150" y="150" rx="10" ry="10" width="200" height="200" fill="skyblue">
     <animateTransform
       attributeName="transform"
       type="rotate"
@@ -735,8 +689,7 @@ to="<angle> <x> <y>"`}</code>
       to="360 250 250"
       begin="0s"
       dur="3s"
-      repeatCount="indefinite">
-    </animateTransform>
+      repeatCount="indefinite"></animateTransform>
   </rect>
 </svg>`}</Blocks>
 
@@ -769,8 +722,7 @@ to="<angle> <x> <y>"`}</code>
       to="360"
       begin="0s"
       dur="3s"
-      repeatCount="indefinite"
-    ></animateTransform>
+      repeatCount="indefinite"></animateTransform>
   </rect>
 </svg>`}</Blocks>
 
@@ -787,8 +739,7 @@ to="<angle> <x> <y>"`}</code>
       values="0; 360; 180; 360"
       begin="0s"
       dur="3s"
-      repeatCount="indefinite"
-    ></animateTransform>
+      repeatCount="indefinite"></animateTransform>
   </rect>
 </svg>`}</Blocks>
 
@@ -828,8 +779,7 @@ to="<angle> <x> <y>"`}</code>
       values="0 250 250; 360 250 100; 180 250 400; 360 250 250"
       begin="0s"
       dur="3s"
-      repeatCount="indefinite"
-    ></animateTransform>
+      repeatCount="indefinite"></animateTransform>
   </rect>
 </svg>`}</Blocks>
 
@@ -854,24 +804,15 @@ to="<angle> <x> <y>"`}</code>
         <strong>transform-origin</strong> attribute, as I've done below:
       </p>
 
-      <Blocks highlight="2,10,11,12,14">{`<svg width="500" height="500" viewBox="0 0 500 500">
-  <rect
-    x="150"
-    y="150"
-    rx="10"
-    ry="10"
-    width="200"
-    height="200"
-    fill="blue"
-    transform-origin="250 250">
-        <animateTransform
-          attributeName="transform"
-          type="scale"
-          values="1; 2; 1"
-          begin="0s"
-          dur="3s"
-          repeatCount="indefinite"
-        ></animateTransform>
+      <Blocks highlight="2,4,5,6,7">{`<svg width="500" height="500" viewBox="0 0 500 500">
+  <rect x="150" y="150" rx="10" ry="10" width="200" height="200" fill="blue" transform-origin="250 250">
+    <animateTransform
+      attributeName="transform"
+      type="scale"
+      values="1; 2; 1"
+      begin="0s"
+      dur="3s"
+      repeatCount="indefinite"></animateTransform>
   </rect>
 </svg>`}</Blocks>
 
@@ -906,25 +847,15 @@ to="<angle> <x> <y>"`}</code>
         square.
       </p>
 
-      <Blocks highlight="10,12,13,14,15">{`<svg width="500" height="500" viewBox="0 0 500 500">
-  <rect
-    x="150"
-    y="150"
-    rx="10"
-    ry="10"
-    width="200"
-    height="200"
-    fill="orange"
-    transform-origin="150 150"
-  >
+      <Blocks highlight="2,4,5,6,7">{`<svg width="500" height="500" viewBox="0 0 500 500">
+  <rect x="150" y="150" rx="10" ry="10" width="200" height="200" fill="orange" transform-origin="150 150">
     <animateTransform
       attributeName="transform"
       type="skewX"
       values="0; 30; 0"
       begin="0s"
       dur="3s"
-      repeatCount="indefinite"
-    ></animateTransform>
+      repeatCount="indefinite"></animateTransform>
   </rect>
 </svg>`}</Blocks>
 
@@ -959,31 +890,22 @@ to="<angle> <x> <y>"`}</code>
         and one for rotate.
       </p>
 
-      <Blocks highlight="10,11,12,13,18,19,20,21">{`<svg width="500" height="500" viewBox="0 0 500 500">
-  <rect x="200"
-      y="200"
-      rx="10"
-      ry="10"
-      width="100"
-      height="100"
-      fill="purple"
-      transform-origin="250 250">
-      <animateTransform
-        attributeName="transform"
-        type="scale"
-        values="1;3;1"
-        begin="0s"
-        dur="3s"
-        repeatCount="indefinite"
-      ></animateTransform>
-      <animateTransform
-        attributeName="transform"
-        type="rotate"
-        values="0;360;0"
-        begin="0s"
-        dur="3s"
-        repeatCount="indefinite"
-      ></animateTransform>
+      <Blocks highlight="3,4,5,6,10,11,12,13">{`<svg width="500" height="500" viewBox="0 0 500 500">
+  <rect x="200" y="200" rx="10" ry="10" width="100" height="100" fill="purple" transform-origin="250 250">
+    <animateTransform
+      attributeName="transform"
+      type="scale"
+      values="1;3;1"
+      begin="0s"
+      dur="3s"
+      repeatCount="indefinite"></animateTransform>
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      values="0;360;0"
+      begin="0s"
+      dur="3s"
+      repeatCount="indefinite"></animateTransform>
   </rect>
 </svg>`}</Blocks>
 
@@ -1031,38 +953,26 @@ to="<angle> <x> <y>"`}</code>
         which allows you to <em>combine</em> animations to the same property.
       </p>
 
-      <pre>
-        <code>{`additive = "replace" | "sum"`}</code>
-      </pre>
+      <Blocks>{`additive = "replace" | "sum"`}</Blocks>
 
-      <Blocks highlight="11,12,13,14,15,18,20,21,22,27">{`<svg width="500" height="500" viewBox="0 0 500 500">
-  <rect
-      x="200"
-      y="200"
-      rx="10"
-      ry="10"
-      width="100"
-      height="100"
-      fill="purple"
-      transform-origin="250 250">
-      <animateTransform
-        attributeName="transform"
-        type="scale"
-        values="1;3;1"
-        begin="0s"
-        dur="3s"
-        repeatCount="indefinite"
-        additive="sum"
-      ></animateTransform>
-      <animateTransform
-        attributeName="transform"
-        type="rotate"
-        values="0;360;0"
-        begin="0s"
-        dur="3s"
-        repeatCount="indefinite"
-        additive="sum"
-      ></animateTransform>
+      <Blocks highlight="3,4,5,6,7,8,11,12,13,14,15,16">{`<svg width="500" height="500" viewBox="0 0 500 500">
+  <rect x="200" y="200" rx="10" ry="10" width="100" height="100" fill="purple" transform-origin="250 250">
+    <animateTransform
+      attributeName="transform"
+      type="scale"
+      values="1;3;1"
+      begin="0s"
+      dur="3s"
+      repeatCount="indefinite"
+      additive="sum"></animateTransform>
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      values="0;360;0"
+      begin="0s"
+      dur="3s"
+      repeatCount="indefinite"
+      additive="sum"></animateTransform>
   </rect>
 </svg>`}</Blocks>
 

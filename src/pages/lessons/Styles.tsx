@@ -43,11 +43,7 @@ const Styles = () => {
 
       <p>The first method: inline via the "style" attribute.</p>
 
-      <Blocks>
-        {`<circle
-cx="250" cy="250" r="200"
-style="fill: lightgreen; stroke: seagreen; stroke-width: 20" />`}
-      </Blocks>
+      <Blocks>{`<circle cx="250" cy="250" r="200" style="fill: lightgreen; stroke: seagreen; stroke-width: 20" />`}</Blocks>
 
       <Example1 />
 
@@ -59,20 +55,16 @@ style="fill: lightgreen; stroke: seagreen; stroke-width: 20" />`}
         CSS styles can be <strong>embedded</strong> within the SVG itself.
       </p>
 
-      <Blocks>
-        {`<svg width="500" height="500" viewbox="0 0 500 500">
-   <style>
-       #my-circle {
-           fill: lightgreen;
-           stroke: seagreen;
-           stroke-width: 20;
-       }
-   </style>
-   <circle
-        id="my-circle"
-        cx="250" cy="250" r="200" />
-</svg>`}
-      </Blocks>
+      <Blocks>{`<svg width="500" height="500" viewbox="0 0 500 500">
+  <style>
+    #my-circle {
+      fill: lightgreen;
+      stroke: seagreen;
+      stroke-width: 20;
+    }
+  </style>
+  <circle id="my-circle" cx="250" cy="250" r="200" />
+</svg>`}</Blocks>
 
 
 
@@ -83,17 +75,15 @@ style="fill: lightgreen; stroke: seagreen; stroke-width: 20" />`}
         or external stylesheets.
       </p>
 
-      <Blocks caption="external stylesheet">
-        {`<html
+      <Blocks caption="external stylesheet">{`<html
 .
 .
 <link rel="stylesheet" href="myStyles.css">
 <body>
-   <svg width="500" height="500" viewbox="0 0 500 500">
-   <circle id="my-circle" cx="250" cy="250" r="250" />
-   </svg>
-</body>`}
-      </Blocks>
+  <svg width="500" height="500" viewbox="0 0 500 500">
+    <circle id="my-circle" cx="250" cy="250" r="250" />
+  </svg>
+</body>`}</Blocks>
 
 
 
@@ -107,10 +97,8 @@ style="fill: lightgreen; stroke: seagreen; stroke-width: 20" />`}
         of the file:
       </p>
 
-      <Blocks>
-        {`<?xml-stylesheet type="text/css" href="myStyles.css" ?>
-<svg width="500" height="500" viewbox="0 0 500 500">...`}
-      </Blocks>
+      <Blocks>{`<?xml-stylesheet type="text/css" href="myStyles.css" ?>
+<svg width="500" height="500" viewbox="0 0 500 500">...`}</Blocks>
 
       <h3>External stylesheet - @import</h3>
 
@@ -119,15 +107,13 @@ style="fill: lightgreen; stroke: seagreen; stroke-width: 20" />`}
         statement in the svg's style section
       </p>
 
-      <Blocks>
-        {`<svg width="500" height="500" viewbox="0 0 500 500">
- <style>
-   @import url(myStyles.css);
- </style>
- .
- .
-</svg>`}
-      </Blocks>
+      <Blocks>{`<svg width="500" height="500" viewbox="0 0 500 500">
+  <style>
+    @import url(myStyles.css);
+  </style>
+  .
+  .
+</svg>`}</Blocks>
 
 
 
@@ -158,21 +144,14 @@ style="fill: lightgreen; stroke: seagreen; stroke-width: 20" />`}
         defined in the my-circle class in the myStyles.css external css file.
       </p>
 
-      <Blocks>
-        {`// myStyles.css
+      <Blocks>{`.my-circle {
+  fill: blue;
+  stroke: red;
+  stroke-width: 5;
+}`}</Blocks>
 
-.my-circle {
-fill: blue;
-stroke: red;
-stroke-width: 5;
-}
-
-<circle
-    class="my-circle"
-    cx="250" cy="250" r="200"
-    fill="purple"
-    style="fill: orange; stroke: seagreen; stroke-width: 20"/>`}
-      </Blocks>
+      <Blocks>{`<circle class="my-circle" cx="250" cy="250" r="200" fill="purple"
+  style="fill: orange; stroke: seagreen; stroke-width: 20" />`}</Blocks>
 
       <Example2 />
 
@@ -190,17 +169,15 @@ stroke-width: 5;
         some browsers (like Firefox or Safari on a mac) we get a weird result.
       </p>
 
-      <Blocks>
-        {`<svg width="500" height="500" viewbox="0 0 500 500">
-   <style>
-       .geo-style{
-           cx: 250;
-           cy: 250;
-       }
-   </style>
-   <circle class="geo-style" r="50" fill="purple" />
-</svg>`}
-      </Blocks>
+      <Blocks>{`<svg width="500" height="500" viewbox="0 0 500 500">
+  <style>
+    .geo-style{
+      cx: 250;
+      cy: 250;
+    }
+  </style>
+  <circle class="geo-style" r="50" fill="purple" />
+</svg>`}</Blocks>
 
       <h4>safari and firefox</h4>
 
@@ -230,17 +207,15 @@ stroke-width: 5;
         not work then either, depending on your browser and/or operating system!
       </p>
 
-      <Blocks>
-        {`<svg width="500" height="500" viewbox="0 0 500 500">
-   <style>
-       .geo-style{
-           cx: 250px;
-           cy: 250px;
-       }
-   </style>
-   <circle class="geo-style" r="50" fill="purple" />
-</svg>`}
-      </Blocks>
+      <Blocks>{`<svg width="500" height="500" viewbox="0 0 500 500">
+  <style>
+    .geo-style{
+      cx: 250px;
+      cy: 250px;
+    }
+  </style>
+  <circle class="geo-style" r="50" fill="purple" />
+</svg>`}</Blocks>
 
       <h4>
         firefox,chrome, and safari with units of measure (px) added to geometric

@@ -25,9 +25,7 @@ const DynamicGenerating = () => {
         <strong>createElementNS</strong> method.
       </p>
 
-      <pre>
-        <code>{`document.createElementNS(<namespace>, <element name>)`}</code>
-      </pre>
+      <Blocks>{`document.createElementNS(<namespace>, <element name>)`}</Blocks>
 
       <p>
         You may be familiar with the similarly named <strong>createElement</strong>{" "}
@@ -39,9 +37,7 @@ const DynamicGenerating = () => {
         that you want to create an SVG element, and NOT an HTML element.
       </p>
 
-      <pre>
-        <code>{`namespace = "http://www.w3.org/2000/svg"`}</code>
-      </pre>
+      <Blocks>{`namespace = "http://www.w3.org/2000/svg"`}</Blocks>
 
       <p>
         So let's create a circle element and add it to our{" "}
@@ -52,10 +48,8 @@ const DynamicGenerating = () => {
 
       <p>First we'll create the circle element</p>
 
-      <Blocks>
-        {`const namespace = "http://www.w3.org/2000/svg";
-let my_circle = document.createElementNS(namespace, "circle");`}
-      </Blocks>
+      <Blocks>{`const namespace = "http://www.w3.org/2000/svg";
+let my_circle = document.createElementNS(namespace, "circle");`}</Blocks>
 
       <p>
         Next, we'll add the presentation attributes to style the circle using{" "}
@@ -79,9 +73,7 @@ my_circle.setAttribute('stroke', none);`}</Blocks>
         the svg using <strong>appendChild</strong>:
       </p>
 
-      <pre>
-        <code>{`element.appendChild(<another_element>)`}</code>
-      </pre>
+      <Blocks>{`element.appendChild(<another_element>)`}</Blocks>
 
       <Blocks>{`const namespace = "http://www.w3.org/2000/svg"
 let my_circle = document.createElementNS(namespace, "circle");
@@ -176,16 +168,12 @@ const leafHolder = document.querySelector("#leafHolder");`}</Blocks>
         graphic in &lt;defs&gt;
       </p>
 
-      <pre>
-        <code>{`let my_leaf = document.createElementNS(namespace, "use");
-my_leaf.setAttribute('href', '#leaf');`}</code>
-      </pre>
+      <Blocks>{`let my_leaf = document.createElementNS(namespace, "use");
+my_leaf.setAttribute('href', '#leaf');`}</Blocks>
 
       <p>Finally, we'll append the &lt;use&gt; element to the svg:</p>
 
-      <pre>
-        <code>{`element.appendChild(<element>);`}</code>
-      </pre>
+      <Blocks>{`element.appendChild(<element>);`}</Blocks>
 
       <Blocks>{`const namespace = "http://www.w3.org/2000/svg";
 const leafDef = document.querySelector("#leaf");

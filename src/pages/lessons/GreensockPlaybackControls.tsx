@@ -147,9 +147,7 @@ let animationDuration = 0;`}</Blocks>
         <strong>duration()</strong> method once we create our timeline.
       </p>
 
-      <pre>
-        <code>{`theTween.duration();`}</code>
-      </pre>
+      <Blocks>{`theTween.duration();`}</Blocks>
 
       <Blocks>{`function animate() {
   theTween = gsap.timeline();
@@ -209,9 +207,7 @@ let animationDuration = 0;`}</Blocks>
         method.
       </p>
 
-      <pre>
-        <code>{`someTween.seek(someTime);`}</code>
-      </pre>
+      <Blocks>{`someTween.seek(someTime);`}</Blocks>
 
       <Blocks>{`function sliderInputHandler(){
   const seekTime = scrubber.value * animationDuration;

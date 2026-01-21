@@ -35,11 +35,9 @@ const ReusableMask = () => {
         an <strong>id</strong> attribute used to identify and apply the mask.
       </p>
 
-      <pre>
-        <code>{`<mask id="my-mask"...
+      <Blocks>{`<mask id="my-mask"...
 ...
-<rect mask="url(#my-mask)" ...`}</code>
-      </pre>
+<rect mask="url(#my-mask)" ...`}</Blocks>
 
       <h2>mask gradient</h2>
 
@@ -49,58 +47,42 @@ const ReusableMask = () => {
         <strong>id</strong> so that it can be used by the mask.
       </p>
 
-      <Blocks>
-        {`<defs>
-    <radialGradient id="gradient">
+      <Blocks>{`<defs>
+  <radialGradient id="gradient">
     <stop offset="0%" stopColor="white" />
     <stop offset="100%" stopColor="black" />
-</radialGradient>
-</defs>`}
-      </Blocks>
+  </radialGradient>
+</defs>`}</Blocks>
 
       <p>
         Once you have your gradient you can create your mask. Masks are also
         defined inside of the defs section, like all other reusable elements.
       </p>
 
-      <Blocks>
-        {`<defs>
+      <Blocks>{`<defs>
+  // radial gradient code
 
-    // radial gradient code
-
-    <mask id="gradient_mask">
-        <rect x="0" y="0"
-        width="500" height="500"
-        fill="url(#gradient)">
-        </rect>
-    </mask>
-
-</defs>`}
-      </Blocks>
+  <mask id="gradient_mask">
+    <rect x="0" y="0" width="500" height="500" fill="url(#gradient)"></rect>
+  </mask>
+</defs>`}</Blocks>
 
       <p>
         Finally, you can apply the mask to a shape element or group by using
         it's <strong>id</strong>.
       </p>
 
-      <Blocks>
-        {`<defs>
-    <radialGradient id="gradient">
-        // radial gradient code
-    </radialGradient>
+      <Blocks>{`<defs>
+  <radialGradient id="gradient">
+    // radial gradient code
+  </radialGradient>
 
-    <mask id="gradient_mask">
-        // mask code
-    </mask>
-
+  <mask id="gradient_mask">
+    // mask code
+  </mask>
 </defs>
 
-<rect
-    mask="url(#gradient_mask)"
-    x="0" y="0"
-    width="500" height="500"
-    fill="url(#simple_tile)">`}
-      </Blocks>
+<rect mask="url(#gradient_mask)" x="0" y="0" width="500" height="500" fill="url(#simple_tile)">`}</Blocks>
 
       <FinalExample />
     </>

@@ -475,9 +475,7 @@ const SmilAnimationII = () => {
         of using the path attribute). Pass the path via the href attribute.
       </p>
 
-      <pre>
-        <code>{`<mpath href="#path-id" />`}</code>
-      </pre>
+      <Blocks>{`<mpath href="#path-id" />`}</Blocks>
 
       <Blocks highlight="2,4,5,6">{`<svg width="500" height="500" viewBox="0 0 500 500">
   <path id="starfish" .../>

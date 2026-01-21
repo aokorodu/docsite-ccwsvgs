@@ -87,16 +87,14 @@ const blue = document.querySelector("#blue");`}</Blocks>
         <strong>presentation attributes</strong> using the following syntax:
       </p>
 
-      <pre>
-        <code>{`gsap.to(<object>, {
+      <Blocks>{`gsap.to(<object>, {
     attr: {
       <property>: <value>,
       <property>: <value>,
       ...
     },
     // other animation properties
-  });`}</code>
-      </pre>
+  });`}</Blocks>
 
       <p>
         The <strong>attr</strong> object can be used to animte valid svg

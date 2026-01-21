@@ -43,21 +43,15 @@ const ReusablePatterns = () => {
         "target" so that we can refer to and apply the design later.
       </p>
 
-      <Blocks>
-        {`<defs>
+      <Blocks>{`<defs>
   <g id="target" stroke="black" fill="none">
     <rect x="0" y="0" width="50" height="50" />
     <circle cx="25" cy="25" r="25" />
     <circle cx="25" cy="25" r="20" />
     <circle cx="25" cy="25" r="15" />
-    <circle cx="25" cy="25"r="10"
-      fill="black"
-      fill-opacity=".2"
-      stroke="black"
-    />
+    <circle cx="25" cy="25" r="10" fill="black" fill-opacity=".2" stroke="black" />
   </g>
-</defs>`}
-      </Blocks>
+</defs>`}</Blocks>
 
       <p>This is what our design looks like:</p>
 
@@ -74,46 +68,29 @@ const ReusablePatterns = () => {
         we created earlier.
       </p>
 
-      <Blocks>
-        {`<defs>
+      <Blocks>{`<defs>
   <g id="target" stroke="black" fill="none">
     // more code...
   </g>
-  <pattern
-    id="tile"
-    x="0" y="0"
-    width="50" height="50"
-    patternUnits="userSpaceOnUse">
-        <use href="#target" x="0" y="0" />
-</pattern>
-</defs>`}
-      </Blocks>
+  <pattern id="tile" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+    <use href="#target" x="0" y="0" />
+  </pattern>
+</defs>`}</Blocks>
 
       <p>Finally, the pattern tile is used as a fill by referencing its id.</p>
 
-      <pre>
-        <code>{`fill="url(#tile)"`}</code>
-      </pre>
+      <Blocks>{`fill="url(#tile)"`}</Blocks>
 
-      <Blocks>
-        {`<defs>
-    <g id="target" stroke="black" fill="none">
-        // graphics making up target
-    </g>
-
-    <pattern
-        id="tile"
-        x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
-        <use href="#target" x="0" y="0"></use>
-    </pattern>
-
+      <Blocks>{`<defs>
+  <g id="target" stroke="black" fill="none">
+    // graphics making up target
+  </g>
+  <pattern id="tile" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+    <use href="#target" x="0" y="0"></use>
+  </pattern>
 </defs>
 
-<rect x="0" y="0"
-    width="500" height="300"
-    fill="url(#tile)">
-</rect>`}
-      </Blocks>
+<rect x="0" y="0" width="500" height="300" fill="url(#tile)"></rect>`}</Blocks>
 
       <PatternFill />
 
@@ -183,29 +160,15 @@ const ReusablePatterns = () => {
         tile is the same size as the graphic used in the tile. (50x50)
       </p>
 
-      <pre>
-        <code>{`<pattern ... patternUnits="userSpaceOnUse"`}</code>
-      </pre>
+      <Blocks>{`<pattern ... patternUnits="userSpaceOnUse"`}</Blocks>
 
-      <Blocks>
-        {`<circle id="circle_design"
-    cx="25" cy="25" r="25"
-    stroke="grey" fill="#eaeaea" />
+      <Blocks>{`<circle id="circle_design" cx="25" cy="25" r="25" stroke="grey" fill="#eaeaea" />
 
-<pattern
-  id="circle_tile"
-  x="0"
-  y="0"
-  width="50"
-  height="50"
-  patternUnits="userSpaceOnUse"
->
+<pattern id="circle_tile" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
   <use href="#circle_design" x="0" y="0"></use>
 </pattern>
 
-<rect x="0" y="0" width="600" height="300" fill="url(#circle_tile)">
-</rect>`}
-      </Blocks>
+<rect x="0" y="0" width="600" height="300" fill="url(#circle_tile)"></rect>`}</Blocks>
 
       <img src="/patterns_50x50.png" alt="patterns_50x50.png" />
 
@@ -233,20 +196,11 @@ const ReusablePatterns = () => {
         = 100.
       </p>
 
-      <pre>
-        <code>{`<pattern ... patternUnits="objectBoundingBox"`}</code>
-      </pre>
+      <Blocks>{`<pattern ... patternUnits="objectBoundingBox"`}</Blocks>
 
-      <Blocks>
-        {`<pattern
-  id="tile"
-  x="0" y="0"
-  width=".2" height=".2"
-  patternUnits="objectBoundingBox"
->
+      <Blocks>{`<pattern id="tile" x="0" y="0" width=".2" height=".2" patternUnits="objectBoundingBox">
   // more code
-</pattern>`}
-      </Blocks>
+</pattern>`}</Blocks>
 
       <img src="/patterns_obb_point_2.png" alt="patterns_obb_point_2.png" />
 
@@ -266,13 +220,11 @@ const ReusablePatterns = () => {
         coordinate system as the element that uses the pattern.
       </p>
 
-      <Blocks>
-        {`<pattern id="tile" x="0" y="0" width="50" height="50"
-    patternUnits="userSpaceOnUse"
-    patternContentUnits="userSpaceOnUse">
-   <circle cx="25" cy="25" r="25" ... />
-</pattern>`}
-      </Blocks>
+      <Blocks>{`<pattern id="tile" x="0" y="0" width="50" height="50"
+  patternUnits="userSpaceOnUse"
+  patternContentUnits="userSpaceOnUse">
+  <circle cx="25" cy="25" r="25" ... />
+</pattern>`}</Blocks>
 
       <img
         src="/patterns_pcu_userSpace_1.png"
@@ -291,17 +243,13 @@ const ReusablePatterns = () => {
         (The rectangle being filled by the pattern is 500x500. 500 x .05 = 25 )
       </h4>
 
-      <Blocks>
-        {`<pattern id="tile" x="0" y="0" width="20" height="20"
-    patternUnits="userSpaceOnUse"
-    patternContentUnits="objectBoundingBox">
-   <circle cx=".05" cy=".05" r=".05" ... />
+      <Blocks>{`<pattern id="tile" x="0" y="0" width="20" height="20"
+  patternUnits="userSpaceOnUse"
+  patternContentUnits="objectBoundingBox">
+  <circle cx=".05" cy=".05" r=".05" ... />
 </pattern>
 
-<rect x="0" y="0"
-    width="500" height="500"
-    fill="url(#tile)"... />`}
-      </Blocks>
+<rect x="0" y="0" width="500" height="500" fill="url(#tile)" ... />`}</Blocks>
 
       <p>
         Since the size of the pattern content is expressed as a percentage of

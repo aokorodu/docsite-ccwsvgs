@@ -75,12 +75,9 @@ const ReusableGradients = () => {
         <code>&lt;defs&gt;</code> section.
       </p>
 
-      <Blocks>
-        {`<defs>
-    <linearGradient>
-    </linearGradient>
-</defs>`}
-      </Blocks>
+      <Blocks>{`<defs>
+  <linearGradient></linearGradient>
+</defs>`}</Blocks>
 
       <h3>id</h3>
 
@@ -89,34 +86,22 @@ const ReusableGradients = () => {
         able to reference it by it's <strong>id</strong>
       </p>
 
-      <Blocks>
-        {`<defs>
-    <linearGradient id="linear_gradient_horiz">
-    </linearGradient>
-</defs>`}
-      </Blocks>
+      <Blocks>{`<defs>
+  <linearGradient id="linear_gradient_horiz"></linearGradient>
+</defs>`}</Blocks>
 
       <p>
         There's nothing to this gradient yet, but to apply it as a fill we'll
         use the <code>fill</code> attribute with the gradient's id:
       </p>
 
-      <pre>
-        <code>{`fill="url(#linear_gradient_horiz)"`}</code>
-      </pre>
+      <Blocks>{`fill="url(#linear_gradient_horiz)"`}</Blocks>
 
-      <Blocks>
-        {`<defs>
-    <linearGradient id="linear_gradient_horiz">
-    </linearGradient>
+      <Blocks>{`<defs>
+  <linearGradient id="linear_gradient_horiz"></linearGradient>
 </defs>
-.
-.
-.
-<rect x="0" y="0"
-  width="500" height="500"
-  fill="url(#linear_gradient_horiz)" />`}
-      </Blocks>
+...
+<rect x="0" y="0" width="500" height="500" fill="url(#linear_gradient_horiz)" />`}</Blocks>
 
       <h3>stop colors</h3>
 
@@ -126,12 +111,10 @@ const ReusableGradients = () => {
         <strong>&lt;linearGradient&gt;</strong> element.
       </p>
 
-      <Blocks>
-        {`<linearGradient id="linear_gradient_horiz">
+      <Blocks>{`<linearGradient id="linear_gradient_horiz">
   <stop offset="0%" stop-color="red" />
   <stop offset="95%" stop-color="blue" />
-</linearGradient>`}
-      </Blocks>
+</linearGradient>`}</Blocks>
 
       <p>
         You'll notice that the stop element has two attributes -{" "}
@@ -158,12 +141,10 @@ const ReusableGradients = () => {
 
       <p>Here the offset position for blue has been moved to 50%.</p>
 
-      <Blocks>
-        {`<linearGradient id="lin-grad_50">
-    <stop offset="0%" stop-color="red" />
-    <stop offset="50%" stop-color="blue" />
-</linearGradient>`}
-      </Blocks>
+      <Blocks>{`<linearGradient id="lin-grad_50">
+  <stop offset="0%" stop-color="red" />
+  <stop offset="50%" stop-color="blue" />
+</linearGradient>`}</Blocks>
 
       <LGChartOffset50 />
 
@@ -171,13 +152,11 @@ const ReusableGradients = () => {
 
       <p>This gradient has three stop colors.</p>
 
-      <Blocks>
-        {`<linearGradient id="three_stops">
-    <stop offset="00%" stop-color="red" />
-    <stop offset="50%" stop-color="gold" />
-    <stop offset="100%" stop-color="green" />
-</linearGradient>`}
-      </Blocks>
+      <Blocks>{`<linearGradient id="three_stops">
+  <stop offset="00%" stop-color="red" />
+  <stop offset="50%" stop-color="gold" />
+  <stop offset="100%" stop-color="green" />
+</linearGradient>`}</Blocks>
 
       <LG_offset_3Stops />
 
@@ -190,12 +169,10 @@ const ReusableGradients = () => {
         the gradient within the bounding box.
       </p>
 
-      <Blocks>
-        {`<linearGradient id="linear_gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-   <stop offset="0%" stop-color="red" />
-   <stop offset="100%" stop-color="blue" />
-</linearGradient>`}
-      </Blocks>
+      <Blocks>{`<linearGradient id="linear_gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+  <stop offset="0%" stop-color="red" />
+  <stop offset="100%" stop-color="blue" />
+</linearGradient>`}</Blocks>
 
       <img src="/gradient_lin_diag.png" alt="gradient_lin_diag.png" />
 
@@ -217,23 +194,19 @@ const ReusableGradients = () => {
         <strong>stop-colors</strong> and their <strong>offset</strong> positions.
       </p>
 
-      <Blocks>
-        {`<radialGradient id="radial_gradient">
-   <stop offset="0%" stop-color="red" />
-   <stop offset="100%" stop-color="blue" />
-</radialGradient>`}
-      </Blocks>
+      <Blocks>{`<radialGradient id="radial_gradient">
+  <stop offset="0%" stop-color="red" />
+  <stop offset="100%" stop-color="blue" />
+</radialGradient>`}</Blocks>
 
       <RadialGradientIntro />
 
       <p>Here the offset position of the first stop-color has been moved to 50%</p>
 
-      <Blocks>
-        {`<radialGradient id="radial_gradient">
-   <stop offset="50%" stop-color="red" />
-   <stop offset="100%" stop-color="blue" />
-</radialGradient>`}
-      </Blocks>
+      <Blocks>{`<radialGradient id="radial_gradient">
+  <stop offset="50%" stop-color="red" />
+  <stop offset="100%" stop-color="blue" />
+</radialGradient>`}</Blocks>
 
       <img src="/gradeint_rad_50.png" alt="gradeint_rad_50.png" />
 
@@ -258,14 +231,10 @@ const ReusableGradients = () => {
 
       <p>By default, both points are at the center of the bounding box</p>
 
-      <Blocks>
-        {`<radialGradient
-    cx="50%" cy="50%" fx="50%" fy="50%"
-    id="radial_gradient">
-   <stop offset="0%" stop-color="red" />
-   <stop offset="100%" stop-color="blue" />
-</radialGradient>`}
-      </Blocks>
+      <Blocks>{`<radialGradient cx="50%" cy="50%" fx="50%" fy="50%" id="radial_gradient">
+  <stop offset="0%" stop-color="red" />
+  <stop offset="100%" stop-color="blue" />
+</radialGradient>`}</Blocks>
 
       <img
         src="/gradient_rad_orientation_1.png"
@@ -277,14 +246,10 @@ const ReusableGradients = () => {
         the gradient originates from the focal point
       </p>
 
-      <Blocks>
-        {`<radialGradient
-    cx="50%" cy="50%" fx="0%" fy="50%"
-    id="radial_gradient">
-   <stop offset="0%" stop-color="red" />
-   <stop offset="100%" stop-color="blue" />
-</radialGradient>`}
-      </Blocks>
+      <Blocks>{`<radialGradient cx="50%" cy="50%" fx="0%" fy="50%" id="radial_gradient">
+  <stop offset="0%" stop-color="red" />
+  <stop offset="100%" stop-color="blue" />
+</radialGradient>`}</Blocks>
 
       <RadialGradientOrientation />
 
@@ -304,14 +269,10 @@ const ReusableGradients = () => {
         point to the right edge (cx="99%).
       </p>
 
-      <Blocks>
-        {`<radialGradient
-    cx="99%" cy="50%" fx="50%" fy="50%"
-    id="radial_gradient">
-   <stop offset="0%" stop-color="red" />
-   <stop offset="100%" stop-color="blue" />
-</radialGradient>`}
-      </Blocks>
+      <Blocks>{`<radialGradient cx="99%" cy="50%" fx="50%" fy="50%" id="radial_gradient">
+  <stop offset="0%" stop-color="red" />
+  <stop offset="100%" stop-color="blue" />
+</radialGradient>`}</Blocks>
 
       <RadialGradientOrientation_2 />
 
@@ -325,14 +286,10 @@ const ReusableGradients = () => {
         greater than 100%
       </p>
 
-      <Blocks>
-        {`<radialGradient
-    r="50%"
-    id="radial_gradient">
-   <stop offset="0%" stop-color="red" />
-   <stop offset="100%" stop-color="blue" />
-</radialGradient>`}
-      </Blocks>
+      <Blocks>{`<radialGradient r="50%" id="radial_gradient">
+  <stop offset="0%" stop-color="red" />
+  <stop offset="100%" stop-color="blue" />
+</radialGradient>`}</Blocks>
 
       <img
         src="/gradient_rad_radius_size_1.png"
@@ -343,14 +300,10 @@ const ReusableGradients = () => {
         Now let's see what the gradient looks like when we set the radius to 20%:
       </p>
 
-      <Blocks>
-        {`<radialGradient
-    r="20%"
-    id="radial_gradient">
-   <stop offset="0%" stop-color="red" />
-   <stop offset="100%" stop-color="blue" />
-</radialGradient>`}
-      </Blocks>
+      <Blocks>{`<radialGradient r="20%" id="radial_gradient">
+  <stop offset="0%" stop-color="red" />
+  <stop offset="100%" stop-color="blue" />
+</radialGradient>`}</Blocks>
 
       <RadialGradientRadius />
 
@@ -359,14 +312,10 @@ const ReusableGradients = () => {
         greater than 100%
       </p>
 
-      <Blocks>
-        {`<radialGradient
-    r="120%"
-    id="radial_gradient">
-   <stop offset="0%" stop-color="red" />
-   <stop offset="100%" stop-color="blue" />
-</radialGradient>`}
-      </Blocks>
+      <Blocks>{`<radialGradient r="120%" id="radial_gradient">
+  <stop offset="0%" stop-color="red" />
+  <stop offset="100%" stop-color="blue" />
+</radialGradient>`}</Blocks>
 
       <RadialGradientRadius_2 />
 
@@ -376,15 +325,10 @@ const ReusableGradients = () => {
         circle. By default, the radius is 0%
       </p>
 
-      <Blocks>
-        {`<radialGradient
-    r="50%"
-    fr="0%"
-    id="radial_gradient">
-   <stop offset="0%" stop-color="red" />
-   <stop offset="100%" stop-color="blue" />
-</radialGradient>`}
-      </Blocks>
+      <Blocks>{`<radialGradient r="50%" fr="0%" id="radial_gradient">
+  <stop offset="0%" stop-color="red" />
+  <stop offset="100%" stop-color="blue" />
+</radialGradient>`}</Blocks>
 
       <img
         src="/gradient_rad_focal_radius_size_1.png"
@@ -397,15 +341,10 @@ const ReusableGradients = () => {
         of the circle, it starts at the edge of the focal circle
       </p>
 
-      <Blocks>
-        {`<radialGradient
-    r="50%"
-    fr="25%"
-    id="radial_gradient">
-   <stop offset="0%" stop-color="red" />
-   <stop offset="100%" stop-color="blue" />
-</radialGradient>`}
-      </Blocks>
+      <Blocks>{`<radialGradient r="50%" fr="25%" id="radial_gradient">
+  <stop offset="0%" stop-color="red" />
+  <stop offset="100%" stop-color="blue" />
+</radialGradient>`}</Blocks>
 
       <img
         src="/gradient_rad_focal_radius_size_2.png"
@@ -426,23 +365,17 @@ const ReusableGradients = () => {
         passing in the gradient's id:
       </p>
 
-      <pre>
-        <code>{`fill="url(#lin-grad_0)"`}</code>
-      </pre>
+      <Blocks>{`fill="url(#lin-grad_0)"`}</Blocks>
 
-      <Blocks>
-        {`<svg width="500" height="500" viewBox="0 0 500 500">
-    <defs>
-        <linearGradient id="lin-grad_0">
-            <stop offset="0%" stop-color="red" />
-            <stop offset="100%" stop-color="blue" />
-        </linearGradient>
-    </defs>
-
-    <circle cx="250" cy="250" r="200" fill="url(#lin-grad_0)" />
-
-</svg>`}
-      </Blocks>
+      <Blocks>{`<svg width="500" height="500" viewBox="0 0 500 500">
+  <defs>
+    <linearGradient id="lin-grad_0">
+      <stop offset="0%" stop-color="red" />
+      <stop offset="100%" stop-color="blue" />
+    </linearGradient>
+  </defs>
+  <circle cx="250" cy="250" r="200" fill="url(#lin-grad_0)" />
+</svg>`}</Blocks>
 
       <FillLinearGradient />
 
@@ -450,23 +383,17 @@ const ReusableGradients = () => {
 
       <p>You can also use the gradient as a stroke:</p>
 
-      <pre>
-        <code>{`stroke="url(#lin-grad_0)"`}</code>
-      </pre>
+      <Blocks>{`stroke="url(#lin-grad_0)"`}</Blocks>
 
-      <Blocks>
-        {`<svg width="500" height="500" viewBox="0 0 500 500">
-    <defs>
-        <linearGradient id="lin-grad_0">
-            <stop offset="0%" stop-color="red" />
-            <stop offset="100%" stop-color="blue" />
-        </linearGradient>
-    </defs>
-
-    <circle cx="250" cy="250" r="200" stroke="url(#lin-grad_0)"  stroke-width="15" fill="none" />
-
-</svg>`}
-      </Blocks>
+      <Blocks>{`<svg width="500" height="500" viewBox="0 0 500 500">
+  <defs>
+    <linearGradient id="lin-grad_0">
+      <stop offset="0%" stop-color="red" />
+      <stop offset="100%" stop-color="blue" />
+    </linearGradient>
+  </defs>
+  <circle cx="250" cy="250" r="200" stroke="url(#lin-grad_0)" stroke-width="15" fill="none" />
+</svg>`}</Blocks>
 
       <StrokeLinearGradient />
     </>

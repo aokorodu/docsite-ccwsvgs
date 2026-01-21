@@ -42,9 +42,7 @@ const AspectRatio = () => {
         (width=1000px height=500px). How will the svg be displayed?
       </p>
 
-      <pre>
-        <code>{`<svg width="1000px" height="500px" viewbox="0 0 500 500">...`}</code>
-      </pre>
+      <Blocks>{`<svg width="1000px" height="500px" viewbox="0 0 500 500">...`}</Blocks>
 
       <img src="/aspect-ratio_example_2.png" alt="aspect ratio example 2" />
 
@@ -86,9 +84,7 @@ const AspectRatio = () => {
         The preserveAspectRatio is actually made up of three different values
       </p>
 
-      <pre>
-        <code>{`preserveAspectRatio= "<x-alignment><y-alignment>  <meet or slice>"`}</code>
-      </pre>
+      <Blocks>{`preserveAspectRatio= "<x-alignment><y-alignment>  <meet or slice>"`}</Blocks>
 
       <p>
         <strong>x-alignment</strong> describes how the svg will align with the
@@ -114,15 +110,13 @@ const AspectRatio = () => {
         entirely visible within the container (<strong>meet</strong>).
       </p>
 
-      <pre>
-        <code>{`preserveAspectRatio="xMidyMid meet"`}</code>
-      </pre>
+      <Blocks>{`preserveAspectRatio="xMidyMid meet"`}</Blocks>
 
       <Blocks highlight="5">{`<svg
-   width="500px"
-   height="250px"
-   viewbox="0 0 500"
-   preserveAspectRatio="xMidYMid meet">...
+  width="500px"
+  height="250px"
+  viewbox="0 0 500"
+  preserveAspectRatio="xMidYMid meet">...
 </svg>`}</Blocks>
 
       <DynamicAspectRatio
@@ -140,10 +134,10 @@ const AspectRatio = () => {
       </p>
 
       <Blocks highlight="5">{`<svg
-   width="500px"
-   height="250px"
-   viewbox="0 0 500"
-   preserveAspectRatio="xMinYMid meet">...
+  width="500px"
+  height="250px"
+  viewbox="0 0 500"
+  preserveAspectRatio="xMinYMid meet">...
 </svg>`}</Blocks>
 
       <DynamicAspectRatio
@@ -159,10 +153,10 @@ const AspectRatio = () => {
       </p>
 
       <Blocks highlight="5">{`<svg
-   width="500px"
-   height="250px"
-   viewbox="0 0 500"
-   preserveAspectRatio="xMaxYMid meet">...
+  width="500px"
+  height="250px"
+  viewbox="0 0 500"
+  preserveAspectRatio="xMaxYMid meet">...
 </svg>`}</Blocks>
 
       <DynamicAspectRatio
@@ -178,10 +172,10 @@ const AspectRatio = () => {
       </p>
 
       <Blocks highlight="5">{`<svg
-   width="250px"
-   height="500px"
-   viewbox="0 0 500"
-   preserveAspectRatio="xMidYMax meet">...
+  width="250px"
+  height="500px"
+  viewbox="0 0 500"
+  preserveAspectRatio="xMidYMax meet">...
 </svg>`}</Blocks>
 
       <DynamicAspectRatio
@@ -202,10 +196,10 @@ const AspectRatio = () => {
       </p>
 
       <Blocks highlight="5">{`<svg
-   width="500px"
-   height="250px"
-   viewbox="0 0 500"
-   preserveAspectRatio="xMidYMid slice">...
+  width="500px"
+  height="250px"
+  viewbox="0 0 500"
+  preserveAspectRatio="xMidYMid slice">...
 </svg>`}</Blocks>
 
       <DynamicAspectRatio
@@ -221,10 +215,10 @@ const AspectRatio = () => {
       </p>
 
       <Blocks highlight="5">{`<svg
-   width="500px"
-   height="250px"
-   viewbox="0 0 500"
-   preserveAspectRatio="xMidYMin slice">...
+  width="500px"
+  height="250px"
+  viewbox="0 0 500"
+  preserveAspectRatio="xMidYMin slice">...
 </svg>`}</Blocks>
 
       <DynamicAspectRatio
@@ -240,10 +234,10 @@ const AspectRatio = () => {
       </p>
 
       <Blocks highlight="5">{`<svg
-   width="250px"
-   height="500px"
-   viewbox="0 0 500"
-   preserveAspectRatio="xMidYMid slice">...
+  width="250px"
+  height="500px"
+  viewbox="0 0 500"
+  preserveAspectRatio="xMidYMid slice">...
 </svg>`}</Blocks>
 
       <DynamicAspectRatio
@@ -254,10 +248,10 @@ const AspectRatio = () => {
       />
 
       <Blocks highlight="5">{`<svg
-   width="250px"
-   height="500px"
-   viewbox="0 0 500"
-   preserveAspectRatio="xMinYMid slice">...
+  width="250px"
+  height="500px"
+  viewbox="0 0 500"
+  preserveAspectRatio="xMinYMid slice">...
 </svg>`}</Blocks>
 
       <DynamicAspectRatio
@@ -273,10 +267,10 @@ const AspectRatio = () => {
       </p>
 
       <Blocks highlight="5">{`<svg
-   width="250px"
-   height="500px"
-   viewbox="0 0 500"
-   preserveAspectRatio="none">...
+  width="250px"
+  height="500px"
+  viewbox="0 0 500"
+  preserveAspectRatio="none">...
 </svg>`}</Blocks>
 
       <DynamicAspectRatio
@@ -287,10 +281,10 @@ const AspectRatio = () => {
       />
 
       <Blocks highlight="5">{`<svg
-   width="500px"
-   height="250px"
-   viewbox="0 0 500"
-   preserveAspectRatio="none">...
+  width="500px"
+  height="250px"
+  viewbox="0 0 500"
+  preserveAspectRatio="none">...
 </svg>`}</Blocks>
 
       <DynamicAspectRatio
@@ -311,16 +305,13 @@ const AspectRatio = () => {
 
       <h3>xMidYMid meet</h3>
 
-      <pre>
-        <code>{`<image
-    href="https://images.unsplash.com..."
-    x="100"
-    y="100"
-    width="300"
-    height="300"
-    preserveAspectRatio="xMidYMid meet"
-  />`}</code>
-      </pre>
+      <Blocks>{`<image
+  href="https://images.unsplash.com..."
+  x="100"
+  y="100"
+  width="300"
+  height="300"
+  preserveAspectRatio="xMidYMid meet" />`}</Blocks>
 
       <svg width="500" height="500" viewBox="0 0 500 500">
         <image
@@ -343,16 +334,13 @@ const AspectRatio = () => {
 
       <h3>xMidYMid slice</h3>
 
-      <pre>
-        <code>{`<image
-    href="https://images.unsplash.com..."
-    x="100"
-    y="100"
-    width="300"
-    height="300"
-    preserveAspectRatio="xMidYMid slice"
-  />`}</code>
-      </pre>
+      <Blocks>{`<image
+  href="https://images.unsplash.com..."
+  x="100"
+  y="100"
+  width="300"
+  height="300"
+  preserveAspectRatio="xMidYMid slice" />`}</Blocks>
 
       <svg width="500" height="500" viewBox="0 0 500 500">
         <image
@@ -375,16 +363,13 @@ const AspectRatio = () => {
 
       <h3>xMinYMin meet</h3>
 
-      <pre>
-        <code>{`<image
-    href="https://images.unsplash.com..."
-    x="100"
-    y="100"
-    width="300"
-    height="300"
-    preserveAspectRatio="xMinYMin meet"
-  />`}</code>
-      </pre>
+      <Blocks>{`<image
+  href="https://images.unsplash.com..."
+  x="100"
+  y="100"
+  width="300"
+  height="300"
+  preserveAspectRatio="xMinYMin meet" />`}</Blocks>
 
       <svg width="500" height="500" viewBox="0 0 500 500">
         <image

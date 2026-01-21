@@ -27,9 +27,7 @@ const MatterjsParticlesPolygons = () => {
         this:
       </p>
 
-      <pre>
-        <code>{`Matter.Bodies.polygon(x, y, sides, radius)`}</code>
-      </pre>
+      <Blocks>{`Matter.Bodies.polygon(x, y, sides, radius)`}</Blocks>
 
       <p>
         Polygons in MatterJS are similar to squares/rectangles in that the x and
@@ -46,7 +44,7 @@ const MatterjsParticlesPolygons = () => {
         modules we'll need) is to create variables for our particle.
       </p>
 
-      <Blocks>{` // particle vars
+      <Blocks>{`// particle vars
 let particleGraphic, particleBody;
 const particleRadius = 25;
 const particleHolder = document.querySelector("#particleHolder");`}</Blocks>
@@ -140,9 +138,7 @@ function initRenderer() {...}`}</Blocks>
         polygon.
       </p>
 
-      <pre>
-        <code>{`Matter.Bodies.polygon(x, y, sides, radius, [options])`}</code>
-      </pre>
+      <Blocks>{`Matter.Bodies.polygon(x, y, sides, radius, [options])`}</Blocks>
 
       <p>
         The options are the usual properties we set when creating a matterjs
@@ -174,9 +170,7 @@ function initRenderer() {...}`}</Blocks>
         polygon would look something like this:
       </p>
 
-      <pre>
-        <code>{`[{x:0, y:0}, {x:100, y:0}, {x:100, y:100}, {x:0, y:100}]`}</code>
-      </pre>
+      <Blocks>{`[{x:0, y:0}, {x:100, y:0}, {x:100, y:100}, {x:0, y:100}]`}</Blocks>
 
       <Blocks highlight="17">{`function initParticle() {
   // dimensions, etc
@@ -202,9 +196,7 @@ function initRenderer() {...}`}</Blocks>
         polygon.
       </p>
 
-      <pre>
-        <code>{`function getPolygonGraphic(vertices, color = "black")`}</code>
-      </pre>
+      <Blocks>{`function getPolygonGraphic(vertices, color = "black")`}</Blocks>
 
       <p>
         The first thing we need to do is convert the vertices array into a

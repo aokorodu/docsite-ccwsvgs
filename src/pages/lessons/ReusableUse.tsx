@@ -24,14 +24,8 @@ const ReusableUse = () => {
         The use element allows you to "copy" and reuse other svg elements.
       </p>
 
-      <Blocks>{`<circle
-  id="dot"
-  cx="100" cy="100" r="100"
-  fill="#C4C4C4" />
-<use
-    href="#dot"
-    x="250" y="250">
-</use>`}</Blocks>
+      <Blocks>{`<circle id="dot" cx="100" cy="100" r="100" fill="#C4C4C4" />
+<use href="#dot" x="250" y="250"></use>`}</Blocks>
 
       <img src="/reusable_use_intro.png" alt="reusable_use_intro.png" />
 
@@ -75,16 +69,8 @@ const ReusableUse = () => {
         element.
       </p>
 
-      <Blocks>
-        {`<circle
-    id="dot"
-    cx="100" cy="100" r="100"
-    stroke="black" stroke-width="4" />
-<use
-    href="#dot"
-    x="250" y="250"
-    fill="#0DD9F4"/>`}
-      </Blocks>
+      <Blocks>{`<circle id="dot" cx="100" cy="100" r="100" stroke="black" stroke-width="4" />
+<use href="#dot" x="250" y="250" fill="#0DD9F4"/>`}</Blocks>
 
       <img
         src="/reusable_use_no_override.png"

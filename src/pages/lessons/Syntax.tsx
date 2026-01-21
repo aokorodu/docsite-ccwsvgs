@@ -26,9 +26,7 @@ const Syntax = () => {
         viewport is not defined, the svg will scale to fit whatever contains it.
       </p>
 
-      <pre>
-        <code>{`width="<width>" height="<height>"`}</code>
-      </pre>
+      <Blocks>{`width="<width>" height="<height>"`}</Blocks>
 
       <Blocks>{`<svg width="500" height="500">
 </svg>`}</Blocks>
@@ -46,9 +44,7 @@ const Syntax = () => {
         <strong>min-x, min-y, width</strong>, and <strong>height</strong>
       </p>
 
-      <pre>
-        <code>{`viewbox="<min-x> <min-y> <width> <height>"`}</code>
-      </pre>
+      <Blocks>{`viewbox="<min-x> <min-y> <width> <height>"`}</Blocks>
 
       <Blocks>{`<svg width="500" height="500" viewbox="0 0 500 500">
 </svg>`}</Blocks>
@@ -87,12 +83,10 @@ const Syntax = () => {
         next chapter)
       </p>
 
-      <Blocks caption={"viewbox 500x500"}>{`<svg
-   width="500"
-   height="500"
-   viewbox="0 0 500 500">
+      <Blocks caption={"viewbox 500x500"}>{`<svg width="500" height="500" viewbox="0 0 500 500">
    <rect x="50" y="50" width="400" height="400" />
 </svg>`}</Blocks>
+
 
       <img src="/syntax_viewbox_500x500.png" alt="viewbox 500x500" />
 
@@ -101,10 +95,7 @@ const Syntax = () => {
         viewbox size to 1000 x 1000
       </p>
 
-      <Blocks caption={"viewbox 1000x1000"}>{`<svg
-   width="500"
-   height="500"
-   viewbox="0 0 1000 1000">
+      <Blocks caption={"viewbox 1000x1000"}>{`<svg width="500" height="500" viewbox="0 0 1000 1000">
    <rect x="50" y="50" width="400" height="400" />
 </svg>`}</Blocks>
 
@@ -118,10 +109,7 @@ const Syntax = () => {
         the viewbox is a 1000x500 rectangle?
       </p>
 
-      <Blocks>{`<svg
-   width="500"
-   height="500"
-   viewbox="0 0 1000 500">
+      <Blocks>{`<svg width="500" height="500" viewbox="0 0 1000 500">
 </svg>`}</Blocks>
 
       <p>
@@ -143,20 +131,14 @@ const Syntax = () => {
 
       <p>The min-x and min-y values are generally set to 0, as below:</p>
 
-      <Blocks caption={"min-x = 0 min-y = 0"}>{`<svg
-   width="500"
-   height="500"
-   viewbox="0 0 500 500">
+      <Blocks caption={"min-x = 0 min-y = 0"}>{`<svg width="500" height="500" viewbox="0 0 500 500">
 </svg>`}</Blocks>
 
       <img src="/syntax_viewbox_0_0.png" alt="syntax_viewbox_0_0.png" />
 
       <p>Let's draw a rectangle and put it at the 0,0 point.</p>
 
-      <Blocks caption={"rectangle at 0 x 0"}>{`<svg
-   width="500"
-   height="500"
-   viewbox="0 0 500 500">
+      <Blocks caption={"rectangle at 0 x 0"}>{`<svg width="500" height="500" viewbox="0 0 500 500">
    <rect x="0" y="0" width="250" height="250" />
 </svg>`}</Blocks>
 
@@ -168,10 +150,7 @@ const Syntax = () => {
         the start position of the viewbox coordinate space has changed.
       </p>
 
-      <Blocks caption={"rectangle still at 0 x 0"}>{`<svg
-   width="500"
-   height="500"
-   viewbox="-100 -100 500 500">
+      <Blocks caption={"rectangle still at 0 x 0"}>{`<svg width="500" height="500" viewbox="-100 -100 500 500">
    <rect x="0" y="0" width="250" height="250" />
 </svg>`}</Blocks>
 
@@ -187,9 +166,7 @@ const Syntax = () => {
         inline svgs, so we won't be discussing this during the course.
       </p>
 
-      <pre>
-        <code>{`xmlns="http://www.w3.org/2000/svg"`}</code>
-      </pre>
+      <Blocks>{`xmlns="http://www.w3.org/2000/svg"`}</Blocks>
 
       <Blocks
         caption={"xml namespace"}
