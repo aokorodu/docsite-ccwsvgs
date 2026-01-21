@@ -67,13 +67,11 @@ const AnimationJavascript = () => {
 
       <p>For example, let's add a rotation animation to this square</p>
 
-      <Blocks>
-        {`<svg width="500" height="500" viewbox="0 0 500 500">
+      <Blocks>{`<svg width="500" height="500" viewbox="0 0 500 500">
   <g transform="translate(250 250)">
     <rect class="square" x="-150" y="-150" width="300" height="300" fill="cornflowerblue" rx="10" ry="10" />
   </g>
-</svg>`}
-      </Blocks>
+</svg>`}</Blocks>
 
       <svg width="500" height="500" viewBox="0 0 500 500">
         <g id="holder" transform="translate(250 250)">
@@ -98,15 +96,13 @@ const AnimationJavascript = () => {
         to the element dynamically using javascript.
       </p>
 
-      <Blocks>
-        {`.square {
-      transform: rotate(0deg);
-      transition: 500ms ease-in-out;
-  }
-  .spin-style-transition {
-      transform: rotate(360deg);
-  }`}
-      </Blocks>
+      <Blocks>{`.square {
+  transform: rotate(0deg);
+  transition: 500ms ease-in-out;
+}
+.spin-style-transition {
+  transform: rotate(360deg);
+}`}</Blocks>
 
       <p>We'll use querySelector to get a reference to the square using it's id:</p>
 
@@ -114,12 +110,10 @@ const AnimationJavascript = () => {
 
       <p>Next we'll add a click event listener to the square.</p>
 
-      <Blocks highlight="2-4">
-        {`const square = document.querySelector(".square");
-   square.addEventListener("click", () => {
-	// code goes here
- })`}
-      </Blocks>
+      <Blocks highlight="2-4">{`const square = document.querySelector(".square");
+square.addEventListener("click", () => {
+  // code goes here
+})`}</Blocks>
 
       <p>
         Finally we'll use the <strong>classList</strong> property that returns a{" "}
@@ -129,15 +123,13 @@ const AnimationJavascript = () => {
         the classlist. If so, we'll remove it. If not, we'll add it.
       </p>
 
-      <Blocks highlight="3-7">
-        {`const square = document.querySelector(".square");
-  square.addEventListener("click", () => {
-    const list = square.classList;
-    list.contains("spin-style-transition")
-      ? square.classList.remove("spin-style-transition")
-      : square.classList.add("spin-style-transition");
-  });`}
-      </Blocks>
+      <Blocks highlight="3-7">{`const square = document.querySelector(".square");
+square.addEventListener("click", () => {
+  const list = square.classList;
+  list.contains("spin-style-transition")
+    ? square.classList.remove("spin-style-transition")
+    : square.classList.add("spin-style-transition");
+});`}</Blocks>
 
       <ToggleClassWithJS />
 
@@ -145,31 +137,28 @@ const AnimationJavascript = () => {
 
       <p>We can also toggle keyframe animations.</p>
 
-      <Blocks>
-        {`.square {
-    transform: rotate(0deg);
+      <Blocks>{`.square {
+  transform: rotate(0deg);
 }
 .spin-style-animation {
-    animation: spin 1s ease-in-out;
+  animation: spin 1s ease-in-out;
 }
 @keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}`}
-      </Blocks>
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}`}</Blocks>
 
-      <Blocks highlight="3-7">
-        {`   const square = document.querySelector("#square");
-    square.addEventListener("click", () => {
-    const list = square.classList;
-    list.contains("spin-style-animation")
-        ? square.classList.remove("spin-style-animation")
-        : square.classList.add("spin-style-animation")})`}
-      </Blocks>
+      <Blocks highlight="3-7">{`const square = document.querySelector("#square");
+square.addEventListener("click", () => {
+  const list = square.classList;
+  list.contains("spin-style-animation")
+    ? square.classList.remove("spin-style-animation")
+    : square.classList.add("spin-style-animation")
+})`}</Blocks>
 
       <p>
         If we simply try to swap out the transitions for the keyframe animation,
@@ -192,9 +181,7 @@ const AnimationJavascript = () => {
         (spin) and backwards (spinBack) animations:
       </p>
 
-      <Blocks highlight="8,9,10,19-26">
-        {`
-.square {
+      <Blocks highlight="7,8,9,18-25">{`.square {
   transform: rotate(0deg);
 }
 .spin-style-animation {
@@ -204,37 +191,34 @@ const AnimationJavascript = () => {
   animation: spinBack 1s ease-in-out;
 }
 @keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 @keyframes spinBack {
-    from {
-        transform: rotate(360deg);
-    }
-    to {
-        ransform: rotate(0deg);
-    }
-}`}
-      </Blocks>
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}`}</Blocks>
 
       <p>Now we'll use javascript to swap them out.</p>
 
-      <Blocks>
-        {`square.addEventListener("click", () => {
-    const list = square.classList;
-    if(list.contains("spin-style-animation")){
-        square.classList.remove("spin-style-animation")
-        square.classList.add("spin-back-style-animation")
-    } else {
-        square.classList.add("spin-style-animation")
-        square.classList.remove("spin-back-style-animation")
-    }
-})`}
-      </Blocks>
+      <Blocks>{`square.addEventListener("click", () => {
+  const list = square.classList;
+  if(list.contains("spin-style-animation")){
+    square.classList.remove("spin-style-animation")
+    square.classList.add("spin-back-style-animation")
+  } else {
+    square.classList.add("spin-style-animation")
+    square.classList.remove("spin-back-style-animation")
+  }
+})`}</Blocks>
 
       <p>Now it works!</p>
 
@@ -255,72 +239,65 @@ const AnimationJavascript = () => {
         shrinks the cube and the <strong>expandAnimation</strong> expands it.
       </p>
 
-      <Blocks>
-        {`
-.shrinkAnimation {
+      <Blocks>{`.shrinkAnimation {
   animation-name: shrink;
   animation-duration: 1s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
 }
 @keyframes shrink {
-    from {
-        transform: scale(1);
-        fill: conflowerblue;
-    }
-    to {
-        transform: scale(0.5);
-        fill: red;
-    }
+  from {
+    transform: scale(1);
+    fill: conflowerblue;
+  }
+  to {
+    transform: scale(0.5);
+    fill: red;
+  }
 }
 .expandAnimation {
-    animation-name: expand;
-    animation-duration: 1s;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: both;
+  animation-name: expand;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
 }
 @keyframes expand {
-    from {
-        transform: scale(0.5);
-        fill: red;
-    }
-    to {
-        transform: scale(1);
-        fill: cornflowerblue;
-    }
-}`}
-      </Blocks>
+  from {
+    transform: scale(0.5);
+    fill: red;
+  }
+  to {
+    transform: scale(1);
+    fill: cornflowerblue;
+  }
+}`}</Blocks>
 
       <p>
         First we'll add a click event handler to the square, and use it to add
         the shrink animation.
       </p>
 
-      <Blocks>
-        {`  const square = document.querySelector("#square");
+      <Blocks>{`const square = document.querySelector("#square");
 
-  square.addEventListener("click", () => {
-        square.classList.add("shrinkAnimation")
-    })`}
-      </Blocks>
+square.addEventListener("click", () => {
+  square.classList.add("shrinkAnimation")
+})`}</Blocks>
 
       <p>
         Next we'll add an "animationend" event listener to the square, and use
         it to both remove the shrinkAnimation class and add the expandAnimation:
       </p>
 
-      <Blocks highlight="6,7,8,9">
-        {`  const square = document.querySelector("#square");
+      <Blocks highlight="7,8,9,10">{`const square = document.querySelector("#square");
 
-  square.addEventListener("click", () => {
-        square.classList.add("shrinkAnimation")
-    })
+square.addEventListener("click", () => {
+  square.classList.add("shrinkAnimation")
+})
 
-    square.addEventListener('animationend', () => {
-        square.classList.remove("shrinkAnimation")
-        square.classList.add("expandAnimation")
-    });`}
-      </Blocks>
+square.addEventListener('animationend', () => {
+  square.classList.remove("shrinkAnimation")
+  square.classList.add("expandAnimation")
+});`}</Blocks>
 
       <AnimEnd />
 
@@ -337,21 +314,19 @@ const AnimationJavascript = () => {
         need to remove the expandAnimation class first:
       </p>
 
-      <Blocks highlight="5,6,7">
-        {`  const square = document.querySelector("#square");
+      <Blocks highlight="4,5,6">{`const square = document.querySelector("#square");
 
-  square.addEventListener("click", () => {
-        if(square.classList.contains("expandAnimation")){
-          square.classList.remove("expandAnimation");
-        }
-        square.classList.add("shrinkAnimation")
-    })
+square.addEventListener("click", () => {
+  if(square.classList.contains("expandAnimation")){
+    square.classList.remove("expandAnimation");
+  }
+  square.classList.add("shrinkAnimation")
+})
 
-    square.addEventListener('animationend', () => {
-        square.classList.remove("shrinkAnimation")
-        square.classList.add("expandAnimation")
-    });`}
-      </Blocks>
+square.addEventListener('animationend', () => {
+  square.classList.remove("shrinkAnimation")
+  square.classList.add("expandAnimation")
+});`}</Blocks>
 
       <BitterEnd />
 

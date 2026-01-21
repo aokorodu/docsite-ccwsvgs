@@ -47,17 +47,15 @@ const DynamicChanging = () => {
         />
       </svg>
 
-      <Blocks>
-        {`<svg width="500" height="500" viewbox="0 0 500 500">
-   <circle
+      <Blocks>{`<svg width="500" height="500" viewbox="0 0 500 500">
+  <circle
     id="my_circle"
     cx="250" cy="250" r="150"
     stroke="black"
     stroke-opacity=".5"
     stroke-width="10"
     fill="purple" />
-</svg>`}
-      </Blocks>
+</svg>`}</Blocks>
 
       <p>
         In the <strong>JS</strong> section of{" "}
@@ -81,19 +79,15 @@ const DynamicChanging = () => {
         attribute.
       </p>
 
-      <pre>
-        <code>{`element.setAttribute(name, value)`}</code>
-      </pre>
+      <Blocks>{`element.setAttribute(name, value)`}</Blocks>
 
       <p>Now let's change the fill, stroke, stroke-width, and stroke-opacity:</p>
 
-      <Blocks>
-        {`let my_circle = document.getElementById("my_circle");
+      <Blocks>{`let my_circle = document.getElementById("my_circle");
 my_circle.setAttribute('fill', 'blue');
 my_circle.setAttribute('stroke', 'orange');
 my_circle.setAttribute('stroke-width', '20');
-my_circle.setAttribute('stroke-opacity', '1');`}
-      </Blocks>
+my_circle.setAttribute('stroke-opacity', '1');`}</Blocks>
 
       <svg width="500" height="500" viewBox="0 0 500 500">
         <circle
@@ -115,22 +109,13 @@ my_circle.setAttribute('stroke-opacity', '1');`}
         to 60.
       </p>
 
-      <pre>
-        <code>{`textElement.setAttribute(<attribute name>, <value>)`}</code>
-      </pre>
+      <Blocks>{`textElement.setAttribute(<attribute name>, <value>)`}</Blocks>
 
-      <Blocks caption="Only the code needed for this example is included here">
-        {`<svg width="500" height="200" viewbox="0 0 500 200">
-  <text
-    id="my-text"
-    fill="black"
-    font-size="30"
-    ...
-  >
+      <Blocks caption="Only the code needed for this example is included here">{`<svg width="500" height="200" viewbox="0 0 500 200">
+  <text id="my-text" fill="black" font-size="30" ...>
     hello world
   </text>
-</svg>`}
-      </Blocks>
+</svg>`}</Blocks>
 
       <svg width="500" height="200" viewBox="0 0 500 200">
         <text
@@ -145,11 +130,9 @@ my_circle.setAttribute('stroke-opacity', '1');`}
         </text>
       </svg>
 
-      <Blocks>
-        {`const myText = document.getElementById("my-text");
+      <Blocks>{`const myText = document.getElementById("my-text");
 myText.setAttribute("fill", "red");
-myText.setAttribute("font-size", 60);`}
-      </Blocks>
+myText.setAttribute("font-size", 60);`}</Blocks>
 
       <svg width="500" height="200" viewBox="0 0 500 200">
         <text
@@ -173,14 +156,10 @@ myText.setAttribute("font-size", 60);`}
         text string.
       </p>
 
-      <pre>
-        <code>{`textElement.firstChild.textContent = "new text"`}</code>
-      </pre>
+      <Blocks>{`textElement.firstChild.textContent = "new text"`}</Blocks>
 
-      <Blocks>
-        {`const myText = document.getElementById("my-text");
-myText.firstChild.textContent = "changing text";`}
-      </Blocks>
+      <Blocks>{`const myText = document.getElementById("my-text");
+myText.firstChild.textContent = "changing text";`}</Blocks>
 
       <svg width="500" height="200" viewBox="0 0 500 200">
         <text
@@ -202,9 +181,7 @@ myText.firstChild.textContent = "changing text";`}
         attribute? You would use the <strong>getAttribute</strong> method.
       </p>
 
-      <pre>
-        <code>{`element.getAttribute("<name>")`}</code>
-      </pre>
+      <Blocks>{`element.getAttribute("<name>")`}</Blocks>
 
       <svg width="500" height="500" viewBox="0 0 500 500">
         <circle
@@ -219,12 +196,10 @@ myText.firstChild.textContent = "changing text";`}
 
       <p>Let's get the value of the fill for the circle above:</p>
 
-      <Blocks>
-        {`let my_circle = document.getElementById("my_circle");
+      <Blocks>{`let my_circle = document.getElementById("my_circle");
 let fill_value = my_circle.getAttribute("fill");
 
-// fill_value = "purple"`}
-      </Blocks>
+// fill_value = "purple"`}</Blocks>
 
       <p>
         The getAttribute method is particularly useful when animating elements,

@@ -37,16 +37,14 @@ const ReusableClippath = () => {
         the clip-path attribute, used by the element applying the clip path.
       </p>
 
-      <Blocks>
-        {`<defs>
-    <clipPath id="circ_CP">
-        <circle cx="250" cy="250" r="150" />
-    </clipPath>
-    ...
+      <Blocks>{`<defs>
+  <clipPath id="circ_CP">
+    <circle cx="250" cy="250" r="150" />
+  </clipPath>
+  ...
 </defs>
 
-<rect ... clip-path="url(#circ_CP)" />`}
-      </Blocks>
+<rect ... clip-path="url(#circ_CP)" />`}</Blocks>
 
       <h2>clipPath attributes</h2>
 
@@ -54,17 +52,13 @@ const ReusableClippath = () => {
         <strong>id</strong>: Used to identify and apply the clip path
       </p>
 
-      <pre>
-        <code>{`<clipPath id="clip-path-id">`}</code>
-      </pre>
+      <Blocks>{`<clipPath id="clip-path-id">`}</Blocks>
 
       <p>
         <strong>clip-path</strong>: Used to apply the clip path
       </p>
 
-      <pre>
-        <code>{`<rect ... clip-path="url(#clip-path-id)" />`}</code>
-      </pre>
+      <Blocks>{`<rect ... clip-path="url(#clip-path-id)" />`}</Blocks>
 
       <p>
         The clipPath element can contain simple shapes, paths, or a combination

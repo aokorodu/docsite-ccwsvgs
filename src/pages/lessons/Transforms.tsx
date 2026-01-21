@@ -66,12 +66,7 @@ const Transforms = () => {
         negative.
       </p>
 
-      <Blocks>
-        {`<circle
-    cx="250" cy="250" r="250"
-    fill="yellow"
-    transform="translate(100 0)" />`}
-      </Blocks>
+      <Blocks>{`<circle ...transform="translate(100 0)" />`}</Blocks>
 
       <img src="/transform_translate_x.png" alt="transform_translate_x.png" />
 
@@ -89,13 +84,7 @@ const Transforms = () => {
         (0,0) point of the element's coordinate system.
       </p>
 
-      <Blocks>
-        {`<rect
-    x="200" y="200"
-    width="200" height="200"
-    fill="grey"
-    transform="rotate(25)" />`}
-      </Blocks>
+      <Blocks>{`<rect ... transform="rotate(25)" />`}</Blocks>
 
       <img
         src="/transform_rotation_start.png"
@@ -159,22 +148,11 @@ const Transforms = () => {
         coordinate system of the element
       </p>
 
-      <Blocks caption="no skew">
-        {`<rect
-    x="100" y="100"
-    width="200" height="200"
-    fill="grey"/>`}
-      </Blocks>
+      <Blocks caption="no skew">{`<rect x="100" y="100" width="200" height="200" fill="grey"/>`}</Blocks>
 
       <img src="/transform_skew_none.png" alt="transform_skew_none.png" />
 
-      <Blocks caption="skewX">
-        {`<rect
-    x="100" y="100"
-    width="200" height="200"
-    fill="grey"
-    transform="skewX(25)"/>`}
-      </Blocks>
+      <Blocks caption="skewX">{`<rect ... transform="skewX(25)" />`}</Blocks>
 
       <img
         src="/transform_skew_skewX_25.png"
@@ -208,21 +186,15 @@ const Transforms = () => {
         distance along the x and/or y axis.
       </p>
 
-      <Blocks caption="css translate">
-        {`<style>
+      <Blocks caption="css translate">{`<style>
 #my-circle {
-    transform: translate(100 0);
+  transform: translate(100 0);
 }
 </style>
 
 // more code
 
-<circle
-    id="my-circle"
-    cx="250" cy="250" r="250"
-    fill="yellow"
-    transform="translate(100 0)" />`}
-      </Blocks>
+<circle id="my-circle" ... transform="translate(100 0)" />`}</Blocks>
 
       <img src="/transform_translate_x.png" alt="transform_translate_x.png" />
 
@@ -234,25 +206,21 @@ const Transforms = () => {
         translateY transforms.
       </p>
 
-      <Blocks caption="css translateX example">
-        {`<style>
+      <Blocks caption="css translateX example">{`<style>
 #my-circle {
-    transform: translateX(100);
+  transform: translateX(100);
 }
 </style>
 
-// more code`}
-      </Blocks>
+// more code`}</Blocks>
 
-      <Blocks caption="css translateY negative example">
-        {`<style>
+      <Blocks caption="css translateY negative example">{`<style>
 #my-circle {
-    transform: translateY(-100);
+  transform: translateY(-100);
 }
 </style>
 
-// more code`}
-      </Blocks>
+// more code`}</Blocks>
 
       <img
         src="/transform_translateY_negative.png"
@@ -268,18 +236,13 @@ const Transforms = () => {
         must include <strong>'deg'</strong> after the unit number.
       </p>
 
-      <Blocks caption="css translateY negative example">
-        {`<style>
-    #my-square {
-    transform: rotate(25deg);
- </style>
+      <Blocks caption="css rotate example">{`<style>
+#my-square {
+  transform: rotate(25deg);
 }
-<rect
-    x="200" y="200"
-    width="200" height="200"
-    fill="grey"  />
-`}
-      </Blocks>
+</style>
+
+<rect ... id="my-square" />`}</Blocks>
 
       <img src="/transform_rotation_end.png" alt="transform_rotation_end.png" />
 
@@ -295,18 +258,13 @@ const Transforms = () => {
         y dimensions
       </p>
 
-      <Blocks>
-        {`<style>
-    #my-square {
-    transform: scale(2);
- </style>
+      <Blocks>{`<style>
+#my-square {
+  transform: scale(2);
 }
-<rect
-    x="200" y="200"
-    width="200" height="200"
-    fill="grey"  />
-`}
-      </Blocks>
+</style>
+
+<rect ... id="my-square" />`}</Blocks>
 
       <img
         src="/transsform_scale_scaled.png"
@@ -315,16 +273,13 @@ const Transforms = () => {
 
       <p>As with translate, CSS offers separate scaleX and scaleY transforms</p>
 
-      <Blocks>
-        {`<style>
-    #my-square {
-    transform: scaleX(2);
- </style>
+      <Blocks>{`<style>
+#my-square {
+  transform: scaleX(2);
 }
+</style>
 
-// more code
-`}
-      </Blocks>
+<rect ... id="my-square" />`}</Blocks>
 
       <img
         src="/transform_scale_scale_2_1.png"
@@ -333,16 +288,13 @@ const Transforms = () => {
 
       <h3>CSS transforms - skew</h3>
 
-      <Blocks>
-        {`<style>
-    #my-square {
-    transform: skew(25deg, 15deg);
- </style>
+      <Blocks>{`<style>
+#my-square {
+  transform: skew(25deg, 15deg);
 }
+</style>
 
-// more code
-`}
-      </Blocks>
+<rect ... id="my-square" />`}</Blocks>
 
       <img src="/transform_skew_X_Y.png" alt="transform_skew_X_Y.png" />
 
@@ -351,16 +303,13 @@ const Transforms = () => {
         skewX or skewY.
       </p>
 
-      <Blocks>
-        {`<style>
-    #my-square {
-        transform: skewX(25deg);
- </style>
+      <Blocks>{`<style>
+#my-square {
+  transform: skewX(25deg);
 }
+</style>
 
-// more code
-`}
-      </Blocks>
+<rect ... id="my-square" />`}</Blocks>
 
       <img
         src="/transform_skew_skewX_25.png"
@@ -394,16 +343,13 @@ const Transforms = () => {
         result, the rect is pushed downward and to the right.
       </p>
 
-      <Blocks>
-        {`<style>
-    #my-square {
-        transform: scale(1.5);
- </style>
+      <Blocks>{`<style>
+#my-square {
+  transform: scale(1.5);
 }
+</style>
 
-// more code
-`}
-      </Blocks>
+<rect ... id="my-square" />`}</Blocks>
 
       <img
         src="/transform_transform-box_1.png"
@@ -422,17 +368,14 @@ const Transforms = () => {
         <strong>bounding box</strong>.
       </p>
 
-      <Blocks>
-        {`<style>
-    #my-square {
-        transform-box: fill-box;
-        transform: scale(1.5);
- </style>
+      <Blocks>{`<style>
+#my-square {
+  transform-box: fill-box;
+  transform: scale(1.5);
 }
+</style>
 
-// more code
-`}
-      </Blocks>
+<rect ... id="my-square" />`}</Blocks>
 
       <h4>before</h4>
 
@@ -457,17 +400,15 @@ const Transforms = () => {
         upper-left corner to it's center.
       </p>
 
-      <Blocks>
-        {`<style>
-    #my-square {
-        transform-box: fill-box;
-        transform-origin: 50% 50%;
-        transform: scale(1.5);
+      <Blocks>{`<style>
+#my-square {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  transform: scale(1.5);
 }
- </style>
-}
-// more code`}
-      </Blocks>
+</style>
+
+<rect ... id="my-square" />`}</Blocks>
 
       <h4>before</h4>
 
@@ -502,22 +443,17 @@ const Transforms = () => {
         </li>
       </ol>
 
-      <Blocks>
-        {`<style>
-    .translateFirst {
-        fill: blue;
-        transform: translate(200px, 100px) rotate(15deg);
+      <Blocks>{`<style>
+.translateFirst {
+  fill: blue;
+  transform: translate(200px, 100px) rotate(15deg);
 }
 
-    .rotateFirst {
-        fill: red;
-        transform: rotate(15deg) translate(200px, 100px);
-
+.rotateFirst {
+  fill: red;
+  transform: rotate(15deg) translate(200px, 100px);
 }
-
- </style>
-}`}
-      </Blocks>
+</style>`}</Blocks>
 
       <Example1 />
     </>

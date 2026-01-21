@@ -27,18 +27,16 @@ const AnimationJavascriptII = () => {
       </p>
 
       <Blocks>{`<svg ...>
-<circle id="my-circle"
-    cx="150" cy="150"
-    r="10" fill="green" />
+  <circle id="my-circle" cx="150" cy="150" r="10" fill="green" />
 </svg>
 
 <script>
-   const circ = document.querySelector("#my-circle");
-   let xpos = 50;
-   for (let i = 0; i < 400; i++) {
-       circ.setAttribute("cx", xpos);
-       xpos += 1;
-   }
+  const circ = document.querySelector("#my-circle");
+  let xpos = 50;
+  for (let i = 0; i < 400; i++) {
+    circ.setAttribute("cx", xpos);
+    xpos += 1;
+  }
 </script>`}</Blocks>
 
       <p>
@@ -53,19 +51,17 @@ const AnimationJavascriptII = () => {
         circle's cy attribute. It won't work. Why?
       </p>
 
-      <Blocks highlight="9,10,11,12,13">{`<svg ...>
-<circle id="my-circle"
-    cx="150" cy="150"
-    r="10" fill="green" />
+      <Blocks highlight="7,8,9,10,11">{`<svg ...>
+  <circle id="my-circle" cx="150" cy="150" r="10" fill="green" />
 </svg>
 
 <script>
-   const circ = document.querySelector("#my-circle");
-   let ypos = 0;
-   for (let i = 0; i < 300; i++) {
-       circ.setAttribute("cx", ypos);
-       ypos += 1;
-   }
+  const circ = document.querySelector("#my-circle");
+  let ypos = 0;
+  for (let i = 0; i < 300; i++) {
+    circ.setAttribute("cx", ypos);
+    ypos += 1;
+  }
 </script>`}</Blocks>
 
       <FailExample />
@@ -91,17 +87,15 @@ const AnimationJavascriptII = () => {
         First, let's create a method that increments the circle's cy attribute:
       </p>
 
-      <Blocks>
-        {`   const circ = document.querySelector("#my-circle");
-    let ypos = 10;
+      <Blocks>{`const circ = document.querySelector("#my-circle");
+let ypos = 10;
 
-    moveCircle();
+moveCircle();
 
-    function moveCircle(){
-        circ.setAttribute("cy", ypos);
-        ypos += 1;
-    }`}
-      </Blocks>
+function moveCircle(){
+  circ.setAttribute("cy", ypos);
+  ypos += 1;
+}`}</Blocks>
 
       <p>
         As a reminder, the browser has a own frame rate of about 60 fps. This
@@ -121,20 +115,19 @@ const AnimationJavascriptII = () => {
         being called again.
       </p>
 
-      <Blocks>{`
-    const circ = document.querySelector("#my-circle");
-    let ypos = 10;
+      <Blocks>{`const circ = document.querySelector("#my-circle");
+let ypos = 10;
 
-    moveCircle();
+moveCircle();
 
-    function moveCircle(){
-        ypos += 1;
-        circ.setAttribute("cy", ypos);
+function moveCircle(){
+  ypos += 1;
+  circ.setAttribute("cy", ypos);
 
-        if (ypos >= 290) return;
+  if (ypos >= 290) return;
 
-        window.requestAnimationFrame(moveCircle);
-    }`}</Blocks>
+  window.requestAnimationFrame(moveCircle);
+}`}</Blocks>
 
       <AnimationFrameExample />
 
@@ -144,25 +137,22 @@ const AnimationJavascriptII = () => {
         <em>speed</em> variable.
       </p>
 
-      <pre>
-        <code>{`let speed = 1;`}</code>
-      </pre>
+      <Blocks>{`let speed = 1;`}</Blocks>
 
-      <Blocks highlight="4">{`
-    const circ = document.querySelector("#my-circle");
-    let ypos = 10;
-    let speed = 1;
+      <Blocks highlight="3">{`const circ = document.querySelector("#my-circle");
+let ypos = 10;
+let speed = 1;
 
-    moveCircle();
+moveCircle();
 
-    function moveCircle(){
-        ypos += 1;
-        circ.setAttribute("cy", ypos);
+function moveCircle(){
+  ypos += 1;
+  circ.setAttribute("cy", ypos);
 
-        if (ypos >= 290) return;
+  if (ypos >= 290) return;
 
-        window.requestAnimationFrame(moveCircle);
-    }`}</Blocks>
+  window.requestAnimationFrame(moveCircle);
+}`}</Blocks>
 
       <p>
         Now let's update the <em>moveCircle</em> method so that when the ypos
@@ -171,24 +161,23 @@ const AnimationJavascriptII = () => {
         to just multiply it by -1.
       </p>
 
-      <Blocks highlight="12,13,14,15">{`
-    const circ = document.querySelector("#my-circle");
-    let ypos = 10;
-    let speed = 1;
+      <Blocks highlight="11,12,13,14">{`const circ = document.querySelector("#my-circle");
+let ypos = 10;
+let speed = 1;
 
-    moveCircle();
+moveCircle();
 
-    function moveCircle(){
-        ypos += 1;
-        circ.setAttribute("cy", ypos);
+function moveCircle(){
+  ypos += 1;
+  circ.setAttribute("cy", ypos);
 
-        if(ypos >= 290){
-            speed *= -1;
-            ypos = 290;
-        }
+  if(ypos >= 290){
+    speed *= -1;
+    ypos = 290;
+  }
 
-        window.requestAnimationFrame(moveCircle);
-    }`}</Blocks>
+  window.requestAnimationFrame(moveCircle);
+}`}</Blocks>
 
       <SimpleBounceExample />
 
@@ -200,29 +189,28 @@ const AnimationJavascriptII = () => {
         svg (ypos &lt; 10).
       </p>
 
-      <Blocks highlight="12,13,14,15, 17,18,19,20">{`
-    const circ = document.querySelector("#my-circle");
-    let ypos = 10;
-    let speed = 1;
+      <Blocks highlight="11,12,13,14,16,17,18,19">{`const circ = document.querySelector("#my-circle");
+let ypos = 10;
+let speed = 1;
 
-    moveCircle();
+moveCircle();
 
-    function moveCircle(){
-        ypos += 1;
-        circ.setAttribute("cy", ypos);
+function moveCircle(){
+  ypos += 1;
+  circ.setAttribute("cy", ypos);
 
-        if(ypos >= 290){
-            speed *= -1;
-            ypos = 290;
-        }
+  if(ypos >= 290){
+    speed *= -1;
+    ypos = 290;
+  }
 
-        if(ypos < 10){
-            speed *= -1;
-            ypos = 10;
-        }
+  if(ypos < 10){
+    speed *= -1;
+    ypos = 10;
+  }
 
-        window.requestAnimationFrame(moveCircle);
-    }`}</Blocks>
+  window.requestAnimationFrame(moveCircle);
+}`}</Blocks>
 
       <SimpleBounceExample top={true} />
 
@@ -234,39 +222,38 @@ const AnimationJavascriptII = () => {
         with ANY of the walls.
       </p>
 
-      <Blocks highlight="3,4,5,6,11,12,13,14,16,17,18,19,20,21,22, 24,25,26,27,28,29,30">{`
-    const circ = document.querySelector("#my-circle");
-    let xpos = 100;
-    let ypos = 150;
-    let x_speed = 1;
-    let y_speed = 1;
+      <Blocks highlight="2,3,4,5,10,11,12,13,15,16,17,18,19,20,21,23,24,25,26,27,28,29">{`const circ = document.querySelector("#my-circle");
+let xpos = 100;
+let ypos = 150;
+let x_speed = 1;
+let y_speed = 1;
 
-    moveCircle();
+moveCircle();
 
-    function moveCircle(){
-        circ.setAttribute("cx", xpos);
-        circ.setAttribute("cy", ypos);
-        xpos += x_speed;
-        ypos += y_speed;
+function moveCircle(){
+  circ.setAttribute("cx", xpos);
+  circ.setAttribute("cy", ypos);
+  xpos += x_speed;
+  ypos += y_speed;
 
-        if(xpos > 190){
-            xpos = 190;
-            x_speed *= -1;
-        } else if(xpos < 10){
-            xpos = 10;
-            x_speed *= -1;
-        }
+  if(xpos > 190){
+    xpos = 190;
+    x_speed *= -1;
+  } else if(xpos < 10){
+    xpos = 10;
+    x_speed *= -1;
+  }
 
-        if(ypos > 290){
-            ypos = 290;
-            y_speed *= -1;
-        } else if(ypos < 10){
-            ypos = 10;
-            y_speed *= -1;
-        }
+  if(ypos > 290){
+    ypos = 290;
+    y_speed *= -1;
+  } else if(ypos < 10){
+    ypos = 10;
+    y_speed *= -1;
+  }
 
-        window.requestAnimationFrame(moveCircle);
-    }`}</Blocks>
+  window.requestAnimationFrame(moveCircle);
+}`}</Blocks>
 
       <ComplexBounceExample />
 
@@ -278,39 +265,38 @@ const AnimationJavascriptII = () => {
       </p>
 
       <Blocks highlight="5,6">{`<script>
-    const circ = document.querySelector("#my-circle");
-    let xpos = 100;
-    let ypos = 150;
-    let x_speed = Math.random() * 10 - 5;
-    let y_speed = Math.random() * 10 - 5;
+  const circ = document.querySelector("#my-circle");
+  let xpos = 100;
+  let ypos = 150;
+  let x_speed = Math.random() * 10 - 5;
+  let y_speed = Math.random() * 10 - 5;
 
-    moveCircle();
+  moveCircle();
 
-    function moveCircle(){
-        circ.setAttribute("cx", xpos);
-        circ.setAttribute("cy", ypos);
-        xpos += x_speed;
-        ypos += y_speed;
+  function moveCircle(){
+    circ.setAttribute("cx", xpos);
+    circ.setAttribute("cy", ypos);
+    xpos += x_speed;
+    ypos += y_speed;
 
-        if(xpos > 190){
-            xpos = 190;
-            x_speed *= -1;
-        } else if(xpos < 10){
-            xpos = 10;
-            x_speed *= -1;
-        }
-
-        if(ypos > 290){
-            ypos = 290;
-            y_speed *= -1;
-        } else if(ypos < 10){
-            ypos = 10;
-            y_speed *= -1;
-        }
-
-        window.requestAnimationFrame(moveCircle);
+    if(xpos > 190){
+      xpos = 190;
+      x_speed *= -1;
+    } else if(xpos < 10){
+      xpos = 10;
+      x_speed *= -1;
     }
 
+    if(ypos > 290){
+      ypos = 290;
+      y_speed *= -1;
+    } else if(ypos < 10){
+      ypos = 10;
+      y_speed *= -1;
+    }
+
+    window.requestAnimationFrame(moveCircle);
+  }
 </script>`}</Blocks>
 
       <ComplexBounceExample randomized={true} />
@@ -322,9 +308,7 @@ const AnimationJavascriptII = () => {
         by Math.random() like this:
       </p>
 
-      <pre>
-        <code>{`let x_speed = Math.random() * 10;`}</code>
-      </pre>
+      <Blocks>{`let x_speed = Math.random() * 10;`}</Blocks>
 
       <p>
         The problem is that this would always result in a positive number. If I
@@ -332,15 +316,11 @@ const AnimationJavascriptII = () => {
         -x, I need to do this
       </p>
 
-      <pre>
-        <code>{`let value = Math.random() * <2x> - x;`}</code>
-      </pre>
+      <Blocks>{`let value = Math.random() * <2x> - x;`}</Blocks>
 
       <p>So to get values from 5 to -5:</p>
 
-      <pre>
-        <code>{`let x_speed = Math.random() * 10 - 5;`}</code>
-      </pre>
+      <Blocks>{`let x_speed = Math.random() * 10 - 5;`}</Blocks>
 
       <br />
 
@@ -364,16 +344,15 @@ const AnimationJavascriptII = () => {
         position, the radius, and the width and height of the svg.
       </p>
 
-      <Blocks>{`
-class Particle {
-    constructor(x, y, r, w, h) {
-        this.x = x; this.y = y; this.r = r;
-        this.right = w - r;
-        this.top = h - r;
-        this.x_speed = Math.random() * 10 - 5;
-        this.y_speed = Math.random() * 10 - 5;
-        this.circ = null
-    }
+      <Blocks>{`class Particle {
+  constructor(x, y, r, w, h) {
+    this.x = x; this.y = y; this.r = r;
+    this.right = w - r;
+    this.top = h - r;
+    this.x_speed = Math.random() * 10 - 5;
+    this.y_speed = Math.random() * 10 - 5;
+    this.circ = null
+  }
 }`}</Blocks>
 
       <p>
@@ -389,21 +368,21 @@ class Particle {
       </p>
 
       <Blocks highlight="12-14">{`<script>
-class Particle {
+  class Particle {
     constructor(x, y, r, w, h) {
-        this.x = x; this.y = y; this.r = r;
-        this.right = w - r;
-        this.top = h - r;
-        this.x_speed = Math.random() * 10 - 5;
-        this.y_speed = Math.random() * 10 - 5;
-        this.circ = null
+      this.x = x; this.y = y; this.r = r;
+      this.right = w - r;
+      this.top = h - r;
+      this.x_speed = Math.random() * 10 - 5;
+      this.y_speed = Math.random() * 10 - 5;
+      this.circ = null
     }
 
     init(container){
-        // ... initialization code will go here
+      // ... initialization code will go here
     }
-
-}</script>`}</Blocks>
+  }
+</script>`}</Blocks>
 
       <p>
         Now we'll dynamically create a circle element, add some styling, and add
@@ -412,29 +391,29 @@ class Particle {
       </p>
 
       <Blocks highlight="12-22">{`<script>
-class Particle {
+  class Particle {
     constructor(x, y, r, w, h) {
-        this.x = x; this.y = y; this.r = r;
-        this.right = w - r;
-        this.top = h - r;
-        this.x_speed = Math.random() * 10 - 5;
-        this.y_speed = Math.random() * 10 - 5;
-        this.circ = null
+      this.x = x; this.y = y; this.r = r;
+      this.right = w - r;
+      this.top = h - r;
+      this.x_speed = Math.random() * 10 - 5;
+      this.y_speed = Math.random() * 10 - 5;
+      this.circ = null
     }
 
     init(container){
-        const namespace = "http://www.w3.org/2000/svg";
-        this.circ = document.createElementNS(namespace, "circle");
-        this.circ.setAttribute("cx", this.x);
-        this.circ.setAttribute("cy", this.y);
-        this.circ.setAttribute("r", this.r);
-        this.circ.setAttribute("fill", "orange");
-        this.circ.setAttribute("stroke", "black");
-        this.circ.setAttribute("stroke-width", "3");
-        container.appendChild(this.circ);
+      const namespace = "http://www.w3.org/2000/svg";
+      this.circ = document.createElementNS(namespace, "circle");
+      this.circ.setAttribute("cx", this.x);
+      this.circ.setAttribute("cy", this.y);
+      this.circ.setAttribute("r", this.r);
+      this.circ.setAttribute("fill", "orange");
+      this.circ.setAttribute("stroke", "black");
+      this.circ.setAttribute("stroke-width", "3");
+      container.appendChild(this.circ);
     }
-
-}</script>`}</Blocks>
+  }
+</script>`}</Blocks>
 
       <p>
         Now we'll add an "update" method that will be used to change the
@@ -442,34 +421,34 @@ class Particle {
       </p>
 
       <Blocks highlight="24-27">{`<script>
-class Particle {
+  class Particle {
     constructor(x, y, r, w, h) {
-        this.x = x; this.y = y; this.r = r;
-        this.right = w - r;
-        this.top = h - r;
-        this.x_speed = Math.random() * 10 - 5;
-        this.y_speed = Math.random() * 10 - 5;
-        this.circ = null
+      this.x = x; this.y = y; this.r = r;
+      this.right = w - r;
+      this.top = h - r;
+      this.x_speed = Math.random() * 10 - 5;
+      this.y_speed = Math.random() * 10 - 5;
+      this.circ = null
     }
 
     init(container){
-        const namespace = "http://www.w3.org/2000/svg";
-        this.circ = document.createElementNS(namespace, "circle");
-        this.circ.setAttribute("cx", this.x);
-        this.circ.setAttribute("cy", this.y);
-         this.circ.setAttribute("r", this.r);
-        this.circ.setAttribute("fill", "orange");
-        this.circ.setAttribute("stroke", "black");
-        this.circ.setAttribute("stroke-width", "3");this.r);
-        container.appendChild(this.circ);
+      const namespace = "http://www.w3.org/2000/svg";
+      this.circ = document.createElementNS(namespace, "circle");
+      this.circ.setAttribute("cx", this.x);
+      this.circ.setAttribute("cy", this.y);
+      this.circ.setAttribute("r", this.r);
+      this.circ.setAttribute("fill", "orange");
+      this.circ.setAttribute("stroke", "black");
+      this.circ.setAttribute("stroke-width", "3");
+      container.appendChild(this.circ);
     }
 
     update() {
-       this.x += this.x_speed;
-       this.y += this.y_speed;
+      this.x += this.x_speed;
+      this.y += this.y_speed;
     }
-
-}</script>`}</Blocks>
+  }
+</script>`}</Blocks>
 
       <p>
         Next we'll add the method we created earlier to bounce the particle off
@@ -477,39 +456,39 @@ class Particle {
       </p>
 
       <Blocks highlight="14,17-32">{`<script>
-class Particle {
+  class Particle {
     constructor(x, y, r, w, h) {
-        // constructor code
+      // constructor code
     }
 
     init(container){
-        // init code
+      // init code
     }
 
     update() {
-       this.x += this.x_speed;
-       this.y += this.y_speed;
-       this.bounceIfNeeded();
+      this.x += this.x_speed;
+      this.y += this.y_speed;
+      this.bounceIfNeeded();
     }
 
     bounceIfNeeded() {
-        if (this.x > this.right) {
-            this.x = this.right;
-            this.x_speed *= -1;
-        } else if (this.x < this.r) {
-            this.x = this.r;
-            this.x_speed *= -1;
-        }
-        if (this.y > this.top) {
-            this.y = this.top;
-            this.y_speed *= -1;
-        } else if (this.y < this.r) {
-            this.y = this.r;
-            this.y_speed *= -1;
-        }
+      if (this.x > this.right) {
+        this.x = this.right;
+        this.x_speed *= -1;
+      } else if (this.x < this.r) {
+        this.x = this.r;
+        this.x_speed *= -1;
+      }
+      if (this.y > this.top) {
+        this.y = this.top;
+        this.y_speed *= -1;
+      } else if (this.y < this.r) {
+        this.y = this.r;
+        this.y_speed *= -1;
+      }
     }
-
-}</script>`}</Blocks>
+  }
+</script>`}</Blocks>
 
       <p>
         Note that we're using the <strong>right</strong> and <strong>top</strong>{" "}
@@ -518,29 +497,29 @@ class Particle {
       </p>
 
       <Blocks highlight="19-22">{`<script>
-class Particle {
+  class Particle {
     constructor(x, y, r, w, h) {
-        // constructor code
+      // constructor code
     }
 
     init(container){
-        // init code
+      // init code
     }
 
     update() {
-       // update code
+      // update code
     }
 
     bounceIfNeeded() {
-        // bounce code
+      // bounce code
     }
 
     draw(){
-        this.circ.setAttribute("cx", this.x);
-        this.circ.setAttribute("cy", this.y);
+      this.circ.setAttribute("cx", this.x);
+      this.circ.setAttribute("cy", this.y);
     }
-
-}</script>`}</Blocks>
+  }
+</script>`}</Blocks>
 
       <p>
         Now let's put the particle class in action. We'll need an array to hold
@@ -549,18 +528,16 @@ class Particle {
       </p>
 
       <Blocks highlight="2,10-12">{`<body>
-    <svg id="particle-holder" ...>
-    </svg>
+  <svg id="particle-holder" ...></svg>
 </body>
 <script>
-    class Particle {
-        // particle code
-    }
+  class Particle {
+    // particle code
+  }
 
-    const particles = [];
-    const num_particles = 30;
-    const svg = document.querySelector("#particle-holder");
-
+  const particles = [];
+  const num_particles = 30;
+  const svg = document.querySelector("#particle-holder");
 </script>`}</Blocks>
 
       <p>
@@ -568,29 +545,27 @@ class Particle {
         y position (250, 250), a radius (15), and the size of the svg (500x500).
       </p>
 
-      <Blocks highlight="14,16-21">{`<body>
-    <svg id="particle-holder" ...>
-    </svg>
+      <Blocks highlight="12,14-19">{`<body>
+  <svg id="particle-holder" ...></svg>
 </body>
 <script>
-    class Particle {
-        // particle code
+  class Particle {
+    // particle code
+  }
+
+  const particles = [];
+  const num_particles = 30;
+  const svg = document.querySelector("#particle-holder");
+
+  initParticles();
+
+  function initParticles() {
+    for (let i = 0; i < num_particles; i++) {
+      const part = new Particle(250, 250, 15, 500, 500);
+      part.init(svg);
+      particles.push(part)
     }
-
-    const particles = [];
-    const num_particles = 30;
-    const svg = document.querySelector("#particle-holder");
-
-    initParticles();
-
-    function initParticles() {
-        for (let i = 0; i < num_particles; i++) {
-            const part = new Particle(250, 250, 15, 500, 500);
-            part.init(svg);
-            particles.push(part)
-        }
-    }
-
+  }
 </script>`}</Blocks>
 
       <p>
@@ -599,38 +574,36 @@ class Particle {
         moveParticles uses requestAnimationFrame to call itself every frame.
       </p>
 
-      <Blocks highlight="15,25-31">{`<body>
-    <svg id="particle-holder" ...>
-    </svg>
+      <Blocks highlight="13,21-27">{`<body>
+  <svg id="particle-holder" ...></svg>
 </body>
 <script>
-    class Particle {
-        // particle code
+  class Particle {
+    // particle code
+  }
+
+  const particles = [];
+  const num_particles = 30;
+  const svg = document.querySelector("#particle-holder");
+
+  initParticles();
+  moveParticles();
+
+  function initParticles() {
+    for (let i = 0; i < num_particles; i++) {
+      const part = new Particle(250, 250, 15, 500, 500);
+      part.init(svg);
+      particles.push(part)
     }
+  }
 
-    const particles = [];
-    const num_particles = 30;
-    const svg = document.querySelector("#particle-holder");
+  function moveParticles() {
+    particles.forEach((part) => {
+      part.update();
+    })
 
-    initParticles();
-    moveParticles();
-
-    function initParticles() {
-        for (let i = 0; i < num_particles; i++) {
-            const part = new Particle(250, 250, 15, 500, 500);
-            part.init(svg);
-            particles.push(part)
-        }
-    }
-
-    function moveParticles() {
-        particles.forEach((part) => {
-            part.update();
-        })
-
-        window.requestAnimationFrame(moveParticles)
-    }
-
+    window.requestAnimationFrame(moveParticles)
+  }
 </script>`}</Blocks>
 
       <ParticleExample />

@@ -100,8 +100,7 @@ const AnimationCSS = () => {
         user <strong>hovers</strong> over a shape element.
       </p>
 
-      <pre>
-        <code>{`.my-class {
+      <Blocks>{`.my-class {
     <some animatable property>: start-value;
     transition-property: animatable-property name;
     transition-duration: duration in seconds or ms;
@@ -111,8 +110,7 @@ const AnimationCSS = () => {
 
 .my-class:hover {
     <some animatable property>: end-value;
-}`}</code>
-      </pre>
+}`}</Blocks>
 
       <h3>fill and stroke-width transitions</h3>
 
@@ -133,14 +131,9 @@ const AnimationCSS = () => {
         black.
       </p>
 
-      <Blocks>
-        {`<svg width="300" height="300" viewbox="0 0 300 300">
-   <circle
-    id="my-circle"
-    cx="250" cy="250"
-    r="100"></circle>
-</svg>`}
-      </Blocks>
+      <Blocks>{`<svg width="300" height="300" viewbox="0 0 300 300">
+  <circle id="my-circle" cx="250" cy="250" r="100"></circle>
+</svg>`}</Blocks>
 
       <svg width="500" height="500" viewBox="0 0 500 500">
         <circle id="my-circle" cx="250" cy="250" r="100"></circle>
@@ -170,8 +163,7 @@ const AnimationCSS = () => {
         <strong>fill</strong>:
       </p>
 
-      <Blocks highlight="5,6,7,8">
-        {`#my-circle {
+      <Blocks highlight="5,6,7,8">{`#my-circle {
   fill: orange;
   stroke: black;
   stroke-width: 1;
@@ -179,16 +171,14 @@ const AnimationCSS = () => {
   transition-duration: 0.33s;
   transition-timing-function: linear;
   transition-delay: 0;
-}`}
-      </Blocks>
+}`}</Blocks>
 
       <p>
         As a final step, we'll use the <strong>:hover</strong> pseudo-class to
         change the fill and stroke-width.
       </p>
 
-      <Blocks highlight="10,11,12,13">
-        {`#my-circle {
+      <Blocks highlight="10,11,12,13">{`#my-circle {
   fill: orange;
   stroke: black;
   stroke-width: 1;
@@ -200,8 +190,7 @@ const AnimationCSS = () => {
 #my-circle:hover {
   stroke-width: 10;
   fill: red;
-}`}
-      </Blocks>
+}`}</Blocks>
 
       <h4>hover over circle to see transition</h4>
 
@@ -214,8 +203,7 @@ const AnimationCSS = () => {
         set the stroke-dashoffset so that the stroke isn't visible.
       </p>
 
-      <Blocks highlight="5,9,10">
-        {`#my-circle {
+      <Blocks highlight="5,9,10">{`#my-circle {
   fill: orange;
   stroke: black;
   stroke-width: 5;
@@ -225,8 +213,7 @@ const AnimationCSS = () => {
   transition-delay: 0;
   stroke-dasharray: 100;
   stroke-dashoffset: 100;
-}`}
-      </Blocks>
+}`}</Blocks>
 
       <p>
         For this effect it's important to set the circle's{" "}
@@ -246,8 +233,7 @@ const AnimationCSS = () => {
         <strong>:hover</strong> pseudo class:
       </p>
 
-      <Blocks>
-        {`#my-circle {
+      <Blocks>{`#my-circle {
   fill: orange;
   stroke: black;
   stroke-width: 5;
@@ -260,8 +246,7 @@ const AnimationCSS = () => {
 }
 #my-circle:hover {
   stroke-dashoffset: 0;
-}`}
-      </Blocks>
+}`}</Blocks>
 
       <h4>hover over circle to see transition</h4>
 
@@ -282,19 +267,16 @@ const AnimationCSS = () => {
 
       <p>Note the absence of geometric properties in the circle element below:</p>
 
-      <Blocks>
-        {`<svg width="500" height="500" viewbox="0 0 300 300">
+      <Blocks>{`<svg width="500" height="500" viewbox="0 0 300 300">
   <circle id="my-circle" fill="orange"></circle>
-</svg>`}
-      </Blocks>
+</svg>`}</Blocks>
 
       <p>
         In this example all of the geometric properties (cx, cy, and r) are
         defined in the css.
       </p>
 
-      <Blocks>
-        {`#my-circle {
+      <Blocks>{`#my-circle {
   cx: 250px;
   cy: 250px;
   r: 150px;
@@ -304,8 +286,7 @@ const AnimationCSS = () => {
 #my-circle:hover {
   r: 200px;
   cy:225px
-}`}
-      </Blocks>
+}`}</Blocks>
 
       <h4>hover over circle to see transition</h4>
 
@@ -333,8 +314,7 @@ const AnimationCSS = () => {
         beginning value (0%) and and end value (100%)
       </p>
 
-      <pre>
-        <code>{`@keyframes keyframes-name {
+      <Blocks>{`@keyframes keyframes-name {
   0% {
     property-name: property-value;
   }
@@ -346,24 +326,21 @@ const AnimationCSS = () => {
   100% {
     property-name: property-value;
   }
-}`}</code>
-      </pre>
+}`}</Blocks>
 
       <p>
         After defining the keyframes, you apply them to a class using the
         animation properties.
       </p>
 
-      <pre>
-        <code>{`.some-class {
+      <Blocks>{`.some-class {
   animation-name: keyframes-name;
   animation-duration: duration in seconds or ms;
   animation-timing-function: easing function;
   animation-iteration-count: some number|infinite;
   animation-direction: none|reverse|alternate|alternate-reverse;
   animation-fill-mode: none|forwards|backwards|both;
-}`}</code>
-      </pre>
+}`}</Blocks>
 
       <h3>animation example</h3>
 
@@ -372,50 +349,40 @@ const AnimationCSS = () => {
         triagular pattern. First we define the keyframes.
       </p>
 
-      <Blocks>
-        {`@keyframes zoom {
-   0% {
-       fill: red;
-       cx: 250px;
-       cy:125px;
-   }
-   33% {
-       cx: 375px;
-       cy:375px;
-   }
-   66% {
-       cx: 125px;
-       cy:375px;
-   }
-   100% {
-       fill: blue;
-       cx: 250px;
-       cy:125px;
-   }
-}`}
-      </Blocks>
+      <Blocks>{`@keyframes zoom {
+  0% {
+    fill: red;
+    cx: 250px;
+    cy:125px;
+  }
+  33% {
+    cx: 375px;
+    cy:375px;
+  }
+  66% {
+    cx: 125px;
+    cy:375px;
+  }
+  100% {
+    fill: blue;
+    cx: 250px;
+    cy:125px;
+  }
+}`}</Blocks>
 
       <p>Next we'll create a class that uses this animation.</p>
 
-      <Blocks>
-        {`.zoom-circle {
-    animation-name: zoom;
-    animation-duration: 5s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-direction: alternate-reverse;
-}`}
-      </Blocks>
+      <Blocks>{`.zoom-circle {
+  animation-name: zoom;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}`}</Blocks>
 
       <p>Now we can add the class to the svg element we wish to animate.</p>
 
-      <Blocks>
-        {`<circle
-    class="zoom-circle"
-    cx="50" cy="50" r="50"
-    fill="black"
-    stroke="none"></circle>`}
-      </Blocks>
+      <Blocks>{`<circle class="zoom-circle" cx="50" cy="50" r="50" fill="black" stroke="none"></circle>`}</Blocks>
 
       <KeyframeExample />
 
@@ -429,15 +396,13 @@ const AnimationCSS = () => {
         like it's bouncing up and down.
       </p>
 
-      <Blocks>
-        {`#balloon {
-   animation-name: float;
-   animation-duration: 2s;
-   animation-direction: alternate;
-   animation-iteration-count: infinite;
-   animation-timing-function: linear;
-}`}
-      </Blocks>
+      <Blocks>{`#balloon {
+  animation-name: float;
+  animation-duration: 2s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}`}</Blocks>
 
       <BalloonExample />
 
@@ -454,12 +419,10 @@ const AnimationCSS = () => {
         timing function:
       </p>
 
-      <Blocks>
-        {`#balloon {
-   ...
-   animation-timing-function: ease-in-out;
-}`}
-      </Blocks>
+      <Blocks>{`#balloon {
+  ...
+  animation-timing-function: ease-in-out;
+}`}</Blocks>
 
       <BalloonExample linear={false} />
 
@@ -551,9 +514,7 @@ const AnimationCSS = () => {
         the cubic-bezier value into your CSS.
       </p>
 
-      <pre>
-        <code>{`animation-timing-function: cubic-bezier(0.13, 0.74, 0, 1);`}</code>
-      </pre>
+      <Blocks>{`animation-timing-function: cubic-bezier(0.13, 0.74, 0, 1);`}</Blocks>
 
       <EaseExample type={"custom"} />
     </>

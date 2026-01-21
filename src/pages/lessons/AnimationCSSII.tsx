@@ -49,53 +49,43 @@ const AnimationCSSII = () => {
         simple scaling of a rect element.
       </p>
 
-      <Blocks>
-        {`<style>
-  @keyframes grow {
-      from {
-        transform: scale(1);
-      }
-      to {
-        transform: scale(2.5);
-      }
+      <Blocks>{`<style>
+@keyframes grow {
+  from {
+    transform: scale(1);
   }
-</style>`}
-      </Blocks>
+  to {
+    transform: scale(2.5);
+  }
+}
+</style>`}</Blocks>
 
       <h3>normal</h3>
 
-      <Blocks>
-        {`<style>
-  @keyframes grow {...}
+      <Blocks>{`<style>
+@keyframes grow {...}
 
-  #normalAnimation {
-      // animation duration, timing etc.
-      animation-direction: normal;
-  }
+#normalAnimation {
+  // animation duration, timing etc.
+  animation-direction: normal;
+}
 </style>
 
-<rect id="normalAnimation"... />`}
-      </Blocks>
+<rect id="normalAnimation"... />`}</Blocks>
 
-      <pre>
-        <code>{`animation-direction: normal;`}</code>
-      </pre>
+      <Blocks>{`animation-direction: normal;`}</Blocks>
 
       <AnimationDirection direction={"normal"} />
 
       <h3>reverse</h3>
 
-      <pre>
-        <code>{`animation-direction: reverse;`}</code>
-      </pre>
+      <Blocks>{`animation-direction: reverse;`}</Blocks>
 
       <AnimationDirection direction={"reverse"} />
 
       <h3>alternate</h3>
 
-      <pre>
-        <code>{`animation-direction: alternate;`}</code>
-      </pre>
+      <Blocks>{`animation-direction: alternate;`}</Blocks>
 
       <AnimationDirection direction={"alternate"} />
 
@@ -106,9 +96,7 @@ const AnimationCSSII = () => {
         example
       </h4>
 
-      <pre>
-        <code>{`animation-direction: alternate-reverse;`}</code>
-      </pre>
+      <Blocks>{`animation-direction: alternate-reverse;`}</Blocks>
 
       <AnimationDirection direction={"alternate-reverse"} />
 
@@ -120,9 +108,7 @@ const AnimationCSSII = () => {
         possible values:
       </p>
 
-      <pre>
-        <code>{`animation-fill-mode: none | forwards | backwards | both`}</code>
-      </pre>
+      <Blocks>{`animation-fill-mode: none | forwards | backwards | both`}</Blocks>
 
       <p>
         The examples below are all identical other than their fill-mode setting
@@ -141,9 +127,7 @@ const AnimationCSSII = () => {
         removed and the square returns to it's pre-animation state.
       </p>
 
-      <pre>
-        <code>{`animation-fill-mode: none`}</code>
-      </pre>
+      <Blocks>{`animation-fill-mode: none`}</Blocks>
 
       <AnimationFillMode mode={"none"} />
 
@@ -155,9 +139,7 @@ const AnimationCSSII = () => {
         to 4x.
       </p>
 
-      <pre>
-        <code>{`animation-fill-mode: forwards`}</code>
-      </pre>
+      <Blocks>{`animation-fill-mode: forwards`}</Blocks>
 
       <AnimationFillMode mode={"forwards"} />
 
@@ -170,9 +152,7 @@ const AnimationCSSII = () => {
         animation is complete, all styles from the animation are removed.
       </p>
 
-      <pre>
-        <code>{`animation-fill-mode:  backwards`}</code>
-      </pre>
+      <Blocks>{`animation-fill-mode:  backwards`}</Blocks>
 
       <AnimationFillMode mode={"backwards"} />
 
@@ -184,9 +164,7 @@ const AnimationCSSII = () => {
         in the final keyframe after running (blue, 4x scale).
       </p>
 
-      <pre>
-        <code>{`animation-fill-mode: both`}</code>
-      </pre>
+      <Blocks>{`animation-fill-mode: both`}</Blocks>
 
       <AnimationFillMode mode={"both"} />
 
@@ -203,16 +181,14 @@ const AnimationCSSII = () => {
         one side of the svg to another.
       </p>
 
-      <Blocks>
-        {`@keyframes slide {
-      from {
-          transform: translateX(0px);
-      }
-      to {
-          transform: translateX(400px);
-      }
-    }`}
-      </Blocks>
+      <Blocks>{`@keyframes slide {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(400px);
+  }
+}`}</Blocks>
 
       <p>
         When we change the zoom settings on our browser, the animation looks
@@ -246,28 +222,25 @@ const AnimationCSSII = () => {
         spin a square.
       </p>
 
-      <Blocks>
-        {`<style>
-  #spinner {
-    animation-name: spin;
-    animation-duration: 2s;
-    animation-timing-function: linear;
-    animation-iteration: infinite;
-    transform-box: fill-box;
-    transform-origin: center;
+      <Blocks>{`<style>
+#spinner {
+  animation-name: spin;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration: infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
   }
-
-    @keyframes spin {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-</style>`}
-      </Blocks>
+  to {
+    transform: rotate(360deg);
+  }
+}
+</style>`}</Blocks>
 
       <p>
         To rotate the cube around its center point, we can add set transform-box

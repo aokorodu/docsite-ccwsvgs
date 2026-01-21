@@ -59,20 +59,15 @@ const ReusableFilter = () => {
         <strong>id</strong>, so that it can be applied to a visual element.
       </p>
 
-      <pre>
-        <code>{`<filter id="drop_shadow">...`}</code>
-      </pre>
+      <Blocks>{`<filter id="drop_shadow">...`}</Blocks>
 
-      <Blocks>
-        {`<defs>
-   <filter id="drop_shadow">
-       <!-- filter code goes here -->
-   </filter>
+      <Blocks>{`<defs>
+  <filter id="drop_shadow">
+    <!-- filter code goes here -->
+  </filter>
 </defs>
 
-<image filter="url(#drop_shadow)" ...>
-</image>`}
-      </Blocks>
+<image filter="url(#drop_shadow)" ...></image>`}</Blocks>
 
       <DropShadowExample />
 
@@ -92,25 +87,21 @@ const ReusableFilter = () => {
         </em>
       </p>
 
-      <Blocks>
-        {`<filter id="shadow">
-    <feDropShadow...>
-        // filter primitive code goes here..."
-    </feDropShadow>
-</filter>`}
-      </Blocks>
+      <Blocks>{`<filter id="shadow">
+  <feDropShadow...>
+    // filter primitive code goes here..."
+  </feDropShadow>
+</filter>`}</Blocks>
 
       <p>
         In the next we use two filter primitives, <strong>feTurbulence</strong>{" "}
         and <strong>feDisplacementMap</strong> to create a distortion effect.
       </p>
 
-      <Blocks>
-        {`<filter id="turb-displace-filter">
-    <feTurbulence ... />
-    <feDisplacementMap ... />
-</filter>`}
-      </Blocks>
+      <Blocks>{`<filter id="turb-displace-filter">
+  <feTurbulence ... />
+  <feDisplacementMap ... />
+</filter>`}</Blocks>
 
       <DistortionExample />
 
@@ -150,15 +141,13 @@ const ReusableFilter = () => {
         </li>
       </ul>
 
-      <Blocks>
-        {`<filter id="shadow">
-    <feDropShadow
-        dx="15" dy="15"
-        stdDeviation="5"
-        flood-color="black"
-        flood-opacity=".5" />
-</filter>`}
-      </Blocks>
+      <Blocks>{`<filter id="shadow">
+  <feDropShadow
+    dx="15" dy="15"
+    stdDeviation="5"
+    flood-color="black"
+    flood-opacity=".5" />
+</filter>`}</Blocks>
 
       <DropShadowExample />
 
@@ -180,11 +169,9 @@ const ReusableFilter = () => {
         numbers. In the example below we'll only blur along the x axis.
       </p>
 
-      <Blocks>
-        {`<filter id="blur-filter">
-    <feGaussianBlur stdDeviation="10 0" />
-</filter>`}
-      </Blocks>
+      <Blocks>{`<filter id="blur-filter">
+  <feGaussianBlur stdDeviation="10 0" />
+</filter>`}</Blocks>
 
       <br />
 
@@ -225,11 +212,9 @@ const ReusableFilter = () => {
         image unchanged.
       </p>
 
-      <Blocks>
-        {`<filter id="color-matrix">
-    <feColorMatrix type="saturate" values="1" />
-</filter>`}
-      </Blocks>
+      <Blocks>{`<filter id="color-matrix">
+  <feColorMatrix type="saturate" values="1" />
+</filter>`}</Blocks>
 
       <ColorSaturation value="1" />
 
@@ -239,11 +224,9 @@ const ReusableFilter = () => {
         value="2"
       </p>
 
-      <Blocks>
-        {`<filter id="color-matrix">
-    <feColorMatrix type="saturate" values="2" />
-</filter>`}
-      </Blocks>
+      <Blocks>{`<filter id="color-matrix">
+  <feColorMatrix type="saturate" values="2" />
+</filter>`}</Blocks>
 
       <ColorSaturation value="2" />
 
@@ -252,11 +235,9 @@ const ReusableFilter = () => {
         image, set the value="0"
       </p>
 
-      <Blocks>
-        {`<filter id="color-matrix">
-    <feColorMatrix type="saturate" values="0" />
-</filter>`}
-      </Blocks>
+      <Blocks>{`<filter id="color-matrix">
+  <feColorMatrix type="saturate" values="0" />
+</filter>`}</Blocks>
 
       <ColorSaturation value="0" />
 
@@ -267,19 +248,15 @@ const ReusableFilter = () => {
         degrees, and can be from 0 to 360.
       </p>
 
-      <Blocks>
-        {`<filter id="color-matrix">
-    <feColorMatrix type="hueRotate" values="60" />
-</filter>`}
-      </Blocks>
+      <Blocks>{`<filter id="color-matrix">
+  <feColorMatrix type="hueRotate" values="60" />
+</filter>`}</Blocks>
 
       <HueRotate value="60" />
 
-      <Blocks>
-        {`<filter id="color-matrix">
-    <feColorMatrix type="hueRotate" values="300" />
-</filter>`}
-      </Blocks>
+      <Blocks>{`<filter id="color-matrix">
+  <feColorMatrix type="hueRotate" values="300" />
+</filter>`}</Blocks>
 
       <HueRotate value="300" />
 
@@ -299,13 +276,11 @@ const ReusableFilter = () => {
 
       <p>A matrix looks something like this:</p>
 
-      <pre>
-        <code>{`            R  G  B  A  shift
+      <Blocks>{`            R  G  B  A  shift
 new R   =   r1 r2 r3 r4 r5
 new G   =   g1 g2 g3 g4 g5
 new B   =   b1 b2 b3 b4 b5
-new A   =   a1 a2 a3 a4 a5`}</code>
-      </pre>
+new A   =   a1 a2 a3 a4 a5`}</Blocks>
 
       <p>Let's look at an example with a "red channel only" matrix filter:</p>
 
@@ -339,13 +314,11 @@ new A   =   a1 a2 a3 a4 a5`}</code>
         can be used to generate textures like clouds or blobs.
       </p>
 
-      <Blocks>
-        {`<filter id="turbulence">
-    <feTurbulence baseFrequency=".01" numOctaves="1" seed="5"/>
+      <Blocks>{`<filter id="turbulence">
+  <feTurbulence baseFrequency=".01" numOctaves="1" seed="5"/>
 </filter>
 
-<rect filter="url(#turbulence)" ... />`}
-      </Blocks>
+<rect filter="url(#turbulence)" ... />`}</Blocks>
 
       <TurbulenceExample />
 
@@ -390,28 +363,24 @@ new A   =   a1 a2 a3 a4 a5`}</code>
         alt="reusable_filters_combo_illustration.png"
       />
 
-      <Blocks>
-        {`<defs>
-    <filter id="turb-displace-filter">
-        <feTurbulence
-            type="turbulence"
-            baseFrequency="0.05"
-            numOctaves="5"
-            seed="0"
-            result="turbulence"  />
-
-        <feDisplacementMap
-            in="SourceGraphic"
-            in2="turbulence"
-            xChannelSelector="R"
-            yChannelSelector="G"
-            scale="30" />
-    </filter>
+      <Blocks>{`<defs>
+  <filter id="turb-displace-filter">
+    <feTurbulence
+      type="turbulence"
+      baseFrequency="0.05"
+      numOctaves="5"
+      seed="0"
+      result="turbulence" />
+    <feDisplacementMap
+      in="SourceGraphic"
+      in2="turbulence"
+      xChannelSelector="R"
+      yChannelSelector="G"
+      scale="30" />
+  </filter>
 </defs>
 
-<image
-    filter="url(#turb-displace-filter)" ...>`}
-      </Blocks>
+<image filter="url(#turb-displace-filter)" ...>`}</Blocks>
 
       <DistortionExample />
 
@@ -430,14 +399,11 @@ new A   =   a1 a2 a3 a4 a5`}</code>
         filter attributes.
       </p>
 
-      <Blocks>
-        {`<defs>
-    <filter x="-20%" y="-20%"
-    width="140%" height="140%"
-    id="big_shadow">
+      <Blocks>{`<defs>
+  <filter x="-20%" y="-20%" width="140%" height="140%" id="big_shadow">
     <feDropShadow ... />
-</filter>`}
-      </Blocks>
+  </filter>
+</defs>`}</Blocks>
 
       <DropShadowCuttoff cuttoff={false} />
     </>
