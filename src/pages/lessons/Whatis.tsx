@@ -112,8 +112,7 @@ const Whatis = () => {
   <circle cx="181" cy="181" r="181" fill="#F3C729" />
   <circle cx="118.5" cy="140.5" r="12.5" fill="black" />
   <circle cx="243.5" cy="140.5" r="12.5" fill="black" />
-  <path
-    d="M80 224C121 271 241 276 291 224"
+  <path d="M80 224C121 271 241 276 291 224"
     stroke="black"
     stroke-width="13"
     stroke-linecap="round"
@@ -174,19 +173,12 @@ const Whatis = () => {
         External SVG files that are loaded and used like any other image format.
       </p>
 
-      <Blocks title={"HTML - img element"}>{`<img
-  src="assets/smiley_face.svg"
-  alt="svg smiley face"
->`}</Blocks>
+      <Blocks title={"HTML - img element"}>{`<img src="assets/smiley_face.svg" alt="svg smiley face">`}</Blocks>
 
-      <Blocks title={"HTML - object element"}>{`<object
-  id="clown-object"
-  data="assets/clown.svg"
-  type="image/svg+xml"
->`}</Blocks>
+      <Blocks title={"HTML - object element"}>{`<object id="clown-object" data="assets/clown.svg" type="image/svg+xml">`}</Blocks>
 
       <Blocks title={"CSS - background-image"}>{`.myclass {
-    background-image: url(/images/smiley_face.svg);
+  background-image: url('/images/smiley_face.svg');
 }`}</Blocks>
 
       <h3>Inline</h3>

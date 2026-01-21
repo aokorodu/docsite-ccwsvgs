@@ -33,9 +33,18 @@ const Shapes = () => {
         objects
       </p>
 
+      <div className="shapesContainer">
+        <img src="/example_circle.svg" alt="shapes" />
+        <img src="/example_ellipse.svg" alt="shapes" />
+        <img src="/example_line.svg" alt="shapes" />
+      </div>
+      <div className="shapesContainer">
+        <img src="/example_polylines.svg" alt="shapes" />
+        <img src="/example_square.svg" alt="shapes" />
+        <img src="/example_triangle.svg" alt="shapes" />
+      </div>
 
 
-      <img src="/shapes.svg" alt="shapes" />
 
       <p>
         In this section we'll discuss the basic shape elements and their

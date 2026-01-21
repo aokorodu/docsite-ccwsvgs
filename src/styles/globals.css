@@ -254,3 +254,18 @@ blockquote > p {
   unicode-bidi: isolate;
   font-size: 1rem;
 }
+
+.shapesContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.shapesContainer img {
+  max-width: 30%;
+  height: auto;
+  margin: 0;
+}
