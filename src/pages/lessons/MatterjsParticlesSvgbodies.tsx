@@ -42,9 +42,7 @@ const MatterjsParticlesSvgbodies = () => {
         svg path:
       </p>
 
-      <pre>
-        <code>{`Matter.Svg.pathToVertices(path)`}</code>
-      </pre>
+      <Blocks>{`Matter.Svg.pathToVertices(path)`}</Blocks>
 
       <p>
         In order to use this module we'll need to import two other libraries:{" "}
@@ -172,10 +170,8 @@ const MatterjsParticlesSvgbodies = () => {
         we can use to properly "center" our svg path.
       </p>
 
-      <pre>
-        <code>{`svgBody.bounds.min.x
-svgBody.bounds.min.y`}</code>
-      </pre>
+      <Blocks>{`svgBody.bounds.min.x
+svgBody.bounds.min.y`}</Blocks>
 
       <Blocks highlight="10,11,12,13,14,15,16">{`function initParticle() {
   const svgPath = document.querySelector(".svgPath");

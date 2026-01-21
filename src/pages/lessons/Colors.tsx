@@ -24,9 +24,7 @@ const Colors = () => {
         <a href="https://www.w3.org/wiki/CSS/Properties/color/keywords">here.</a>
       </p>
 
-      <Blocks>{`<circle cx="250" cy="250" r="250"
-    stroke="black"
-    fill="seagreen" />`}</Blocks>
+      <Blocks>{`<circle ... fill="seagreen" />`}</Blocks>
 
       <Example1 />
 
@@ -41,9 +39,7 @@ const Colors = () => {
 
       <p>#RRGGBB</p>
 
-      <Blocks caption="here is the hex value for the seagreen color we used above">{`<circle cx="250" cy="250" r="250"
-    stroke="black"
-    fill="#2e8b57	" /> `}</Blocks>
+      <Blocks caption="here is the hex value for the seagreen color we used above">{`<circle ... fill="#2e8b57	" /> `}</Blocks>
 
 
 
@@ -54,9 +50,7 @@ const Colors = () => {
         The range of values for each color channel: 0-255
       </p>
 
-      <Blocks>{`<circle cx="250" cy="250" r="250"
-    stroke="black"
-    fill="rgb(46,139,87)" />`}</Blocks>
+      <Blocks>{`<circle ... fill="rgb(46,139,87)" />`}</Blocks>
 
 
 
@@ -73,9 +67,7 @@ const Colors = () => {
         <li>lightness: percentage value 0%-100%</li>
       </ul>
 
-      <Blocks>{`<circle cx="250" cy="250" r="250"
-    stroke="black"
-    fill="hsl(146, 50%, 36%)" />`}</Blocks>
+      <Blocks>{`<circle ... fill="hsl(146, 50%, 36%)" />`}</Blocks>
     </>
   );
 };

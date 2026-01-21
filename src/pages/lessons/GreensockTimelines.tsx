@@ -90,9 +90,7 @@ const GreensockTimelines = () => {
 
       <p>The first thing we need to do is create our timeline object.</p>
 
-      <pre>
-        <code>{`gsap.timeline( {vars} );`}</code>
-      </pre>
+      <Blocks>{`gsap.timeline( {vars} );`}</Blocks>
 
       <p>In the animate method let's put the following:</p>
 
@@ -120,9 +118,7 @@ const GreensockTimelines = () => {
         like this
       </p>
 
-      <pre>
-        <code>{`theTween.fromTo(...)`}</code>
-      </pre>
+      <Blocks>{`theTween.fromTo(...)`}</Blocks>
 
       <Blocks>{`theTween = gsap.timeline({repeat: -1, yoyo:true, repeatDelay: 1})
 theTween.fromTo(
@@ -146,9 +142,7 @@ theTween.fromTo(
         current animation:
       </p>
 
-      <pre>
-        <code>{`theTween.fromTo(...).fromTo(...)`}</code>
-      </pre>
+      <Blocks>{`theTween.fromTo(...).fromTo(...)`}</Blocks>
 
       <Blocks>{`theTween = gsap.timeline({repeat: -1, yoyo:true, repeatDelay: 1});
 theTween.fromTo(

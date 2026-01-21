@@ -63,9 +63,7 @@ function init() {
         element, and added "startDrag" callback (which we'll create in a second).
       </p>
 
-      <pre>
-        <code>{`svg.addEventListener("mousemove", drag)`}</code>
-      </pre>
+      <Blocks>{`svg.addEventListener("mousemove", drag)`}</Blocks>
 
       <p>
         I've also added a <em>"mousemove"</em> listener, but on the svg, and not
@@ -133,12 +131,10 @@ function stopDrag() {
         return our corresponding SVG coordinate:
       </p>
 
-      <pre>
-        <code>{`function toSVGPoint(x, y, theSVG) {
+      <Blocks>{`function toSVGPoint(x, y, theSVG) {
   let p = new DOMPoint(x, y);
   return p.matrixTransform(theSVG.getScreenCTM().inverse());
-};`}</code>
-      </pre>
+};`}</Blocks>
 
       <p>Let's use this method in our drawDrag method:</p>
 

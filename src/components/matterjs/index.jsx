@@ -55,7 +55,7 @@ export const MatterDemo = () => {
   // particle vars
   const particleGraphics = useRef([]);
   const particleBodies = [];
-  const numberOfParticles = 200;
+  const numberOfParticles = 400;
   const particleWidth = 20;
   const particleHeight = 20;
 
@@ -66,7 +66,7 @@ export const MatterDemo = () => {
   const pegGraphics = useRef([]);
   let pegBodies = [];
 
-  const w = 750;
+  const w = 1000;
   const h = 1000;
 
   // particle holder
@@ -79,13 +79,26 @@ export const MatterDemo = () => {
   let currentFrame = 0;
   let frameCount = 1000;
 
+  let animationFrameId;
+
   useEffect(() => {
-    initParticleBodies();
-    initPegBodies();
-    initWallAndFloor();
-    makeWorld();
-    initUI();
-    update();
+    console.log("Starting MatterJS animation");
+    const startAnimation = () => {
+      initParticleBodies();
+      initPegBodies();
+      initWallAndFloor();
+      makeWorld();
+      initUI();
+      update();
+    };
+
+    startAnimation();
+
+    return () => {
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -235,7 +248,7 @@ export const MatterDemo = () => {
     // look at the particleBody position and update graphic position accordingly.
     if (currentFrame >= frameCount) return;
     currentFrame++;
-    console.log(currentFrame);
+
     Matter.Engine.update(engine);
     particleGraphics.current.forEach((pg, index) => {
       const pos = particleBodies[index].position;
@@ -243,11 +256,11 @@ export const MatterDemo = () => {
       const degrees = (angle * 180) / Math.PI;
       pg.setAttribute(
         "transform",
-        `translate(${pos.x} ${pos.y}) rotate(${degrees})`
+        `translate(${pos.x} ${pos.y}) rotate(${degrees})`,
       );
     });
 
-    window.requestAnimationFrame(update);
+    animationFrameId = window.requestAnimationFrame(update);
   };
 
   return (

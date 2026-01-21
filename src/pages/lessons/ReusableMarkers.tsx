@@ -40,13 +40,11 @@ const ReusableMarkers = () => {
         section.
       </p>
 
-      <pre>
-        <code>{`<defs>
-    <marker>
-        // marker code goes here
-    </marker>
-</defs>`}</code>
-      </pre>
+      <Blocks>{`<defs>
+  <marker>
+    // marker code goes here
+  </marker>
+</defs>`}</Blocks>
 
       <p>
         The marker itself can be anything - a simple shape element or a complex
@@ -56,11 +54,9 @@ const ReusableMarkers = () => {
 
       <h3>marker element</h3>
 
-      <pre>
-        <code>{`<marker>
-    <circle cx="5" cy="5" r="2.5" fill="black" />
-</marker>`}</code>
-      </pre>
+      <Blocks>{`<marker>
+  <circle cx="5" cy="5" r="2.5" fill="black" />
+</marker>`}</Blocks>
 
       <h3>marker id</h3>
 
@@ -69,11 +65,9 @@ const ReusableMarkers = () => {
         object. Here we'll just create an id of "ball"
       </p>
 
-      <pre>
-        <code>{`<marker id="ball">
-    <circle cx="5" cy="5" r="2.5" fill="black" />
-</marker>`}</code>
-      </pre>
+      <Blocks>{`<marker id="ball">
+  <circle cx="5" cy="5" r="2.5" fill="black" />
+</marker>`}</Blocks>
 
       <h3>refX, refY</h3>
 
@@ -84,12 +78,9 @@ const ReusableMarkers = () => {
         and refY = cy.
       </p>
 
-      <pre>
-        <code>{`<marker id="ball"
-    refX="5" refY="5">
-    <circle cx="5" cy="5" r="2.5" fill="black" />
-</marker>`}</code>
-      </pre>
+      <Blocks>{`<marker id="ball" refX="5" refY="5">
+  <circle cx="5" cy="5" r="2.5" fill="black" />
+</marker>`}</Blocks>
 
       <h3>markerWidth, markerHeight</h3>
 
@@ -99,13 +90,9 @@ const ReusableMarkers = () => {
         and height values.
       </p>
 
-      <pre>
-        <code>{`<marker id="ball"
-    refX="5" refY="5"
-    markerWidth="10" markerHeight="10">
-    <circle cx="5" cy="5" r="2.5" fill="black" />
-</marker>`}</code>
-      </pre>
+      <Blocks>{`<marker id="ball" refX="5" refY="5" markerWidth="10" markerHeight="10">
+  <circle cx="5" cy="5" r="2.5" fill="black" />
+</marker>`}</Blocks>
 
       <h2>marker-positioning</h2>
 
@@ -127,12 +114,7 @@ const ReusableMarkers = () => {
         points="<strong>50,150</strong> 150,150 250,150 350,150 450,150"
       </h4>
 
-      <Blocks>
-        {`<polyline
-    marker-start="url(#box)"
-    points="50,150 150,150 250,150 350,150 450,150"
-    stroke="black" stroke-width="2" fill="none" />`}
-      </Blocks>
+      <Blocks>{`<polyline marker-start="url(#box)" points="50,150 150,150 250,150 350,150 450,150" stroke="black" stroke-width="2" fill="none" />`}</Blocks>
 
       <MarkerPosDemo position={"start"} />
 
@@ -143,12 +125,7 @@ const ReusableMarkers = () => {
         of a polyline.
       </p>
 
-      <Blocks>
-        {`<polyline
-    marker-mid="url(#ball)"
-    points="50,150 150,150 250,150 350,150 450,150"
-    stroke="black" stroke-width="2" fill="none" />`}
-      </Blocks>
+      <Blocks>{`<polyline marker-mid="url(#ball)" points="50,150 150,150 250,150 350,150 450,150" stroke="black" stroke-width="2" fill="none" />`}</Blocks>
 
       <h4>
         points="50,150 <strong>150,100 250,200 350,150</strong> 450,150"
@@ -160,12 +137,7 @@ const ReusableMarkers = () => {
 
       <p>Attaches the marker to the last point of the polyline.</p>
 
-      <Blocks>
-        {`<polyline
-    marker-end="url(#arrowhead)"
-    points="50,150 150,150 250,150 350,150 450,150"
-    stroke="black" stroke-width="2" fill="none" />`}
-      </Blocks>
+      <Blocks>{`<polyline marker-end="url(#arrowhead)" points="50,150 150,150 250,150 350,150 450,150" stroke="black" stroke-width="2" fill="none" />`}</Blocks>
 
       <h4>
         points="50,150 150,150 250,150 350,150 <strong>450,150</strong>"
@@ -173,14 +145,7 @@ const ReusableMarkers = () => {
 
       <MarkerPosDemo position={"end"} />
 
-      <Blocks>
-        {`<polyline
-    marker-start="url(#box)"
-    marker-end="url(#arrowhead)"
-    marker-mid="url(#ball)"
-    points="50,150 150,150 250,150 350,150 450,150"
-    stroke="black" stroke-width="2" fill="none"  />`}
-      </Blocks>
+      <Blocks>{`<polyline marker-start="url(#box)" marker-end="url(#arrowhead)" marker-mid="url(#ball)" points="50,150 150,150 250,150 350,150 450,150" stroke="black" stroke-width="2" fill="none" />`}</Blocks>
 
       <MarkerPosDemo position={"all"} />
 
@@ -212,23 +177,12 @@ const ReusableMarkers = () => {
         aligned backwards.
       </p>
 
-      <Blocks>
-        {`<defs>
-    <marker id="arrowhead"
-        orient="auto-start-reverse"
-        refX="5" refY="5"
-        markerWidth="10" markerHeight="10">
-        <polygon
-            points="0,0 10,5 0,10" fill="black" stroke="black" />
-    </marker>
+      <Blocks>{`<defs>
+  <marker id="arrowhead" orient="auto-start-reverse" refX="5" refY="5" markerWidth="10" markerHeight="10">
+    <polygon points="0,0 10,5 0,10" fill="black" stroke="black" />
+  </marker>
 </defs>
-<polyline
-    marker-start="url(#arrowhead)"
-    marker-end="url(#arrowhead-3)"
-    stroke="black" strokeWidth="2"
-    fill="none"
-    points="50, 250 450,50" />`}
-      </Blocks>
+<polyline marker-start="url(#arrowhead)" marker-end="url(#arrowhead-3)" stroke="black" stroke-width="2" fill="none" points="50,250 450,50" />`}</Blocks>
 
       <MarkerAutoStartReverse />
 
@@ -240,13 +194,7 @@ const ReusableMarkers = () => {
         number of degrees
       </p>
 
-      <Blocks>
-        {`<marker
-    id="arrowhead"
-    orient="25deg"
-    refX="5" refY="5"
-    markerWidth="10" markerHeight="10">`}
-      </Blocks>
+      <Blocks>{`<marker id="arrowhead" orient="25deg" refX="5" refY="5" markerWidth="10" markerHeight="10">`}</Blocks>
 
       <MarkerAngle />
 

@@ -50,18 +50,14 @@ const MatterjsParticlesForces = () => {
         represented as a vector like this:
       </p>
 
-      <pre>
-        <code>{`const someForce = {x:5, y:8.66}`}</code>
-      </pre>
+      <Blocks>{`const someForce = {x:5, y:8.66}`}</Blocks>
 
       <p>
         We can apply a force to an object using the Body modules{" "}
         <strong>applyForce</strong> module:
       </p>
 
-      <pre>
-        <code>{`Body.applyForce(body, position, someForce);`}</code>
-      </pre>
+      <Blocks>{`Body.applyForce(body, position, someForce);`}</Blocks>
 
       <p>
         Let's update our{" "}

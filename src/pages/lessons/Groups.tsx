@@ -67,8 +67,7 @@ const Groups = () => {
       </p>
 
       <Blocks caption="translates are cumulative">{`<g transform="translate(100, 0)" fill="orange" >
-   <circle
-    transform="translate(100, 0)"
+   <circle transform="translate(100, 0)"
     cx="145" cy="250" r="50" />
 </g>`}</Blocks>
 

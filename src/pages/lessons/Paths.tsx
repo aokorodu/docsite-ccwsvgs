@@ -5,6 +5,7 @@ import TBezierDemo from "@/components/tbezierdemo";
 import SBezierDemo from "@/components/sbezierdemo";
 import LightBulb from "@/components/illustrations/LightBulb";
 import Dog from "@/components/illustrations/Dog";
+import Attribution from "@/components/attribution";
 
 const Paths = () => {
   return (
@@ -33,8 +34,7 @@ const Paths = () => {
         <LightBulb />
         <Dog />
       </div>
-      <div className="attribution">Illustrations by by <strong>Ramy Wafaa</strong>. See more at&nbsp;
-        <a className="attributionLink" href="https://www.getillustrations.com" target="_blank">getillustrations.com</a> </div>
+      <Attribution />
       <h2>the d attribute</h2>
 
       <p>
@@ -89,11 +89,9 @@ const Paths = () => {
         </li>
       </ul>
 
-      <Blocks caption={"absolute path"}>{`<path
-d="M 100,100 L400,100" />`}</Blocks>
+      <Blocks caption={"absolute path"}>{`<path d="M 100,100 L400,100" />`}</Blocks>
 
-      <Blocks caption={"relative path"}>{`<path
-d="M 100,100 l300,0" />`}</Blocks>
+      <Blocks caption={"relative path"}>{`<path d="M 100,100 l300,0" />`}</Blocks>
 
       <img src="/path_commands_lineTo.png" alt="path commands lineTo" />
 
@@ -119,11 +117,9 @@ d="M 100,100 l300,0" />`}</Blocks>
         </li>
       </ul>
 
-      <Blocks caption={"absolute path"}>{`<path
-d="... L400,100 V400" />`}</Blocks>
+      <Blocks caption={"absolute path"}>{`<path d="... L400,100 V400" />`}</Blocks>
 
-      <Blocks caption={"absolute path"}>{`<path
-d="... L400,100 v300" />`}</Blocks>
+      <Blocks caption={"absolute path"}>{`<path d="... L400,100 v300" />`}</Blocks>
 
       <img src="/path_commands_V.png" alt="path commands V" />
 
@@ -149,11 +145,9 @@ d="... L400,100 v300" />`}</Blocks>
         </li>
       </ul>
 
-      <Blocks caption={"absolute path"}>{`<path
-d="...  V400 H100" />`}</Blocks>
+      <Blocks caption={"absolute y"}>{`<path d="...  V400 H100" />`}</Blocks>
 
-      <Blocks caption={"absolute path"}>{`<path
-d="... v300 h-300" />`}</Blocks>
+      <Blocks caption={"relative y"}>{`<path d="... v300 h-300" />`}</Blocks>
 
       <img src="/path_commands_H.png" alt="path commands H" />
 
@@ -170,11 +164,9 @@ d="... v300 h-300" />`}</Blocks>
         </li>
       </ul>
 
-      <Blocks>{`<path
-d="...  H100 Z" />`}</Blocks>
+      <Blocks>{`<path d="...  H100 Z" />`}</Blocks>
 
-      <Blocks>{`<path
-d="...  h-300 z" />`}</Blocks>
+      <Blocks>{`<path d="...  h-300 z" />`}</Blocks>
 
       <img src="/path_commands_Z.png" alt="path commands Z" />
 
@@ -211,10 +203,7 @@ d="...  h-300 z" />`}</Blocks>
         (450,250)
       </p>
 
-      <Blocks>{`<path
-d="M 0,250 L 50,250 Q 250,120 450,250 L 500,250"
-stroke="black"
-fill="none"/>`}</Blocks>
+      <Blocks>{`<path d="M 0,250 L 50,250 Q 250,120 450,250 L 500,250" stroke="black" fill="none"/>`}</Blocks>
 
       <p>
         Here's the same line using the lower case <strong>q</strong>, which uses
@@ -226,10 +215,7 @@ fill="none"/>`}</Blocks>
         the start point.
       </p>
 
-      <Blocks>{`<path
-d="M 0,250 L 50,250 q 200,-130 400,0 L 500,250"
-stroke="black"
-fill="none"/>`}</Blocks>
+      <Blocks>{`<path d="M 0,250 L 50,250 q 200,-130 400,0 L 500,250" stroke="black" fill="none"/>`}</Blocks>
 
       <img src="/paths_bezier_q.png" alt="paths bezier q" />
 
@@ -249,10 +235,7 @@ fill="none"/>`}</Blocks>
         absolute coordinates.
       </p>
 
-      <Blocks>{`<path
-d="M 0,250 L 50,250 C 200,125 300,425 450,250 L 500,250"
-stroke="black"
-fill="none"/>`}</Blocks>
+      <Blocks>{`<path d="M 0,250 L 50,250 C 200,125 300,425 450,250 L 500,250" stroke="black" fill="none"/>`}</Blocks>
 
       <p>
         And here is the same line using the lower case <strong>c</strong>, which
@@ -261,10 +244,7 @@ fill="none"/>`}</Blocks>
         (dx:400, dy:0)
       </p>
 
-      <Blocks>{`<path
-d="M 0,250 L 50,250 c 150,-125 250,175 400,0 L 500,250"
-stroke="black"
-fill="none"/>`}</Blocks>
+      <Blocks>{`<path d="M 0,250 L 50,250 c 150,-125 250,175 400,0 L 500,250" stroke="black" fill="none"/>`}</Blocks>
 
       <img src="/paths_bezier_C.png" alt="paths bezier C" />
 
@@ -299,17 +279,11 @@ fill="none"/>`}</Blocks>
         </li>
       </ul>
 
-      <Blocks>{`<path
-  d="M 0,250 Q 125,100 250,250 T 500,250"
-  stroke="black"
-  fill="none" />`}</Blocks>
+      <Blocks>{`<path d="M 0,250 Q 125,100 250,250 T 500,250" stroke="black" fill="none" />`}</Blocks>
 
       <p>Here's the same curve with the implied point written out:</p>
 
-      <Blocks>{`<path
-  d="M 0,250 Q 125,100 250,250 Q 375,400 500,250"
-  stroke="black"
-  fill="none" />`}</Blocks>
+      <Blocks>{`<path d="M 0,250 Q 125,100 250,250 Q 375,400 500,250" stroke="black" fill="none" />`}</Blocks>
 
       <img src="/paths_bezier_T.png" alt="paths bezier T" />
 
@@ -328,10 +302,7 @@ fill="none"/>`}</Blocks>
 
       <p>cubic control point - current point - (implied point) - control point</p>
 
-      <Blocks>{`<path
-  d="M 0,250 C 25,100 225,100 250,250 S 475,400 500,250"
-  stroke="black"
-  fill="none"/>`}</Blocks>
+      <Blocks>{`<path d="M 0,250 C 25,100 225,100 250,250 S 475,400 500,250" stroke="black"fill="none"/>`}</Blocks>
 
       <img src="/paths_bezier_S.png" alt="paths bezier S" />
 

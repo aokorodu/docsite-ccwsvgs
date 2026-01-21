@@ -142,9 +142,7 @@ const Sprites = () => {
         in between.
       </p>
 
-      <pre>
-        <code>{`animation-timing-function: steps(<number>, <jumpterm>);`}</code>
-      </pre>
+      <Blocks>{`animation-timing-function: steps(<number>, <jumpterm>);`}</Blocks>
 
       <Blocks highlight="6">{`<styles>
         .bounceHolder {

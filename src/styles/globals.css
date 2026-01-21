@@ -9,7 +9,7 @@
   --color-bg-secondary: #f5f5f5;
   --color-bg-nav: rgb(253, 243, 255);
   --color-bg-nav-overlay: rgba(39, 0, 43, 0.4);
-  --color-bg-code: #eaeaea;
+  --color-bg-code: #282c34;
   --color-bg-hover: rgba(255, 165, 255, 0.2);
 
   --color-text-primary: #000000;
@@ -31,7 +31,7 @@
   --color-bg-secondary: #16213e;
   --color-bg-nav: #1f1f3a;
   --color-bg-nav-overlay: rgba(0, 0, 0, 0.6);
-  --color-bg-code: #2d2d44;
+  --color-bg-code: #282c34;
   --color-bg-hover: rgba(255, 165, 255, 0.15);
 
   --color-text-primary: #f0f0f0;
@@ -59,7 +59,9 @@ body {
   overflow-x: hidden;
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 #root {
@@ -231,6 +233,8 @@ video {
 }
 
 .attribution {
+  transform: translateY(-30px);
+  font-size: 0.8rem;
   font-style: italic;
 }
 

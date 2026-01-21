@@ -26,18 +26,10 @@ const ReusableDefs = () => {
       </p>
 
       <Blocks>{`<svg width="500" height="500" viewbox="0 0 500 500">
-
-    <defs>
-        <circle id="dot"
-            cx="0" cy="0" r="100"
-            fill="purple" />
-    </defs>
-
-    <use
-        href="#dot"
-        x="250" y="250">
-    </use>
-
+  <defs>
+    <circle id="dot" cx="0" cy="0" r="100" fill="purple" />
+  </defs>
+  <use href="#dot" x="250" y="250"></use>
 </svg>`}</Blocks>
 
       <DefsExample />
@@ -48,38 +40,23 @@ const ReusableDefs = () => {
       </p>
 
       <Blocks>{`<svg width="500" height="500" viewbox="0 0 500 500">
-
-    <defs>
-        <circle id="dot"
-            cx="0" cy="0" r="100"
-            fill="purple" />
-    </defs>
-
-    <use
-        href="#dot"
-        x="250" y="250">
-    </use>
-
+  <defs>
+    <circle id="dot" cx="0" cy="0" r="100" fill="purple" />
+  </defs>
+  <use href="#dot" x="250" y="250"></use>
 </svg>`}</Blocks>
 
       <DefsSmileExample />
 
       <Blocks>{`<svg width="500" height="500" viewbox="0 0 500 500">
-
-    <defs>
-        <g id="smiley-face">
-            <circle cx="118.5" cy="140.5" r="12.5" fill="black" />
-            <circle cx="243.5" cy="140.5" r="12.5" fill="black" />
-
-            // more code
-        </g>
-    </defs>
-
-    <use
-        href="#smiley-face"
-        x="0" y="0">
-    </use>
-
+  <defs>
+    <g id="smiley-face">
+      <circle cx="118.5" cy="140.5" r="12.5" fill="black" />
+      <circle cx="243.5" cy="140.5" r="12.5" fill="black" />
+      // more code
+    </g>
+  </defs>
+  <use href="#smiley-face" x="0" y="0"></use>
 </svg>`}</Blocks>
     </>
   );
