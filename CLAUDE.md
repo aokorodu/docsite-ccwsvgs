@@ -51,9 +51,9 @@ Components in `src/components/`:
 - Build output goes to `dist/` directory
 
 ### Key Dependencies
-- **GSAP** (`gsap`, `@gsap/react`): Animation library for greensock lesson demos
+- **GSAP** (`gsap`, `@gsap/react`): Animation library for GreenSock lesson demos
 - **Matter.js**: 2D physics engine for particle simulations
-- **react-code-blocks**: Syntax highlighting for code examples
+- **highlight.js**: Syntax highlighting for code examples
 - **MUI**: UI components (icons, material design)
 
 ### Adding New Lessons

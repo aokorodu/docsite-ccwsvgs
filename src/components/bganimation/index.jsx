@@ -43,7 +43,6 @@ class BGAnimation extends React.Component {
   };
 
   draw = () => {
-    console.log("draw");
     if (!this.running) return;
 
     for (let i = 0; i < this.numberOfParticles; i++) {

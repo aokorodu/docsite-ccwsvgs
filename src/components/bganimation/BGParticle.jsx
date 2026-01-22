@@ -13,11 +13,14 @@ class BGParticle extends React.Component {
     this.fillOpacity = 0;
     this.strokeOpacity = 1;
     this.rotationSpeed = Math.random() * 4 - 2;
-
     // boundary, position stuff;
 
     // physics vars
     this.physics = {
+      spinAngle: 0,
+      spinSpeed: 0.01,
+      spinRadius: 0,
+      spinDx: 0,
       minRadius: 12,
       radius: 2 + Math.round(Math.random() * 8),
       gravity: new PVector(0, 0.4),
@@ -26,7 +29,7 @@ class BGParticle extends React.Component {
       velocity: new PVector(0, 0),
       position: new PVector(
         Math.random() * 1000,
-        Math.random() > 0.5 ? 20 : 1020
+        Math.random() > 0.5 ? 20 : 1020,
       ),
       boundary: {
         right: 1000,
@@ -35,6 +38,17 @@ class BGParticle extends React.Component {
         bottom: 0,
       },
       flowStart: new PVector(500, 1000),
+      initSpin: function () {
+        this.spinDx = this.position.x - 500;
+        this.spinRadius = Math.max(
+          this.minRadius,
+          Math.abs(this.spinDx) + Math.abs(Math.random() * this.spinDx),
+        );
+        this.spinAngle =
+          Math.random() > 0.5
+            ? Math.acos(this.spinDx / this.spinRadius)
+            : Math.PI * 2 - Math.acos(this.spinDx / this.spinRadius);
+      },
       initFlow: function () {
         this.acceleration = new PVector(0, 0.35);
         this.velocity = new PVector(0, 0);
@@ -43,7 +57,7 @@ class BGParticle extends React.Component {
         this.position = new PVector(this.flowStart.x, this.flowStart.y);
         this.velocity = new PVector(
           2 - Math.random() * 4,
-          -14 - Math.random() * 12
+          -14 - Math.random() * 12,
         );
       },
       waterFlow: function () {
@@ -91,6 +105,12 @@ class BGParticle extends React.Component {
         this.velocity.add(this.acceleration);
         this.position.add(this.velocity);
         this.acceleration = new PVector(0, 0);
+      },
+      spin: function () {
+        this.spinAngle += this.spinSpeed;
+        if (this.spinAngle > 2 * Math.PI) this.spinAngle -= Math.PI * 2;
+        const spinCos = Math.cos(this.spinAngle);
+        this.position.x = 500 + spinCos * this.spinRadius;
       },
     };
 
@@ -243,6 +263,7 @@ class BGParticle extends React.Component {
     this.flow = newFlow;
     this.trig.readyToStartSinFlow = false;
     if (this.flow === "waterFlow") this.physics.initFlow();
+    if (this.flow === "spin") this.physics.initSpin();
   }
 
   update() {
@@ -268,6 +289,10 @@ class BGParticle extends React.Component {
         this.physics.orbit();
         break;
 
+      case "spin":
+        this.physics.spin();
+        break;
+
       default:
         this.trig.sinFlow(this.physics);
         break;
@@ -279,12 +304,12 @@ class BGParticle extends React.Component {
   draw() {
     this.holder.setAttribute(
       "transform",
-      `translate(${this.physics.position.x} ${this.physics.position.y})`
+      `translate(${this.physics.position.x} ${this.physics.position.y})`,
     );
 
     this.spinner.setAttribute(
       "transform",
-      `rotate(${this.physics.position.x * this.rotationSpeed})`
+      `rotate(${this.physics.position.x * this.rotationSpeed})`,
     );
   }
 
