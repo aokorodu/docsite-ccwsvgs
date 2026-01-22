@@ -252,7 +252,7 @@ const AnimationCSS = () => {
 
       <StrokeDash hover={true} />
 
-      <h4>hover to see a similar but more complex stroke animation using letters.</h4>
+      <h4>hover your cursor over the box below to see a similar but more complex stroke animation using letters.</h4>
 
       <StrokeTextBetter />
 

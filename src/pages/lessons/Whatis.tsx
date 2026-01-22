@@ -22,7 +22,7 @@ const Whatis = () => {
         <strong>bitmap</strong> images - PNGs, JPEGs, and GIFs. An SVG is <strong>NOT</strong> a bitmap.
       </p>
 
-      <img src="/bitmap_1.png" alt="Bitmap example" />
+      <img src="/bitmap_flowers.jpg" alt="Bitmap example" />
 
       <p>
         Bitmap Images are essentially a grid of pixels - lots and lots of tiny,

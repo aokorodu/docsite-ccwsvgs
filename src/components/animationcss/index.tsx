@@ -214,7 +214,7 @@ export const StrokeTextBetter = () => {
         <svg width="500" height="250" viewBox="0 0 500 250">
 
             <g fill="none" strokeWidth="2" className={styles.letter}>
-                <rect x="-20" y="-20" width="540" height="290" fill="#212121" stroke="none" />
+                <rect x="-20" y="-20" width="540" height="290" fill="#fff" stroke="none" />
                 <path className={styles.s} pathLength="100" d="M134.183 96.1445C133.786 91.1698 131.922
     87.2896 128.592 84.5038C125.311 81.718 120.316 80.3251 113.607
     80.3251C109.332 80.3251 105.828 80.8474 103.095 81.8921C100.411 82.887
