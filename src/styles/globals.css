@@ -204,8 +204,8 @@ video {
 
   h2 {
     font-size: 1.75rem;
-    font-weight: 400;
-    margin: 3rem 0 1rem;
+    /* font-weight: 400; */
+    /* margin: 3rem 0 1rem; */
   }
 
   h3 {
