@@ -612,7 +612,7 @@ export const TimlineDemo = () => {
         "#bgHolder",
         { attr: { transform: "translate(250 250) scale(.03)" } },
         {
-          attr: { transform: "translate(250 250) scale(1)" },
+          attr: { transform: "translate(250 250) scale(2)" },
           duration: dur,
           stagger: 0.5,
         },
@@ -920,7 +920,7 @@ export const TimlineDemoErrorFix = () => {
         "#bgHolder_fix",
         { attr: { transform: "translate(250 250) scale(.03)" } },
         {
-          attr: { transform: "translate(250 250) scale(1)" },
+          attr: { transform: "translate(250 250) scale(2)" },
           duration: dur,
           stagger: 0.5,
         },
@@ -1012,7 +1012,7 @@ export const TimlineDemoNoClip = () => {
         "#bgHolder_noclip",
         { attr: { transform: "translate(250 250) scale(.03)" } },
         {
-          attr: { transform: "translate(250 250) scale(1)" },
+          attr: { transform: "translate(250 250) scale(2)" },
           duration: dur,
           stagger: 0.5,
         },
