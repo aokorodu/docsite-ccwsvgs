@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 
 
-const anims = ["waterFlow", "float", "sin", "orbit"];
+const anims = ["waterFlow", "float", "sine", "orbit"];
 
 function Selector({ onClick }: { onClick: (index: number) => void }) {
   const [selectedAnim, setSelectedAnim] = useState(0);
@@ -30,22 +30,24 @@ export default function Home() {
   let animIndex = 0;
   const animLength = anims.length;
 
-  const chooseRandomFlow = (isRandom: boolean) => {
-    if (!anim.current) return;
-    if (isRandom) {
-      animIndex = Math.floor(Math.random() * animLength);
+  // const chooseRandomFlow = (isRandom: boolean) => {
+  //   if (!anim.current) return;
+  //   if (isRandom) {
+  //     animIndex = Math.floor(Math.random() * animLength);
 
-    } else {
+  //   } else {
 
-      animIndex = (animIndex + 1) % animLength;
-    }
-    anim.current.changeFlow(anims[animIndex]);
-  };
+  //     animIndex = (animIndex + 1) % animLength;
+  //   }
+  //   anim.current.changeFlow(anims[animIndex]);
+  // };
 
   const chooseSpecificFlow = (index: number) => {
     if (!anim.current) return;
     animIndex = index % animLength;
-    anim.current.changeFlow(anims[animIndex]);
+    let animName = anims[animIndex];
+    if (animName === "sine") animName = "sin"
+    anim.current.changeFlow(animName);
   };
 
   // const chooseNextFlow = () => {
