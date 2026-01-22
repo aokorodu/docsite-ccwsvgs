@@ -1300,9 +1300,9 @@ export const SimplePropertyAnimation = () => {
     <svg width="500" height="500" viewBox="0 0 500 500">
       <rect
         id="bg"
-        x="0"
+        x="-250"
         y="0"
-        width="500"
+        width="1000"
         height="500"
         fill="#121212"
         stroke="black"
@@ -1395,9 +1395,9 @@ export const FlowerPropertyAnimation = () => {
       </defs>
       <rect
         id="bg"
-        x="0"
+        x="-250"
         y="0"
-        width="500"
+        width="1000"
         height="500"
         fill="#212121"
         stroke="black"
