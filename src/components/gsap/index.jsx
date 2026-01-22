@@ -26,7 +26,7 @@ export const GsapDemo = () => {
           attr: { transform: "translate(250,135)", opacity: 1 },
           duration: dur,
           ease: "back",
-        }
+        },
       )
       .fromTo(
         "#s",
@@ -44,7 +44,7 @@ export const GsapDemo = () => {
           duration: dur,
           ease: "back",
         },
-        `-=${overlap}`
+        `-=${overlap}`,
       )
       .fromTo(
         "#v",
@@ -54,7 +54,7 @@ export const GsapDemo = () => {
           duration: dur,
           ease: "back",
         },
-        `-=${overlap}`
+        `-=${overlap}`,
       )
       .fromTo(
         "#g",
@@ -69,7 +69,7 @@ export const GsapDemo = () => {
           duration: dur,
           ease: "back",
         },
-        `-=${overlap}`
+        `-=${overlap}`,
       )
       .fromTo(
         "#small-s",
@@ -79,7 +79,7 @@ export const GsapDemo = () => {
           duration: dur,
           ease: "back",
         },
-        `-=${overlap}`
+        `-=${overlap}`,
       )
       .fromTo(
         ".zuubaDigital",
@@ -88,7 +88,7 @@ export const GsapDemo = () => {
           attr: { transform: "translate(0,0)", opacity: 1 },
           duration: dur,
           stagger: 0.1,
-        }
+        },
       );
   };
 
@@ -116,143 +116,151 @@ export const GsapDemo = () => {
 
   return (
     <svg width="500" height="500" viewBox="0 0 500 500">
-      <rect id="bg" x="0" y="0" width="500" height="500" fill="#212121" />
-      <g id="wave-holder" fill-opacity=".25" transform="translate(250,1450)">
-        <rect
-          className="wave"
-          x="-1000"
-          y="-1000"
-          width="2000"
-          height="2000"
-          rx="700"
-          ry="600"
+      <defs>
+        <clipPath id="everything-clip">
+          <rect x="-250" y="0" width="1000" height="500" />
+        </clipPath>
+      </defs>
+      <rect id="bg" x="-250" y="0" width="1000" height="500" fill="#212121" />
+
+      <g clip-path="url(#everything-clip)">
+        <g id="wave-holder" fill-opacity=".25" transform="translate(250,1450)">
+          <rect
+            className="wave"
+            x="-1000"
+            y="-1000"
+            width="2000"
+            height="2000"
+            rx="700"
+            ry="600"
+            fill="violet"
+          />
+          <rect
+            className="wave-2"
+            x="-1000"
+            y="-1000"
+            width="2000"
+            height="2000"
+            rx="600"
+            ry="700"
+            fill="violet"
+          />
+        </g>
+        <g id="creative-coding" transform="translate(250, 135)" fill="violet">
+          <text
+            className={styles.creative_coding}
+            id="creative_coding"
+            x="0"
+            y="0"
+            text-anchor="middle"
+            dominant-baseline="middle"
+          >
+            creative coding with
+          </text>
+        </g>
+        <g
+          id="SVG"
           fill="violet"
-        />
-        <rect
-          className="wave-2"
-          x="-1000"
-          y="-1000"
-          width="2000"
-          height="2000"
-          rx="600"
-          ry="700"
-          fill="violet"
-        />
-      </g>
-      <g id="creative-coding" transform="translate(250, 135)" fill="violet">
-        <text
-          className={styles.creative_coding}
-          id="creative_coding"
-          x="0"
-          y="0"
-          text-anchor="middle"
-          dominant-baseline="middle"
+          transform="translate(-20 0)"
+          stroke="white"
+          stroke-width="7"
+          stroke-opacity=".1"
         >
-          creative coding with
-        </text>
-      </g>
-      <g
-        id="SVG"
-        fill="violet"
-        transform="translate(-20 0)"
-        stroke="white"
-        stroke-width="7"
-        stroke-opacity=".1"
-      >
-        <g transform="translate(125 250)">
-          <text
-            className={styles.svgText}
-            id="s"
-            x="0"
-            y="0"
-            font-size="190"
-            font-weight="800"
-            text-anchor="middle"
-            dominant-baseline="middle"
-          >
-            S
+          <g transform="translate(125 250)">
+            <text
+              className={styles.svgText}
+              id="s"
+              x="0"
+              y="0"
+              font-size="190"
+              font-weight="800"
+              text-anchor="middle"
+              dominant-baseline="middle"
+            >
+              S
+            </text>
+          </g>
+          <g transform="translate(250 250)">
+            <text
+              className={styles.svgText}
+              id="v"
+              x="0"
+              y="0"
+              font-size="190"
+              font-weight="800"
+              text-anchor="middle"
+              dominant-baseline="middle"
+            >
+              V
+            </text>
+          </g>
+          <g transform="translate(378 250)">
+            <text
+              className={styles.svgText}
+              id="g"
+              x="0"
+              y="0"
+              font-size="190"
+              font-weight="800"
+              text-anchor="middle"
+              dominant-baseline="middle"
+            >
+              G
+            </text>
+          </g>
+          <g transform="translate(465 285)">
+            <text
+              className={styles.svgText}
+              id="small-s"
+              x="0"
+              y="0"
+              font-size="70"
+              font-weight="800"
+              text-anchor="middle"
+              dominant-baseline="middle"
+            >
+              s
+            </text>
+          </g>
+        </g>
+        <g transform="translate(25, 335)" fill="violet">
+          <text className="zuubaDigital" x="100" y="0">
+            z
+          </text>
+          <text className="zuubaDigital" x="125" y="0">
+            u
+          </text>
+          <text className="zuubaDigital" x="150" y="0">
+            u
+          </text>
+          <text className="zuubaDigital" x="175" y="0">
+            b
+          </text>
+          <text className="zuubaDigital" x="200" y="0">
+            a
+          </text>
+          <text className="zuubaDigital" x="225" y="0">
+            D
+          </text>
+          <text className="zuubaDigital" x="245" y="0">
+            i
+          </text>
+          <text className="zuubaDigital" x="265" y="0">
+            g
+          </text>
+          <text className="zuubaDigital" x="285" y="0">
+            i
+          </text>
+          <text className="zuubaDigital" x="300" y="0">
+            t
+          </text>
+          <text className="zuubaDigital" x="320" y="0">
+            a
+          </text>
+          <text className="zuubaDigital" x="340" y="0">
+            l
           </text>
         </g>
-        <g transform="translate(250 250)">
-          <text
-            className={styles.svgText}
-            id="v"
-            x="0"
-            y="0"
-            font-size="190"
-            font-weight="800"
-            text-anchor="middle"
-            dominant-baseline="middle"
-          >
-            V
-          </text>
-        </g>
-        <g transform="translate(378 250)">
-          <text
-            className={styles.svgText}
-            id="g"
-            x="0"
-            y="0"
-            font-size="190"
-            font-weight="800"
-            text-anchor="middle"
-            dominant-baseline="middle"
-          >
-            G
-          </text>
-        </g>
-        <g transform="translate(465 285)">
-          <text
-            className={styles.svgText}
-            id="small-s"
-            x="0"
-            y="0"
-            font-size="70"
-            font-weight="800"
-            text-anchor="middle"
-            dominant-baseline="middle"
-          >
-            s
-          </text>
-        </g>
-      </g>
-      <g transform="translate(25, 335)" fill="violet">
-        <text className="zuubaDigital" x="100" y="0">
-          z
-        </text>
-        <text className="zuubaDigital" x="125" y="0">
-          u
-        </text>
-        <text className="zuubaDigital" x="150" y="0">
-          u
-        </text>
-        <text className="zuubaDigital" x="175" y="0">
-          b
-        </text>
-        <text className="zuubaDigital" x="200" y="0">
-          a
-        </text>
-        <text className="zuubaDigital" x="225" y="0">
-          D
-        </text>
-        <text className="zuubaDigital" x="245" y="0">
-          i
-        </text>
-        <text className="zuubaDigital" x="265" y="0">
-          g
-        </text>
-        <text className="zuubaDigital" x="285" y="0">
-          i
-        </text>
-        <text className="zuubaDigital" x="300" y="0">
-          t
-        </text>
-        <text className="zuubaDigital" x="320" y="0">
-          a
-        </text>
-        <text className="zuubaDigital" x="340" y="0">
-          l
-        </text>
       </g>
     </svg>
   );
@@ -528,7 +536,7 @@ export const BasicFromToAnim = () => {
         },
 
         ease: "back.inOut",
-      }
+      },
     );
   };
 
@@ -598,7 +606,7 @@ export const TimlineDemo = () => {
           duration: dur,
           stagger: 0.5,
           ease: "back",
-        }
+        },
       )
       .fromTo(
         "#bgHolder",
@@ -607,7 +615,7 @@ export const TimlineDemo = () => {
           attr: { transform: "translate(250 250) scale(1)" },
           duration: dur,
           stagger: 0.5,
-        }
+        },
       )
       .fromTo(
         "#lineHolder",
@@ -616,7 +624,7 @@ export const TimlineDemo = () => {
           attr: { transform: "translate(250 250) scale(1 1)" },
           duration: dur,
           stagger: 0.5,
-        }
+        },
       )
       .fromTo(
         ".letter",
@@ -626,7 +634,7 @@ export const TimlineDemo = () => {
           duration: dur,
           stagger: 0.1,
           ease: "back",
-        }
+        },
       );
   };
 
@@ -814,7 +822,7 @@ export const TimlineDemoError = () => {
           duration: dur,
           stagger: 0.5,
           ease: "back",
-        }
+        },
       )
       .fromTo(
         "#bgHolder_error",
@@ -823,7 +831,7 @@ export const TimlineDemoError = () => {
           attr: { transform: "scale(1)" },
           duration: dur,
           stagger: 0.5,
-        }
+        },
       );
   };
 
@@ -906,7 +914,7 @@ export const TimlineDemoErrorFix = () => {
           duration: dur,
           stagger: 0.5,
           ease: "back",
-        }
+        },
       )
       .fromTo(
         "#bgHolder_fix",
@@ -915,7 +923,7 @@ export const TimlineDemoErrorFix = () => {
           attr: { transform: "translate(250 250) scale(1)" },
           duration: dur,
           stagger: 0.5,
-        }
+        },
       );
   };
 
@@ -998,7 +1006,7 @@ export const TimlineDemoNoClip = () => {
           duration: dur,
           stagger: 0.5,
           ease: "back",
-        }
+        },
       )
       .fromTo(
         "#bgHolder_noclip",
@@ -1007,7 +1015,7 @@ export const TimlineDemoNoClip = () => {
           attr: { transform: "translate(250 250) scale(1)" },
           duration: dur,
           stagger: 0.5,
-        }
+        },
       )
       .fromTo(
         "#lineHolder_noclip",
@@ -1016,7 +1024,7 @@ export const TimlineDemoNoClip = () => {
           attr: { transform: "translate(250 250) scale(1 1)" },
           duration: dur,
           stagger: 0.5,
-        }
+        },
       )
       .fromTo(
         ".letter_noclip",
@@ -1026,7 +1034,7 @@ export const TimlineDemoNoClip = () => {
           duration: dur,
           stagger: 0.1,
           ease: "back",
-        }
+        },
       );
   };
 
@@ -1216,269 +1224,6 @@ export const GSAPPlaybackStarter = () => {
     </>
   );
 };
-
-// export const PlaybackControlsNoScrub = () => {
-//   let theTween = null;
-//   const dur = 1;
-
-//   // ui
-//   const playButton = useRef(null);
-//   const pauseButton = useRef(null);
-//   const reverseButton = useRef(null);
-//   const restartButton = useRef(null);
-
-//   useGSAP(() => {
-//     animate();
-//   }); // <-- scope for selector text (optional)
-
-//   const animate = () => {
-//     theTween = gsap.timeline({ repeat: -1, yoyo: true, repeatDelay: 1 });
-//     theTween
-//       .fromTo(
-//         "#bgHolder_noclip",
-//         { attr: { transform: "translate(250 -30) scale(.03)" } },
-//         {
-//           attr: { transform: "translate(250 250) scale(.03)" },
-//           duration: dur,
-//           stagger: 0.5,
-//           ease: "back",
-//         }
-//       )
-//       .fromTo(
-//         "#bgHolder_noclip",
-//         { attr: { transform: "translate(250 250) scale(.03)" } },
-//         {
-//           attr: { transform: "translate(250 250) scale(1)" },
-//           duration: dur,
-//           stagger: 0.5,
-//         }
-//       )
-//       .fromTo(
-//         "#lineHolder_noclip",
-//         { attr: { transform: "translate(250 250) scale(0 1)" } },
-//         {
-//           attr: { transform: "translate(250 250) scale(1 1)" },
-//           duration: dur,
-//           stagger: 0.5,
-//         }
-//       )
-//       .fromTo(
-//         ".letter_noclip",
-//         { attr: { y: 100, opacity: 1 } },
-//         {
-//           attr: { y: 0, opacity: 1 },
-//           duration: dur,
-//           stagger: 0.1,
-//           ease: "back",
-//         }
-//       );
-//   };
-
-//   useEffect(() => {
-//     initUI();
-//   }, []);
-
-//   const initUI = () => {
-//     playButton.current.addEventListener("click", play);
-//     pauseButton.current.addEventListener("click", pause);
-//     reverseButton.current.addEventListener("click", reverse);
-//     restartButton.current.addEventListener("click", restart);
-//     // // slider
-//     // scrubber.addEventListener("input", sliderInputHandler);
-//     // scrubber.addEventListener("mouseover",sliderOverHandler);
-//     // scrubber.addEventListener("mouseout", sliderOutHandler);
-//   };
-
-//   const play = () => {
-//     if (theTween == null) {
-//       theTween.play();
-//       return;
-//     }
-
-//     if (!theTween.isActive()) {
-//       // if playhead is at end restart, else just play
-//       if (theTween.progress() == 1) {
-//         theTween.restart();
-//       } else {
-//         theTween.play();
-//       }
-//     }
-//   };
-
-//   const pause = () => {
-//     if (theTween != null) theTween.pause();
-//   };
-
-//   const reverse = () => {
-//     if (theTween != null) theTween.reverse();
-//   };
-
-//   const restart = () => {
-//     if (theTween != null) {
-//       theTween.restart();
-//       return;
-//     }
-//     theTween.play();
-//   };
-
-//   return (
-//     <>
-//       <svg width="500" height="500" viewBox="0 0 500 500">
-//         <defs>
-//           <clipPath id="text-clip-path">
-//             <rect x="0" y="0" width="500" height="250" />
-//           </clipPath>
-//         </defs>
-//         <g id="bgHolder_noclip" transform="translate(250 250)">
-//           <circle cx="0" cy="0" r="400" fill="black" stroke="none" />
-//         </g>
-//         <g id="lineHolder_noclip" transform="translate(250 250) scale(1 1)">
-//           <path d="M-250,0 h500" stroke="white" stroke-width="2" />
-//         </g>
-//         <g id="holder" clipPath="url(#text-clip-path)">
-//           <g
-//             id="textHolder"
-//             transform="translate(80, 230)"
-//             fill="white"
-//             fontSize={35}
-//           >
-//             <text
-//               x="10"
-//               y="0"
-//               text-anchor="middle"
-//               dominant-baseline="middle"
-//               class="letter_noclip"
-//             >
-//               T
-//             </text>
-//             <text
-//               x="35"
-//               y="0"
-//               text-anchor="middle"
-//               dominant-baseline="middle"
-//               class="letter_noclip"
-//             >
-//               E
-//             </text>
-//             <text
-//               x="60"
-//               y="0"
-//               text-anchor="middle"
-//               dominant-baseline="middle"
-//               class="letter_noclip"
-//             >
-//               X
-//             </text>
-//             <text
-//               x="85"
-//               y="0"
-//               text-anchor="middle"
-//               dominant-baseline="middle"
-//               class="letter_noclip"
-//             >
-//               T
-//             </text>
-//             <text
-//               x="135"
-//               y="0"
-//               text-anchor="middle"
-//               dominant-baseline="middle"
-//               class="letter_noclip"
-//             >
-//               A
-//             </text>
-//             <text
-//               x="160"
-//               y="0"
-//               text-anchor="middle"
-//               dominant-baseline="middle"
-//               class="letter_noclip"
-//             >
-//               N
-//             </text>
-//             <text
-//               x="185"
-//               y="0"
-//               text-anchor="middle"
-//               dominant-baseline="middle"
-//               class="letter_noclip"
-//             >
-//               I
-//             </text>
-//             <text
-//               x="210"
-//               y="0"
-//               text-anchor="middle"
-//               dominant-baseline="middle"
-//               class="letter_noclip"
-//             >
-//               M
-//             </text>
-//             <text
-//               x="235"
-//               y="0"
-//               text-anchor="middle"
-//               dominant-baseline="middle"
-//               class="letter_noclip"
-//             >
-//               A
-//             </text>
-//             <text
-//               x="260"
-//               y="0"
-//               text-anchor="middle"
-//               dominant-baseline="middle"
-//               class="letter_noclip"
-//             >
-//               T
-//             </text>
-//             <text
-//               x="285"
-//               y="0"
-//               text-anchor="middle"
-//               dominant-baseline="middle"
-//               class="letter_noclip"
-//             >
-//               I
-//             </text>
-//             <text
-//               x="310"
-//               y="0"
-//               text-anchor="middle"
-//               dominant-baseline="middle"
-//               class="letter_noclip"
-//             >
-//               O
-//             </text>
-//             <text
-//               x="335"
-//               y="0"
-//               text-anchor="middle"
-//               dominant-baseline="middle"
-//               class="letter_noclip"
-//             >
-//               N
-//             </text>
-//           </g>
-//         </g>
-//       </svg>
-//       <div className={styles.playbackControls}>
-//         <button ref={playButton} id="play" className={styles.playback}>
-//           play
-//         </button>
-//         <button ref={pauseButton} id="pause" className={styles.playback}>
-//           pause
-//         </button>
-//         <button ref={reverseButton} id="reverse" className={styles.playback}>
-//           reverse
-//         </button>
-//         <button ref={restartButton} id="restart" className={styles.playback}>
-//           restart
-//         </button>
-//       </div>
-//     </>
-//   );
-// };
 
 export const PlaybackControlsNoScrub = () => {
   return (

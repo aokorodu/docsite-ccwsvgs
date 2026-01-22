@@ -29,7 +29,7 @@ const GreensockIntro = () => {
       </p>
 
       <p>
-        An in depth exporation of GSAP could be it's own course, so we're just
+        An in depth exploration of GSAP could be it's own course, so we're just
         going to focus on <em>some</em> of the many ways GSAP can be used to
         animate SVG elements.
       </p>
