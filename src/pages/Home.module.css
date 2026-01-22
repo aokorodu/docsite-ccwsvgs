@@ -57,8 +57,9 @@
 
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.5rem;
 
   margin-top: 3rem;
   opacity: 0.9;

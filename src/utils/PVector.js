@@ -35,8 +35,9 @@ class PVector {
     this.y *= num;
   }
 
-  normalize(v) {
+  normalize() {
     let num = Math.sqrt(this.x * this.x + this.y * this.y);
+    if (num === 0) return;
     this.x = this.x / num;
     this.y = this.y / num;
   }
