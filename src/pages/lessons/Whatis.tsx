@@ -18,15 +18,13 @@ const Whatis = () => {
       <h2>SVGs vs. Bitmaps</h2>
 
       <p>
-        Most of the graphics you see on web pages today are what's known as{" "}
-        <strong>bitmap</strong> images - PNGs, JPEGs, and GIFs. An SVG is <strong>NOT</strong> a bitmap.
+        Many of the images you see on web pages today are what's known as <strong>bitmaps</strong>. All photos like those below are bitmap images.
       </p>
 
       <img src="/bitmap_flowers.jpg" alt="Bitmap example" />
 
       <p>
-        Bitmap Images are essentially a grid of pixels - lots and lots of tiny,
-        colored, squarish dots - that, when combined, make up an image.
+        Bitmap Images are essentially a grid of pixels - lots and lots of tiny, colored, squarish dots - that, when combined, make up an image.
       </p>
 
       <img src="/bitmap_resolution.png" alt="Bitmap resolution" />
