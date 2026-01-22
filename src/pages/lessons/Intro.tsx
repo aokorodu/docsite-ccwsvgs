@@ -1,9 +1,12 @@
 import Blocks from "@/components/blocks";
+import IntroParallax from "@/components/parallax/IntroParallax";
 
 const Intro = () => {
   return (
     <>
       <h1>Intro</h1>
+
+      <IntroParallax />
 
       <h2>What you'll learn:</h2>
 

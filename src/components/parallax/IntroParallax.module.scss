@@ -1,0 +1,120 @@
+.tire {
+  animation-name: spin;
+  animation-duration: 0.4s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: reverse;
+}
+
+.body {
+  animation-name: jiggle;
+  animation-duration: 0.33s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  transform-origin: 50% 100%;
+  animation-direction: alternate-reverse;
+}
+
+.rangeMid {
+  animation-name: parallax;
+  animation-duration: 45s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.rangeBack {
+  animation-name: parallax;
+  animation-duration: 60s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.rangeFront {
+  animation-name: parallax;
+  animation-duration: 20s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.inner {
+  animation-name: pulse;
+  animation-duration: 6s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.middle {
+  animation-name: pulse;
+  animation-duration: 6s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-delay: 2s;
+}
+
+.outer {
+  animation-name: pulse;
+  animation-duration: 6s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-delay: 4s;
+}
+
+.car {
+  animation-name: rev;
+  animation-duration: 6s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes parallax {
+  0% {
+    transform: translate(-200%);
+  }
+
+  100% {
+    transform: translate(0%);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes jiggle {
+  0% {
+    transform: translateY(-0.15%);
+  }
+
+  100% {
+    transform: translateY(0.15%);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes rev {
+  0% {
+    transform: translateX(40%) translateY(67%);
+  }
+
+  100% {
+    transform: translateX(45%) translateY(67%);
+  }
+}
