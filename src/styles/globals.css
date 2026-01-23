@@ -21,6 +21,9 @@
   --color-border-nav: rgba(32, 0, 37, 0.3);
 
   --color-link: rgb(36, 1, 44);
+
+  --color-table-header-bg: #fff5ff;
+  --color-table-text: #000000;
 }
 
 /* Dark Mode Variables */
@@ -43,6 +46,8 @@
   --color-border-nav: rgba(100, 60, 110, 0.5);
 
   --color-link: #c99fd4;
+  --color-table-header-bg: #161627;
+  --color-table-text: #ffffff;
 }
 
 * {
@@ -268,4 +273,25 @@ blockquote > p {
   max-width: 30%;
   height: auto;
   margin: 0;
+}
+
+.comparisonTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 1.5rem 0;
+}
+
+.comparisonTable th,
+.comparisonTable td {
+  border: 1px solid var(--color-border-medium);
+  padding: 0.75rem;
+  text-align: left;
+}
+.comparisonTable th {
+  background-color: var(--color-table-header-bg);
+  color: var(--color-table-text);
+  font-weight: 600;
+}
+.comparisonTable tr:nth-child(even) {
+  background-color: var(--color-bg-secondary);
 }
