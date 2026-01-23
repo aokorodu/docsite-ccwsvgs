@@ -196,43 +196,65 @@ const Whatis = () => {
    </svg>
 </body>`}</Blocks>
 
-      <h2>SVG Advantages (External)</h2>
+      <h2>SVG Advantages</h2>
 
-      <p>✔️ Scalability</p>
-
-      <p>
-        ✔️ File size - Generally speaking, svg images have smaller file size, as
-        long as the image is not very detailed (like a photograph)
-      </p>
-
-      <h2>SVG Advantages (Inline)</h2>
-
-      <p>✔️ Scalability</p>
-
-      <p>✔️ File size</p>
-
-      <p>
-        ✔️ Versatility - Since inline SVGs have their own DOM, it's possible to
-        do a lot more with elements of the image - creation, animation, changing
-        color, adding and removing, etc. using JavaScript and CSS (inline only)
-      </p>
-
-      <p>
-        ✔️ SEO - Since SVGs are text-based, Inline SVGs and elements within
-        Inline SVGs can be indexed by search engines.
-      </p>
+      <table className="comparisonTable">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>External</th>
+            <th>Inline</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Scalability</td>
+            <td>✔️</td>
+            <td>✔️</td>
+            <td>Vector graphics scale to any size without quality loss</td>
+          </tr>
+          <tr>
+            <td>File size</td>
+            <td>✔️</td>
+            <td>✔️</td>
+            <td>Generally smaller than bitmaps for simple images</td>
+          </tr>
+          <tr>
+            <td>Versatility</td>
+            <td>✖️</td>
+            <td>✔️</td>
+            <td>Inline SVGs have their own DOM, enabling animation, color changes, and JS/CSS manipulation</td>
+          </tr>
+          <tr>
+            <td>SEO</td>
+            <td>✖️</td>
+            <td>✔️</td>
+            <td>Text-based content can be indexed by search engines</td>
+          </tr>
+        </tbody>
+      </table>
 
       <h2>SVG Disadvantages</h2>
 
-      <p>
-        ✖️ Bitmap images can be much more detailed. SVGs are best used with
-        relatively simple images.
-      </p>
-
-      <p>
-        ✖️ Extremely complex SVGs with a lot of complex paths can sometimes
-        affect browser performance.
-      </p>
+      <table className="comparisonTable">
+        <thead>
+          <tr>
+            <th>Disadvantage</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Limited detail</td>
+            <td>Bitmap images can be much more detailed. SVGs are best used with relatively simple images.</td>
+          </tr>
+          <tr>
+            <td>Performance</td>
+            <td>Extremely complex SVGs with many complex paths can sometimes affect browser performance.</td>
+          </tr>
+        </tbody>
+      </table>
 
       <h1>Summary</h1>
 
