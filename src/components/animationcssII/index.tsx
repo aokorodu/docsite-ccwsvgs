@@ -71,7 +71,7 @@ export const AnimationFillMode = ({ mode }: animFillProps) => {
     }
     return (<>
         <div className={styles.fillStuffContainer}>
-            <svg width="300" height="300" viewBox="0 0 300 300">
+            <svg width="100%" height="300" viewBox="0 0 300 300">
                 <rect className={getFillModeStyle()} x="120" y="120" width="60" height="60" fill="lightgrey" stroke="#343434" />
             </svg>
             <button onClick={() => { setStarted(!started) }}>{started ? "reset" : "play"} </button>

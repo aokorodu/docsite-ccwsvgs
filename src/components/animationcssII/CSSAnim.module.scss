@@ -41,7 +41,7 @@ $exampleDuration: 3s;
 .fillStuffContainer {
   display: flex;
   flex-direction: column;
-  width: fit-content;
+  width: 100%;
 }
 
 @mixin animationFillProps {
