@@ -32,7 +32,7 @@ export const MaskIntroExample = () => {
             <text textAnchor="middle" dominantBaseline="hanging" x="200" y="310" fill="black" fontSize={20}>pattern</text>
             <rect x="50" y="350" width="300" height="300" fill="url(#gradient)">
             </rect>
-            <text textAnchor="middle" dominantBaseline="hanging" x="200" y="660" fill="black" fontSize={20}>pattern</text>
+            <text textAnchor="middle" dominantBaseline="hanging" x="200" y="660" fill="black" fontSize={20}>mask</text>
             <rect mask="url(#gradient_mask)" x="50" y="700" width="300" height="300" fill="url(#simple_tile)">
             </rect>
             <text textAnchor="middle" dominantBaseline="hanging" x="200" y="1010" fill="black" fontSize={20}>pattern with mask applied</text>
