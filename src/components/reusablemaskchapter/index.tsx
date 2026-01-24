@@ -1,6 +1,47 @@
 export const MaskIntroExample = () => {
     return (<>
-        <svg width="400" height="1050" viewBox="0 0 400 1050">
+        <svg width="400" height="400" viewBox="0 0 400 450">
+            <defs>
+                <g id="simple_pattern" stroke="black" fill="none">
+                    <rect x="0" y="0" width="50" height="50" />
+                    <circle cx="25" cy="25" r="20"
+                        fill="black"
+                        fill-opacity=".1"
+                        stroke="black"
+                    />
+                </g>
+
+                <pattern id="simple_tile" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+                    <use href="#simple_pattern" x="0" y="0"></use>
+                </pattern>
+
+
+
+            </defs>
+            <rect x="0" y="0" width="400" height="400" fill="url(#simple_tile)">
+            </rect>
+            <text textAnchor="middle" dominantBaseline="hanging" x="200" y="410" fill="black" fontSize={20}>pattern</text>
+        </svg>
+        <svg width="400" height="400" viewBox="0 0 400 450">
+            <defs>
+                <g id="simple_pattern" stroke="black" fill="none">
+                    <rect x="0" y="0" width="50" height="50" />
+                    <circle cx="25" cy="25" r="20"
+                        fill="black"
+                        fill-opacity=".1"
+                        stroke="black"
+                    />
+                </g>
+                <radialGradient id="gradient">
+                    <stop offset="0%" stopColor="white" />
+                    <stop offset="100%" stopColor="black" />
+                </radialGradient>
+            </defs>
+            <rect x="0" y="0" width="400" height="400" fill="url(#gradient)">
+            </rect>
+            <text textAnchor="middle" dominantBaseline="hanging" x="200" y="410" fill="black" fontSize={20}>mask</text>
+        </svg>
+        <svg width="400" height="400" viewBox="0 0 400 450">
             <defs>
                 <g id="simple_pattern" stroke="black" fill="none">
                     <rect x="0" y="0" width="50" height="50" />
@@ -21,21 +62,16 @@ export const MaskIntroExample = () => {
                 </pattern>
 
                 <mask id="gradient_mask">
-                    <rect x="50" y="700" width="300" height="300" fill="url(#gradient)">
+                    <rect x="0" y="0" width="400" height="400" fill="url(#gradient)">
                     </rect>
                 </mask>
 
 
             </defs>
-            <rect x="50" y="0" width="300" height="300" fill="url(#simple_tile)">
+
+            <rect mask="url(#gradient_mask)" x="50" y="0" width="400" height="400" fill="url(#simple_tile)">
             </rect>
-            <text textAnchor="middle" dominantBaseline="hanging" x="200" y="310" fill="black" fontSize={20}>pattern</text>
-            <rect x="50" y="350" width="300" height="300" fill="url(#gradient)">
-            </rect>
-            <text textAnchor="middle" dominantBaseline="hanging" x="200" y="660" fill="black" fontSize={20}>mask</text>
-            <rect mask="url(#gradient_mask)" x="50" y="700" width="300" height="300" fill="url(#simple_tile)">
-            </rect>
-            <text textAnchor="middle" dominantBaseline="hanging" x="200" y="1010" fill="black" fontSize={20}>pattern with mask applied</text>
+            <text textAnchor="middle" dominantBaseline="hanging" x="200" y="410" fill="black" fontSize={20}>pattern with mask applied</text>
         </svg>
     </>)
 }
