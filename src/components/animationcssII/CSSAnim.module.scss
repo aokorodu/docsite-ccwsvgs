@@ -19,21 +19,21 @@ $exampleDuration: 3s;
   }
 }
 
-.animDir_normal {
+.animDirNormal {
   @include animationDirProps();
   animation-direction: normal;
 }
 
-.animDir_reverse {
+.animDirReverse {
   @include animationDirProps();
   animation-direction: reverse;
 }
-.animDir_alternate {
+.animDirAlternate {
   @include animationDirProps();
   animation-direction: alternate;
 }
 
-.animDir_alternate_reverse {
+.animDirAlternateReverse {
   @include animationDirProps();
   animation-direction: alternate-reverse;
 }
@@ -65,27 +65,27 @@ $exampleDuration: 3s;
     fill: blue;
   }
 }
-.animFill_hold {
+.animFillHold {
   transform: scale(1);
   fill: lightgrey;
 }
 
-.animFill_none {
+.animFillNone {
   @include animationFillProps();
   animation-fill-mode: none;
 }
 
-.animFill_forwards {
+.animFillForwards {
   @include animationFillProps();
   animation-fill-mode: forwards;
 }
 
-.animFill_backwards {
+.animFillBackwards {
   @include animationFillProps();
   animation-fill-mode: backwards;
 }
 
-.animFill_both {
+.animFillBoth {
   @include animationFillProps();
   animation-fill-mode: both;
 }

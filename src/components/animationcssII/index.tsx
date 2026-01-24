@@ -1,5 +1,3 @@
-
-
 import styles from './CSSAnim.module.scss';
 import { useState } from 'react';
 
@@ -8,23 +6,23 @@ type animDirProps = {
 }
 export const AnimationDirection = ({ direction }: animDirProps) => {
     const getStyle = () => {
-        let style = styles.animDir_normal;
+        let style = styles.animDirNormal;
 
         switch (direction) {
             case "reverse":
-                style = styles.animDir_reverse;
+                style = styles.animDirReverse;
                 break;
 
             case "alternate":
-                style = styles.animDir_alternate;
+                style = styles.animDirAlternate;
                 break;
 
             case "alternate-reverse":
-                style = styles.animDir_alternate_reverse;
+                style = styles.animDirAlternateReverse;
                 break;
 
             default:
-                style = styles.animDir_normal;
+                style = styles.animDirNormal;
         }
 
         return style;
@@ -43,29 +41,29 @@ type animFillProps = {
 export const AnimationFillMode = ({ mode }: animFillProps) => {
     const [started, setStarted] = useState(false)
     const getFillModeStyle = () => {
-        if (!started) return styles.animFill_hold;
+        if (!started) return styles.animFillHold;
 
-        let m = styles.animFill_none;
+        let m = styles.animFillNone;
 
         switch (mode) {
             case "none":
-                m = styles.animFill_none;
+                m = styles.animFillNone;
                 break;
 
             case "forwards":
-                m = styles.animFill_forwards;
+                m = styles.animFillForwards;
                 break;
 
             case "backwards":
-                m = styles.animFill_backwards;
+                m = styles.animFillBackwards;
                 break;
 
             case "both":
-                m = styles.animFill_both;
+                m = styles.animFillBoth;
                 break;
 
             default:
-                m = styles.animFill_none;
+                m = styles.animFillNone;
         }
 
         return m;
