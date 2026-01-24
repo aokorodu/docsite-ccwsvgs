@@ -93,9 +93,9 @@ export const RedMatrix = () => {
                         in="SourceGraphic"
                         type="matrix"
                         values="1 0 0 0 0
-                                        0 0 0 0 0
-                                        0 0 0 0 0
-                                        0 0 0 1 0"
+                                0 0 0 0 0
+                                0 0 0 0 0
+                                0 0 0 1 0"
                     />
                 </filter>
             </defs>
@@ -115,9 +115,9 @@ export const RedShift = () => {
                         in="SourceGraphic"
                         type="matrix"
                         values="1 0 0 0 1
-                                        0 1 0 0 0
-                                        0 0 1 0 0
-                                        0 0 0 1 0"
+                                0 1 0 0 0
+                                0 0 1 0 0
+                                0 0 0 1 0"
                     />
                 </filter>
             </defs>
@@ -138,9 +138,9 @@ export const GreenShift = () => {
                         in="SourceGraphic"
                         type="matrix"
                         values="1 0 0 0 0
-                                        0 1 0 0 1
-                                        0 0 1 0 0
-                                        0 0 0 1 0"
+                                0 1 0 0 1
+                                0 0 1 0 0
+                                0 0 0 1 0"
                     />
                 </filter>
             </defs>
