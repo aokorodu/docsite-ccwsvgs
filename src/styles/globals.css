@@ -295,3 +295,12 @@ blockquote > p {
 .comparisonTable tr:nth-child(even) {
   background-color: var(--color-bg-secondary);
 }
+
+.videoStyle {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  max-height: 400px;
+  display: block;
+  margin: 2rem auto;
+}
