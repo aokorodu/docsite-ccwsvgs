@@ -206,7 +206,7 @@ const SmilAnimation = () => {
   </circle>
 </svg>`}</Blocks>
 
-      <div style={{ width: "200px" }}>
+      <div style={{ width: "100%" }}>
         <svg width="200" height="300" viewBox="0 0 200 300">
           <circle id="my-circle" cx="100" cy="20" r="10" fill="green"></circle>
           <animate
@@ -314,7 +314,7 @@ const SmilAnimation = () => {
         <strong>keySplines</strong>
       </p>
 
-      <div style={{ width: "200px" }}>
+      <div style={{ width: "100%" }}>
         <svg width="200" height="300" viewBox="0 0 200 300">
           <circle
             id="first-circle"
@@ -404,7 +404,7 @@ keyTimes="<time 1>; <time 2>; <time 3>; ..."`}</Blocks>
   </circle>
 </svg>`}</Blocks>
 
-      <div style={{ width: "200px" }}>
+      <div style={{ width: "100%" }}>
         <svg width="200" height="300" viewBox="0 0 200 300">
           <circle cx="100" cy="20" r="10" fill="green">
             <animate
@@ -448,7 +448,7 @@ keySplines="<bezier curve 1 to 2>; <bezier curve 2 to 3>;..."`}</Blocks>
   </circle>
 </svg>`}</Blocks>
 
-      <div style={{ width: "200px" }}>
+      <div style={{ width: "100%" }}>
         <svg width="200" height="300" viewBox="0 0 200 300">
           <circle cx="100" cy="20" r="10" fill="green">
             <animate
