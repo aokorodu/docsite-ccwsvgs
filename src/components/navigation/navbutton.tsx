@@ -26,6 +26,10 @@ const NavButton = ({ index, title, link, subnav, onSelect }: navprops) => {
         return false;
     }
 
+    const isSubnavActive = () => {
+        return subnav.some((item) => pathname === item.link);
+    }
+
     let indexStr = String(index + 1);
     if (indexStr.length < 2) indexStr = `0${indexStr}`
     if (hasSubnav()) console.log("subnav", subnav);
@@ -42,7 +46,7 @@ const NavButton = ({ index, title, link, subnav, onSelect }: navprops) => {
                     <div>
                         <span onClick={onSelect} className={styles.buttonNumber}>{indexStr}</span>
                         {hasSubnav() ? (
-                            <span className={`${styles.link} ${open ? styles.activeLink : ""}`}>{title} </span>
+                            <span className={`${styles.link} ${isSubnavActive() ? styles.activeLink : ""}`}>{title} </span>
                         ) : (
                             <Link to={link} onClick={onSelect} className={`${styles.link} ${pathname == link ? styles.activeLink : ""}`}>{title} </Link>
                         )}
