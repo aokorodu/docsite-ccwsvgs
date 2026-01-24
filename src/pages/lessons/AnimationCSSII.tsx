@@ -195,7 +195,7 @@ const AnimationCSSII = () => {
         just fine - at least with current mac versions of Chrome and Firefox.
       </p>
 
-      <video width="400" height="400" controls loop>
+      <video className="videoStyle" controls loop>
         <source src="/css_trans_chrome.mov" type="video/mp4" />
       </video>
 
@@ -205,7 +205,7 @@ const AnimationCSSII = () => {
         anymore! The example below has the zoom settings set to 200%
       </p>
 
-      <video width="400" height="400" controls loop>
+      <video className="videoStyle" controls loop>
         <source src="/css_trans_safari.mov" type="video/mp4" />
       </video>
 
@@ -247,7 +247,7 @@ const AnimationCSSII = () => {
         to fill-box and transform-origin to "center".
       </p>
 
-      <video width="400" height="400" controls loop>
+      <video className="videoStyle" controls loop>
         <source src="/css_trans_chrome_rotate.mov" type="video/mp4" />
       </video>
 
@@ -257,7 +257,11 @@ const AnimationCSSII = () => {
         the same animation running in Safari with the zoom settings at 200%
       </p>
 
-      <video width="400" height="400" controls loop>
+      <video
+        className="videoStyle"
+        controls
+        loop
+      >
         <source src="/css_trans_safari_rotate.mov" type="video/mp4" />
       </video>
 
