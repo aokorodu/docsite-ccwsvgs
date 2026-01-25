@@ -8,8 +8,8 @@ export const DropShadowExample = () => {
                         stdDeviation="5" flood-color="black" flood-opacity=".5" />
                 </filter>
             </defs>
-            <image filter="url(#shadow)" id="image" x="100" y="100" href={'/zuubaDigitalLogo.png'} width="300"
-                height="300">
+            <image filter="url(#shadow)" id="image" x="0" y="0" href={'/zuubaDigitalLogo.png'} width="500"
+                height="500">
             </image>
         </svg>
     </>)
@@ -24,8 +24,8 @@ export const DistortionExample = () => {
                     <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="30" xChannelSelector="R" yChannelSelector="G" />
                 </filter>
             </defs>
-            <image filter="url(#turb-displace-filter)" id="image" x="100" y="100" href={'/zuubaDigitalLogo.png'} width="300"
-                height="300">
+            <image filter="url(#turb-displace-filter)" id="image" x="0" y="0" href={'/zuubaDigitalLogo.png'} width="500"
+                height="500">
             </image>
         </svg>
     </>)
@@ -39,8 +39,8 @@ export const BlurExample = () => {
                     <feGaussianBlur stdDeviation="10 0" />
                 </filter>
             </defs>
-            <image filter="url(#blur-filter)" id="image" x="100" y="100" href={'/zuubaDigitalLogo.png'} width="300"
-                height="300">
+            <image filter="url(#blur-filter)" id="image" x="0" y="0" href={'/zuubaDigitalLogo.png'} width="500"
+                height="500">
             </image>
         </svg>
     </>)
@@ -58,8 +58,8 @@ export const ColorSaturation = ({ value }: colorsatprops) => {
                     <feColorMatrix type="saturate" values={value} />
                 </filter>
             </defs>
-            <image filter={`url(#color_saturation_${value})`} id="image" x="100" y="100" href={'/zuubaDigitalLogo.png'} width="300"
-                height="300">
+            <image filter={`url(#color_saturation_${value})`} id="image" x="0" y="0" href={'/zuubaDigitalLogo.png'} width="500"
+                height="500">
             </image>
         </svg>
     </>)
@@ -77,8 +77,8 @@ export const HueRotate = ({ value }: hueprops) => {
                     <feColorMatrix type="hueRotate" values={value} />
                 </filter>
             </defs>
-            <image filter={`url(#hue_rotation_${value})`} id="image" x="100" y="100" href={'/zuubaDigitalLogo.png'} width="300"
-                height="300">
+            <image filter={`url(#hue_rotation_${value})`} id="image" x="0" y="0" href={'/zuubaDigitalLogo.png'} width="500"
+                height="500">
             </image>
         </svg>
     </>)
@@ -99,8 +99,8 @@ export const RedMatrix = () => {
                     />
                 </filter>
             </defs>
-            <image filter="url(#red_matrix)" id="image" x="100" y="100" href={'/zuubaDigitalLogo.png'} width="300"
-                height="300">
+            <image filter="url(#red_matrix)" id="image" x="0" y="0" href={'/zuubaDigitalLogo.png'} width="500"
+                height="500">
             </image>
         </svg>
     </>)
@@ -121,8 +121,8 @@ export const GreenMatrix = () => {
                     />
                 </filter>
             </defs>
-            <image filter="url(#green_matrix)" id="image" x="100" y="100" href={'/zuubaDigitalLogo.png'} width="300"
-                height="300">
+            <image filter="url(#green_matrix)" id="image" x="0" y="0" href={'/zuubaDigitalLogo.png'} width="500"
+                height="500">
             </image>
         </svg>
     </>)
@@ -143,8 +143,8 @@ export const RedShift = () => {
                     />
                 </filter>
             </defs>
-            <image filter="url(#red_shift_matrix)" id="image" x="100" y="100" href={'/zuubaDigitalLogo.png'} width="300"
-                height="300">
+            <image filter="url(#red_shift_matrix)" id="image" x="0" y="0" href={'/zuubaDigitalLogo.png'} width="500"
+                height="500">
             </image>
         </svg>
     </>)
@@ -166,8 +166,8 @@ export const GreenShift = () => {
                     />
                 </filter>
             </defs>
-            <image filter="url(#green_shift_matrix)" id="image" x="100" y="100" href={'/zuubaDigitalLogo.png'} width="300"
-                height="300">
+            <image filter="url(#green_shift_matrix)" id="image" x="0" y="0" href={'/zuubaDigitalLogo.png'} width="500"
+                height="500">
             </image>
         </svg>
     </>)
@@ -182,7 +182,7 @@ export const TurbulenceExample = () => {
                 </filter>
             </defs>
 
-            <rect filter="url(#turbulence)" x="100" y="100" width="300" height="300" fill="black" />
+            <rect filter="url(#turbulence)" x="0" y="0" width="500" height="500" fill="black" />
 
         </svg>
     </>)
@@ -206,8 +206,8 @@ export const DropShadowCuttoff = ({ cuttoff }: dscuttoff) => {
                         stdDeviation="30" flood-color="black" flood-opacity=".8" />
                 </filter>}
             </defs>
-            <image filter={cuttoff ? "url(#big_shadow)" : "url(#big_shadow_all)"} id="image" x="100" y="100" href={'/zuubaDigitalLogo.png'} width="300"
-                height="300">
+            <image filter={cuttoff ? "url(#big_shadow)" : "url(#big_shadow_all)"} id="image" x="0" y="0" href={'/zuubaDigitalLogo.png'} width="500"
+                height="500">
             </image>
         </svg>
     </>)
