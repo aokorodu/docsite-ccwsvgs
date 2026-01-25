@@ -106,6 +106,28 @@ export const RedMatrix = () => {
     </>)
 }
 
+export const GreenMatrix = () => {
+    return (<>
+        <svg width="500" height="500" viewBox="0 0 500 500">
+            <defs>
+                <filter id="green_matrix">
+                    <feColorMatrix
+                        in="SourceGraphic"
+                        type="matrix"
+                        values="0 0 0 0 0
+                                0 1 0 0 0
+                                0 0 0 0 0
+                                0 0 0 1 0"
+                    />
+                </filter>
+            </defs>
+            <image filter="url(#green_matrix)" id="image" x="100" y="100" href={'/zuubaDigitalLogo.png'} width="300"
+                height="300">
+            </image>
+        </svg>
+    </>)
+}
+
 export const RedShift = () => {
     return (<>
         <svg width="500" height="500" viewBox="0 0 500 500">

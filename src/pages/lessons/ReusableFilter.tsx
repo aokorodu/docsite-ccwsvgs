@@ -6,6 +6,7 @@ import {
   ColorSaturation,
   HueRotate,
   RedMatrix,
+  GreenMatrix,
   RedShift,
   GreenShift,
   TurbulenceExample,
@@ -271,10 +272,28 @@ const ReusableFilter = () => {
       <h2>feColorMatrix type="matrix"</h2>
 
       <p>
-        The matrix color uses a matrix math to change each pixel's color value.
+        To get really granular control over color manipulation, we can use a the matrix type. A matrix uses matrix math to change each pixel's color value. Every pixel's color value is made up of four color channels: Red, Green, Blue and Alpha (RGBA for short). Each channel has a value from 0 to 255. The matrix type allows us to manipulate each of these color channels individually.
       </p>
 
       <p>A matrix looks something like this:</p>
+
+      <Blocks>{`<filter id="identity_matrix">
+  <feColorMatrix in="SourceGraphic" type="matrix"
+    values="1 0 0 0 0
+            0 1 0 0 0
+            0 0 1 0 0
+            0 0 0 1 0"
+  />
+</filter>`}</Blocks>
+
+      <p>
+        Each row in the matrix corresponds to a new color channel value. The
+        first row is the new Red channel value, the second row is the new Green
+        channel value, the third row is the new Blue channel value, and the
+        fourth row is the new Alpha channel value. Each column corresponds to the
+        original color channel values, plus a "shift" value at the end.
+      </p>
+      <p>To get the new color channel value, you multiply each original color channel value by the corresponding matrix value, then add the shift value.</p>
 
       <Blocks>{`            R  G  B  A  shift
 new R   =   r1 r2 r3 r4 r5
@@ -282,18 +301,114 @@ new G   =   g1 g2 g3 g4 g5
 new B   =   b1 b2 b3 b4 b5
 new A   =   a1 a2 a3 a4 a5`}</Blocks>
 
+
+      <div
+        className="filterDiagram"
+      >
+        <div >r1 * R</div>
+        <div >+</div>
+        <div >r2 * G</div>
+        <div >+</div>
+        <div >r3 * B</div>
+        <div >+</div>
+        <div >r4 * A</div>
+        <div >+</div>
+        <div >r5 * shift</div>
+        <div >=</div>
+        <div style={{ fontWeight: 600 }}>new R</div>
+
+        <div >g1 * R</div>
+        <div >+</div>
+        <div >g2 * G</div>
+        <div >+</div>
+        <div >g3 * B</div>
+        <div >+</div>
+        <div >g4 * A</div>
+        <div >+</div>
+        <div >g5 * shift</div>
+        <div >=</div>
+        <div style={{ fontWeight: 600 }}>new G</div>
+
+        <div >b1 * R</div>
+        <div >+</div>
+        <div >b2 * G</div>
+        <div >+</div>
+        <div >b3 * B</div>
+        <div >+</div>
+        <div >b4 * A</div>
+        <div >+</div>
+        <div >b5 * shift</div>
+        <div >=</div>
+        <div style={{ fontWeight: 600 }}>new B</div>
+
+        <div >a1 * R</div>
+        <div >+</div>
+        <div >a2 * G</div>
+        <div >+</div>
+        <div >a3 * B</div>
+        <div >+</div>
+        <div >a4 * A</div>
+        <div >+</div>
+        <div >a5 * shift</div>
+        <div >=</div>
+        <div style={{ fontWeight: 600 }}>new A</div>
+      </div>
+
+      <p>The matrix above is called the "identity matrix", and leaves the image unchanged. Here's how the calculations work for the red channel value:</p>
+
+      <Blocks>{`R G B A shift
+1 0 0 0 0   R = 1*R + 0*G + 0*B + 0*A + 0*shift  = R
+0 1 0 0 0   G = 0*R + 1*G + 0*B + 0*A + 0*shift  = G
+0 0 1 0 0   B = 0*R + 0*G + 1*B + 0*A + 0*shift  = B
+0 0 0 1 0   A = 0*R + 0*G + 0*B + 1*A + 0*shift  = 1`}</Blocks>
+
       <p>Let's look at an example with a "red channel only" matrix filter:</p>
+
+      <Blocks>{`R G B A shift
+1 0 0 0 0   R = 1*R + 0*G + 0*B + 0*A + 0*shift  = R
+0 0 0 0 0   G = 0*R + 0*G + 0*B + 0*A + 0*shift  = 0
+0 0 0 0 0   B = 0*R + 0*G + 0*B + 0*A + 0*shift  = 0
+0 0 0 1 0   A = 0*R + 0*G + 0*B + 1*A + 0*shift  = 1`}</Blocks>
+
+      <p>Here we're keeping the red channel value of every pixel, and setting the green and blue channel values to zero. For example, if the filter comes across a pixel with a value of rgb(125, 50, 100), it would change it to rgb(125, 0, 0).</p>
 
       <RedMatrix />
 
+      <p>Now let's look at a "green channel only" matrix filter:</p>
+
+      <Blocks>{`R G B A shift
+0 0 0 0 0   R = 0*R + 0*G + 0*B + 0*A + 0*shift  = 0
+0 1 0 0 0   G = 0*R + 1*G + 0*B + 0*A + 0*shift  = G
+0 0 0 0 0   B = 0*R + 0*G + 0*B + 0*A + 0*shift  = 0
+0 0 0 1 0   A = 0*R + 0*G + 0*B + 1*A + 0*shift  = 1`}</Blocks>
+
+      <p>Here we're keeping the green channel value of every pixel, and setting the red and blue channel values to zero. For example, if the filter comes across a pixel with a value of rgb(125, 50, 100), it would change it to rgb(0, 50, 0).</p>
+
+      <GreenMatrix />
+
+
       <p>
         The <strong>shift</strong> value is the amount you want to shift the
-        color of every pixel in the image.
+        color of every pixel in the image. In the example below, we're shifting the red value of every pixel to the maximum value of 255.
       </p>
+
+      <Blocks>{`R G B A shift
+1 0 0 0 1   R = 1*R + 0*G + 0*B + 0*A + 1*shift  = R Maximum (255)
+0 1 0 0 0   G = 0*R + 1*G + 0*B + 0*A + 0*shift  = 0
+0 0 1 0 0   B = 0*R + 0*G + 1*B + 0*A + 0*shift  = 0
+0 0 0 1 0   A = 0*R + 0*G + 0*B + 1*A + 0*shift  = 1`}</Blocks>
+
+      <p>In this if the filter comes across a pixel with a value of rgb(125, 50, 100), it would change it to rgb(255, 50, 100).</p>
 
       <RedShift />
 
-      <p>Here we're shifting the value of every pixel to the maximum green value.</p>
+      <p>And here we're shifting the value of every pixel to the maximum green value.</p>
+
+      <Blocks>{`R G B A shift
+1 0 0 0 0   R = 1*R + 0*G + 0*B + 0*A + 0*shift  = 0
+0 1 0 0 1   G = 0*R + 1*G + 0*B + 0*A + 1*shift  = G Maximum (255)
+0 0 1 0 0   B = 0*R + 0*G + 1*B + 0*A + 0*shift  = 0
+0 0 0 1 0   A = 0*R + 0*G + 0*B + 1*A + 0*shift  = 1`}</Blocks>
 
       <GreenShift />
 
