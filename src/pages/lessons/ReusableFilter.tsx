@@ -354,21 +354,130 @@ new A   =   a1 a2 a3 a4 a5`}</Blocks>
         <div style={{ fontWeight: 600 }}>new A</div>
       </div>
 
-      <p>The matrix above is called the "identity matrix", and leaves the image unchanged. Here's how the calculations work for the red channel value:</p>
+      <p>The matrix above is called the "identity matrix", and leaves the image unchanged. Here are the actual values:</p>
 
-      <Blocks>{`R G B A shift
+      <div
+        className="filterDiagram"
+      >
+        <div style={{ fontWeight: 600 }}>1 * R</div>
+        <div >+</div>
+        <div >0 * G</div>
+        <div >+</div>
+        <div >0 * B</div>
+        <div >+</div>
+        <div >0 * A</div>
+        <div >+</div>
+        <div >0 * shift</div>
+        <div >=</div>
+        <div style={{ fontWeight: 600 }}>R</div>
+
+        <div >0 * R</div>
+        <div >+</div>
+        <div style={{ fontWeight: 600 }}>1 * G</div>
+        <div >+</div>
+        <div >0 * B</div>
+        <div >+</div>
+        <div >0 * A</div>
+        <div >+</div>
+        <div >0 * shift</div>
+        <div >=</div>
+        <div style={{ fontWeight: 600 }}>G</div>
+
+        <div >0 * R</div>
+        <div >+</div>
+        <div >0 * G</div>
+        <div >+</div>
+        <div style={{ fontWeight: 600 }}>1 * B</div>
+        <div >+</div>
+        <div >0 * A</div>
+        <div >+</div>
+        <div >0 * shift</div>
+        <div >=</div>
+        <div style={{ fontWeight: 600 }}>B</div>
+
+        <div >0 * R</div>
+        <div >+</div>
+        <div >0 * G</div>
+        <div >+</div>
+        <div >0 * B</div>
+        <div >+</div>
+        <div style={{ fontWeight: 600 }}>1 * A</div>
+        <div >+</div>
+        <div >0 * shift</div>
+        <div >=</div>
+        <div style={{ fontWeight: 600 }}>A</div>
+      </div>
+
+      {/* <Blocks>{`R G B A shift
 1 0 0 0 0   R = 1*R + 0*G + 0*B + 0*A + 0*shift  = R
 0 1 0 0 0   G = 0*R + 1*G + 0*B + 0*A + 0*shift  = G
 0 0 1 0 0   B = 0*R + 0*G + 1*B + 0*A + 0*shift  = B
-0 0 0 1 0   A = 0*R + 0*G + 0*B + 1*A + 0*shift  = 1`}</Blocks>
+0 0 0 1 0   A = 0*R + 0*G + 0*B + 1*A + 0*shift  = 1`}</Blocks> */}
 
       <p>Let's look at an example with a "red channel only" matrix filter:</p>
 
-      <Blocks>{`R G B A shift
-1 0 0 0 0   R = 1*R + 0*G + 0*B + 0*A + 0*shift  = R
-0 0 0 0 0   G = 0*R + 0*G + 0*B + 0*A + 0*shift  = 0
-0 0 0 0 0   B = 0*R + 0*G + 0*B + 0*A + 0*shift  = 0
-0 0 0 1 0   A = 0*R + 0*G + 0*B + 1*A + 0*shift  = 1`}</Blocks>
+      <Blocks>{`<filter id="red_matrix">
+  <feColorMatrix in="SourceGraphic" type="matrix"
+    values="1 0 0 0 0
+            0 0 0 0 0
+            0 0 0 0 0
+            0 0 0 1 0""
+  />
+</filter>`}</Blocks>
+
+      <p>And this is how the matrix calculation works:</p>
+
+      <div
+        className="filterDiagram"
+      >
+        <div style={{ fontWeight: 600 }}>1 * R</div>
+        <div >+</div>
+        <div >0 * G</div>
+        <div >+</div>
+        <div >0 * B</div>
+        <div >+</div>
+        <div >0 * A</div>
+        <div >+</div>
+        <div >0 * shift</div>
+        <div >=</div>
+        <div style={{ fontWeight: 600 }}>R</div>
+
+        <div >0 * R</div>
+        <div >+</div>
+        <div >0 * G</div>
+        <div >+</div>
+        <div >0 * B</div>
+        <div >+</div>
+        <div >0 * A</div>
+        <div >+</div>
+        <div >0 * shift</div>
+        <div >=</div>
+        <div style={{ fontWeight: 600 }}>0</div>
+
+        <div >0 * R</div>
+        <div >+</div>
+        <div >0 * G</div>
+        <div >+</div>
+        <div >0 * B</div>
+        <div >+</div>
+        <div >0 * A</div>
+        <div >+</div>
+        <div >0 * shift</div>
+        <div >=</div>
+        <div style={{ fontWeight: 600 }}>0</div>
+
+        <div >0 * R</div>
+        <div >+</div>
+        <div >0 * G</div>
+        <div >+</div>
+        <div >0 * B</div>
+        <div >+</div>
+        <div style={{ fontWeight: 600 }}>1 * A</div>
+        <div >+</div>
+        <div >0 * shift</div>
+        <div >=</div>
+        <div style={{ fontWeight: 600 }}>A</div>
+      </div>
 
       <p>Here we're keeping the red channel value of every pixel, and setting the green and blue channel values to zero. For example, if the filter comes across a pixel with a value of rgb(125, 50, 100), it would change it to rgb(125, 0, 0).</p>
 
@@ -376,13 +485,69 @@ new A   =   a1 a2 a3 a4 a5`}</Blocks>
 
       <p>Now let's look at a "green channel only" matrix filter:</p>
 
-      <Blocks>{`R G B A shift
-0 0 0 0 0   R = 0*R + 0*G + 0*B + 0*A + 0*shift  = 0
-0 1 0 0 0   G = 0*R + 1*G + 0*B + 0*A + 0*shift  = G
-0 0 0 0 0   B = 0*R + 0*G + 0*B + 0*A + 0*shift  = 0
-0 0 0 1 0   A = 0*R + 0*G + 0*B + 1*A + 0*shift  = 1`}</Blocks>
+      <Blocks>{`<filter id="green_matrix">
+  <feColorMatrix in="SourceGraphic" type="matrix"
+    values="0 0 0 0 0
+            0 1 0 0 0
+            0 0 0 0 0
+            0 0 0 1 0""
+  />
+</filter>`}</Blocks>
 
-      <p>Here we're keeping the green channel value of every pixel, and setting the red and blue channel values to zero. For example, if the filter comes across a pixel with a value of rgb(125, 50, 100), it would change it to rgb(0, 50, 0).</p>
+      <div
+        className="filterDiagram"
+      >
+        <div >0 * R</div>
+        <div >+</div>
+        <div >0 * G</div>
+        <div >+</div>
+        <div >0 * B</div>
+        <div >+</div>
+        <div >0 * A</div>
+        <div >+</div>
+        <div >0 * shift</div>
+        <div >=</div>
+        <div style={{ fontWeight: 600 }}>0</div>
+
+        <div >0 * R</div>
+        <div >+</div>
+        <div style={{ fontWeight: 600 }}>1 * G</div>
+        <div >+</div>
+        <div >0 * B</div>
+        <div >+</div>
+        <div >0 * A</div>
+        <div >+</div>
+        <div >0 * shift</div>
+        <div >=</div>
+        <div style={{ fontWeight: 600 }}>G</div>
+
+        <div >0 * R</div>
+        <div >+</div>
+        <div >0 * G</div>
+        <div >+</div>
+        <div >0 * B</div>
+        <div >+</div>
+        <div >0 * A</div>
+        <div >+</div>
+        <div >0 * shift</div>
+        <div >=</div>
+        <div style={{ fontWeight: 600 }}>0</div>
+
+        <div >0 * R</div>
+        <div >+</div>
+        <div >0 * G</div>
+        <div >+</div>
+        <div >0 * B</div>
+        <div >+</div>
+        <div style={{ fontWeight: 600 }}>1 * A</div>
+        <div >+</div>
+        <div >0 * shift</div>
+        <div >=</div>
+        <div style={{ fontWeight: 600 }}>A</div>
+      </div>
+
+      <p>In this example we're keeping the green channel value of every pixel, and setting the red and blue channel values to zero. For example, if the filter comes across a pixel with a value of rgb(125, 50, 100), it would change it to rgb(0, 50, 0).</p>
+
 
       <GreenMatrix />
 
