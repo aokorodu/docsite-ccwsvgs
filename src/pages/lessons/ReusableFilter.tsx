@@ -269,7 +269,7 @@ const ReusableFilter = () => {
 
       <img src="/reusable_color_wheel.png" alt="reusable_color_wheel.png" />
 
-      <h2>feColorMatrix type="matrix"</h2>
+      <h3>feColorMatrix type="matrix"</h3>
 
       <p>
         To get really granular control over color manipulation, we can use a the matrix type. A matrix uses matrix math to change each pixel's color value. Every pixel's color value is made up of four color channels: Red, Green, Blue and Alpha (RGBA for short). Each channel has a value from 0 to 255. The matrix type allows us to manipulate each of these color channels individually.
@@ -490,7 +490,7 @@ new A   =   a1 a2 a3 a4 a5`}</Blocks>
     values="0 0 0 0 0
             0 1 0 0 0
             0 0 0 0 0
-            0 0 0 1 0""
+            0 0 0 1 0"
   />
 </filter>`}</Blocks>
 
@@ -557,23 +557,41 @@ new A   =   a1 a2 a3 a4 a5`}</Blocks>
         color of every pixel in the image. In the example below, we're shifting the red value of every pixel to the maximum value of 255.
       </p>
 
-      <Blocks>{`R G B A shift
+      {/* <Blocks>{`R G B A shift
 1 0 0 0 1   R = 1*R + 0*G + 0*B + 0*A + 1*shift  = R Maximum (255)
 0 1 0 0 0   G = 0*R + 1*G + 0*B + 0*A + 0*shift  = 0
 0 0 1 0 0   B = 0*R + 0*G + 1*B + 0*A + 0*shift  = 0
-0 0 0 1 0   A = 0*R + 0*G + 0*B + 1*A + 0*shift  = 1`}</Blocks>
+0 0 0 1 0   A = 0*R + 0*G + 0*B + 1*A + 0*shift  = 1`}</Blocks> */}
 
-      <p>In this if the filter comes across a pixel with a value of rgb(125, 50, 100), it would change it to rgb(255, 50, 100).</p>
+      <Blocks>{`<filter id="red_shift_matrix">
+  <feColorMatrix in="SourceGraphic" type="matrix"
+    values="1 0 0 0 1
+            0 1 0 0 0
+            0 0 1 0 0
+            0 0 0 1 0"
+  />
+</filter>`}</Blocks>
+
+      <p>In this example if the filter comes across a pixel with a value of rgb(125, 50, 100), it would change it to rgb(255, 50, 100).</p>
 
       <RedShift />
 
-      <p>And here we're shifting the value of every pixel to the maximum green value.</p>
+      <p>And here we're shifting every pixel to the maximum green value.</p>
 
-      <Blocks>{`R G B A shift
+      <Blocks>{`<filter id="green_shift_matrix">
+  <feColorMatrix in="SourceGraphic" type="matrix"
+    values="1 0 0 0 0
+            0 1 0 0 1
+            0 0 1 0 0
+            0 0 0 1 0"
+  />
+</filter>`}</Blocks>
+
+      {/* <Blocks>{`R G B A shift
 1 0 0 0 0   R = 1*R + 0*G + 0*B + 0*A + 0*shift  = 0
 0 1 0 0 1   G = 0*R + 1*G + 0*B + 0*A + 1*shift  = G Maximum (255)
 0 0 1 0 0   B = 0*R + 0*G + 1*B + 0*A + 0*shift  = 0
-0 0 0 1 0   A = 0*R + 0*G + 0*B + 1*A + 0*shift  = 1`}</Blocks>
+0 0 0 1 0   A = 0*R + 0*G + 0*B + 1*A + 0*shift  = 1`}</Blocks> */}
 
       <GreenShift />
 
