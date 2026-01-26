@@ -269,7 +269,7 @@ const ReusableFilter = () => {
 
       <img src="/reusable_color_wheel.png" alt="reusable_color_wheel.png" />
 
-      <h2>feColorMatrix type="matrix"</h2>
+      <h3>feColorMatrix type="matrix"</h3>
 
       <p>
         To get really granular control over color manipulation, we can use a the matrix type. A matrix uses matrix math to change each pixel's color value. Every pixel's color value is made up of four color channels: Red, Green, Blue and Alpha (RGBA for short). Each channel has a value from 0 to 255. The matrix type allows us to manipulate each of these color channels individually.
