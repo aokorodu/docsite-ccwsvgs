@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 
 
-const anims = ["waterFlow", "float", "sine", "orbit", "spin"];
+const anims = ["waterFlow", "float", "sine", "orbit", "spin", "perlin"];
 
 function Selector({ onClick }: { onClick: (index: number) => void }) {
   const [selectedAnim, setSelectedAnim] = useState(0);

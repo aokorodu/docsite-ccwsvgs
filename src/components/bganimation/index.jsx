@@ -8,7 +8,7 @@ class BGAnimation extends React.Component {
   constructor() {
     super();
     this.holder = null;
-    this.numberOfParticles = 200;
+    this.numberOfParticles = 150;
     this.particles = React.createRef([]);
     this.particles.current = [];
     this.running = false;

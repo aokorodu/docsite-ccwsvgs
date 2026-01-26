@@ -2,7 +2,7 @@
 
 import React from "react";
 import PVector from "../../utils/PVector";
-//import bubble from "./bubble.png";
+import { createNoise2D } from "simplex-noise";
 
 class BGParticle extends React.Component {
   constructor({ index }) {
@@ -17,6 +17,12 @@ class BGParticle extends React.Component {
 
     // physics vars
     this.physics = {
+      noise2D: createNoise2D(),
+      currentAplitude: 0,
+      targetAmplitude: 50 + Math.random() * 100,
+      noiseTick: 0,
+      noiseIncrement: 0.0025,
+      noiseDefaultY: 0,
       spinAngle: 0,
       spinSpeed: 0.01,
       spinRadius: 0,
@@ -38,6 +44,34 @@ class BGParticle extends React.Component {
         bottom: 0,
       },
       flowStart: new PVector(500, 1000),
+      initPerlin: function () {
+        this.noiseTick = 0;
+        this.currentAplitude = 0;
+        this.noiseDefaultY = this.position.y;
+        // if (this.velocity.x === 0) {
+        //   this.velocity.x = 0.1 + Math.random() * 2;
+        // }
+        // this.velocity.x = Math.random() * -2;
+        this.velocity.x = -1.5 * (this.radius / 10);
+      },
+      perlinFlow: function () {
+        let value = this.noise2D(this.position.x / 1000, this.noiseTick);
+        let dy = value * this.currentAplitude;
+        this.position.y = this.noiseDefaultY + dy;
+        this.position.x += this.velocity.x;
+        if (this.position.x > this.boundary.right) {
+          this.noiseDefaultY = this.position.y;
+          this.position.x = 0;
+        }
+        if (this.position.x < this.boundary.left) {
+          this.position.y = Math.random() * this.boundary.top;
+          this.noiseDefaultY = this.position.y;
+          this.position.x = this.boundary.right;
+        }
+        this.noiseTick += this.noiseIncrement;
+        this.currentAplitude +=
+          (this.targetAmplitude - this.currentAplitude) * 0.01;
+      },
       initSpin: function () {
         this.spinDx = this.position.x - 500;
         this.spinRadius = Math.max(
@@ -264,6 +298,7 @@ class BGParticle extends React.Component {
     this.trig.readyToStartSinFlow = false;
     if (this.flow === "waterFlow") this.physics.initFlow();
     if (this.flow === "spin") this.physics.initSpin();
+    if (this.flow === "perlin") this.physics.initPerlin();
   }
 
   update() {
@@ -291,6 +326,10 @@ class BGParticle extends React.Component {
 
       case "spin":
         this.physics.spin();
+        break;
+
+      case "perlin":
+        this.physics.perlinFlow();
         break;
 
       default:
