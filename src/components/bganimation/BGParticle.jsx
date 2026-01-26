@@ -17,6 +17,7 @@ class BGParticle extends React.Component {
 
     // physics vars
     this.physics = {
+      elasticity: 0.6 + Math.random() * 0.3,
       spinAngle: 0,
       spinSpeed: 0.01,
       spinRadius: 0,
@@ -112,6 +113,44 @@ class BGParticle extends React.Component {
         const spinCos = Math.cos(this.spinAngle);
         this.position.x = 500 + spinCos * this.spinRadius;
       },
+      initDrop: function () {
+        // console.log(
+        //   "init drop top: ",
+        //   this.boundary.top,
+        //   " y: ",
+        //   this.position.y,
+        // );
+        if (this.position.y > this.boundary.top - 200) {
+          //console.log("current position: is less than top - 100");
+          this.position.y = this.boundary.bottom - 100;
+          this.velocity = new PVector(this.velocity.x, this.gravity.y);
+        }
+        this.acceleration = new PVector(0, 0.6);
+        //console.log("current position: ", this.position.y);
+      },
+      drop: function () {
+        //console.log("dropping: ", this.position.y);
+        this.velocity.add(this.acceleration);
+        this.velocity.y *= 0.99;
+        this.velocity.x *= 0.995;
+        this.position.add(this.velocity);
+        this.bounceIfNeeded();
+      },
+
+      bounceIfNeeded: function () {
+        if (this.position.y > this.boundary.top - this.radius * 2) {
+          this.position.y = this.boundary.top - this.radius * 2;
+          this.velocity.y *= -this.elasticity;
+        }
+
+        if (this.position.x > this.boundary.right) {
+          this.position.x = this.boundary.right;
+          this.velocity.x *= -1;
+        } else if (this.position.x < this.radius) {
+          this.position.x = this.radius;
+          this.velocity.x *= -1;
+        }
+      },
     };
 
     // trig vars
@@ -122,6 +161,12 @@ class BGParticle extends React.Component {
       isSin: Math.random() > 0.5 ? true : false,
       amplitude: Math.round(Math.random() * 200),
       radians: null,
+      boundary: {
+        right: 1020,
+        left: -20,
+        top: 1000,
+        bottom: 0,
+      },
       setRadians: function (newRadians) {
         this.radians = newRadians;
       },
@@ -165,7 +210,8 @@ class BGParticle extends React.Component {
         if (!this.readyToStartSinFlow) return;
 
         currentPos.x += this.speed;
-        if (currentPos.x > 1000 + rad) currentPos.x = -rad;
+        if (currentPos.x > this.boundary.right + rad)
+          currentPos.x = this.boundary.left - rad;
         this.setRadians(Math.PI * 2 * (currentPos.x / 1000));
 
         currentPos.y = this.isSin
@@ -264,6 +310,7 @@ class BGParticle extends React.Component {
     this.trig.readyToStartSinFlow = false;
     if (this.flow === "waterFlow") this.physics.initFlow();
     if (this.flow === "spin") this.physics.initSpin();
+    if (this.flow === "drop") this.physics.initDrop();
   }
 
   update() {
@@ -293,6 +340,10 @@ class BGParticle extends React.Component {
         this.physics.spin();
         break;
 
+      case "drop":
+        this.physics.drop();
+        break;
+
       default:
         this.trig.sinFlow(this.physics);
         break;
@@ -311,6 +362,22 @@ class BGParticle extends React.Component {
       "transform",
       `rotate(${this.physics.position.x * this.rotationSpeed})`,
     );
+
+    if (this.flow === "sin") {
+      if (this.physics.position.x < 0) {
+        console.log("less than 0");
+        const op = 1 - Math.abs(this.physics.position.x) / 20;
+        this.holder.setAttribute("opacity", `${op}`);
+      } else if (this.physics.position.x > 1000) {
+        console.log("greater than 1000");
+        const op = 1 - Math.abs(this.physics.position.x - 1000) / 20;
+        this.holder.setAttribute("opacity", `${op}`);
+      } else {
+        this.holder.setAttribute("opacity", `1`);
+      }
+    } else {
+      this.holder.setAttribute("opacity", `1`);
+    }
   }
 
   render() {

@@ -8,7 +8,7 @@ class BGAnimation extends React.Component {
   constructor() {
     super();
     this.holder = null;
-    this.numberOfParticles = 200;
+    this.numberOfParticles = 150;
     this.particles = React.createRef([]);
     this.particles.current = [];
     this.running = false;
@@ -72,7 +72,7 @@ class BGAnimation extends React.Component {
           width="100%"
           height={"100%"}
           viewBox="0 0 1000 1000"
-          preserveAspectRatio="xMidYMid slice"
+          preserveAspectRatio="xMidYMax meet"
         >
           <g style={{ opacity: 0.6 }}>{this.buildParticles()}</g>
         </svg>
