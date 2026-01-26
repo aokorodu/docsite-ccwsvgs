@@ -1,4 +1,5 @@
 import React from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import styles from '../styles/rootLayout.module.scss';
 import AppHeader from '@/components/appheader';
 
@@ -13,6 +14,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
       <div className={styles.contentHolder}>
         {children}
       </div>
+      <SpeedInsights />
     </div>
   );
 };
