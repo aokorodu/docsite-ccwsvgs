@@ -298,7 +298,7 @@ class BGParticle extends React.Component {
     this.trig.readyToStartSinFlow = false;
     if (this.flow === "waterFlow") this.physics.initFlow();
     if (this.flow === "spin") this.physics.initSpin();
-    if (this.flow === "perlin") this.physics.initPerlin();
+    if (this.flow === "swim") this.physics.initPerlin();
   }
 
   update() {
@@ -328,7 +328,7 @@ class BGParticle extends React.Component {
         this.physics.spin();
         break;
 
-      case "perlin":
+      case "swim":
         this.physics.perlinFlow();
         break;
 
