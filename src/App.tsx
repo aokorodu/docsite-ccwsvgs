@@ -54,6 +54,7 @@ import GreensockPlaybackControls from './pages/lessons/GreensockPlaybackControls
 import GreensockObjectProperties from './pages/lessons/GreensockObjectProperties';
 
 // Other pages
+import PerlinNoise from './pages/lessons/PerlinNoise';
 import AspectRatio from './pages/lessons/AspectRatio';
 
 function App() {
@@ -116,6 +117,7 @@ function App() {
           <Route path="/greensock-object-properties" element={<GreensockObjectProperties />} />
 
           {/* Other */}
+          <Route path="/perlin-noise" element={<PerlinNoise />} />
           <Route path="/aspect-ratio" element={<AspectRatio />} />
         </Route>
       </Routes>
