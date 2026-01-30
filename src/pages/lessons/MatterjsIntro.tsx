@@ -67,7 +67,7 @@ const MatterjsIntro = () => {
         Event module allows us to listen for important events, like collisions.
         For example, if you're building a game where you are trying to shoot
         down some flying objects, you'll need to be able to detect when the
-        collision between your projectile and your target.
+        collision between your projectile and your target occurs.
       </p>
 
       <h3>Matter.Runner</h3>
