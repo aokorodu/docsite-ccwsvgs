@@ -1,5 +1,6 @@
 import Blocks from "@/components/blocks";
 import { Example1 } from "@/components/colorschapter";
+import ColorSwatches from "@/components/illustrations/ColorSwatches";
 
 const Colors = () => {
   return (
@@ -14,6 +15,10 @@ const Colors = () => {
       >
         codepen practice page
       </a>
+
+      <div style={{ marginTop: "20px" }}>
+        <ColorSwatches />
+      </div>
 
       <h2>css keywords</h2>
 

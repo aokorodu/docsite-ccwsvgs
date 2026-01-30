@@ -1,5 +1,6 @@
 import Blocks from "@/components/blocks";
 import { Example1, Example2 } from "@/components/groupschapter";
+import GroupImage from "@/components/illustrations/GroupImage";
 
 const Groups = () => {
   return (
@@ -13,6 +14,9 @@ const Groups = () => {
       >
         {"codepen practice page"}
       </a>
+      <div style={{ marginTop: "20px" }}>
+        <GroupImage />
+      </div>
 
       <h2>the group element</h2>
 

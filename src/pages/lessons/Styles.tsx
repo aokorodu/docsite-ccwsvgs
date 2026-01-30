@@ -1,5 +1,8 @@
 import Blocks from "@/components/blocks";
 import { Example1, Example2, Example3 } from "@/components/styleschapter";
+import Nerd1 from "@/components/illustrations/Nerd1";
+import Nerd2 from "@/components/illustrations/Nerd2";
+import Attribution from "@/components/attribution";
 
 const Styles = () => {
   return (
@@ -11,10 +14,15 @@ const Styles = () => {
         href={"https://codepen.io/aokorodu/pen/YzgVbed"}
         target="_blank"
       >
-        {"Styles codepen practice page"}
+        {"codepen practice page"}
       </a>
 
       <h2>css styles</h2>
+      <div style={{ display: "flex", gap: "20px", marginTop: "20px" }}>
+        <Nerd1 />
+        <Nerd2 />
+      </div>
+      <Attribution />
 
       <p>
         An SVG element's presentation attributes - properties like fill, stroke,
