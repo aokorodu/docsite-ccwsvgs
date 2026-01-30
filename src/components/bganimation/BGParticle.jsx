@@ -47,16 +47,19 @@ class BGParticle extends React.Component {
       initPerlin: function () {
         this.noiseTick = 0;
         this.currentAplitude = 0;
-        this.noiseDefaultY = this.position.y;
 
         this.velocity.x = 1 + Math.random() * 4;
         this.velocity.y = 1 + Math.random() * 4;
       },
       perlinFlow: function () {
         const dx =
-          this.noise2D(this.position.x / 500, this.noiseTick) * this.velocity.x;
+          this.noise2D(this.position.x / this.boundary.right, this.noiseTick) *
+          this.velocity.x;
         const dy =
-          this.noise2D(this.position.y / 300, this.noiseTick) * this.velocity.y;
+          this.noise2D(
+            this.position.y / this.boundary.top + 300,
+            this.noiseTick,
+          ) * this.velocity.y;
         //let value = this.noise2D(this.position.x / 1000, this.noiseTick);
         //let dy = value * this.currentAplitude;
         this.position.y += dy;
@@ -122,7 +125,7 @@ class BGParticle extends React.Component {
       restartFloatIfNeeded: function () {
         if (this.position.y < this.boundary.bottom - this.radius) {
           this.position.y = this.boundary.top + this.radius;
-          this.position.x = Math.random() * (1000 - this.radius);
+          this.position.x = Math.random() * (this.boundary.right - this.radius);
           this.initFloatVelocity();
         }
       },
