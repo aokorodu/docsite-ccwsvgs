@@ -7,15 +7,16 @@ import {
 const DynamicDragging = () => {
   return (
     <>
-      <h1>Dragging Elements</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/dPbjezY?editors=0010"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"Dragging Elements codepen practice page"}
       </a>
+
+      <h1>Dragging Elements</h1>
 
       <h2>DOM vs SVG coordinates</h2>
 

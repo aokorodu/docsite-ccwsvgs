@@ -4,15 +4,16 @@ import { DefsExample, DefsSmileExample } from "@/components/reusablechapter";
 const ReusableDefs = () => {
   return (
     <>
-      <h1>defs</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/ZEdqyNj"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"codepen practice page"}
       </a>
+
+      <h1>Defs</h1>
 
       <h2>the defs element</h2>
 

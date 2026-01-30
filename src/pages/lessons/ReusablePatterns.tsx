@@ -10,15 +10,16 @@ import {
 const ReusablePatterns = () => {
   return (
     <>
-      <h1>Patterns</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/ZEdqyNj"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"codepen practice page"}
       </a>
+
+      <h1>Patterns</h1>
 
       <h2>the pattern element</h2>
 
@@ -123,9 +124,7 @@ const ReusablePatterns = () => {
         </li>
       </ol>
 
-      <br />
-
-      <p>
+      <p className="section">
         <strong>patternContentUnits:</strong> similar to patternUnits, except it
         defines the units of measure used when setting the geometric values of
         the pattern <strong>content</strong>.
@@ -143,9 +142,7 @@ const ReusablePatterns = () => {
         </li>
       </ol>
 
-      <br />
-
-      <h2>pattern units</h2>
+      <h2 className="section">pattern units</h2>
 
       <p>
         Defines the unit of measure used when setting the geometric value of the

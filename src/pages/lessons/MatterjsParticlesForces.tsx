@@ -10,15 +10,16 @@ import {
 const MatterjsParticlesForces = () => {
   return (
     <>
-      <h1>Appyling Forces</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/xxvgarN"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"MatterJS codepen practice page"}
       </a>
+
+      <h1>Appyling Forces</h1>
 
       <h2>How do forces work?</h2>
 
@@ -37,6 +38,7 @@ const MatterjsParticlesForces = () => {
           <a
             href="https://www.merriam-webster.com/dictionary/vector#:~:text=a,direction%20especially%20of%20an%20airplane"
             target="_blank"
+          rel="noopener noreferrer"
           >
             Merriam-Webster Dictionary
           </a>
@@ -61,7 +63,7 @@ const MatterjsParticlesForces = () => {
 
       <p>
         Let's update our{" "}
-        <a href="https://codepen.io/aokorodu/pen/OJKXoBa" target="_blank">
+        <a href="https://codepen.io/aokorodu/pen/OJKXoBa" target="_blank" rel="noopener noreferrer">
           MatterJS - Multiple Particles
         </a>{" "}
         codepen so that we can apply a wind force to our particles. First we'll

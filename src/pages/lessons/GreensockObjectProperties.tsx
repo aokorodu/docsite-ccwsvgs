@@ -9,15 +9,16 @@ import {
 const GreensockObjectProperties = () => {
   return (
     <>
-      <h1>Tweening object properties</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/JojPMMz"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"codepen practice page"}
       </a>
+
+      <h1>Tweening object properties</h1>
 
       <h2>Intro</h2>
 
@@ -74,7 +75,7 @@ const GreensockObjectProperties = () => {
 
       <p>
         You can see the full code for the example above{" "}
-        <a href="https://codepen.io/aokorodu/pen/EaxyoOa" target="_blank">
+        <a href="https://codepen.io/aokorodu/pen/EaxyoOa" target="_blank" rel="noopener noreferrer">
           here.
         </a>
       </p>
@@ -85,7 +86,7 @@ const GreensockObjectProperties = () => {
         <em>marker-end</em> to the path (the flower petals), and the end result
         is a flower that looks like it's swaying in the breeze. The codepen for
         the flower example can be found{" "}
-        <a href="https://codepen.io/aokorodu/pen/ogNvZJN" target="_blank">
+        <a href="https://codepen.io/aokorodu/pen/ogNvZJN" target="_blank" rel="noopener noreferrer">
           here.
         </a>
       </p>

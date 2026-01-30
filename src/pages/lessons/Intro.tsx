@@ -21,8 +21,7 @@ const Intro = () => {
         <li>How to <strong>animate</strong> SVGs</li>
       </ul>
 
-      <br />
-      <h2>Prerequisites</h2>
+      <h2 className="section">Prerequisites</h2>
 
       <p>
         While this is a beginner's couse, you will need to have at least a basic understanding of the following:
@@ -69,9 +68,7 @@ const Intro = () => {
 
       <p>And here's a link to a <a href='https://codepen.io/aokorodu/pen/ExMwgxO' target='_blank' rel="noopener noreferrer">blank codepen page</a>.</p>
 
-      <br />
-
-      <p>Feel free to copy and paste the provided code snippets into the codepen so that you can experiment directly with the code. It's the best way to learn!</p>
+      <p className="section">Feel free to copy and paste the provided code snippets into the codepen so that you can experiment directly with the code. It's the best way to learn!</p>
     </>
   );
 };

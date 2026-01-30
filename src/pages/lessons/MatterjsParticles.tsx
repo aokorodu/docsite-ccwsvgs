@@ -8,15 +8,16 @@ import {
 const MatterjsParticles = () => {
   return (
     <>
-      <h1>Creating Particles</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/xxvgarN"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"MatterJS codepen practice page"}
       </a>
+
+      <h1>Creating Particles</h1>
 
       <h3>Installing the library</h3>
 
@@ -29,7 +30,7 @@ const MatterjsParticles = () => {
 
       <p>
         (I've created a codepen that imports the library that you can use{" "}
-        <a href="https://codepen.io/aokorodu/pen/xxvgarN" target="_blank">
+        <a href="https://codepen.io/aokorodu/pen/xxvgarN" target="_blank" rel="noopener noreferrer">
           here.
         </a>
         )
@@ -458,7 +459,7 @@ Body.setPosition(particleBody, { x: w/2, y: particleRadius })
 
       <p>
         You can check out and play around with the code for this lesson{" "}
-        <a href="https://codepen.io/aokorodu/pen/GRVrbjz" target="_blank">
+        <a href="https://codepen.io/aokorodu/pen/GRVrbjz" target="_blank" rel="noopener noreferrer">
           at this codepen
         </a>
         . There are a few minor differences to the code apove - I've added a{" "}

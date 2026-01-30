@@ -4,15 +4,16 @@ import { MultiParticleEmbedExample } from "@/components/matterjs";
 const MatterjsParticlesMultiple = () => {
   return (
     <>
-      <h1>Multiple Particles</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/xxvgarN"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"MatterJS codepen practice page"}
       </a>
+
+      <h1>Multiple Particles</h1>
 
       <h2>Multiple Particle example</h2>
 
@@ -95,7 +96,7 @@ const numberOfParticles = 50;
 
       <p>
         You can check out and play around with the code{" "}
-        <a href="https://codepen.io/aokorodu/pen/OJKXoBa" target="_blank">
+        <a href="https://codepen.io/aokorodu/pen/OJKXoBa" target="_blank" rel="noopener noreferrer">
           here
         </a>
         ..

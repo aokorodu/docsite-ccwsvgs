@@ -12,15 +12,16 @@ import {
 const ReusableMarkers = () => {
   return (
     <>
-      <h1>Markers</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/ZEdqyNj"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"codepen practice page"}
       </a>
+
+      <h1>Markers</h1>
 
       <h2>the marker element</h2>
 
@@ -186,10 +187,7 @@ const ReusableMarkers = () => {
 
       <MarkerAutoStartReverse />
 
-      <br />
-      <br />
-
-      <p>
+      <p className="section">
         <strong>degrees</strong> - the marker set at an angle of the specified
         number of degrees
       </p>
@@ -200,7 +198,7 @@ const ReusableMarkers = () => {
 
       <p>
         You can see more marker examples in{" "}
-        <a href="https://codepen.io/aokorodu/pen/wBvWXdR" target="_blank">
+        <a href="https://codepen.io/aokorodu/pen/wBvWXdR" target="_blank" rel="noopener noreferrer">
           this codepen
         </a>
         .

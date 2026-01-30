@@ -7,15 +7,16 @@ import {
 const ReusableMask = () => {
   return (
     <>
-      <h1>Masks</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/ZEdqyNj"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"codepen practice page"}
       </a>
+
+      <h1>Masks</h1>
 
       <h2>the mask element</h2>
 

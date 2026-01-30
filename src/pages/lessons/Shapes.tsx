@@ -6,15 +6,16 @@ import Attribution from "@/components/attribution";
 const Shapes = () => {
   return (
     <>
-      <h1>Shape Elements</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/bGZWyaN"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"codepen practice page"}
       </a>
+
+      <h1>Shape Elements</h1>
 
 
       <h2>intro: shape elements</h2>
@@ -24,7 +25,7 @@ const Shapes = () => {
         <path d="M552.751 429.827a51.5 51.5 0 0 0-8.334 12.37c-1.886 3.887-3.34 8.603-2.047 12.848a26 26 0 0 0 1.073-.675c7-4.706 11.278-12.683 13.164-20.823a46.3 46.3 0 0 0 1.141-8.082 28.4 28.4 0 0 0-4.997 4.362M874.863 424.334l.007-.009a1 1 0 0 1 .001-.084l-.015.052zM874.882 424.05l-.004-.002.004.014zM578.745 467.25a11.4 11.4 0 0 0-2.477 2.98 2.66 2.66 0 0 0-.324 1.445 2.2 2.2 0 0 0 .11.452c-.001-.027.122.224.191.349.016.01.188.233.198.243q.105.107.218.206c.035.03.09.075.102.083q.143.098.293.184a3.5 3.5 0 0 0 1.173.418q.173.029.003.012l.178.017q.221.019.444.017a4 4 0 0 0 .443-.022 4.7 4.7 0 0 0 1.42-.493 9.1 9.1 0 0 0 2.626-2.273 23.2 23.2 0 0 0 3.49-5.943 28.7 28.7 0 0 0 1.543-4.992 51 51 0 0 0-6.725 4.713q-1.501 1.246-2.906 2.604M747.8 417.738l.326-.13c.152-.058.306-.112.459-.17q.28-.106.562-.207.464-.166.931-.32l.288-.098a74 74 0 0 1 7.994-2.036q.03-.007.061-.012a197 197 0 0 1 27.518-3.423q7.24-.489 14.5-.646 12.5-.318 25.003.236l.814.034q1.884.089 3.765.2c.462.027.924.045 1.386.074q.447.029.893.059.237.013.474.028c.174.01.348.026.522.038a205 205 0 0 1 25.51 3.035c1.547.293 3.089.614 4.62.976q1.315.305 2.619.657a39.5 39.5 0 0 1 6.817 2.378c-.36-1.148-.715-2.299-1.09-3.434l-5.467-16.546-7.597-22.998-9.021-27.305-9.676-29.286-9.553-28.918-8.723-26.403-7.153-21.652-4.855-14.696-.178-.538c-.386 1.114-.777 2.225-1.144 3.336l-5.466 16.546-7.598 22.998-9.021 27.305-9.675 29.287-9.554 28.918-8.723 26.403-7.153 21.652-4.855 14.695-.22.664c.485-.222.97-.425 1.453-.618q.104-.042.207-.083M874.888 424.081l-.006-.019v.072c0-.018.006-.034.006-.053" />
       </svg>
       <Attribution />
-      <br /><br />
+      <div className="section"></div>
 
       <p>
         The shape elements provide the foundational visual building blocks of an
@@ -56,7 +57,7 @@ const Shapes = () => {
       <p>
         Before we learn about the shape elements, let's create a basic SVG in
         our{" "}
-        <a href={"https://codepen.io/aokorodu/pen/bGZWyaN"} target="_blank">
+        <a href={"https://codepen.io/aokorodu/pen/bGZWyaN"} target="_blank" rel="noopener noreferrer">
           {"starter codepen practice page"}
         </a>
         . We'll start with the <strong>&lt;svg&gt;</strong> element, which is
@@ -81,7 +82,7 @@ const Shapes = () => {
         There are other attributes that we can add to our svg element, like{" "}
         <strong>viewbox</strong> and <strong>namespace</strong>, but this is all
         we need for now. We'll learn about some advanced svg attributes in our{" "}
-        <a href={"/syntax"} target="_blank">
+        <a href={"/syntax"} target="_blank" rel="noopener noreferrer">
           {"syntax"}
         </a>{" "}
         chapter.
@@ -108,9 +109,8 @@ const Shapes = () => {
         attributes are universal and can be used with any shape element.
       </p>
 
-      <br />
-
-      <p>
+      
+      <p className="section">
         In this section we'll focus on the <strong>geometric attributes</strong>{" "}
         for each shape. A more detailed discussion of the presentation
         attributes can be found{" "}
@@ -120,11 +120,8 @@ const Shapes = () => {
         .
       </p>
 
-      <br />
-
-
-
-      <h2>circle</h2>
+      
+      <h2 className="section">circle</h2>
 
       <ul>
         <li>

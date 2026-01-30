@@ -7,18 +7,19 @@ import Attribution from "@/components/attribution";
 const Styles = () => {
   return (
     <>
-      <h1>Styles</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/YzgVbed"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"codepen practice page"}
       </a>
 
-      <h2>css styles</h2>
-      <div style={{ display: "flex", gap: "20px", marginTop: "20px" }}>
+      <h1>Styles</h1>
+
+      <h2>CSS Styles</h2>
+      <div className="demoContainer">
         <Nerd1 />
         <Nerd2 />
       </div>
@@ -36,9 +37,7 @@ const Styles = () => {
         <li>External stylesheets for inline svgs.</li>
       </ol>
 
-      <br />
-
-      <p>
+      <p className="section">
         <a href="https://www.w3.org/TR/SVG/propidx.html">Here is a list</a> of
         all SVG attributes that can be styled via CSS.
       </p>
@@ -144,9 +143,7 @@ const Styles = () => {
         </li>
       </ol>
 
-      <br />
-
-      <p>
+      <p className="section">
         In the example below the inline style overrides both the "fill"
         presentation attribute and the fill, stroke, and stroke-width styles
         defined in the my-circle class in the myStyles.css external css file.

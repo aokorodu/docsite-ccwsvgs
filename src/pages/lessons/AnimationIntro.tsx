@@ -67,9 +67,7 @@ const AnimationIntro = () => {
         </li>
       </ul>
 
-      <br />
-
-      <p>
+      <p className="section">
         We'll also take a brief look at a few powerful animation libraries that
         we can utilize, if we so choose.
       </p>

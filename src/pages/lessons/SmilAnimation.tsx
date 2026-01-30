@@ -11,15 +11,16 @@ import {
 const SmilAnimation = () => {
   return (
     <>
-      <h1>SMIL Animation</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/eYXRqdX"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"SMIL pt.1 practice page"}
       </a>
+
+      <h1>SMIL Animation</h1>
 
       <h2>What is SMIL?</h2>
 
@@ -189,9 +190,7 @@ const SmilAnimation = () => {
 
       <Example_Fill_Freeze begin={"2s"} />
 
-      <br />
-
-      <p>Or we can set the begin to a when the user clicks the circle:</p>
+      <p className="section">Or we can set the begin to a when the user clicks the circle:</p>
 
       <Blocks highlight="9">{`<svg width="200" height="300" viewBox="0 0 200 300">
   <circle cx="100" cy="20" r="10" fill="green">
@@ -256,9 +255,7 @@ const SmilAnimation = () => {
 
       <Example_End endvalue="3.5s" />
 
-      <br />
-
-      <p>
+      <p className="section">
         Just like the begin attribute, we can end the animation when the circle
         is clicked. (I've slowed down the animtion to make the circle easier to
         click!)
@@ -466,7 +463,7 @@ keySplines="<bezier curve 1 to 2>; <bezier curve 2 to 3>;..."`}</Blocks>
 
       <p>
         You can define your own bezier curves at{" "}
-        <a href={"https://cubic-bezier.com/"} target="_blank">
+        <a href={"https://cubic-bezier.com/"} target="_blank" rel="noopener noreferrer">
           {"https://cubic-bezier.com/"}
         </a>
       </p>
@@ -601,9 +598,7 @@ keySplines="<bezier curve 1 to 2>; <bezier curve 2 to 3>;..."`}</Blocks>
         <li>skewX, or skewY.</li>
       </ul>
 
-      <br />
-
-      <p>
+      <p className="section">
         Otherwise the functionality of <strong>&lt;animateTransform&gt;</strong>{" "}
         is identical to <strong>&lt;animate&gt;</strong>. All the attributes -
         from, to, dur, fill, calcMode, etc. - have the same functionality.

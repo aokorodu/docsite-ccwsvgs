@@ -322,3 +322,16 @@ blockquote > p {
   font-size: 0.9rem;
   text-align: center;
 }
+
+/* Lesson Layout Utilities */
+.section {
+  margin-top: 2rem;
+}
+
+.demoContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  flex-wrap: nowrap;
+}

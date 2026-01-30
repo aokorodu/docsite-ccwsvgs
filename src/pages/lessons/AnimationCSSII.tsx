@@ -11,6 +11,7 @@ const AnimationCSSII = () => {
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/OJqmeLy"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"CSS Animation codepen practice page"}
       </a>

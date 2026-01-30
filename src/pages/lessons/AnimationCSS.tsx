@@ -12,17 +12,18 @@ import {
 const AnimationCSS = () => {
   return (
     <>
-      <h1>CSS Animation</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/OJqmeLy"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"CSS Animation codepen practice page"}
       </a>
 
-      <h2>applying css animations</h2>
+      <h1>CSS Animation</h1>
+
+      <h2>Applying CSS Animations</h2>
 
       <p>
         The process for applying CSS animations to SVG elements is the same as
@@ -83,9 +84,7 @@ const AnimationCSS = () => {
         <li>cubic-bezier</li>
       </ul>
 
-      <br />
-
-      <p>
+      <p className="section">
         <strong>transition-delay</strong> - delay in seconds (s) or milliseconds
         (ms).
       </p>
@@ -116,7 +115,7 @@ const AnimationCSS = () => {
 
       <p>
         Let's open up our{" "}
-        <a href={"https://codepen.io/aokorodu/pen/OJqmeLy"} target="_blank">
+        <a href={"https://codepen.io/aokorodu/pen/OJqmeLy"} target="_blank" rel="noopener noreferrer">
           starter codepen page
         </a>{" "}
         so we can try out some transitions. We'll need to create a class for the
@@ -258,7 +257,7 @@ const AnimationCSS = () => {
 
       <h4>
         *See the text stroke animation example in{" "}
-        <a href="https://codepen.io/aokorodu/pen/gONNpwN?editors=0100" target="_blank">
+        <a href="https://codepen.io/aokorodu/pen/gONNpwN?editors=0100" target="_blank" rel="noopener noreferrer">
           codepen
         </a>
       </h4>
@@ -428,7 +427,7 @@ const AnimationCSS = () => {
 
       <h4>
         *See the balloon easing example in{" "}
-        <a href="https://codepen.io/aokorodu/pen/OJeevOm" target="_blank">
+        <a href="https://codepen.io/aokorodu/pen/OJeevOm" target="_blank" rel="noopener noreferrer">
           codepen
         </a>
       </h4>
@@ -505,7 +504,7 @@ const AnimationCSS = () => {
       <p>
         A fantastic interactive resource for visualizing and experimenting with
         easing curves is{" "}
-        <a href="https://cubic-bezier.com" target="_blank">
+        <a href="https://cubic-bezier.com" target="_blank" rel="noopener noreferrer">
           cubic-bezier.com
         </a>
         . Once you manipulate the control points to form the curve you want, you

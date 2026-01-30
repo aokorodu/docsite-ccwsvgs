@@ -4,17 +4,18 @@ import { Link } from "react-router-dom";
 const Syntax = () => {
   return (
     <>
-      <h1>SVG Syntax</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/GRemePr"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"SVG Syntax codepen practice page"}
       </a>
 
-      <h2>basic Syntax</h2>
+      <h1>SVG Syntax</h1>
+
+      <h2>Basic Syntax</h2>
 
       <h3>svg element</h3>
 

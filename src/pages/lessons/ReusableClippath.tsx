@@ -4,15 +4,16 @@ import { NoClip, WithClip, StarClip } from "@/components/reusableclippath";
 const ReusableClippath = () => {
   return (
     <>
-      <h1>ClipPaths</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/ZEdqyNj"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"codepen practice page"}
       </a>
+
+      <h1>ClipPaths</h1>
 
       <h2>the clipPath element</h2>
 

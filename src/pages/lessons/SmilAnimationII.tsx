@@ -203,9 +203,7 @@ const SmilAnimationII = () => {
         this car?
       </p>
 
-      <br />
-
-      <svg width="50" height="29" viewBox="0 0 50 29" fill="none">
+      <svg className="section" width="50" height="29" viewBox="0 0 50 29" fill="none">
         <path
           d="M0 6.0402C0 3.81542 1.81533 2.01815 4.04 2.0404L46.04 2.4604C48.2334 2.48233 50 4.26667 50 6.4602V22.5398C50 24.7333 48.2334 26.5177 46.04 26.5396L4.04 26.9596C1.81534 26.9818 0 25.1846 0 22.9598V6.0402Z"
           fill="#A50000"
@@ -232,9 +230,7 @@ const SmilAnimationII = () => {
         />
       </svg>
 
-      <br />
-
-      <p>
+      <p className="section">
         Let's add the car to &lt;defs&gt;, and place it in the svg with the
         &lt;use&gt; element
       </p>
@@ -544,7 +540,7 @@ const SmilAnimationII = () => {
 
       <p>
         Check out the full example on{" "}
-        <a href="https://codepen.io/aokorodu/pen/OJeKNVd" target="_blank">
+        <a href="https://codepen.io/aokorodu/pen/OJeKNVd" target="_blank" rel="noopener noreferrer">
           codepen.
         </a>
       </p>
@@ -637,9 +633,7 @@ const SmilAnimationII = () => {
         </li>
       </ol>
 
-      <br />
-
-      <h3>additional attributes for animateTransform:</h3>
+      <h3 className="section">additional attributes for animateTransform:</h3>
 
       <ol>
         <li>

@@ -5,16 +5,17 @@ import GroupImage from "@/components/illustrations/GroupImage";
 const Groups = () => {
   return (
     <>
-      <h1>Groups</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/eYwPRdG"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"codepen practice page"}
       </a>
-      <div style={{ marginTop: "20px" }}>
+
+      <h1>Groups</h1>
+      <div className="section">
         <GroupImage />
       </div>
 
