@@ -47,26 +47,32 @@ class BGParticle extends React.Component {
       initPerlin: function () {
         this.noiseTick = 0;
         this.currentAplitude = 0;
-        this.noiseDefaultY = this.position.y;
-        // if (this.velocity.x === 0) {
-        //   this.velocity.x = 0.1 + Math.random() * 2;
-        // }
-        // this.velocity.x = Math.random() * -2;
-        this.velocity.x = -1.5 * (this.radius / 10);
+
+        this.velocity.x = 1 + Math.random() * 4;
+        this.velocity.y = 1 + Math.random() * 4;
       },
       perlinFlow: function () {
-        let value = this.noise2D(this.position.x / 1000, this.noiseTick);
-        let dy = value * this.currentAplitude;
-        this.position.y = this.noiseDefaultY + dy;
-        this.position.x += this.velocity.x;
+        const dx =
+          this.noise2D(this.position.x / this.boundary.right, this.noiseTick) *
+          this.velocity.x;
+        const dy =
+          this.noise2D(
+            this.position.y / this.boundary.top + 300,
+            this.noiseTick,
+          ) * this.velocity.y;
+        //let value = this.noise2D(this.position.x / 1000, this.noiseTick);
+        //let dy = value * this.currentAplitude;
+        this.position.y += dy;
+        this.position.x += dx;
         if (this.position.x > this.boundary.right) {
-          this.noiseDefaultY = this.position.y;
-          this.position.x = 0;
-        }
-        if (this.position.x < this.boundary.left) {
-          this.position.y = Math.random() * this.boundary.top;
-          this.noiseDefaultY = this.position.y;
+          this.position.x = this.boundary.left;
+        } else if (this.position.x < this.boundary.left) {
           this.position.x = this.boundary.right;
+        }
+        if (this.position.y < this.boundary.bottom) {
+          this.position.y = this.boundary.top;
+        } else if (this.position.y > this.boundary.top) {
+          this.position.y = this.boundary.bottom;
         }
         this.noiseTick += this.noiseIncrement;
         this.currentAplitude +=
@@ -119,7 +125,7 @@ class BGParticle extends React.Component {
       restartFloatIfNeeded: function () {
         if (this.position.y < this.boundary.bottom - this.radius) {
           this.position.y = this.boundary.top + this.radius;
-          this.position.x = Math.random() * (1000 - this.radius);
+          this.position.x = Math.random() * (this.boundary.right - this.radius);
           this.initFloatVelocity();
         }
       },
