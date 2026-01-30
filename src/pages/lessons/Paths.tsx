@@ -10,15 +10,16 @@ import Attribution from "@/components/attribution";
 const Paths = () => {
   return (
     <>
-      <h1>Paths</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/xxoygPy"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"codepen practice page"}
       </a>
+
+      <h1>Paths</h1>
 
       <h2>The path element</h2>
 
@@ -30,7 +31,7 @@ const Paths = () => {
         most powerful and versatile of the shape elements.
       </p>
 
-      <div style={{ display: "flex", gap: "20px", marginTop: "20px" }}>
+      <div className="demoContainer">
         <LightBulb />
         <Dog />
       </div>

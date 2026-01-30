@@ -16,15 +16,16 @@ import {
 const ReusableFilter = () => {
   return (
     <>
-      <h1>Filter</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/ZEdqyNj"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"codepen practice page"}
       </a>
+
+      <h1>Filter</h1>
 
       <h2>overview</h2>
 
@@ -120,9 +121,7 @@ const ReusableFilter = () => {
 
       <h3>attributes</h3>
 
-      <br />
-
-      <ul>
+      <ul className="section">
         <li>
           <strong>dx</strong>: the horizontal offset of the shadow
         </li>
@@ -163,9 +162,7 @@ const ReusableFilter = () => {
         </li>
       </ul>
 
-      <br />
-
-      <p>
+      <p className="section">
         You can set different values for both the x and y axis by using two
         numbers. In the example below we'll only blur along the x axis.
       </p>
@@ -173,8 +170,6 @@ const ReusableFilter = () => {
       <Blocks>{`<filter id="blur-filter">
   <feGaussianBlur stdDeviation="10 0" />
 </filter>`}</Blocks>
-
-      <br />
 
       <BlurExample />
 
@@ -642,9 +637,8 @@ new A   =   a1 a2 a3 a4 a5`}</Blocks>
         </li>
       </ul>
 
-      <br />
-
       <img
+        className="section"
         src="/reusable_turbulence_examples.png"
         alt="reusable_turbulence_examples.png"
       />

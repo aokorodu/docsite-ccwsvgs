@@ -4,15 +4,16 @@ import { GsapDemo } from "@/components/gsap";
 const GreensockIntro = () => {
   return (
     <>
-      <h1>Greensock Animation Platform (GSAP)</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/JojPMMz"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"codepen practice page"}
       </a>
+
+      <h1>Greensock Animation Platform (GSAP)</h1>
 
       <h2>Intro</h2>
 

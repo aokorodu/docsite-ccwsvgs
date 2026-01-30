@@ -66,9 +66,7 @@ const AnimationJavascriptII = () => {
 
       <FailExample />
 
-      <br />
-
-      <p>
+      <p className="section">
         The circle's cy attribute is indeed being updated, but the browser runs
         through all of the loop iterations so fast you won't even see it. All
         you'll see is the green dot at the final cy position. In terms of the
@@ -181,9 +179,7 @@ function moveCircle(){
 
       <SimpleBounceExample />
 
-      <br />
-
-      <p>
+      <p className="section">
         As you can see, the ball bounces off the bottom but not the top. We'll
         also need to reverse the speed when the circle hits the top edge of the
         svg (ypos &lt; 10).
@@ -214,9 +210,7 @@ function moveCircle(){
 
       <SimpleBounceExample top={true} />
 
-      <br />
-
-      <p>
+      <p className="section">
         Let's make this work in two dimensions by adding speed variables for
         both x and y, and updating the speed variables when the ball collides
         with ANY of the walls.
@@ -257,9 +251,7 @@ function moveCircle(){
 
       <ComplexBounceExample />
 
-      <br />
-
-      <p>
+      <p className="section">
         With hard-coded speed variables, the animation is the same every time.
         We'll fix that by setting random values for x_speed and y_speed.
       </p>
@@ -301,9 +293,7 @@ function moveCircle(){
 
       <ComplexBounceExample randomized={true} />
 
-      <br />
-
-      <p>
+      <p className="section">
         Note: for the random speed values, I could have just multiplied a number
         by Math.random() like this:
       </p>
@@ -322,13 +312,12 @@ function moveCircle(){
 
       <Blocks>{`let x_speed = Math.random() * 10 - 5;`}</Blocks>
 
-      <br />
-
-      <p>
+      <p className="section">
         *See the full example on{" "}
         <a
           href="https://codepen.io/aokorodu/pen/RwzzBZa?editors=0010"
           target="_blank"
+        rel="noopener noreferrer"
         >
           codepen
         </a>
@@ -608,11 +597,9 @@ function moveCircle(){
 
       <ParticleExample />
 
-      <br />
-
-      <p>
+      <p className="section">
         Check out the full particle example on{" "}
-        <a href="https://codepen.io/aokorodu/pen/RwzXrJx" target="_blank">
+        <a href="https://codepen.io/aokorodu/pen/RwzXrJx" target="_blank" rel="noopener noreferrer">
           codepen
         </a>
       </p>

@@ -5,15 +5,18 @@ import { Link } from "react-router-dom";
 const Transforms = () => {
   return (
     <>
-      <h1>transforms</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/bGPmRvB"}
         target="_blank"
+        rel="noopener noreferrer"
       >
         {"codepen practice page"}
       </a>
+
+      <h1>Transforms</h1>
+
+
 
       <h2>What is a transform?</h2>
 
@@ -29,9 +32,7 @@ const Transforms = () => {
         <li>skew</li>
       </ol>
 
-      <br />
-
-      <p>
+      <p className="section">
         Transforms can be applied via the transform presentation attribute or
         CSS.
       </p>
@@ -335,9 +336,7 @@ const Transforms = () => {
         </li>
       </ul>
 
-      <br />
-
-      <p>
+      <p className="section">
         For example, if we wanted to apply a transform scale to this rect
         element, the rect's entire coordinate system would be transformed. As a
         result, the rect is pushed downward and to the right.

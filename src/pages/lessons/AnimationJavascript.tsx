@@ -10,17 +10,18 @@ import {
 const AnimationJavascript = () => {
   return (
     <>
-      <h1>JavaScript Animation</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/VwRbJYO"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"JavaScript Animation codepen practice page"}
       </a>
 
-      <h2>javascript vs css animations</h2>
+      <h1>JavaScript Animation</h1>
+
+      <h2>JavaScript vs CSS Animations</h2>
 
       <p>
         Using javascript to animate an svg is recommended for more complex,
@@ -332,7 +333,7 @@ square.addEventListener('animationend', () => {
 
       <h4>
         *Check out this example in{" "}
-        <a href="https://codepen.io/aokorodu/pen/zYVVWyV" target="_blank">
+        <a href="https://codepen.io/aokorodu/pen/zYVVWyV" target="_blank" rel="noopener noreferrer">
           codepen
         </a>
       </h4>

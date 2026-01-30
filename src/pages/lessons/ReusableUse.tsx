@@ -3,15 +3,16 @@ import Blocks from "@/components/blocks";
 const ReusableUse = () => {
   return (
     <>
-      <h1>use</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/ZEdqyNj"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"codepen practice page"}
       </a>
+
+      <h1>Use</h1>
 
       <h2>the use element</h2>
 
@@ -42,9 +43,7 @@ const ReusableUse = () => {
         </li>
       </ul>
 
-      <br />
-
-      <p>
+      <p className="section">
         The confusing part: x and y don't designate the actual position of the
         graphic. The x and y attributes set the position of the origin (the 0,0
         point) of the <strong>&lt;use&gt;</strong> object's coordinate system.

@@ -8,15 +8,16 @@ import {
 const GreensockPlaybackControls = () => {
   return (
     <>
-      <h1>GSAP Playback Controls</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/xbxGEWp"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"codepen practice page"}
       </a>
+
+      <h1>GSAP Playback Controls</h1>
 
       <h2>intro</h2>
 
@@ -25,7 +26,7 @@ const GreensockPlaybackControls = () => {
         your individual animations and timelines. In this section we'll add
         playback controls to the animation that we created in the prior lesson.
         I've created a starter page for this lesson{" "}
-        <a href="https://codepen.io/aokorodu/pen/xbxGEWp" target="_blank">
+        <a href="https://codepen.io/aokorodu/pen/xbxGEWp" target="_blank" rel="noopener noreferrer">
           here
         </a>
         .

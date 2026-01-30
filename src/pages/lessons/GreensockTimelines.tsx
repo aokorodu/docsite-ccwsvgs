@@ -11,15 +11,16 @@ import {
 const GreensockTimelines = () => {
   return (
     <>
-      <h1>Timelines</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/yyLNqoZ?editors=1010"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"codepen practice page"}
       </a>
+
+      <h1>Timelines</h1>
 
       <h2>What is a Timeline?</h2>
 
@@ -42,6 +43,7 @@ const GreensockTimelines = () => {
         <a
           href="https://codepen.io/aokorodu/pen/yyLNqoZ?editors=1010"
           target="_blank"
+        rel="noopener noreferrer"
         >
           here.
         </a>
@@ -320,7 +322,7 @@ theTween.fromTo(
 
       <p>
         And that's it! You can find the final code{" "}
-        <a href="https://codepen.io/aokorodu/pen/gbOpjoX" target="_blank">
+        <a href="https://codepen.io/aokorodu/pen/gbOpjoX" target="_blank" rel="noopener noreferrer">
           here.
         </a>
       </p>

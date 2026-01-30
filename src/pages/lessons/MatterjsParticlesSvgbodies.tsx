@@ -4,15 +4,16 @@ import { SVGShapeExample } from "@/components/matterjs";
 const MatterjsParticlesSvgbodies = () => {
   return (
     <>
-      <h1>SVG Path Particles</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/XJrdJmE"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"SVG Path Particles codepen practice page"}
       </a>
+
+      <h1>SVG Path Particles</h1>
 
       <h2>Creating MatterJS bodies from paths</h2>
 
@@ -55,7 +56,7 @@ const MatterjsParticlesSvgbodies = () => {
       <p>
         These libraries allow MatterJS to convert complex shapes (like our
         letter above) into rigid MatterJS bodies. We'll be using a{" "}
-        <a target="_blank" href="https://codepen.io/aokorodu/pen/XJrdJmE">
+        <a href="https://codepen.io/aokorodu/pen/XJrdJmE" target="_blank" rel="noopener noreferrer">
           starter codepen
         </a>{" "}
         where both of these libraries have already been imported.
@@ -99,7 +100,7 @@ const MatterjsParticlesSvgbodies = () => {
 
       <p>
         In the HTML portion of our{" "}
-        <a target="_blank" href="https://codepen.io/aokorodu/pen/XJrdJmE">
+        <a href="https://codepen.io/aokorodu/pen/XJrdJmE" target="_blank" rel="noopener noreferrer">
           starter codepen
         </a>{" "}
         let's paste the path into our SVG, and give it an id of "svgPath" so we

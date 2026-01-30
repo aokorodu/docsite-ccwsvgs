@@ -5,8 +5,6 @@ import ColorSwatches from "@/components/illustrations/ColorSwatches";
 const Colors = () => {
   return (
     <>
-      <h1>Colors</h1>
-
       <a
         className="codepenLink"
         href="https://codepen.io/aokorodu/pen/XWLxgdV"
@@ -16,11 +14,13 @@ const Colors = () => {
         codepen practice page
       </a>
 
-      <div style={{ marginTop: "20px" }}>
+      <h1>Colors</h1>
+
+      <div className="section">
         <ColorSwatches />
       </div>
 
-      <h2>css keywords</h2>
+      <h2>CSS Keywords</h2>
 
       <p>
         You can use all the CSS color keywords to set colors in your SVG. A{" "}

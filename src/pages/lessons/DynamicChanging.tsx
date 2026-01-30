@@ -3,15 +3,16 @@ import Blocks from "@/components/blocks";
 const DynamicChanging = () => {
   return (
     <>
-      <h1>Changing SVGs Dynamically</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/GRemaGb"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"Changing SVGs Dynamically codepen practice page"}
       </a>
+
+      <h1>Changing SVGs Dynamically</h1>
 
       <h2>SVG DOM</h2>
 
@@ -59,7 +60,7 @@ const DynamicChanging = () => {
 
       <p>
         In the <strong>JS</strong> section of{" "}
-        <a href="https://codepen.io/aokorodu/pen/GRemaGb" target="_blank">
+        <a href="https://codepen.io/aokorodu/pen/GRemaGb" target="_blank" rel="noopener noreferrer">
           our starter codepen
         </a>{" "}
         I've added the following reference to our circle element:

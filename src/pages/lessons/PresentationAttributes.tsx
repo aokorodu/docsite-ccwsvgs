@@ -19,15 +19,16 @@ import Attribution from "@/components/attribution";
 const PresentationAttributes = () => {
   return (
     <>
-      <h1>Presentation attributes</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/ZEdqyEK"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"codepen practice page"}
       </a>
+
+      <h1>Presentation attributes</h1>
 
       <h2>the basics</h2>
 

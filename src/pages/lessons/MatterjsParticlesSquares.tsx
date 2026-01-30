@@ -8,15 +8,16 @@ import {
 const MatterjsParticlesSquares = () => {
   return (
     <>
-      <h1>Square Particles</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/xxvgarN"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"MatterJS codepen practice page"}
       </a>
+
+      <h1>Square Particles</h1>
 
       <h2>Square Particles</h2>
 

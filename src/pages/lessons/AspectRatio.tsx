@@ -4,15 +4,16 @@ import { DynamicAspectRatio } from "@/components/aspectratio";
 const AspectRatio = () => {
   return (
     <>
-      <h1>Aspect Ratio</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/poYwjVL"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"Aspect Ratio codepen practice page"}
       </a>
+
+      <h1>Aspect Ratio</h1>
 
       <h3>note:</h3>
 

@@ -20,15 +20,16 @@ import {
 const ReusableGradients = () => {
   return (
     <>
-      <h1>Gradients</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/ZEdqyNj"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"codepen practice page"}
       </a>
+
+      <h1>Gradients</h1>
 
       <h2>types of gradients</h2>
 
@@ -47,8 +48,6 @@ const ReusableGradients = () => {
           <strong>radial</strong> (right)
         </li>
       </ol>
-
-      <br />
 
       <ExampleIntro />
 
@@ -227,9 +226,7 @@ const ReusableGradients = () => {
         the circle where the radialGradient ends
       </p>
 
-      <br />
-
-      <p>By default, both points are at the center of the bounding box</p>
+      <p className="section">By default, both points are at the center of the bounding box</p>
 
       <Blocks>{`<radialGradient cx="50%" cy="50%" fx="50%" fy="50%" id="radial_gradient">
   <stop offset="0%" stop-color="red" />
@@ -253,10 +250,7 @@ const ReusableGradients = () => {
 
       <RadialGradientOrientation />
 
-      <br />
-      <br />
-
-      <p>
+      <p className="section">
         One way to visualize the radial gradient is as a series of ever
         increasing circles transitioning from the inner "focal point" circle an
         outer circle with a center of cx, cy.

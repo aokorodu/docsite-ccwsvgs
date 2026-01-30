@@ -7,15 +7,16 @@ import {
 const MatterjsParticlesPolygons = () => {
   return (
     <>
-      <h1>Polygons</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/xxvgarN"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"MatterJS codepen practice page"}
       </a>
+
+      <h1>Polygons</h1>
 
       <h2>Creating a polygon</h2>
 

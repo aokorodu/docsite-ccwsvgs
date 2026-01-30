@@ -25,15 +25,16 @@ const Text = () => {
     `<svg width="500" height="500" viewBox="0 0 500 500"><text x="50" y="250">This is the text element </text></svg>`
   return (
     <>
-      <h1>Text</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/VwJEbxx"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"codepen practice page"}
       </a>
+
+      <h1>Text</h1>
 
       <h2>The text element</h2>
 

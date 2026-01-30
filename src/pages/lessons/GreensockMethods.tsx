@@ -13,15 +13,16 @@ import {
 const GreensockMethods = () => {
   return (
     <>
-      <h1>Tweening</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/JojPMMz"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"codepen practice page"}
       </a>
+
+      <h1>Tweening</h1>
 
       <h2>Tween Methods</h2>
 
@@ -226,7 +227,7 @@ const blue = document.querySelector("#blue");`}</Blocks>
         This is basically the gsap version of the css timing function. You can
         find a number of interesting pre-defined easing functions and a
         visualizer for each function{" "}
-        <a href="https://gsap.com/docs/v3/Eases/" target="_blank">
+        <a href="https://gsap.com/docs/v3/Eases/" target="_blank" rel="noopener noreferrer">
           here.
         </a>
       </p>

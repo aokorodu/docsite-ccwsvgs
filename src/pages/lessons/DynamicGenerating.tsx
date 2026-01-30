@@ -8,15 +8,16 @@ import {
 const DynamicGenerating = () => {
   return (
     <>
-      <h1>Generating Elements</h1>
-
       <a
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/WbNxopB"}
         target="_blank"
+      rel="noopener noreferrer"
       >
         {"codepen practice page"}
       </a>
+
+      <h1>Generating Elements</h1>
 
       <h2>createElementNS</h2>
 
@@ -41,7 +42,7 @@ const DynamicGenerating = () => {
 
       <p>
         So let's create a circle element and add it to our{" "}
-        <a href={"https://codepen.io/aokorodu/pen/JojPMMz"} target="_blank">
+        <a href={"https://codepen.io/aokorodu/pen/JojPMMz"} target="_blank" rel="noopener noreferrer">
           {"practice page"}
         </a>
       </p>
@@ -136,7 +137,7 @@ my_svg.appendChild(my_circle)`}</Blocks>
 
       <p>
         I've created a{" "}
-        <a href={"https://codepen.io/aokorodu/pen/zxYBoaZ"} target="_blank">
+        <a href={"https://codepen.io/aokorodu/pen/zxYBoaZ"} target="_blank" rel="noopener noreferrer">
           {"practice page"}
         </a>{" "}
         with a sample leaf graphic defined in the defs section, and added it to

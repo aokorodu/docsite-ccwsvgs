@@ -23,9 +23,7 @@ const Sprites = () => {
 
       <WalkExample />
 
-      <br />
-
-      <p>
+      <p className="section">
         In this example I'll demonstrate how to create a simple animation of a
         bouncing ball. You can apply the principles I demonstrate to any time of
         sprite animation.
