@@ -241,6 +241,7 @@ video {
   transform: translateY(-30px);
   font-size: 0.8rem;
   font-style: italic;
+  margin-top: 0.3rem;
 }
 
 .attributionLink {
@@ -333,5 +334,6 @@ blockquote > p {
   flex-direction: row;
   gap: 1rem;
   margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
   flex-wrap: nowrap;
 }
