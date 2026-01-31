@@ -15,6 +15,7 @@ type Props = {
     caption?: string | null;
     children: string;
     highlight?: string;
+    lang?: 'javascript' | 'xml' | 'css';
 }
 
 // Parse highlight prop to get set of line numbers to highlight
@@ -67,12 +68,12 @@ function dedent(code: string): string {
     return lines.map(line => line.slice(minIndent)).join('\n');
 }
 
-const Blocks = ({ caption, title, highlight, children }: Props) => {
+const Blocks = ({ caption, title, highlight, lang: langProp, children }: Props) => {
     const { theme } = useTheme();
 
     // Dedent and detect language
     const code = useMemo(() => dedent(children), [children]);
-    const lang = code.indexOf("<") === -1 ? "javascript" : "xml";
+    const lang = langProp ?? (code.indexOf("<") === -1 ? "javascript" : "xml");
 
     const highlightedLines = useMemo(() => parseHighlight(highlight), [highlight]);
 

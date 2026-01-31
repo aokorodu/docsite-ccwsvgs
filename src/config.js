@@ -117,6 +117,11 @@ export const navConfig = {
       ],
     },
     {
+      title: "Perlin Noise",
+      link: "/perlin-noise",
+      subnav: [],
+    },
+    {
       title: "Aspect Ratio",
       link: "/aspect-ratio",
       subnav: [],
@@ -165,6 +170,7 @@ export const navConfig = {
     { title: "timelines", link: "/greensock-timelines" },
     { title: "playback controls", link: "/greensock-playback-controls" },
     { title: "object properties", link: "/greensock-object-properties" },
+    { title: "Perlin Noise", link: "/perlin-noise" },
     { title: "Aspect Ratio", link: "/aspect-ratio" },
   ],
 };
