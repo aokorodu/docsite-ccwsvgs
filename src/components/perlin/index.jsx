@@ -91,7 +91,7 @@ export const PerlineWaveDemo = () => {
         style={{ width: "100%" }}
         scrolling="no"
         title="RandomVsPerlineNoise using simplex-noise BLANK"
-        src="https://codepen.io/aokorodu/embed/preview/QwEQoNy?default-tab=js%2Cresult&theme-id=dark"
+        src="https://codepen.io/aokorodu/embed/preview/QwEQoNy?default-tab=result&theme-id=dark"
         frameBorder="no"
         loading="lazy"
         allowTransparency="true"
@@ -114,7 +114,7 @@ export const PerlineColorDemo = () => {
         style={{ width: "100%", height: "500px" }}
         scrolling="no"
         title="Coloring Book"
-        src="https://codepen.io/aokorodu/embed/preview/LEZdRLP?default-tab=js%2Cresult&theme-id=dark"
+        src="https://codepen.io/aokorodu/embed/preview/LEZdRLP?default-tab=result&theme-id=dark"
         frameborder="no"
         loading="lazy"
         allowtransparency="true"
