@@ -1,5 +1,6 @@
 import Blocks from "@/components/blocks";
 import { Link } from "react-router-dom";
+import SyntaxImage from "@/components/illustrations/SyntaxImage";
 
 const Syntax = () => {
   return (
@@ -8,12 +9,14 @@ const Syntax = () => {
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/GRemePr"}
         target="_blank"
-      rel="noopener noreferrer"
+        rel="noopener noreferrer"
       >
         {"SVG Syntax codepen practice page"}
       </a>
 
       <h1>SVG Syntax</h1>
+
+      <SyntaxImage />
 
       <h2>Basic Syntax</h2>
 
