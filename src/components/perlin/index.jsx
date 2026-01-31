@@ -86,22 +86,6 @@ export const PerlinDemo = () => {
 export const PerlineWaveDemo = () => {
   return (
     <>
-      {/* <iframe
-        height="500px"
-        style={{ width: "100%", height: "800px" }}
-        title="GSAP - PLAYBACK CONTROL - FINAL"
-        src="https://codepen.io/aokorodu/embed/preview/dPyYPqK?default-tab=js%2Cresult&theme-id=dark"
-        frameBorder="no"
-        loading="lazy"
-      >
-        See the Pen{" "}
-        <a href="https://codepen.io/aokorodu/pen/dPyYPqK">
-          GSAP - PLAYBACK CONTROL - FINAL
-        </a>{" "}
-        by zuubaDigital (<a href="https://codepen.io/aokorodu">@aokorodu</a>) on{" "}
-        <a href="https://codepen.io">CodePen</a>.
-      </iframe> */}
-
       <iframe
         height="500px"
         style={{ width: "100%" }}
@@ -117,6 +101,27 @@ export const PerlineWaveDemo = () => {
           RandomVsPerlineNoise using simplex-noise BLANK
         </a>{" "}
         by zuubaDigital (<a href="https://codepen.io/aokorodu">@aokorodu</a>) on{" "}
+        <a href="https://codepen.io">CodePen</a>.
+      </iframe>
+    </>
+  );
+};
+
+export const PerlineColorDemo = () => {
+  return (
+    <>
+      <iframe
+        style={{ width: "100%", height: "500px" }}
+        scrolling="no"
+        title="Coloring Book"
+        src="https://codepen.io/aokorodu/embed/preview/LEZdRLP?default-tab=js%2Cresult&theme-id=dark"
+        frameborder="no"
+        loading="lazy"
+        allowtransparency="true"
+      >
+        See the Pen{" "}
+        <a href="https://codepen.io/aokorodu/pen/LEZdRLP">Coloring Book</a> by
+        zuubaDigital (<a href="https://codepen.io/aokorodu">@aokorodu</a>) on{" "}
         <a href="https://codepen.io">CodePen</a>.
       </iframe>
     </>

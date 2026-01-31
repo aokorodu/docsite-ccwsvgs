@@ -1,5 +1,5 @@
 import Blocks from "@/components/blocks";
-import { PerlinDemo, PerlineWaveDemo } from "@/components/perlin";
+import { PerlinDemo, PerlineWaveDemo, PerlineColorDemo } from "@/components/perlin";
 
 const PerlinNoise = () => {
   return (
@@ -39,7 +39,7 @@ const PerlinNoise = () => {
 }`}</Blocks>
 
       <p>Note: This codeblock simply creates a string of points. It starts off in the lower left hand corner, and then generates a random y value for an increasing series of x values, before finishing the line in the lower right hand corner. Some of the variable used in this method aren't included in the code block, but you can see all of the code in this
-        <a href='https://codepen.io/aokorodu/pen/OPXQqLe' target='_blank' rel="noopener noreferrer"> codepen page</a>
+        <a href='https://codepen.io/aokorodu/pen/jErzMOL' target='_blank' rel="noopener noreferrer"> codepen page</a>
 
       </p>
 
@@ -157,16 +157,20 @@ function makePerlinPolyline() {
   tick += tickIncrement;
 }`}</Blocks>
 
-      <p>Finally we'll need to call the makePerlinPolyline function repeatedly to update the animation. We can do this using the requestAnimationFrame function.</p>
+      <p>Finally we'll need to call the <strong>makePerlinPolyline</strong> function repeatedly to update the animation. We can do this using the requestAnimationFrame function.</p>
 
       <Blocks lang="javascript">{`function update(){
   makePerlinPolyline();
   window.requestAnimationFrame(update);
 }`}</Blocks>
 
-      <p>And that's it! I've created a codepen with the animation for you to explore. Make sure to experiment with some of the values to see how they affect the animation.</p>
+      <p>I've created a codepen with this animation to make it easier to explore and play with thhe code. This codepen has a slider that changes the value that we divide the x position by in the noise function, thus making the curves more or less wavy. Make sure to experiment with this and some other values to see how they affect the animation.</p>
 
       <PerlineWaveDemo />
+
+      <p>This is just a simple example of how you can use Perline noise to create your animations. We've been looking at motion, but you can use it to animate colors as well, as I've done in the codepen below. Have fun experimenting!</p>
+
+      <PerlineColorDemo />
 
     </>
   );
