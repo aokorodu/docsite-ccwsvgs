@@ -1,6 +1,7 @@
 import Blocks from "@/components/blocks";
 import { Example1 } from "@/components/transformschapter";
 import { Link } from "react-router-dom";
+import TransformImage from "@/components/illustrations/TransformImage";
 
 const Transforms = () => {
   return (
@@ -16,7 +17,7 @@ const Transforms = () => {
 
       <h1>Transforms</h1>
 
-
+      <TransformImage />
 
       <h2>What is a transform?</h2>
 
