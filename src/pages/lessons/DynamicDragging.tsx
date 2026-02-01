@@ -11,7 +11,7 @@ const DynamicDragging = () => {
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/dPbjezY?editors=0010"}
         target="_blank"
-      rel="noopener noreferrer"
+        rel="noopener noreferrer"
       >
         {"Dragging Elements codepen practice page"}
       </a>
@@ -187,7 +187,35 @@ function toSVGPoint(x, y, theSVG) {
 
 init()`}</Blocks>
 
-      <p>And that's it!</p>
+      <p>You should now be able to drag the element around the SVG canvas. The above code works fine if you're on your desktop, but we want it to work on mobile devices as well. Let's add touch event support. First we'll need to add the touch event listeners to our init method.  </p>
+
+      <Blocks>{`function init() {
+  draggableElement.addEventListener("mousedown", startDrag);
+  svg.addEventListener("mousemove", drawDrag);
+  svg.addEventListener("mouseup", stopDrag);
+  svg.addEventListener("mouseout", stopDrag);
+
+  // Touch event listeners
+  draggableElement.addEventListener("touchstart", startDrag);
+  svg.addEventListener("touchmove", drawDrag);
+  svg.addEventListener("touchend", stopDrag);
+  svg.addEventListener("touchcancel", stopDrag);
+};
+`}</Blocks>
+
+      <p>Next we'll modify the drawDrag method to handle touch events properly by checking if the event is a touch event and extracting the touch coordinates accordingly. If not, it will use the mouse event clientX and clientY.</p>
+
+      <Blocks>{`function drawDrag(event) {
+  if (!dragging) return;
+  event.preventDefault();
+  const clientX = event.touches ? event.touches[0].clientX : event.clientX;
+  const clientY = event.touches ? event.touches[0].clientY : event.clientY;
+  const svgPoint = toSVGPoint(clientX, clientY, svg);
+  draggableElement.setAttribute("transform", \`translate(\${svgPoint.x} \${svgPoint.y})\`);
+}
+`}</Blocks>
+
+      <p>And that's it! You can check out the full source code in this codepen.</p>
 
       <DraggingExample />
 
