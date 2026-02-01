@@ -1,3 +1,5 @@
+import FlowingLocs from "@/components/illustrations/FlowingLocs";
+
 const AnimationIntro = () => {
   return (
     <>
@@ -10,32 +12,31 @@ const AnimationIntro = () => {
         that object continuously and incrementally over time.
       </p>
 
-      <img src="/animation_intro.png" alt="animation_intro.png" />
+      <FlowingLocs />
 
       <h2>why?</h2>
 
       <p>
-        Animation can be used as a tool for many things - to focus the user's
-        attention, to ease cognitive load by "revealing" elements of a page, or
-        simply to capture the viewers imagination. SVGs are ideal for creating
-        animations for several reasons:
+        Animation can be used as a tool for many things - to focus the user's attention, to ease cognitive load by "revealing" elements of a page, or simply to capture the viewers imagination. SVGs are ideal for creating animations for several reasons:
       </p>
 
-      <p>
-        The <strong>SVG DOM</strong> which gives us the ability to dynamically
-        create, update and alter the appearance of an SVG
-      </p>
+      <ol>
+        <li>
+          The <strong>SVG DOM</strong> which gives us the ability to dynamically
+          create, update and alter the appearance of an SVG
+        </li>
 
-      <p>
-        An SVG has its own <strong>coordinate system</strong>, which allows for
-        pixel-perfect placement.
-      </p>
+        <li>
+          An SVG has its own <strong>coordinate system</strong>, which allows for
+          pixel-perfect placement.
+        </li>
 
-      <p>
-        The SVG has access to <strong>filters, patterns</strong> and{" "}
-        <strong>masks</strong> that enable the creation of powerful visual
-        effects
-      </p>
+        <li>
+          The SVG has access to <strong>filters, patterns</strong> and{" "}
+          <strong>masks</strong> that enable the creation of powerful visual
+          effects
+        </li>
+      </ol>
 
       <h2>how?</h2>
 
@@ -48,11 +49,10 @@ const AnimationIntro = () => {
       <p>
         While there are MANY tools available to add animations to SVGs, we're
         going to focus primarily the tools that are already natively part of
-        CSS, Javascript, and the SVG spec.
+        CSS, Javascript, and the SVG spec.We'll also take a brief look at a few <strong>powerful animation libraries</strong> that we can utilize, if we so choose.
       </p>
 
-      <h3>No Library needed:</h3>
-
+      <h3>"Vanilla" animation (No Library needed):</h3>
       <ul>
         <li>
           <strong>CSS</strong>: transitions and keyframes
@@ -67,13 +67,7 @@ const AnimationIntro = () => {
         </li>
       </ul>
 
-      <p className="section">
-        We'll also take a brief look at a few powerful animation libraries that
-        we can utilize, if we so choose.
-      </p>
-
-      <h3>Library</h3>
-
+      <h3>Animation Libraries</h3>
       <ul>
         <li>
           <strong>GSAP</strong>: An extremely powerful and widly used Javascript
@@ -86,7 +80,7 @@ const AnimationIntro = () => {
         </li>
       </ul>
 
-      <p>
+      {/* <p>
         CDN for GSAP:{" "}
         <a
           href="https://cdnjs.com/libraries/gsap"
@@ -117,7 +111,7 @@ const AnimationIntro = () => {
         >
           https://cdnjs.com/libraries/matter-js
         </a>
-      </p>
+      </p> */}
     </>
   );
 };

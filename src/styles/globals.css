@@ -118,16 +118,16 @@ ul {
 }
 
 li {
-  font-weight: 300;
-  font-size: 1rem;
+  font-weight: 400;
+  font-size: 1.125rem;
   padding: 0.1rem 0;
   list-style-type: circle;
   list-style-position: outside;
 }
 
 ol li {
-  font-weight: 300;
-  font-size: 1rem;
+  font-weight: 400;
+  font-size: 1.125rem;
   padding-left: 0.5rem;
   list-style-position: outside;
   list-style-type: decimal;
