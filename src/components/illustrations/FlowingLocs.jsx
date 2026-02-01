@@ -113,7 +113,12 @@ const FlowingLocs = () => {
 
   return (
     <svg
-      style={{ width: "100%", height: "fit-content", background: "none" }}
+      style={{
+        width: "100%",
+        maxWidth: "fit-content",
+        maxHeight: "fit-content",
+        background: "none",
+      }}
       width="100%"
       height="100%"
       viewBox="0 0 700 500"
