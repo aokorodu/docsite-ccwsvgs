@@ -158,7 +158,23 @@ const FlowingLocs = () => {
           r="220"
           stroke="none"
           fill="#C83F12"
-          stroke-opacity=".2"
+          fill-opacity="0.5"
+        />
+        <circle
+          cx="300"
+          cy="275"
+          r="200"
+          stroke="none"
+          fill="#C83F12"
+          fill-opacity="0.5"
+        />
+        <circle
+          cx="300"
+          cy="275"
+          r="180"
+          stroke="none"
+          fill="#C83F12"
+          fill-opacity="0.5"
         />
         <image
           href="https://assets.codepen.io/256486/head_sillhouette.svg"
