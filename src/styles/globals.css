@@ -337,3 +337,9 @@ blockquote > p {
   margin-bottom: 0.5rem;
   flex-wrap: nowrap;
 }
+
+.exampleImage {
+  width: 100%;
+  height: auto;
+  max-height: fit-content;
+}

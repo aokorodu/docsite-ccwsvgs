@@ -1,7 +1,7 @@
 export const ExampleIntro = () => {
     return (
         <>
-            <svg width="500" height="250" viewBox="0 0 500 250">
+            <svg className="exampleImage" width="500" height="250" viewBox="0 0 500 250">
                 <defs>
                     <linearGradient id="lin-grad_0">
                         <stop offset="0%" stopColor="red" />
@@ -22,7 +22,7 @@ export const ExampleIntro = () => {
 export const LinearGradient = () => {
     return (
         <>
-            <svg width="500" height="100" viewBox="0 0 500 100">
+            <svg className="exampleImage" width="500" height="100" viewBox="0 0 500 100">
                 <defs>
                     <linearGradient id="lin-grad_0">
                         <stop offset="0%" stopColor="red" />
@@ -39,7 +39,7 @@ export const LinearGradient = () => {
 export const LGChartOffset100 = () => {
     return (
         <>
-            <svg width="500" height="250" viewBox="0 0 500 250">
+            <svg className="exampleImage" width="500" height="250" viewBox="0 0 500 250">
                 <rect width="500" height="250" fill="white" />
                 <rect x="93" y="108" width="300" height="100" fill="url(#paint0_linear_624_359)" />
                 <text fill="black" ><tspan x="32" y="48.2273">offset=&#x201c;0%&#x201d;</tspan></text>
@@ -63,7 +63,7 @@ export const LGChartOffset100 = () => {
 export const LGChartOffset50 = () => {
     return (
         <>
-            <svg width="500" height="250" viewBox="0 0 500 250" fill="none">
+            <svg className="exampleImage" width="500" height="250" viewBox="0 0 500 250" fill="none">
                 <rect width="500" height="250" fill="white" />
                 <path d="M99.2929 108.707C99.6834 109.098 100.317 109.098 100.707 108.707L107.071 102.343C107.462 101.953 107.462 101.319 107.071 100.929C106.681 100.538 106.047 100.538 105.657 100.929L100 106.586L94.3431 100.929C93.9526 100.538 93.3195 100.538 92.9289 100.929C92.5384 101.319 92.5384 101.953 92.9289 102.343L99.2929 108.707ZM99 86L99 108L101 108L101 86L99 86Z" fill="black" />
                 <text fill="black" ><tspan x="247" y="72.2273">stop-color=&#x201d;blue&#x201d;</tspan></text>
@@ -88,7 +88,7 @@ export const LGChartOffset50 = () => {
 export const LG_offset_50 = () => {
     return (
         <>
-            <svg width="500" height="100" viewBox="0 0 500 100">
+            <svg className="exampleImage" width="500" height="100" viewBox="0 0 500 100">
                 <defs>
                     <linearGradient id="lin-grad_50">
                         <stop offset="0%" stopColor="red" />
@@ -104,7 +104,7 @@ export const LG_offset_50 = () => {
 export const LG_offset_3Stops = () => {
     return (
         <>
-            <svg width="500" height="100" viewBox="0 0 500 100">
+            <svg className="exampleImage" width="500" height="100" viewBox="0 0 500 100">
                 <defs>
                     <linearGradient id="three_stops">
                         <stop offset="00%" stopColor="red" />
@@ -167,7 +167,7 @@ export const RadialGradientExample = () => {
 export const RadialGradientIntro = () => {
     return (
         <>
-            <svg width="500" height="500" viewBox="0 0 500 500">
+            <svg className="exampleImage" width="500" height="500" viewBox="0 0 500 500">
                 <defs>
                     <radialGradient id="rad-grad_0">
                         <stop offset="0%" stopColor="red" />
@@ -183,7 +183,7 @@ export const RadialGradientIntro = () => {
 export const RadialGradientOrientation = () => {
     return (
         <>
-            <svg width="500" height="500" viewBox="0 0 500 500">
+            <svg className="exampleImage" width="500" height="500" viewBox="0 0 500 500">
                 <defs>
                     <radialGradient id="rad-grad_1"
                         cx="50%" cy="50%" fx="0%" fy="50%">
@@ -200,7 +200,7 @@ export const RadialGradientOrientation = () => {
 export const RadialGradientOrientation_2 = () => {
     return (
         <>
-            <svg width="500" height="500" viewBox="0 0 500 500">
+            <svg className="exampleImage" width="500" height="500" viewBox="0 0 500 500">
                 <defs>
                     <radialGradient id="rad-grad_2"
                         cx="99%" cy="50%" fx="50%" fy="50%">
@@ -217,7 +217,7 @@ export const RadialGradientOrientation_2 = () => {
 export const RadialGradientRadius = () => {
     return (
         <>
-            <svg width="500" height="500" viewBox="0 0 500 500">
+            <svg className="exampleImage" width="500" height="500" viewBox="0 0 500 500">
                 <defs>
                     <radialGradient id="rad-grad_4"
                         r="20%">
@@ -234,7 +234,7 @@ export const RadialGradientRadius = () => {
 export const RadialGradientRadius_2 = () => {
     return (
         <>
-            <svg width="500" height="500" viewBox="0 0 500 500">
+            <svg className="exampleImage" width="500" height="500" viewBox="0 0 500 500">
                 <defs>
                     <radialGradient id="rad-grad_5"
                         r="120%">
@@ -251,7 +251,7 @@ export const RadialGradientRadius_2 = () => {
 export const FillLinearGradient = () => {
     return (
         <>
-            <svg width="500" height="500" viewBox="0 0 500 500">
+            <svg className="exampleImage" width="500" height="500" viewBox="0 0 500 500">
                 <defs>
                     <linearGradient id="lin-grad_0">
                         <stop offset="0%" stopColor="red" />
@@ -268,7 +268,7 @@ export const FillLinearGradient = () => {
 export const StrokeLinearGradient = () => {
     return (
         <>
-            <svg width="500" height="500" viewBox="0 0 500 500">
+            <svg className="exampleImage" width="500" height="500" viewBox="0 0 500 500">
                 <defs>
                     <linearGradient id="lin-grad_0">
                         <stop offset="0%" stopColor="red" />
