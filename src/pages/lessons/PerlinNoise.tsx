@@ -24,9 +24,9 @@ const PerlinNoise = () => {
         Perlin noise is a “gradient noise” algorithm that can be used to create textures, shapes, and motion that look “natural”. It was created by Ken Perlin in 1982 after working on Disney’s TRON movie as a way to generate natural looking terrain.
       </p>
 
-      <p>For example, let’s say we wanted to generate a path that looks like a some rolling hills. We could just create a method to generate random Y numbers, and then use them to create a polyline, like this:</p>
+      <p>For example, let’s say we wanted to generate a path that looks like a some rolling hills. We could just create a method to generate random Y numbers, and then use them to create a polyline. This is just pseudo-code, but perhaps something like this:</p>
 
-      <Blocks lang="javascript">{`function makeRandomPolyline(y) {
+      {/* <Blocks lang="javascript">{`function makeRandomPolyline(y) {
   let pointString = \`0,\${h} \`;
   let xpos = 0;
   for (let i = 0; i < totalPoints + 1; i++) {
@@ -36,12 +36,24 @@ const PerlinNoise = () => {
   };
   pointString += \`\${w},\${h}\`;
   randomLine.setAttribute("points", pointString);
+}`}</Blocks> */}
+
+      <Blocks lang="javascript">{`function makeRandomPolyline() {
+  let pointString = "";
+  let xpos = 0;
+  for (let i = 0; i < 50; i++) {
+    xpos += 10;
+    let ypos = Math.random() * svgHeight;
+    pointString += \`\${xpos},\${ypos} \`;
+  };
+  randomLine.setAttribute("points", pointString);
 }`}</Blocks>
 
-      <p>Note: This codeblock simply creates a string of points. It starts off in the lower left hand corner, and then generates a random y value for an increasing series of x values, before finishing the line in the lower right hand corner. Some of the variable used in this method aren't included in the code block, but you can see all of the code in this
-        <a href='https://codepen.io/aokorodu/pen/jErzMOL' target='_blank' rel="noopener noreferrer"> codepen page</a>
-
+      <p>
+        <i><strong>Note:</strong> The code above is just pseudo-code to illustrate the concept. It won't generate the image below as-is.</i>
       </p>
+
+      <p>Using this method, we would generate a polyline that looks something like this:</p>
 
       <svg viewBox="0 0 750 250">
         <rect id="bg" x="0" y="0" width="750" height="250" fill="white"></rect>
@@ -55,7 +67,7 @@ const PerlinNoise = () => {
       </p>
 
       <p>
-        There are many implementations of Perlin noise available online, but for this example, we'll be using one called simplex-noise,created by J Wagner. You can find the code for it <a href='https://www.jsdelivr.com/package/npm/simplex-noise' target='_blank' rel="noopener noreferrer"> here</a>.
+        There are many implementations of Perlin noise available online, but for this example, we'll be using <a href='https://www.jsdelivr.com/package/npm/simplex-noise' target='_blank' rel="noopener noreferrer"> one called simplex-noise,created by J Wagner.</a> You can find the code for it <a href='https://www.jsdelivr.com/package/npm/simplex-noise' target='_blank' rel="noopener noreferrer"> here</a>.
       </p>
 
       <p>
@@ -164,11 +176,11 @@ function makePerlinPolyline() {
   window.requestAnimationFrame(update);
 }`}</Blocks>
 
-      <p>I've created a codepen with this animation to make it easier to explore and play with thhe code. This codepen has a slider that changes the value that we divide the x position by in the noise function, thus making the curves more or less wavy. Make sure to experiment with this and some other values to see how they affect the animation.</p>
+      <p>I've created a codepen with this animation to make it easier to explore and play with thhe code. This codepen has two sliders: a "smoothness" slider that changes the value that we divide the x position by in the noise function, making the curves more or less wavy, and a "speed" slider that changes the value of the tickIncrement variable,  making the waves move faster or slower. Make sure to experiment with this and some other values to see how they affect the animation.</p>
 
       <PerlineWaveDemo />
 
-      <p>This is just a simple example of how you can use Perline noise to create your animations. We've been looking at motion, but you can use it to animate colors as well, as I've done in the codepen below. Have fun experimenting!</p>
+      <p>This is just a simple example of how you can use Perlin noise to create your animations. We've been looking at motion, but you can use it to animate colors as well, as I've done in the codepen below. Have fun experimenting!</p>
 
       <PerlineColorDemo />
 
