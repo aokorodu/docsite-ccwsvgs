@@ -9,6 +9,8 @@
   margin: 3rem 0;
   height: calc(100vh - 5rem);
   overflow: scroll;
+  overflow-y: auto;
+  overflow-x: auto;
 }
 
 @media screen and (max-width: 800px) {
