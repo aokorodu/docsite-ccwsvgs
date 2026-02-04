@@ -1,8 +1,8 @@
 
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import styles from './SMIL.module.scss';
-import { start } from 'repl';
+import { createNoise2D } from "simplex-noise";
 
 export const Example_Still = () => {
     return (
@@ -189,4 +189,104 @@ export const MultipleAnimSequ_Example = () => {
             }}>{started ? "reset" : "play"} </button>
         </div>
     </>)
+}
+
+export const SMILWithPerlin = () => {
+    const perlinPath = useRef<SVGPathElement>(null);
+
+    // svg namespace just in case we're creating some graphics
+    const namespace = "http://www.w3.org/2000/svg";
+    const w = 800;
+    const h = 250;
+    const maxY = 2 * h / 3;
+    const minY = h / 3;
+
+    const noise = createNoise2D();
+
+    // variable properties
+    let denom = 400; // the bigger the denom the more gradual the shape changes. A low number produces a very jagged line.
+
+    // tick variable is used in changing the noise value over time so we can animate the lines. The lower the tickIncrement the more slowley the line changes
+    let tick = 0;
+    let tickIncrement = 0.0010;
+    const totalPoints = 200;
+
+    // dx is just the horizontal distance between points. It will be used for calculating the x value for all the points in the polyline.
+    const dx = w / totalPoints;
+
+    const mapRange = (value: number, inMin: number, inMax: number, outMin: number, outMax: number) =>
+        ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
+
+    function makePerlinPath() {
+        if (!perlinPath.current) return;
+        let pointArray = [];
+        let xpos = -50;
+        let pref = "M";
+        for (let i = 0; i < totalPoints + 2; i++) {
+
+            let dy = noise(xpos / denom, tick);
+            let ypos = mapRange(dy, -1, 1, minY, maxY);
+            pointArray.push(` ${pref}${xpos},${ypos}`);
+            if (i == 0) pref = "L";
+            xpos = i * dx;
+
+        }
+        perlinPath.current.setAttribute("d", pointArray.join(" "));
+        tick += tickIncrement;
+    }
+
+    useEffect(() => {
+        let mounted = true;
+        let rafId: number;
+
+        const update = () => {
+            if (!mounted) return;
+            makePerlinPath();
+            if (tick > 100000) tick = Math.random();
+            rafId = window.requestAnimationFrame(update);
+        };
+
+        // start the loop once the component is mounted and ref is attached
+        update();
+
+        return () => {
+            mounted = false;
+            if (rafId) cancelAnimationFrame(rafId);
+        };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+
+    return (
+        <>
+            <svg id="bottom" viewBox={`0 0 ${w} ${h}`}>
+                <defs>
+                    <linearGradient id="sky_gradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="300">
+                        <stop offset="0" stopColor="#7f009b" />
+                        <stop offset=".85" stopColor="#25002c" />
+                    </linearGradient>
+                </defs>
+                <rect id="bg" x="0" y="0" width={w} height={h} fill="url(#sky_gradient)" stroke="black" />
+                <g id="holder">
+                    <path ref={perlinPath} id="perlinPath" d="" fill="none" stroke="none" stroke-width="1" pathLength="100" />
+
+                    <text>
+                        <textPath className={styles.pathText} href="#perlinPath" startOffset="0">
+                            🐟 Creative Coding with SVGs!!⁠ 🐡
+                            <animate attributeName="startOffset" from="100" to="-100" begin="0s" dur="20s" repeatCount="indefinite" />
+                        </textPath>
+                    </text>
+
+                    <text >
+                        <textPath className={styles.pathText} href="#perlinPath" startOffset="0">
+                            🐠 Creative Coding with SVGs!!
+                            <animate attributeName="startOffset" from="100" to="-100" begin="-10s" dur="20s" repeatCount="indefinite" />
+                        </textPath>
+                    </text>
+
+                </g>
+            </svg>
+
+        </>
+    )
 }

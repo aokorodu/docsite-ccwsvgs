@@ -1,5 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Fugaz+One&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Quicksand:wght@300..700&family=Shrikhand&display=swap");
+
 .fillStuffContainer {
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+.pathText {
+  font-family: "Fugaz One", sans-serif;
+  font-size: 46px;
+  font-weight: 100;
+  fill: violet;
+  opacity: 0.85;
+  dominant-baseline: auto;
+  letter-spacing: 2px;
+  transform: translatey(-2px);
+}
+
+svg {
+  border: none;
+  width: 100%;
+  max-width: 900px;
 }
