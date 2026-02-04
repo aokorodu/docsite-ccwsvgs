@@ -53,8 +53,10 @@ Components in `src/components/`:
 ### Key Dependencies
 - **GSAP** (`gsap`, `@gsap/react`): Animation library for GreenSock lesson demos
 - **Matter.js**: 2D physics engine for particle simulations
+- **simplex-noise**: Perlin/simplex noise generation for noise-based animations
 - **highlight.js**: Syntax highlighting for code examples
 - **MUI**: UI components (icons, material design)
+- **react-codepen-prefill-embed**: Embeds interactive CodePen examples in lessons
 
 ### Adding New Lessons
 1. Create component in `src/pages/lessons/[LessonName].tsx`

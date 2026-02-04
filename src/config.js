@@ -87,6 +87,7 @@ export const navConfig = {
         { title: "more css", link: "/animation-css-II" },
         { title: "javascript", link: "/animation-javascript" },
         { title: "more javascript", link: "/animation-javascript-II" },
+        { title: "perlin noise", link: "/perlin-noise" },
         { title: "SMIL", link: "/smil-animation" },
         { title: "more SMIL", link: "/smil-animation-II" },
         { title: "Sprites", link: "/sprites" },
@@ -115,11 +116,6 @@ export const navConfig = {
         { title: "playback controls", link: "/greensock-playback-controls" },
         { title: "object properties", link: "/greensock-object-properties" },
       ],
-    },
-    {
-      title: "Perlin Noise",
-      link: "/perlin-noise",
-      subnav: [],
     },
     {
       title: "Aspect Ratio",
@@ -155,6 +151,7 @@ export const navConfig = {
     { title: "more css", link: "/animation-css-II" },
     { title: "javascript", link: "/animation-javascript" },
     { title: "more javascript", link: "/animation-javascript-II" },
+    { title: "Perlin Noise", link: "/perlin-noise" },
     { title: "SMIL animation", link: "/smil-animation" },
     { title: "more SMIL", link: "/smil-animation-II" },
     { title: "Sprites", link: "/sprites" },
@@ -170,7 +167,6 @@ export const navConfig = {
     { title: "timelines", link: "/greensock-timelines" },
     { title: "playback controls", link: "/greensock-playback-controls" },
     { title: "object properties", link: "/greensock-object-properties" },
-    { title: "Perlin Noise", link: "/perlin-noise" },
     { title: "Aspect Ratio", link: "/aspect-ratio" },
   ],
 };
