@@ -28,16 +28,15 @@ const AnimationJavascriptII = () => {
 
       <Blocks>{`<svg ...>
   <circle id="my-circle" cx="150" cy="150" r="10" fill="green" />
-</svg>
+</svg>`}</Blocks>
 
-<script>
-  const circ = document.querySelector("#my-circle");
-  let xpos = 50;
-  for (let i = 0; i < 400; i++) {
-    circ.setAttribute("cx", xpos);
-    xpos += 1;
-  }
-</script>`}</Blocks>
+      <Blocks lang="javascript">{`const circ = document.getElementById("my-circle");
+let xpos = 50;
+for (let i = 0; i < 400; i++) {
+  circ.setAttribute("cx", xpos);
+  xpos += 1;
+}`}</Blocks>
+
 
       <p>
         You can probably guess that we'll be changing the position of the circle
@@ -51,18 +50,13 @@ const AnimationJavascriptII = () => {
         circle's cy attribute. It won't work. Why?
       </p>
 
-      <Blocks highlight="7,8,9,10,11">{`<svg ...>
-  <circle id="my-circle" cx="150" cy="150" r="10" fill="green" />
-</svg>
-
-<script>
+      <Blocks lang="javascript">{`
   const circ = document.querySelector("#my-circle");
   let ypos = 0;
   for (let i = 0; i < 300; i++) {
     circ.setAttribute("cx", ypos);
     ypos += 1;
-  }
-</script>`}</Blocks>
+  }`}</Blocks>
 
       <FailExample />
 
@@ -137,7 +131,7 @@ function moveCircle(){
 
       <Blocks>{`let speed = 1;`}</Blocks>
 
-      <Blocks highlight="3">{`const circ = document.querySelector("#my-circle");
+      <Blocks>{`const circ = document.querySelector("#my-circle");
 let ypos = 10;
 let speed = 1;
 
@@ -159,7 +153,7 @@ function moveCircle(){
         to just multiply it by -1.
       </p>
 
-      <Blocks highlight="11,12,13,14">{`const circ = document.querySelector("#my-circle");
+      <Blocks>{`const circ = document.querySelector("#my-circle");
 let ypos = 10;
 let speed = 1;
 
@@ -185,7 +179,7 @@ function moveCircle(){
         svg (ypos &lt; 10).
       </p>
 
-      <Blocks highlight="11,12,13,14,16,17,18,19">{`const circ = document.querySelector("#my-circle");
+      <Blocks lang="javascript">{`const circ = document.querySelector("#my-circle");
 let ypos = 10;
 let speed = 1;
 
@@ -216,7 +210,7 @@ function moveCircle(){
         with ANY of the walls.
       </p>
 
-      <Blocks highlight="2,3,4,5,10,11,12,13,15,16,17,18,19,20,21,23,24,25,26,27,28,29">{`const circ = document.querySelector("#my-circle");
+      <Blocks lang="javascript">{`const circ = document.querySelector("#my-circle");
 let xpos = 100;
 let ypos = 150;
 let x_speed = 1;
@@ -256,40 +250,39 @@ function moveCircle(){
         We'll fix that by setting random values for x_speed and y_speed.
       </p>
 
-      <Blocks highlight="5,6">{`<script>
-  const circ = document.querySelector("#my-circle");
-  let xpos = 100;
-  let ypos = 150;
-  let x_speed = Math.random() * 10 - 5;
-  let y_speed = Math.random() * 10 - 5;
+      <Blocks lang="javascript">{`const circ = document.querySelector("#my-circle");
+let xpos = 100;
+let ypos = 150;
+let x_speed = Math.random() * 10 - 5;
+let y_speed = Math.random() * 10 - 5;
 
-  moveCircle();
+moveCircle();
 
-  function moveCircle(){
-    circ.setAttribute("cx", xpos);
-    circ.setAttribute("cy", ypos);
-    xpos += x_speed;
-    ypos += y_speed;
+function moveCircle(){
+  circ.setAttribute("cx", xpos);
+  circ.setAttribute("cy", ypos);
+  xpos += x_speed;
+  ypos += y_speed;
 
-    if(xpos > 190){
-      xpos = 190;
-      x_speed *= -1;
-    } else if(xpos < 10){
-      xpos = 10;
-      x_speed *= -1;
-    }
-
-    if(ypos > 290){
-      ypos = 290;
-      y_speed *= -1;
-    } else if(ypos < 10){
-      ypos = 10;
-      y_speed *= -1;
-    }
-
-    window.requestAnimationFrame(moveCircle);
+  if(xpos > 190){
+    xpos = 190;
+    x_speed *= -1;
+  } else if(xpos < 10){
+    xpos = 10;
+    x_speed *= -1;
   }
-</script>`}</Blocks>
+
+  if(ypos > 290){
+    ypos = 290;
+    y_speed *= -1;
+  } else if(ypos < 10){
+    ypos = 10;
+    y_speed *= -1;
+  }
+
+  window.requestAnimationFrame(moveCircle);
+}
+`}</Blocks>
 
       <ComplexBounceExample randomized={true} />
 
@@ -317,7 +310,7 @@ function moveCircle(){
         <a
           href="https://codepen.io/aokorodu/pen/RwzzBZa?editors=0010"
           target="_blank"
-        rel="noopener noreferrer"
+          rel="noopener noreferrer"
         >
           codepen
         </a>
@@ -356,22 +349,22 @@ function moveCircle(){
         will hold all the particles.
       </p>
 
-      <Blocks highlight="12-14">{`<script>
-  class Particle {
-    constructor(x, y, r, w, h) {
-      this.x = x; this.y = y; this.r = r;
-      this.right = w - r;
-      this.top = h - r;
-      this.x_speed = Math.random() * 10 - 5;
-      this.y_speed = Math.random() * 10 - 5;
-      this.circ = null
-    }
-
-    init(container){
-      // ... initialization code will go here
-    }
+      <Blocks>{`
+class Particle {
+  constructor(x, y, r, w, h) {
+    this.x = x; this.y = y; this.r = r;
+    this.right = w - r;
+    this.top = h - r;
+    this.x_speed = Math.random() * 10 - 5;
+    this.y_speed = Math.random() * 10 - 5;
+    this.circ = null
   }
-</script>`}</Blocks>
+
+  init(container){
+    // ... initialization code will go here
+  }
+}
+`}</Blocks>
 
       <p>
         Now we'll dynamically create a circle element, add some styling, and add
@@ -379,105 +372,105 @@ function moveCircle(){
         <strong>Changing SVGs Dynamically</strong> section
       </p>
 
-      <Blocks highlight="12-22">{`<script>
-  class Particle {
-    constructor(x, y, r, w, h) {
-      this.x = x; this.y = y; this.r = r;
-      this.right = w - r;
-      this.top = h - r;
-      this.x_speed = Math.random() * 10 - 5;
-      this.y_speed = Math.random() * 10 - 5;
-      this.circ = null
-    }
-
-    init(container){
-      const namespace = "http://www.w3.org/2000/svg";
-      this.circ = document.createElementNS(namespace, "circle");
-      this.circ.setAttribute("cx", this.x);
-      this.circ.setAttribute("cy", this.y);
-      this.circ.setAttribute("r", this.r);
-      this.circ.setAttribute("fill", "orange");
-      this.circ.setAttribute("stroke", "black");
-      this.circ.setAttribute("stroke-width", "3");
-      container.appendChild(this.circ);
-    }
+      <Blocks>{`
+class Particle {
+  constructor(x, y, r, w, h) {
+    this.x = x; this.y = y; this.r = r;
+    this.right = w - r;
+    this.top = h - r;
+    this.x_speed = Math.random() * 10 - 5;
+    this.y_speed = Math.random() * 10 - 5;
+    this.circ = null
   }
-</script>`}</Blocks>
+
+  init(container){
+    const namespace = "http://www.w3.org/2000/svg";
+    this.circ = document.createElementNS(namespace, "circle");
+    this.circ.setAttribute("cx", this.x);
+    this.circ.setAttribute("cy", this.y);
+    this.circ.setAttribute("r", this.r);
+    this.circ.setAttribute("fill", "orange");
+    this.circ.setAttribute("stroke", "black");
+    this.circ.setAttribute("stroke-width", "3");
+    container.appendChild(this.circ);
+  }
+}
+`}</Blocks>
 
       <p>
         Now we'll add an "update" method that will be used to change the
         circle's position.
       </p>
 
-      <Blocks highlight="24-27">{`<script>
-  class Particle {
-    constructor(x, y, r, w, h) {
-      this.x = x; this.y = y; this.r = r;
-      this.right = w - r;
-      this.top = h - r;
-      this.x_speed = Math.random() * 10 - 5;
-      this.y_speed = Math.random() * 10 - 5;
-      this.circ = null
-    }
-
-    init(container){
-      const namespace = "http://www.w3.org/2000/svg";
-      this.circ = document.createElementNS(namespace, "circle");
-      this.circ.setAttribute("cx", this.x);
-      this.circ.setAttribute("cy", this.y);
-      this.circ.setAttribute("r", this.r);
-      this.circ.setAttribute("fill", "orange");
-      this.circ.setAttribute("stroke", "black");
-      this.circ.setAttribute("stroke-width", "3");
-      container.appendChild(this.circ);
-    }
-
-    update() {
-      this.x += this.x_speed;
-      this.y += this.y_speed;
-    }
+      <Blocks>{`
+class Particle {
+  constructor(x, y, r, w, h) {
+    this.x = x; this.y = y; this.r = r;
+    this.right = w - r;
+    this.top = h - r;
+    this.x_speed = Math.random() * 10 - 5;
+    this.y_speed = Math.random() * 10 - 5;
+    this.circ = null
   }
-</script>`}</Blocks>
+
+  init(container){
+    const namespace = "http://www.w3.org/2000/svg";
+    this.circ = document.createElementNS(namespace, "circle");
+    this.circ.setAttribute("cx", this.x);
+    this.circ.setAttribute("cy", this.y);
+    this.circ.setAttribute("r", this.r);
+    this.circ.setAttribute("fill", "orange");
+    this.circ.setAttribute("stroke", "black");
+    this.circ.setAttribute("stroke-width", "3");
+    container.appendChild(this.circ);
+  }
+
+  update() {
+    this.x += this.x_speed;
+    this.y += this.y_speed;
+  }
+}
+`}</Blocks>
 
       <p>
         Next we'll add the method we created earlier to bounce the particle off
         the walls.
       </p>
 
-      <Blocks highlight="14,17-32">{`<script>
-  class Particle {
-    constructor(x, y, r, w, h) {
-      // constructor code
-    }
+      <Blocks lang="javascript">{`
+class Particle {
+  constructor(x, y, r, w, h) {
+    // constructor code
+  }
 
-    init(container){
-      // init code
-    }
+  init(container){
+    // init code
+  }
 
-    update() {
-      this.x += this.x_speed;
-      this.y += this.y_speed;
-      this.bounceIfNeeded();
-    }
+  update() {
+    this.x += this.x_speed;
+    this.y += this.y_speed;
+    this.bounceIfNeeded();
+  }
 
-    bounceIfNeeded() {
-      if (this.x > this.right) {
-        this.x = this.right;
-        this.x_speed *= -1;
-      } else if (this.x < this.r) {
-        this.x = this.r;
-        this.x_speed *= -1;
-      }
-      if (this.y > this.top) {
-        this.y = this.top;
-        this.y_speed *= -1;
-      } else if (this.y < this.r) {
-        this.y = this.r;
-        this.y_speed *= -1;
-      }
+  bounceIfNeeded() {
+    if (this.x > this.right) {
+      this.x = this.right;
+      this.x_speed *= -1;
+    } else if (this.x < this.r) {
+      this.x = this.r;
+      this.x_speed *= -1;
+    }
+    if (this.y > this.top) {
+      this.y = this.top;
+      this.y_speed *= -1;
+    } else if (this.y < this.r) {
+      this.y = this.r;
+      this.y_speed *= -1;
     }
   }
-</script>`}</Blocks>
+}
+`}</Blocks>
 
       <p>
         Note that we're using the <strong>right</strong> and <strong>top</strong>{" "}
@@ -485,30 +478,30 @@ function moveCircle(){
         to use variables than hard-coded values.
       </p>
 
-      <Blocks highlight="19-22">{`<script>
-  class Particle {
-    constructor(x, y, r, w, h) {
-      // constructor code
-    }
-
-    init(container){
-      // init code
-    }
-
-    update() {
-      // update code
-    }
-
-    bounceIfNeeded() {
-      // bounce code
-    }
-
-    draw(){
-      this.circ.setAttribute("cx", this.x);
-      this.circ.setAttribute("cy", this.y);
-    }
+      <Blocks>{`
+class Particle {
+  constructor(x, y, r, w, h) {
+    // constructor code
   }
-</script>`}</Blocks>
+
+  init(container){
+    // init code
+  }
+
+  update() {
+    // update code
+  }
+
+  bounceIfNeeded() {
+    // bounce code
+  }
+
+  draw(){
+    this.circ.setAttribute("cx", this.x);
+    this.circ.setAttribute("cy", this.y);
+  }
+}
+`}</Blocks>
 
       <p>
         Now let's put the particle class in action. We'll need an array to hold
@@ -516,7 +509,7 @@ function moveCircle(){
         reference to the svg
       </p>
 
-      <Blocks highlight="2,10-12">{`<body>
+      <Blocks lang="javascript">{`<body>
   <svg id="particle-holder" ...></svg>
 </body>
 <script>
@@ -534,7 +527,7 @@ function moveCircle(){
         y position (250, 250), a radius (15), and the size of the svg (500x500).
       </p>
 
-      <Blocks highlight="12,14-19">{`<body>
+      <Blocks lang="javascript">{`<body>
   <svg id="particle-holder" ...></svg>
 </body>
 <script>
@@ -563,7 +556,7 @@ function moveCircle(){
         moveParticles uses requestAnimationFrame to call itself every frame.
       </p>
 
-      <Blocks highlight="13,21-27">{`<body>
+      <Blocks lang="javascript">{`<body>
   <svg id="particle-holder" ...></svg>
 </body>
 <script>

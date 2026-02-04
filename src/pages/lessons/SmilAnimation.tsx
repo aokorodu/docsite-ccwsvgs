@@ -1,4 +1,5 @@
 import Blocks from "@/components/blocks";
+import { SMILWithPerlin } from "@/components/smil";
 import {
   Example_Still,
   Example_1,
@@ -15,12 +16,14 @@ const SmilAnimation = () => {
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/eYXRqdX"}
         target="_blank"
-      rel="noopener noreferrer"
+        rel="noopener noreferrer"
       >
         {"SMIL pt.1 practice page"}
       </a>
 
       <h1>SMIL Animation</h1>
+
+      <SMILWithPerlin />
 
       <h2>What is SMIL?</h2>
 
