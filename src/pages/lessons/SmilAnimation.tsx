@@ -1,5 +1,5 @@
 import Blocks from "@/components/blocks";
-import { SMILWithPerlin } from "@/components/smil";
+import { SMILWithPerlin, SMILStrokeDashArray } from "@/components/smil";
 import {
   Example_Still,
   Example_1,
@@ -23,7 +23,7 @@ const SmilAnimation = () => {
 
       <h1>SMIL Animation</h1>
 
-      <SMILWithPerlin />
+      <SMILStrokeDashArray />
 
       <h2>What is SMIL?</h2>
 
