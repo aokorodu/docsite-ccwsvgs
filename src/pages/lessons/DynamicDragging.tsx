@@ -127,10 +127,7 @@ function stopDrag() {
       <p>
         The first step is to use the <strong>getScreenCTM().inverse()</strong> method to get the "transformation matrix" of the SVG element. This transformation matrix converts coordinates from the current element's coordinate system to the root SVG element's viewport coordinate system. <em>(Note: getScreenCTM() alone is used to convert SVG coordinates to screen coordinates, so we need to invert it to go the other way.)</em></p>
       <p>
-        Next we use the mouse coordinate to create something called a
-        <strong>DOMPoint</strong>. A DOMPoint is one of the Web APIs provided by modern browsers,
-        and it contains a matrixTransform method to transform our point from screen coordinates to SVG coordinates. Here's a method I created that uses the DOMPoint to
-        return our corresponding SVG coordinate:
+        Next we use the mouse coordinate to create something called a <strong>DOMPoint</strong>. A DOMPoint is one of the Web APIs provided by modern browsers, and it contains a matrixTransform method to transform our point from screen coordinates to SVG coordinates. Here's a method I created that uses the DOMPoint to return our corresponding SVG coordinate:
       </p>
 
       <Blocks>{`function toSVGPoint(x, y, theSVG) {
