@@ -125,16 +125,21 @@ function stopDrag() {
       </p>
 
       <p>
-        We do this by using our mouse coordinate to create something called a
-        DOMPoint. A DOMPoint is one of the Web APIs provided by modern browsers,
-        and it contains a matrixTransform method that will allow us to do what
-        we need to do. Here's a method I created that uses the DOMPoint to
+        The first step is to use the <strong>getScreenCTM().inverse()</strong> method to get the "transformation matrix" of the SVG element. This transformation matrix converts coordinates from the current element's coordinate system to the root SVG element's viewport coordinate system. <em>(Note: getScreenCTM() alone is used to convert SVG coordinates to screen coordinates, so we need to invert it to go the other way.)</em></p>
+      <p>
+        Next we use the mouse coordinate to create something called a
+        <strong>DOMPoint</strong>. A DOMPoint is one of the Web APIs provided by modern browsers,
+        and it contains a matrixTransform method to transform our point from screen coordinates to SVG coordinates. Here's a method I created that uses the DOMPoint to
         return our corresponding SVG coordinate:
       </p>
 
       <Blocks>{`function toSVGPoint(x, y, theSVG) {
+  // create a transform matrix that will be used to transform page coordinates to SVG coordinates;
+  let transformMatrix = theSVG.getScreenCTM().inverse();
+  // create a DOMPoint with the mouse coordinates
   let p = new DOMPoint(x, y);
-  return p.matrixTransform(theSVG.getScreenCTM().inverse());
+  // use the DOMPoint matrixTransform method to convert the mouse coordinate to the svg coordinate
+  return p.matrixTransform(transformMatrix);
 };`}</Blocks>
 
       <p>Let's use this method in our drawDrag method:</p>
@@ -145,9 +150,10 @@ function stopDrag() {
   draggableElement.setAttribute("transform", \`translate(\${svgPoint.x} \${svgPoint.y})\`);
 };
 function toSVGPoint(x, y, theSVG) {
+  let transformMatrix = theSVG.getScreenCTM().inverse();
   let p = new DOMPoint(x, y);
-  return p.matrixTransform(theSVG.getScreenCTM().inverse());
-};`}</Blocks>
+  return p.matrixTransform(transformMatrix);
+}`}</Blocks>
 
       <p>
         As you can see, all we're doing is passing our mouse x and y points to
@@ -181,9 +187,10 @@ function drawDrag(mouseEvent) {
   draggableElement.setAttribute("transform", \`translate(\${svgPoint.x} \${svgPoint.y})\`);
 };
 function toSVGPoint(x, y, theSVG) {
+  let transformMatrix = theSVG.getScreenCTM().inverse();
   let p = new DOMPoint(x, y);
-  return p.matrixTransform(theSVG.getScreenCTM().inverse());
-};
+  return p.matrixTransform(transformMatrix);
+}
 
 init()`}</Blocks>
 
