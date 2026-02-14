@@ -16,7 +16,7 @@ const AnimationCSS = () => {
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/OJqmeLy"}
         target="_blank"
-      rel="noopener noreferrer"
+        rel="noopener noreferrer"
       >
         {"CSS Animation codepen practice page"}
       </a>
@@ -127,15 +127,15 @@ const AnimationCSS = () => {
       <p>
         We'll start off with a circle element with an id of "my-circle". Since
         there's no presentation attribute for fill the circle will show up
-        black.
+        black. <em>NOTE: since we're going to animate the stroke, make sure to set the <strong>pathLength</strong> attribute to 100 so that the stroke-dasharray and stroke-dashoffset properties work as expected in the next section.</em>
       </p>
 
       <Blocks>{`<svg width="300" height="300" viewbox="0 0 300 300">
-  <circle id="my-circle" cx="250" cy="250" r="100"></circle>
+  <circle id="my-circle" cx="250" cy="250" r="100" pathLength="100"></circle>
 </svg>`}</Blocks>
 
       <svg width="500" height="500" viewBox="0 0 500 500">
-        <circle id="my-circle" cx="250" cy="250" r="100"></circle>
+        <circle id="my-circle" cx="250" cy="250" r="100" pathLength="100"></circle>
       </svg>
 
       <p>In the css section we'll add style to change the fill and stroke.</p>
@@ -154,6 +154,7 @@ const AnimationCSS = () => {
           cx="250"
           cy="250"
           r="100"
+          pathLength="100"
         ></circle>
       </svg>
 
@@ -202,14 +203,10 @@ const AnimationCSS = () => {
         set the stroke-dashoffset so that the stroke isn't visible.
       </p>
 
-      <Blocks highlight="5,9,10">{`#my-circle {
+      <Blocks>{`#my-circle {
   fill: orange;
   stroke: black;
   stroke-width: 5;
-  transition-property: stroke-dashoffset;
-  transition-duration: 0.33s;
-  transition-timing-function: linear;
-  transition-delay: 0;
   stroke-dasharray: 100;
   stroke-dashoffset: 100;
 }`}</Blocks>
@@ -220,9 +217,7 @@ const AnimationCSS = () => {
       </p>
 
       <Blocks highlight="4">{`<svg width="500" height="500" viewbox="0 0 300 300">
-  <circle id="my-circle"
-    cx="150" cy="150" r="100"
-    pathLength="100"></circle>
+  <circle id="my-circle" cx="150" cy="150" r="100" pathLength="100"></circle>
 </svg>`}</Blocks>
 
       <StrokeDash />
@@ -345,7 +340,7 @@ const AnimationCSS = () => {
 
       <p>
         Let's create a sample zoom animation to make an element move in a
-        triagular pattern. First we define the keyframes.
+        triangular pattern. First we define the keyframes.
       </p>
 
       <Blocks>{`@keyframes zoom {
@@ -389,7 +384,7 @@ const AnimationCSS = () => {
 
       <p>
         Easing functions for both transitions and keyframe animations define how
-        an object moves. In the example at below, I've attempted to create an
+        an object moves. In the example below, I've attempted to create an
         animation for a floating balloon. But there's something wrong: The
         balloon doesn't ease to a stop before changing direction - it looks more
         like it's bouncing up and down.
