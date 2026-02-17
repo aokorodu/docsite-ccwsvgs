@@ -11,7 +11,7 @@ const AnimationCSSII = () => {
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/OJqmeLy"}
         target="_blank"
-      rel="noopener noreferrer"
+        rel="noopener noreferrer"
       >
         {"CSS Animation codepen practice page"}
       </a>
@@ -23,27 +23,24 @@ const AnimationCSSII = () => {
         play. There are four possible settings:
       </p>
 
-      <p>
-        <strong>normal</strong> (default) - the animation plays forwards
-        (from-to, or 0% to 100%)
-      </p>
-
-      <p>
-        <strong>reverse</strong> - the animation plays backwards (to-from, or
-        100% to 0%)
-      </p>
-
-      <p>
-        <strong>alternate</strong> - the animation plays forwards, then
-        backwards
-      </p>
-
-      <p>
-        <strong>alternate-reverse</strong> - the animation plays backwards, then
-        forwards
-      </p>
-
-      <h2>animation-fill-mode</h2>
+      <ol>
+        <li><p>
+          <strong>normal</strong> (default) - the animation plays forwards
+          (from-to, or 0% to 100%)
+        </p></li>
+        <li><p>
+          <strong>reverse</strong> - the animation plays backwards (to-from, or
+          100% to 0%)
+        </p></li>
+        <li><p>
+          <strong>alternate</strong> - the animation plays forwards, then
+          backwards
+        </p></li>
+        <li><p>
+          <strong>alternate-reverse</strong> - the animation plays backwards, then
+          forwards
+        </p></li>
+      </ol>
 
       <p>
         This is the animation we'll be applying different fill-modes to. It's a
@@ -228,7 +225,7 @@ const AnimationCSSII = () => {
   animation-name: spin;
   animation-duration: 2s;
   animation-timing-function: linear;
-  animation-iteration: infinite;
+  animation-iteration-count: infinite;
   transform-box: fill-box;
   transform-origin: center;
 }
