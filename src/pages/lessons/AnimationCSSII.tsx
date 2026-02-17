@@ -43,7 +43,7 @@ const AnimationCSSII = () => {
       </ol>
 
       <p>
-        This is the animation we'll be applying different fill-modes to. It's a
+        This is the animation we'll be applying different fill-directions and fill-modes to. It's a
         simple scaling of a rect element.
       </p>
 
@@ -166,110 +166,6 @@ const AnimationCSSII = () => {
 
       <AnimationFillMode mode={"both"} />
 
-      <h2>CSS transform danger</h2>
-
-      <p>
-        Due to the way browsers have implemented CSS transforms with SVGs, it
-        can be difficult at times to predict what the user will see when
-        animating the transform property.
-      </p>
-
-      <p>
-        For example, here's a video of a simple animation that moves circle from
-        one side of the svg to another.
-      </p>
-
-      <Blocks>{`@keyframes slide {
-  from {
-    transform: translateX(0px);
-  }
-  to {
-    transform: translateX(400px);
-  }
-}`}</Blocks>
-
-      <p>
-        When we change the zoom settings on our browser, the animation looks
-        just fine - at least with current mac versions of Chrome and Firefox.
-      </p>
-
-      <video className="videoStyle" controls loop>
-        <source src="/css_trans_chrome.mov" type="video/mp4" />
-      </video>
-
-      <p>
-        But look what happens to the animation when we change the browsers zoom
-        settings in Safari - the animation doesn't go all the way to the edge
-        anymore! The example below has the zoom settings set to 200%
-      </p>
-
-      <video className="videoStyle" controls loop>
-        <source src="/css_trans_safari.mov" type="video/mp4" />
-      </video>
-
-      <p>
-        So Chrome and FireFox both require the use of units for CSS translations
-        - px or % - which they then ignore in favor of the SVG's coordinate
-        system. Safari, on the other hand, takes the unit designation seriously,
-        and will translate the circle the distance specified - at least at the
-        time of this writing.
-      </p>
-
-      <p>
-        Here's another example. This time we'll create a simple animation to
-        spin a square.
-      </p>
-
-      <Blocks>{`<style>
-#spinner {
-  animation-name: spin;
-  animation-duration: 2s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  transform-box: fill-box;
-  transform-origin: center;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-</style>`}</Blocks>
-
-      <p>
-        To rotate the cube around its center point, we can add set transform-box
-        to fill-box and transform-origin to "center".
-      </p>
-
-      <video className="videoStyle" controls loop>
-        <source src="/css_trans_chrome_rotate.mov" type="video/mp4" />
-      </video>
-
-      <p>
-        While everything looks fine in Chrome and Firefox, things start to get
-        weird in Safari when you change the zoom settings. The video below is of
-        the same animation running in Safari with the zoom settings at 200%
-      </p>
-
-      <video
-        className="videoStyle"
-        controls
-        loop
-      >
-        <source src="/css_trans_safari_rotate.mov" type="video/mp4" />
-      </video>
-
-      <p>
-        In conclusion: CSS animations are great for SVGs unless you need to
-        animate a transform property. Due to the inconsistent and downright
-        buggy browser implementation for CSS transforms with SVGs, it's best to
-        use JavaScript to dynamically update the transform presentation
-        attributes over time, as we'll see in the following section.
-      </p>
     </>
   );
 };
