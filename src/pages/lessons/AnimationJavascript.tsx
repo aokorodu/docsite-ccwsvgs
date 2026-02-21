@@ -14,7 +14,7 @@ const AnimationJavascript = () => {
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/VwRbJYO"}
         target="_blank"
-      rel="noopener noreferrer"
+        rel="noopener noreferrer"
       >
         {"JavaScript Animation codepen practice page"}
       </a>
@@ -59,11 +59,10 @@ const AnimationJavascript = () => {
 
       <h2>Using JavaScript to toggle CSS animations</h2>
 
-      <h3>toggling transitions</h3>
+      <h3>Toggling classes to trigger transitions</h3>
 
       <p>
-        One way to using javascript is to dynamically add and/or remove css
-        transition or animation classes.
+        One way to use javascript is to dynamically add and/or remove css classes in order to trigger transitions. This requires setting up a css class with the transition properties and then using javascript to add and remove that class on click or some other event.
       </p>
 
       <p>For example, let's add a rotation animation to this square</p>
