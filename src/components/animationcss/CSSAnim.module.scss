@@ -1,5 +1,13 @@
 $exampleDuration: 3s;
 
+.easeContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
 .circle {
   fill: orange;
   stroke: black;
@@ -184,8 +192,8 @@ $exampleDuration: 3s;
 }
 
 .exampleImage {
-  width: 300px;
-  height: 300px;
+  width: 100%;
+  max-width: 300px;
 }
 
 @keyframes backAndForth {
