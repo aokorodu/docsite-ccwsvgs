@@ -220,8 +220,8 @@ export const EaseExample = ({ type }: EaseType) => {
     return (<>
         <div className={styles.easeContainer}>
             <img className={styles.exampleImage} src={getImage()} height="300px" alt="Easing curve diagram" />
-            <svg width="30" height="300" viewBox="0 0 30 300">
-                <circle className={getEasing()} cx="15" cy="250" r="10" fill="green" />
+            <svg width="20" height="300" viewBox="0 0 20 300">
+                <circle className={getEasing()} cx="10" cy="250" r="10" fill="green" />
             </svg>
         </div>
     </>)
