@@ -470,13 +470,22 @@ const AnimationCSS = () => {
         A fantastic interactive resource for visualizing and experimenting with both the linear() and cubic-bezier() easing curves is <a href="https://easingwizard.com/" target="_blank" rel="noopener noreferrer">
           easingwizard.com</a>. The bezier section provides an interactive bezier tool allowing you manipulate the control points to form the animation curve you want. Once you find something you like, just click the "copy to clipboard" button and paste the cubic-bezier function value into your CSS.
       </p>
-      <p>
-        You can also use the interactive sliders in the spring, bounce, wiggle and overshoot sections customize and tweak premade linear curves as you see fit. As with the bezier tool, once you find something you like, just click the "copy to clipboard" button and paste the linear function value into your CSS.
-      </p>
+      <img src="/easing_wizard_bezier_ss.png" />
+      <img src="/easing_wizard_copy_clipboard.png" />
 
       <Blocks>{`animation-timing-function: cubic-bezier(0.13, 0.74, 0, 1);`}</Blocks>
 
       <EaseExample type={"custom"} />
+
+
+
+      <p>
+        You can also use the interactive sliders in the spring, bounce, wiggle and overshoot sections customize and tweak premade linear curves as you see fit. </p>
+      <img src="/easing_wizard_linear_ss.png" />
+      <p>As with the bezier tool, once you find something you like, just click the "copy to clipboard" button and paste the linear function value into your CSS.
+      </p>
+
+      <img src="/easing_wizard_copy_linear_clipboard.png" />
 
       <Blocks>{`animation-timing-function: linear(0, 0.223 11.7%, 0.392 18.4%, 0.619 24.8%, 0.999 33.3%, 0.748 40%, 0.691 42.7%, 0.672 45.3%, 0.69 47.8%, 0.743 50.4%, 0.999 57.7%, 0.883 61.8%, 0.856 63.6%, 0.848 65.3%, 0.855 67%, 0.879 68.8%, 0.999 74.5%, 0.953 77.5%, 0.94 80.2%, 0.95 82.7%, 1 88.2%, 0.987 91.9%, 1);`}</Blocks>
 
