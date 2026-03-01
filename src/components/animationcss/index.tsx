@@ -138,7 +138,7 @@ export const BalloonExample = ({ linear = true }: BalloonProps) => {
 }
 
 type EaseType = {
-    type: "ease-in-out" | "ease-in" | "ease-out" | "linear" | "default" | "custom"
+    type: "ease-in-out" | "ease-in" | "ease-out" | "linear" | "default" | "custom" | "linear-custom" | "step";
 }
 export const EaseExample = ({ type }: EaseType) => {
 
@@ -146,19 +146,27 @@ export const EaseExample = ({ type }: EaseType) => {
         let path = "'";
         switch (type) {
             case "ease-in-out":
-                path = "/css_anim_easing_in_out.png"
+                path = "/bezier_easing_ease_in_out.png"
                 break;
 
             case "ease-in":
-                path = "/css_anim_easing_in.png"
+                path = "/bezier_easing_ease_in.png"
                 break;
 
             case "ease-out":
-                path = "/css_anim_easing_out.png"
+                path = "/bezier_easing_ease_out.png"
                 break;
 
             case "custom":
-                path = "/css_anim_easing_custom.png"
+                path = "/bezier_easing_custom_cubic.png"
+                break;
+
+            case "linear-custom":
+                path = "/linear_custom.png"
+                break;
+
+            case "step":
+                path = "/step_custom.png"
                 break;
 
             default:
@@ -196,6 +204,14 @@ export const EaseExample = ({ type }: EaseType) => {
 
             case 'default':
                 ease = styles.easeLinear;
+                break;
+
+            case "linear-custom":
+                ease = styles.linearCustom;
+                break;
+
+            case "step":
+                ease = styles.stepCustom;
                 break;
         }
 

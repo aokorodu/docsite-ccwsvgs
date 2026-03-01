@@ -58,36 +58,44 @@ const AnimationCSS = () => {
 
       <h3>transition properties</h3>
 
-      <p>
-        <strong>transition-property</strong>: The svg property you wish to
-        animate. You can have multiple properties, separated by a comma.
-      </p>
+      <ol>
+        <li>
+          <strong>transition-property</strong>: The svg property you wish to
+          animate. You can have multiple properties, separated by a comma.
+        </li>
 
-      <p>
-        <strong>transition-duration</strong> - transition time in seconds (2s)
-        or milliseconds (2000ms)
-      </p>
+        <li>
+          <strong>transition-property</strong>: The svg property you wish to
+          animate. You can have multiple properties, separated by a comma.
+        </li>
 
-      <p>
-        <strong>transition-timing-function</strong>
-      </p>
+        <li>
+          <strong>transition-duration</strong> - transition time in seconds (2s)
+          or milliseconds (2000ms)
+        </li>
 
-      <ul>
-        <li>linear</li>
-        <li>ease</li>
-        <ul>
-          <li>ease-in</li>
-          <li>ease-out</li>
-          <li>ease-in-out</li>
-        </ul>
-        <li>step</li>
-        <li>cubic-bezier</li>
-      </ul>
-
-      <p className="section">
-        <strong>transition-delay</strong> - delay in seconds (s) or milliseconds
-        (ms).
-      </p>
+        <li>
+          <strong>transition-timing-function</strong> - defines the speed curve of the animation as it progresses. The timing functions are the same for both transitions and animations, and can be defined using either keywords or functions.
+          <div><strong>keywords:</strong></div>
+          <ul>
+            <li>linear: the animation has a constant rate of speed</li>
+            <li>ease: the animation starts slowly, accelerates in the middle, and slows down at the end</li>
+            <li>ease-in: the animation starts slowly and accelerates towards the end</li>
+            <li>ease-out: the animation starts quickly and decelerates towards the end</li>
+            <li>ease-in-out: the animation starts and ends slowly, with a faster middle section</li>
+          </ul>
+          <div><strong>functions:</strong> <i>(note: we'll go into more detail on timing functions in the animation section below).</i></div>
+          <ul>
+            <li>step()</li>
+            <li>linear()</li>
+            <li>cubic-bezier()</li>
+          </ul>
+        </li>
+        <li>
+          <strong>transition-delay</strong> - delay in seconds (s) or milliseconds
+          (ms).
+        </li>
+      </ol>
 
       <h3>structure of a css transition</h3>
 
@@ -383,11 +391,7 @@ const AnimationCSS = () => {
       <h2>timing functions</h2>
 
       <p>
-        Easing functions for both transitions and keyframe animations define how
-        an object moves. In the example below, I've attempted to create an
-        animation for a floating balloon. But there's something wrong: The
-        balloon doesn't ease to a stop before changing direction - it looks more
-        like it's bouncing up and down.
+        Easing functions for both transitions and keyframe animations define how an object moves. In the example below, I've attempted to create an animation for a floating balloon. But there's something wrong: The balloon doesn't ease to a stop before changing direction - it looks more like it's bouncing up and down.
       </p>
 
       <Blocks>{`#balloon {
@@ -401,16 +405,11 @@ const AnimationCSS = () => {
       <BalloonExample />
 
       <p>
-        This animation has a <strong>linear</strong> timing function, causing it
-        to move in a linear fashion. Its generally preferable to have animations
-        move in a somewhat realistic way, as if the animated objects are bound
-        by the laws of physics. Otherwise the animations can become jarring and
-        distracting.
+        This animation uses the <strong>linear</strong> timing function keyword, causing it to move in a linear fashion. Its generally preferable to have animations move in a somewhat realistic way, as if the animated objects are bound by the laws of physics. Otherwise the animations can become jarring and distracting.
       </p>
 
       <p>
-        We can fix this by using an <strong>ease-in-out</strong> animation
-        timing function:
+        We can fix this by using an <strong>ease-in-out</strong> timing function keyword:
       </p>
 
       <Blocks>{`#balloon {
@@ -427,43 +426,15 @@ const AnimationCSS = () => {
         </a>
       </h4>
 
-      <h3>the different timing functions:</h3>
-
-      <ol>
-        <li>
-          <strong>linear</strong> - constant rate of speed
-        </li>
-        <li>
-          easing-functions - speeds up/slows down over time
-          <ul>
-            <li>
-              <strong>ease-in</strong> (starts slowly)
-            </li>
-            <li>
-              <strong>ease-out</strong> (ends slowly)
-            </li>
-            <li>
-              <strong>ease-in-out</strong> (starts and ends slowly, more
-              pronounced than ease)
-            </li>
-          </ul>
-        </li>
-        <li>
-          <strong>cubic-bezier</strong>
-        </li>
-        <li>
-          <strong>step</strong>
-        </li>
-      </ol>
-
-      <h3>cubic-bezier timing functions</h3>
+      <h3>keywords vs. timing functions</h3>
 
       <p>
-        ALL of the easing options are actually defined by cubic-bezier
-        functions, in which two "control points" are used to change the shape of
-        the animation curve. The graphs help to visualize how the shape of the
-        curve affects the pace of the animation.
+        There are two ways to define the pacing of an animation: using keywords or using custom timing functions.
       </p>
+
+      <p>Keywords are predefined timing functions that can't be altered, whereas the timing functions - cubic-bezier(), linear(), and steps() - can be customized to create unique, custom pacing effects. We've already seen examples of the keyword timing functions in action: linear, ease, ease-in, ease-out, and ease-in-out. Let's go into more detail about the different timing functions.</p>
+
+      <h3>keyword examples</h3>
 
       <p>
         <strong>linear</strong>
@@ -489,28 +460,33 @@ const AnimationCSS = () => {
 
       <EaseExample type={"ease-in-out"} />
 
-      <h3>custom cubic-bezier timing functions</h3>
+      <h3>custom timing functions</h3>
 
       <p>
-        You can define your own easing functions as well by using a custom
-        cubic-bezier easing curve.
+        You can define your own easing functions as well by using linear(), cubic-bezier(), or steps() timing functions. The linear() functions move at a constant rate of speed. The speed might change during the course of the animation, but it does so instantly, without speeding up or slowing down.The cubic-bezier() functions allow for movent that speeds up and slows down at different rates over time. Finally, step() functions allow you to create a stepped animation, where the animation jumps from one value to the next without any intermediate values.
       </p>
 
       <p>
-        A fantastic interactive resource for visualizing and experimenting with
-        easing curves is{" "}
-        <a href="https://cubic-bezier.com" target="_blank" rel="noopener noreferrer">
-          cubic-bezier.com
-        </a>
-        . Once you manipulate the control points to form the curve you want, you
-        can see how your animation compares to the standard predefined animation
-        curves. Once you find something you like, just click the copy and paste
-        the cubic-bezier value into your CSS.
+        A fantastic interactive resource for visualizing and experimenting with both the linear() and cubic-bezier() easing curves is <a href="https://easingwizard.com/" target="_blank" rel="noopener noreferrer">
+          easingwizard.com</a>. The bezier section provides an interactive bezier tool allowing you manipulate the control points to form the animation curve you want. Once you find something you like, just click the "copy to clipboard" button and paste the cubic-bezier function value into your CSS.
+      </p>
+      <p>
+        You can also use the interactive sliders in the spring, bounce, wiggle and overshoot sections customize and tweak premade linear curves as you see fit. As with the bezier tool, once you find something you like, just click the "copy to clipboard" button and paste the linear function value into your CSS.
       </p>
 
       <Blocks>{`animation-timing-function: cubic-bezier(0.13, 0.74, 0, 1);`}</Blocks>
 
       <EaseExample type={"custom"} />
+
+      <Blocks>{`animation-timing-function: linear(0, 0.223 11.7%, 0.392 18.4%, 0.619 24.8%, 0.999 33.3%, 0.748 40%, 0.691 42.7%, 0.672 45.3%, 0.69 47.8%, 0.743 50.4%, 0.999 57.7%, 0.883 61.8%, 0.856 63.6%, 0.848 65.3%, 0.855 67%, 0.879 68.8%, 0.999 74.5%, 0.953 77.5%, 0.94 80.2%, 0.95 82.7%, 1 88.2%, 0.987 91.9%, 1);`}</Blocks>
+
+      <EaseExample type={"linear-custom"} />
+
+      <p> We'll go into more detail about the steps() timing function in the section on Sprite animations.</p>
+
+      <Blocks>{`animation-timing-function: steps(10, jump-none);`}</Blocks>
+
+      <EaseExample type={"step"} />
     </>
   );
 };
