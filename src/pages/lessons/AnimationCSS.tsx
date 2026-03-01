@@ -463,7 +463,7 @@ const AnimationCSS = () => {
       <h3>custom timing functions</h3>
 
       <p>
-        You can define your own easing functions as well by using linear(), cubic-bezier(), or steps() timing functions. The linear() functions move at a constant rate of speed. The speed might change during the course of the animation, but it does so instantly, without speeding up or slowing down.The cubic-bezier() functions allow for movent that speeds up and slows down at different rates over time. Finally, step() functions allow you to create a stepped animation, where the animation jumps from one value to the next without any intermediate values.
+        You can define your own easing functions as well by using the <strong>linear()</strong>, <strong>cubic-bezier()</strong>, or <strong>steps()</strong> timing functions. The linear() functions move at a constant rate of speed. That speed might change during the course of the animation, but it does so instantly, without accelerating or slowing down.The cubic-bezier() functions allow for movent that speeds up and slows down at different rates over time. Finally, the step() function allows you to create an animation that jumps from one value to the next without any intermediate values.
       </p>
 
       <p>
