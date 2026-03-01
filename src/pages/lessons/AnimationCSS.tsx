@@ -477,10 +477,9 @@ const AnimationCSS = () => {
 
       <EaseExample type={"custom"} />
 
-
-
       <p>
         You can also use the interactive sliders in the spring, bounce, wiggle and overshoot sections customize and tweak premade linear curves as you see fit. </p>
+
       <img src="/easing_wizard_linear_ss.png" />
       <p>As with the bezier tool, once you find something you like, just click the "copy to clipboard" button and paste the linear function value into your CSS.
       </p>
