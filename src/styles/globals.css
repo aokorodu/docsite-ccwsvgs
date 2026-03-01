@@ -126,12 +126,17 @@ li {
   list-style-position: outside;
 }
 
-ol li {
+ol > li {
   font-weight: 400;
   font-size: 1.125rem;
   padding-left: 0.5rem;
   list-style-position: outside;
   list-style-type: decimal;
+}
+
+li > div {
+  margin-left: 1rem;
+  margin: 0.5rem 0 0.5rem 1rem;
 }
 
 strong {

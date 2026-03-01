@@ -65,31 +65,28 @@ const AnimationCSS = () => {
         </li>
 
         <li>
-          <strong>transition-property</strong>: The svg property you wish to
-          animate. You can have multiple properties, separated by a comma.
-        </li>
-
-        <li>
           <strong>transition-duration</strong> - transition time in seconds (2s)
           or milliseconds (2000ms)
         </li>
 
         <li>
           <strong>transition-timing-function</strong> - defines the speed curve of the animation as it progresses. The timing functions are the same for both transitions and animations, and can be defined using either keywords or functions.
-          <div><strong>keywords:</strong></div>
-          <ul>
-            <li>linear: the animation has a constant rate of speed</li>
-            <li>ease: the animation starts slowly, accelerates in the middle, and slows down at the end</li>
-            <li>ease-in: the animation starts slowly and accelerates towards the end</li>
-            <li>ease-out: the animation starts quickly and decelerates towards the end</li>
-            <li>ease-in-out: the animation starts and ends slowly, with a faster middle section</li>
-          </ul>
-          <div><strong>functions:</strong> <i>(note: we'll go into more detail on timing functions in the animation section below).</i></div>
-          <ul>
-            <li>step()</li>
-            <li>linear()</li>
-            <li>cubic-bezier()</li>
-          </ul>
+          <div><strong>keywords:</strong>
+            <ul>
+              <li>linear: the animation has a constant rate of speed</li>
+              <li>ease: the animation starts slowly, accelerates in the middle, and slows down at the end</li>
+              <li>ease-in: the animation starts slowly and accelerates towards the end</li>
+              <li>ease-out: the animation starts quickly and decelerates towards the end</li>
+              <li>ease-in-out: the animation starts and ends slowly, with a faster middle section</li>
+            </ul>
+          </div>
+          <div><strong>functions:</strong> <i>(note: we'll go into more detail on timing functions in the animation section below).</i>
+            <ul>
+              <li>step()</li>
+              <li>linear()</li>
+              <li>cubic-bezier()</li>
+            </ul>
+          </div>
         </li>
         <li>
           <strong>transition-delay</strong> - delay in seconds (s) or milliseconds
@@ -102,7 +99,7 @@ const AnimationCSS = () => {
       <p>
         Pure CSS transitions are usually triggered by some sort of user
         interaction - typically set up using the <strong>:hover</strong>: or{" "}
-        <strong>::focus</strong>: pseudo-class on whatever element you wish to
+        <strong>:focus</strong>: pseudo-class on whatever element you wish to
         animate. In the following example, we'll set up a transition when the
         user <strong>hovers</strong> over a shape element.
       </p>
