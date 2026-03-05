@@ -30,12 +30,7 @@ const AnimationJavascriptII = () => {
   <circle id="my-circle" cx="150" cy="150" r="10" fill="green" />
 </svg>`}</Blocks>
 
-      <Blocks lang="javascript">{`const circ = document.getElementById("my-circle");
-let xpos = 50;
-for (let i = 0; i < 400; i++) {
-  circ.setAttribute("cx", xpos);
-  xpos += 1;
-}`}</Blocks>
+      <Blocks lang="javascript">{`const circ = document.getElementById("my-circle");`}</Blocks>
 
 
       <p>
@@ -54,7 +49,7 @@ for (let i = 0; i < 400; i++) {
   const circ = document.querySelector("#my-circle");
   let ypos = 0;
   for (let i = 0; i < 300; i++) {
-    circ.setAttribute("cx", ypos);
+    circ.setAttribute("cy", ypos);
     ypos += 1;
   }`}</Blocks>
 
