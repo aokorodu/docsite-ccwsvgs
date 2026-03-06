@@ -23,15 +23,17 @@ npm run lint     # Run ESLint
 - **Layout structure**:
   ```
   RootLayout (src/layouts/RootLayout.tsx)
-  ├── AppHeader - Site header
+  ├── AppHeader - Site header with theme toggle
   └── ContentLayout (src/layouts/ContentLayout.tsx) - Wraps lesson routes
       ├── Navigation - Sidebar with hierarchical menu
       ├── Outlet - Lesson content renders here
-      └── Nextbutton - Sequential navigation
+      ├── Nextbutton - Sequential navigation
+      └── TableOfContents - Right-side TOC built from heading elements
   ```
 
 ### Content System
-- **Lesson pages**: TSX components in `src/pages/lessons/` (43 lessons)
+- **Lesson pages**: TSX components in `src/pages/lessons/` (~44 lessons)
+- **`src/pages/lessons/Placeholder.tsx`**: Use as a template when creating new lessons
 - **Navigation config**: `src/config.js` defines:
   - `navConfig.pages`: Hierarchical menu structure with subnav support
   - `navConfig.links`: Flat sequential order for prev/next navigation
@@ -39,12 +41,31 @@ npm run lint     # Run ESLint
 ### Component Organization
 Components in `src/components/`:
 - **Chapter demos** (`*chapter/`): Interactive SVG examples embedded in lessons
-- **Animation libraries**: `gsap/` (GreenSock demos), `matterjs/` (physics simulations), `bganimation/` (homepage particles)
+- **Animation demos**: `animationcss/`, `animationcssII/`, `animationJS/`, `animationJSII/`, `smil/`, `smilII/`, `sprites/`
+- **Physics demos**: `matterjs/` (physics simulations), `bganimation/` (homepage particles)
 - **Bezier demos** (`*bezierdemo/`): Path visualization tools
-- **UI components**: `blocks/` (code display with syntax highlighting), `navigation/`, `nextbutton/`, `appheader/`
+- **UI components**: `blocks/` (code display), `navigation/`, `nextbutton/`, `appheader/`, `tableofcontents/`
+- **Illustrations**: `illustrations/` - SVG illustration components used across lessons
+
+### `Blocks` Component (heavily used in lessons)
+`src/components/blocks/index.tsx` renders syntax-highlighted code snippets:
+```tsx
+<Blocks title="SVG sample" caption="optional caption" highlight="2,4-6" lang="xml">
+  {`<svg>...</svg>`}
+</Blocks>
+```
+- `lang`: `'xml'` | `'javascript'` | `'css'` (auto-detected if omitted: xml if `<` present, else javascript)
+- `highlight`: comma-separated line numbers or ranges (e.g. `"1,3-5"`) to visually emphasize
+- Children must be a template literal string
+
+### Theme System
+- `src/context/ThemeContext.tsx` provides `useTheme()` hook with `{ theme, toggleTheme }`
+- Theme (`'light'` | `'dark'`) is persisted to `localStorage` and set as `data-theme` on `<html>`
+- Components that need theme access import `useTheme` from `@/context`
 
 ### Styling
 - Uses **SASS** for stylesheets (`.scss` files)
+- Path alias `@/` maps to `src/` (configured in Vite)
 
 ### Deployment
 - Deployed on Vercel with SPA rewrites configured in `vercel.json`
