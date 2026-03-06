@@ -23,7 +23,7 @@ const AnimationJavascriptII = () => {
 
       <p>
         We'll start off by getting a reference to the circle using
-        querySelector.
+        getElementById.
       </p>
 
       <Blocks>{`<svg ...>
