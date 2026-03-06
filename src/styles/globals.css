@@ -75,30 +75,35 @@ body {
 
 h1 {
   font-variant: small-caps;
-  font-weight: 800;
+  font-weight: 600;
   margin: 1rem 0;
   color: var(--color-brand-secondary);
   z-index: 100;
   font-size: 3rem;
   line-height: 1.22222;
-  margin: 10px 0px;
+  margin: 1rem 0px;
 }
 
 h2 {
-  font-weight: 600;
+  /* text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px; */
+  font-weight: 800;
   font-variant: all-petite-caps;
   /* margin: 2rem 0px 4px; */
-  margin: 20px 0px 10px;
+  margin: 20px 0px 1rem;
   font-size: 2rem;
   line-height: 1;
-  letter-spacing: 0.1px;
 }
 
 h3 {
   font-size: 1.15rem;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
   line-height: 1.5;
   font-weight: 600;
-  margin: 1rem 0 0rem;
+  margin: 1rem 0 0.5rem;
 }
 
 p {
