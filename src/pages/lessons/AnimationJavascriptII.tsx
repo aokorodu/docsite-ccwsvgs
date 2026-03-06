@@ -11,7 +11,7 @@ import {
 const AnimationJavascriptII = () => {
   return (
     <>
-      <h2>Pure JavaScript animations</h2>
+      <h1>Simple Particle Animations</h1>
 
       <p>
         Next we'll create an animation without adding or removing css. Let's try

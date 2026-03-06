@@ -21,7 +21,7 @@ const AnimationCSS = () => {
         {"CSS Animation codepen practice page"}
       </a>
 
-      <h1>CSS Animation</h1>
+      <h1>Transitions & Keyframes</h1>
 
       <h2>Applying CSS Animations</h2>
 

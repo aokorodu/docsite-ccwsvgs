@@ -1,4 +1,7 @@
 import FlowingLocs from "@/components/illustrations/FlowingLocs";
+import {
+  FrameRateExample,
+} from "@/components/animationJS";
 
 const AnimationIntro = () => {
   return (
@@ -14,7 +17,34 @@ const AnimationIntro = () => {
 
       <FlowingLocs />
 
-      <h2>why?</h2>
+      <h2>framerates</h2>
+
+      <p>
+        Animation is an illusion created by showing a series of slightly
+        different still images in rapid succession. If the images change slowly
+        we won't perceive the images as animation. We'll just perceive a series
+        of still pictures. The faster the images change, the smoother and more
+        fluid the motion appears.
+      </p>
+
+      <img
+        src="/javascript_anim_race_horse.gif"
+        alt="javascript_anim_race_horse.gif"
+      />
+
+      <p>
+        The rate at which the images change is called the frame rate. The faster
+        the frame rate, the smoother the animation.
+      </p>
+
+      <FrameRateExample />
+
+      <p>
+        Browsers optimally render at a frame rate of about 60 fps, but the
+        framerate can be affected by lots of factors.
+      </p>
+
+      <h2>why animate?</h2>
 
       <p>
         Animation can be used as a tool for many things - to focus the user's attention, to ease cognitive load by "revealing" elements of a page, or simply to capture the viewers imagination. SVGs are ideal for creating animations for several reasons:
@@ -64,6 +94,9 @@ const AnimationIntro = () => {
         <li>
           <strong>SMIL</strong>: SVG's built in tool to declaratively add
           animations to SVG elements.
+        </li>
+        <li>
+          <strong>Sprites</strong>: We can use CSS step animation to accomplish frame-by-frame animation using Sprite sheets
         </li>
       </ul>
 

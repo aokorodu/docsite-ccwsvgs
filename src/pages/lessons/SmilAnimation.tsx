@@ -33,11 +33,7 @@ const SmilAnimation = () => {
         There are three types of animation elements:
       </p>
 
-      <p><strong>&lt;animate&gt;</strong></p>
-
-      <p><strong>&lt;animateTransform&gt;</strong></p>
-
-      <p><strong>&lt;animateMotion&gt;</strong></p>
+      <p><strong>&lt;animate&gt;</strong>, <strong>&lt;animateTransform&gt;</strong>, and <strong>&lt;animateMotion&gt;</strong></p>
 
       <p>
         While not quite as powerful as Javascript, SMIL elements provide a

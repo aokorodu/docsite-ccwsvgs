@@ -79,19 +79,39 @@ export const navConfig = {
       ],
     },
     {
-      title: "Animation",
+      title: "Animation Intro",
+      link: "/animation-intro",
+      subnav: [],
+    },
+    {
+      title: "CSS Animation",
       link: "",
       subnav: [
-        { title: "intro", link: "/animation-intro" },
-        { title: "css", link: "/animation-css" },
-        { title: "more css", link: "/animation-css-II" },
-        { title: "javascript", link: "/animation-javascript" },
-        { title: "more javascript", link: "/animation-javascript-II" },
-        { title: "perlin noise", link: "/perlin-noise" },
-        { title: "SMIL", link: "/smil-animation" },
-        { title: "more SMIL", link: "/smil-animation-II" },
-        { title: "Sprites", link: "/sprites" },
+        { title: "Transitions and Keyframes", link: "/animation-css" },
+        { title: "CSS Animation behavior", link: "/animation-css-II" },
       ],
+    },
+    {
+      title: "JavaScript Animation",
+      link: "",
+      subnav: [
+        { title: "Dynamic CSS with JS", link: "/animation-javascript" },
+        { title: "Simple Particles", link: "/animation-javascript-II" },
+        { title: "Perlin Noise", link: "/perlin-noise" },
+      ],
+    },
+    {
+      title: "SMIL Animation",
+      link: "",
+      subnav: [
+        { title: "SMIL elements", link: "/smil-animation" },
+        { title: "AnimateMotion", link: "/smil-animation-II" },
+      ],
+    },
+    {
+      title: "Sprites",
+      link: "/sprites",
+      subnav: [],
     },
     {
       title: "Physics with Matter.js",

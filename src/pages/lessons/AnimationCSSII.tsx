@@ -16,6 +16,8 @@ const AnimationCSSII = () => {
         {"CSS Animation codepen practice page"}
       </a>
 
+      <h1>CSS Animation Behaviors</h1>
+
       <h2>animation-direction</h2>
 
       <p>

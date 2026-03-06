@@ -30,33 +30,6 @@ const AnimationJavascript = () => {
         much more powerful option than CSS animations.
       </p>
 
-      <h2>framerates</h2>
-
-      <p>
-        Animation is an illusion created by showing a series of slightly
-        different still images in rapid succession. If the images change slowly
-        we won't perceive the images as animation. We'll just perceive a series
-        of still pictures. The faster the images change, the smoother and more
-        fluid the motion appears.
-      </p>
-
-      <img
-        src="/javascript_anim_race_horse.gif"
-        alt="javascript_anim_race_horse.gif"
-      />
-
-      <p>
-        The rate at which the images change is called the frame rate. The faster
-        the frame rate, the smoother the animation.
-      </p>
-
-      <FrameRateExample />
-
-      <p>
-        Browsers optimally render at a frame rate of about 60 fps, but the
-        framerate can be affected by lots of factors.
-      </p>
-
       <h2>Using JavaScript to toggle CSS animations</h2>
 
       <h3>Toggling classes to trigger transitions</h3>
