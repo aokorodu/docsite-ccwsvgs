@@ -4,7 +4,7 @@ import { SuperExample } from "@/components/smilII";
 const SmilAnimationII = () => {
   return (
     <>
-      <h2>&lt;animateMotion&gt;</h2>
+      <h1>AnimateMotion</h1>
 
       <p>The animateMotion element allows you to animate an object along a path.</p>
 

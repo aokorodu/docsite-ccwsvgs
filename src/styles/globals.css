@@ -74,12 +74,12 @@ body {
 }
 
 h1 {
-  font-variant: all-small-caps;
+  font-variant: small-caps;
   font-weight: 800;
   margin: 1rem 0;
   color: var(--color-brand-secondary);
   z-index: 100;
-  font-size: 3.25rem;
+  font-size: 3rem;
   line-height: 1.22222;
   margin: 10px 0px;
 }

@@ -104,8 +104,8 @@ export const navConfig = {
       title: "SMIL Animation",
       link: "",
       subnav: [
-        { title: "smil I", link: "/smil-animation" },
-        { title: "smil II", link: "/smil-animation-II" },
+        { title: "SMIL elements", link: "/smil-animation" },
+        { title: "AnimateMotion", link: "/smil-animation-II" },
       ],
     },
     {
