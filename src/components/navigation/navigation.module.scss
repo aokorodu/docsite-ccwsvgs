@@ -84,6 +84,7 @@
   background: var(--color-bg-nav);
   border-right: 4px solid var(--color-border-nav);
   transition: transform 0.3s ease-in-out;
+  overflow: scroll;
 
   .open & {
     transform: translateX(0);

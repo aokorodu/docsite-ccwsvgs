@@ -143,7 +143,7 @@ function moveCircle(){
 
       <p>
         Now let's update the <em>moveCircle</em> method so that when the ypos
-        variable is greaterthan or equal to 290, whe change the speed variable
+        variable is greaterthan or equal to 290, we change the speed variable
         so the ball heads in the opposite direction. An easy way to do this is
         to just multiply it by -1.
       </p>
