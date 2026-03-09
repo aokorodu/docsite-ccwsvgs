@@ -87,7 +87,7 @@ export const navConfig = {
       title: "CSS Animation",
       link: "",
       subnav: [
-        { title: "Transitions and Keyframes", link: "/animation-css" },
+        { title: "Transitions & Keyframes", link: "/animation-css" },
         { title: "CSS Animation behavior", link: "/animation-css-II" },
       ],
     },
