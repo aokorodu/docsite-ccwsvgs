@@ -96,7 +96,8 @@ export const navConfig = {
       link: "",
       subnav: [
         { title: "Dynamic CSS with JS", link: "/animation-javascript" },
-        { title: "Simple Particles", link: "/animation-javascript-II" },
+        { title: "Single Particle", link: "/animation-javascript-II" },
+        { title: "Simple Particle Class", link: "/animation-javascript-III" },
         { title: "Perlin Noise", link: "/perlin-noise" },
       ],
     },
@@ -171,6 +172,7 @@ export const navConfig = {
     { title: "more css", link: "/animation-css-II" },
     { title: "javascript", link: "/animation-javascript" },
     { title: "more javascript", link: "/animation-javascript-II" },
+    { title: "Simple Particle Class", link: "/animation-javascript-III" },
     { title: "Perlin Noise", link: "/perlin-noise" },
     { title: "SMIL animation", link: "/smil-animation" },
     { title: "more SMIL", link: "/smil-animation-II" },

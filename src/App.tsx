@@ -33,6 +33,7 @@ import AnimationCSS from './pages/lessons/AnimationCSS';
 import AnimationCSSII from './pages/lessons/AnimationCSSII';
 import AnimationJavascript from './pages/lessons/AnimationJavascript';
 import AnimationJavascriptII from './pages/lessons/AnimationJavascriptII';
+import AnimationJavascriptIII from './pages/lessons/AnimationJavascriptIII';
 import SmilAnimation from './pages/lessons/SmilAnimation';
 import SmilAnimationII from './pages/lessons/SmilAnimationII';
 import Sprites from './pages/lessons/Sprites';
@@ -96,6 +97,7 @@ function App() {
           <Route path="/animation-css-II" element={<AnimationCSSII />} />
           <Route path="/animation-javascript" element={<AnimationJavascript />} />
           <Route path="/animation-javascript-II" element={<AnimationJavascriptII />} />
+          <Route path="/animation-javascript-III" element={<AnimationJavascriptIII />} />
           <Route path="/smil-animation" element={<SmilAnimation />} />
           <Route path="/smil-animation-II" element={<SmilAnimationII />} />
           <Route path="/sprites" element={<Sprites />} />
