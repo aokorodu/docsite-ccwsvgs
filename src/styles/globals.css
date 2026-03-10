@@ -24,6 +24,7 @@
 
   --color-table-header-bg: #fff5ff;
   --color-table-text: #000000;
+  --color-subnav-border: rgb(197, 197, 197);
 }
 
 /* Dark Mode Variables */
@@ -48,6 +49,7 @@
   --color-link: #c99fd4;
   --color-table-header-bg: #161627;
   --color-table-text: #ffffff;
+  --color-subnav-border: rgba(197, 197, 197, 0.238);
 }
 
 * {
