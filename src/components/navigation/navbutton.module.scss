@@ -17,6 +17,7 @@
   align-items: flex-start;
   gap: 1rem;
   margin-right: 0.5rem;
+  min-width: 200px;
 }
 
 .subholder {
@@ -26,6 +27,8 @@
   margin-left: 1.25rem;
   display: flex;
   flex-direction: column;
+  border-left: 0.5px solid var(--color-subnav-border);
+  padding-left: 0.5rem;
 }
 
 .link {
@@ -42,6 +45,15 @@
 
 .activeLink {
   text-shadow: 0 0 0.5px currentColor;
+}
+
+.subholder > .activeLink::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  width: 1.5px;
+  height: 1rem;
+  background: var(--color-text-primary);
 }
 
 .iconHolder {
