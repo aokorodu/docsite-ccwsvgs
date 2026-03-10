@@ -5,7 +5,6 @@ import {
   AnimationFrameExample,
   SimpleBounceExample,
   ComplexBounceExample,
-  ParticleExample,
 } from "@/components/animationJSII";
 
 const AnimationJavascriptII = () => {
