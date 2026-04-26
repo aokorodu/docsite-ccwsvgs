@@ -16,7 +16,7 @@ const ReusableMarkers = () => {
         className="codepenLink"
         href={"https://codepen.io/aokorodu/pen/ZEdqyNj"}
         target="_blank"
-      rel="noopener noreferrer"
+        rel="noopener noreferrer"
       >
         {"codepen practice page"}
       </a>
@@ -205,6 +205,86 @@ const ReusableMarkers = () => {
       </p>
 
       <MarkerExamples />
+
+      <h2>marker color</h2>
+
+      <p>
+        The color of the marker can be set in three ways. The first two are what you might expect: you can set the fill and stroke properties of the marker element itself, or by setting the fill and stroke properties of the marked object. In the example below, I've applied the fill and stroke properties to the marker element.
+      </p>
+
+      <Blocks>{`<defs>
+  <marker id="basicColor" refX="5" refY="5" markerWidth="10" markerHeight="10" fill="red" stroke="black" >
+    <circle cx="5" cy="5" r="3" />
+  </marker>
+</defs>`}</Blocks>
+
+      <svg width="500" height="200">
+        <defs>
+          <marker id="basicColor" refX="5" refY="5" markerWidth="10" markerHeight="10" fill="red" stroke="black" >
+            <circle cx="5" cy="5" r="3" />
+          </marker>
+        </defs>
+        <polyline
+          marker-start="url(#basicColor)"
+          marker-mid="url(#basicColor)"
+          marker-end="url(#basicColor)"
+          points="50,100 250,100 450,100"
+          stroke="black"
+          stroke-width="5"
+          fill="red"
+        />
+      </svg>
+      <h3>context-stroke and context-fill</h3>
+      <p>But what if you want the color of the marker to match that of the stroke or fill of your path? You can use the <strong>context-stroke</strong> and <strong>context-fill</strong> values for the marker's fill and stroke properties. The context-stroke and context-fill values make the marker inherit the stroke and fill colors from the element it is applied to. <em>Note, these values only work if the marker is applied to a shape that has a stroke or fill color defined.</em></p>
+
+      <Blocks>{`<defs>
+  <marker id="contextColor" refX="5" refY="5" markerWidth="10" markerHeight="10" fill="context-fill" stroke="context-stroke" >
+    <circle cx="5" cy="5" r="3" />
+  </marker>
+</defs>
+<polyline marker-mid="url(#contextColor)" points="50,100 250,100 450,100" stroke="green" fill="orange"
+/>`}</Blocks>
+
+      <svg width="500" height="200">
+        <defs>
+          <marker id="contextColor" refX="5" refY="5" markerWidth="10" markerHeight="10" fill="context-fill" stroke="context-stroke" >
+            <circle cx="5" cy="5" r="3" />
+          </marker>
+        </defs>
+        <polyline
+          marker-mid="url(#contextColor)"
+          points="50,100 250,100 450,100"
+          stroke="green"
+          stroke-width="5"
+          fill="orange"
+        />
+      </svg>
+
+      <p>The cool thing about these values is that you can use context-stroke to set the fill color of your marker, and context-fill to set the stroke color of your marker. </p>
+
+      <Blocks>{`<defs>
+  <marker id="contextColor" refX="5" refY="5" markerWidth="10" markerHeight="10" fill="context-stroke" stroke="context-fill" >
+    <circle cx="5" cy="5" r="3" />
+  </marker>
+</defs>
+<polyline marker-mid="url(#contextColor)" points="50,100 250,100 450,100" stroke="green" stroke-width="5" fill="orange"
+/>`}</Blocks>
+
+      <svg width="500" height="200">
+        <defs>
+          <marker id="contextColor2" refX="5" refY="5" markerWidth="10" markerHeight="10" fill="context-stroke" stroke="context-fill" >
+            <circle cx="5" cy="5" r="3" />
+          </marker>
+        </defs>
+        <polyline
+          marker-mid="url(#contextColor2)"
+          points="50,100 250,100 450,100"
+          stroke="green"
+          stroke-width="5"
+          fill="orange"
+        />
+      </svg>
+
     </>
   );
 };
